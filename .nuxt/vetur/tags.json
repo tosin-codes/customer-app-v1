@@ -1,0 +1,20 @@
+{
+  "ActiveLoanSchedule": {
+    "description": "Auto imported from components/ActiveLoanSchedule.vue"
+  },
+  "AppHeader": {
+    "description": "Auto imported from components/AppHeader.vue"
+  },
+  "DashboardCards": {
+    "description": "Auto imported from components/DashboardCards.vue"
+  },
+  "DashboardFixed": {
+    "description": "Auto imported from components/DashboardFixed.vue"
+  },
+  "DashboardNav": {
+    "description": "Auto imported from components/DashboardNav.vue"
+  },
+  "MobileNav": {
+    "description": "Auto imported from components/MobileNav.vue"
+  }
+}

@@ -3,10 +3,10 @@
     <div class="px-12 text-gray-600">
       <nuxt-link
         to="/"
-        class="flex flex-row justify-between items-center mb-8 hover:text-orange-500"
+        class="flex flex-row justify-center items-center mb-8 hover:text-orange-500"
       >
         <div class="font-semibold">My Loans</div>
-        <div>
+        <!-- <div>
           <svg
             class="fill-current w-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -27,14 +27,14 @@
               />
             </g>
           </svg>
-        </div>
+        </div> -->
       </nuxt-link>
       <nuxt-link
         to="/"
-        class="flex flex-row justify-between items-center my-8 hover:text-orange-500"
+        class="flex flex-row justify-center items-center my-8 hover:text-orange-500"
       >
         <div class="font-semibold">Active Loans</div>
-        <div>
+        <!-- <div>
           <svg
             class="w-5 fill-current"
             xmlns="http://www.w3.org/2000/svg"
@@ -55,14 +55,14 @@
               />
             </g>
           </svg>
-        </div>
+        </div> -->
       </nuxt-link>
       <nuxt-link
         to="/"
-        class="flex flex-row justify-between items-center my-8 hover:text-orange-500"
+        class="flex flex-row justify-center items-center my-8 hover:text-orange-500"
       >
         <div class="font-semibold">Accounts</div>
-        <div>
+        <!-- <div>
           <svg
             class="w-5 fill-current"
             xmlns="http://www.w3.org/2000/svg"
@@ -89,14 +89,14 @@
               </g>
             </g>
           </svg>
-        </div>
+        </div> -->
       </nuxt-link>
       <nuxt-link
         to="/"
-        class="flex flex-row justify-between items-center my-8 hover:text-orange-500"
+        class="flex flex-row justify-center items-center my-8 hover:text-orange-500"
       >
         <div class="font-semibold">Cards</div>
-        <div>
+        <!-- <div>
           <svg
             class="w-5 fill-current inline"
             xmlns="http://www.w3.org/2000/svg"
@@ -113,14 +113,14 @@
               />
             </g>
           </svg>
-        </div>
+        </div> -->
       </nuxt-link>
       <nuxt-link
         to="/"
-        class="flex flex-row justify-between items-center my-8 hover:text-orange-500"
+        class="flex flex-row justify-center items-center my-8 hover:text-orange-500"
       >
         <div class="font-semibold">Profile</div>
-        <div>
+        <!-- <div>
           <svg
             class="w-5 fill-current"
             xmlns="http://www.w3.org/2000/svg"
@@ -138,8 +138,11 @@
               />
             </g>
           </svg>
-        </div>
+        </div> -->
       </nuxt-link>
+      <div class="rounded-full bg-orange-500 hover:bg-orange-600 text-base py-3 text-white text-center">
+        Create Loan
+      </div>
     </div>
   </div>
 </template>
