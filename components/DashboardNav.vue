@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="fixed mt-16 px-6 py-12 w-full maxWidth">
+    <div class="fixed z-0 mt-16 px-6 py-12 w-full maxWidth">
       <div class="md:grid md:grid-cols-12 hidden">
         <div class="col-start-1 col-end-4">
           <div class="flex flex-col">
@@ -13,12 +13,12 @@
                 />
               </div>
               <div>
-                <div class="font-bold text-orange-600">Ojemu Victor</div>
+                <div class="font-bold text-orange-600">Fagunjade Folajimi</div>
                 <div class="text-sm font-light text-green-500">online</div>
               </div>
             </div>
             <div class="text-gray-900 font-semibold my-8">Dashboard</div>
-            <div class="pr-12 text-gray-600">
+            <div class="pr-6 lg:pr-24 text-gray-600">
               <nuxt-link
                 to="/"
                 class="flex flex-row justify-between items-center mb-8 hover:text-orange-500"
@@ -158,12 +158,15 @@
                   </svg>
                 </div>
               </nuxt-link>
+              <nuxt-link to="/">
               <div class="rounded-full bg-orange-500 hover:bg-orange-600 text-base py-3 text-white text-center">
                 Create Loan
               </div>
+              </nuxt-link>
             </div>
           </div>
         </div>
+        <div class="col-start-4 col-end-13 hidden"></div>
       </div>
     </div>
   </div>

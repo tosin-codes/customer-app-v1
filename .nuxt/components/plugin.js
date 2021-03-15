@@ -6,6 +6,11 @@ const components = {
   DashboardCards: () => import('../..\\components\\DashboardCards.vue' /* webpackChunkName: "components/dashboard-cards" */).then(c => c.default || c),
   DashboardFixed: () => import('../..\\components\\DashboardFixed.vue' /* webpackChunkName: "components/dashboard-fixed" */).then(c => c.default || c),
   DashboardNav: () => import('../..\\components\\DashboardNav.vue' /* webpackChunkName: "components/dashboard-nav" */).then(c => c.default || c),
+  Kyc1: () => import('../..\\components\\Kyc1.vue' /* webpackChunkName: "components/kyc-1" */).then(c => c.default || c),
+  Kyc2: () => import('../..\\components\\Kyc2.vue' /* webpackChunkName: "components/kyc-2" */).then(c => c.default || c),
+  Kyc3: () => import('../..\\components\\Kyc3.vue' /* webpackChunkName: "components/kyc-3" */).then(c => c.default || c),
+  Kyc4: () => import('../..\\components\\Kyc4.vue' /* webpackChunkName: "components/kyc-4" */).then(c => c.default || c),
+  KycNumbers: () => import('../..\\components\\KycNumbers.vue' /* webpackChunkName: "components/kyc-numbers" */).then(c => c.default || c),
   MobileNav: () => import('../..\\components\\MobileNav.vue' /* webpackChunkName: "components/mobile-nav" */).then(c => c.default || c)
 }
 

@@ -14,6 +14,21 @@
   "DashboardNav": {
     "description": "Auto imported from components/DashboardNav.vue"
   },
+  "Kyc1": {
+    "description": "Auto imported from components/Kyc1.vue"
+  },
+  "Kyc2": {
+    "description": "Auto imported from components/Kyc2.vue"
+  },
+  "Kyc3": {
+    "description": "Auto imported from components/Kyc3.vue"
+  },
+  "Kyc4": {
+    "description": "Auto imported from components/Kyc4.vue"
+  },
+  "KycNumbers": {
+    "description": "Auto imported from components/KycNumbers.vue"
+  },
   "MobileNav": {
     "description": "Auto imported from components/MobileNav.vue"
   }

@@ -1,10 +1,12 @@
 <template>
   <div>
-    <div class="fixed w-full maxWidth bg-white">
+    <div class="fixed z-20 w-full maxWidth bg-white">
       <header class="flex flex-row justify-between md:grid md:grid-cols-12 py-3 px-6 items-center">
-        <div class="md:col-start-1 md:col-end-4">
-          <img class="w-24" src="../assets/images/logo.png" alt="logo" />
-        </div>
+        <nuxt-link to="/">
+          <div class="md:col-start-1 md:col-end-4">
+            <img class="w-24" src="../assets/images/logo.png" alt="logo" />
+          </div>
+        </nuxt-link>
         <div
           class="flex flex-row md:col-start-4 md:col-end-13 md:flex md:flex-row md:justify-between md:items-center"
         >
@@ -29,10 +31,10 @@
             <input class="bg-gray-600 bg-opacity-0 outline-none w-24 md:w-full" type="search" placeholder="Search" />
           </div>
 
-          <div class="md:hidden -mr-2">
+          <div class="md:hidden -mr-2 self-center">
             <button
               type="button"
-              class="bg-white rounded-b-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+              class="bg-white rounded-b-md p-2 inline-flex text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
               @click="toggleNav"
             >
               <span class="sr-only">Close menu</span>
@@ -50,11 +52,11 @@
                   alt=""
                 />
               </div>
-              <div class="ml-4">Ojemu Victor</div>
+              <div class="ml-4">Fagunjade Folajimi</div>
             </div>
-            <div class="md:mx-12 w-4">
+            <nuxt-link to="/" class="md:mx-12 w-5 text-gray-700">
               <svg
-                class="inline-block"
+                class="inline-block fill-current"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 version="1.1"
@@ -64,7 +66,6 @@
                 viewBox="0 0 512 512"
                 style="enable-background: new 0 0 512 512"
                 xml:space="preserve"
-                fill="#B7B7B7"
               >
                 <g>
                   <g>
@@ -81,21 +82,20 @@
                   </g>
                 </g>
               </svg>
-            </div>
-            <div class="w-4">
+            </nuxt-link>
+            <nuxt-link to="/" class="w-5 text-gray-700">
               <svg
-                class="inline-block"
+                class="inline-block fill-current"
                 xmlns="http://www.w3.org/2000/svg"
                 height=""
                 viewBox="0 0 511 512"
                 width=""
-                fill="#B7B7B7"
               >
                 <path
                   d="m361.5 392v40c0 44.113281-35.886719 80-80 80h-201c-44.113281 0-80-35.886719-80-80v-352c0-44.113281 35.886719-80 80-80h201c44.113281 0 80 35.886719 80 80v40c0 11.046875-8.953125 20-20 20s-20-8.953125-20-20v-40c0-22.054688-17.945312-40-40-40h-201c-22.054688 0-40 17.945312-40 40v352c0 22.054688 17.945312 40 40 40h201c22.054688 0 40-17.945312 40-40v-40c0-11.046875 8.953125-20 20-20s20 8.953125 20 20zm136.355469-170.355469-44.785157-44.785156c-7.8125-7.8125-20.476562-7.8125-28.285156 0-7.8125 7.808594-7.8125 20.472656 0 28.28125l31.855469 31.859375h-240.140625c-11.046875 0-20 8.953125-20 20s8.953125 20 20 20h240.140625l-31.855469 31.859375c-7.8125 7.808594-7.8125 20.472656 0 28.28125 3.90625 3.90625 9.023438 5.859375 14.140625 5.859375 5.121094 0 10.238281-1.953125 14.144531-5.859375l44.785157-44.785156c19.496093-19.496094 19.496093-51.214844 0-70.710938zm0 0"
                 />
               </svg>
-            </div>
+            </nuxt-link>
           </div>
         </div>
       </header>

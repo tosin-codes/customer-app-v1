@@ -1,7 +1,5 @@
 <template>
   <div class="grid grid-cols-12 maxWidth mx-auto">
-    <!-- <AppHeader />
-    <DashboardNav /> -->
     <DashboardFixed />
     <Nuxt class=""/>
   </div>
@@ -52,7 +50,7 @@ html {
 
 
 .my-container {
-  @apply mt-16 col-start-1 col-end-13 px-3 py-6 mx-auto bg-gray-200 bg-opacity-50 min-h-screen rounded-md
+  @apply mt-16 col-start-1 col-end-13 px-3 py-6 mx-auto bg-gray-200 bg-opacity-50 min-h-screen rounded-md z-10
 
 }
 
