@@ -22,7 +22,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/forms.js', mode: 'client' }
+    { src: '~/plugins/forms.js', mode: 'client' },
+    { src: '~/plugins/vuelidate.js' },
+      { src: '~/plugins/noty.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -41,7 +43,9 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL:'https://cashapi.cashdrive.co/api/v1/'
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
