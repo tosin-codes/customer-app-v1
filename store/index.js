@@ -1,5 +1,5 @@
 export const state = () => ({
-  user: null
+  user: null,
 })
 
 export const mutations = {
@@ -11,5 +11,11 @@ export const mutations = {
 export const getters = {
   isLoggedIn(state) {
     return !!state.user
+  },
+  authenticated(state) {
+    return state.auth.loggedIn
+  },
+  user(state) {
+    return state.auth.user
   },
 }

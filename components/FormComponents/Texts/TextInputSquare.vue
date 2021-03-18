@@ -7,7 +7,7 @@
         :type="type"
         :name="name"
         :placeholder="placeholder"
-        v-model="data"
+        @input="$emit('input', $event.target.value)"
       />
     </div>
   </div>
@@ -43,11 +43,6 @@ export default {
     placeholder: {
       type: String,
       default: null,
-    },
-  },
-  methods: {
-    handleInput(e) {
-      this.$emit('input', e.target.value)
     },
   },
 }

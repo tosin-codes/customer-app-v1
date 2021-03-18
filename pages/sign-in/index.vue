@@ -110,19 +110,32 @@ export default {
       this.errorMessage = this.$v.$invalid
 
       if (!this.$v.$invalid) {
-        try {
-          const user = await this.$axios.post('/signin', {
-            email: this.email,
-            password: this.password,
-          })
-          this.setState({
-            user,
-          })
-        } catch (error) {
-          console.log(error.response.data.message)
+        const login = {
+          email: this.email,
+          password: this.password,
         }
+
+        try {
+          let response = await this.$auth.loginWith('local', {
+            data: login,
+          })
+          // console.log(response.data)
+          this.$auth.setUser(response.data)
+          localStorage.setItem('loans', response.data.all_loans.toString())
+          localStorage.setItem('isLoggedIn', true)
+          this.$noty.success('Logged In')
+        } catch (err) {
+          console.log(err)
+          this.$noty.error(err)
+        }
+        this.authenticated
       }
-      ;(this.email = ''), (this.password = '')
+    },
+    authenticated() {
+      const logged = this.$store.state.auth.loggedIn
+      if (logged) {
+        console.log(this.$store.state.auth.user.roles[0].code)
+      }
     },
   },
 }

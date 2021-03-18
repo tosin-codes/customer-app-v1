@@ -18,9 +18,8 @@
             >
               <div class="mb-5 md:col-start-1 md:col-end-7">
                 <label for="" class="font-bold opacity-75">First Name</label>
-                <input
+                <TextInputSquare
                   v-model="formData.first_name"
-                  class="rounded-md border-gray-300 border-2 mt-2 h-12 w-full outline-none pl-4"
                   type="text"
                   name="text"
                   placeholder="Enter your first name"
@@ -38,9 +37,8 @@
               </div>
               <div class="mb-5 md:col-start-7 md:col-end-13">
                 <label for="" class="font-bold opacity-75">Last Name</label>
-                <input
+                <TextInputSquare
                   v-model="formData.last_name"
-                  class="rounded-md border-gray-300 border-2 mt-2 h-12 w-full outline-none pl-4"
                   type="text"
                   name="text"
                   placeholder="Enter your last name"
@@ -58,9 +56,8 @@
               </div>
               <div class="mb-5 md:col-start-1 md:col-end-7">
                 <label for="" class="font-bold opacity-75">Email address</label>
-                <input
+                <TextInputSquare
                   v-model="formData.email"
-                  class="rounded-md border-gray-300 border-2 mt-2 h-12 w-full outline-none pl-4"
                   type="email"
                   name="email"
                   placeholder="Enter your email"
@@ -81,9 +78,8 @@
               </div>
               <div class="mb-5 md:col-start-7 md:col-end-13">
                 <label for="" class="font-bold opacity-75">Phone Number</label>
-                <input
+                <TextInputSquare
                   v-model="formData.phone"
-                  class="rounded-md border-gray-300 border-2 mt-2 h-12 w-full outline-none pl-4"
                   type="tel"
                   name="tel"
                   placeholder="Enter your phone number"
@@ -113,9 +109,8 @@
               </div>
               <div class="mb-5 md:col-start-1 md:col-end-13">
                 <label for="" class="font-bold opacity-75">Date of birth</label>
-                <input
+                <TextInputSquare
                   v-model="formData.date_of_birth"
-                  class="rounded-md border-gray-300 border-2 mt-2 h-12 w-full outline-none pl-4"
                   type="date"
                   name="text"
                   placeholder="yyyy-mm-dd"
@@ -134,9 +129,8 @@
 
               <div class="mb-5 md:col-start-1 md:col-end-7">
                 <label for="" class="font-bold opacity-75">Password</label>
-                <input
+                <TextInputSquare
                   v-model="formData.password"
-                  class="rounded-md border-gray-300 border-2 mt-2 h-12 w-full outline-none pl-4"
                   type="password"
                   name="password"
                   placeholder="Enter your password"
@@ -159,9 +153,8 @@
                 <label for="" class="font-bold opacity-75"
                   >Confirm Password</label
                 >
-                <input
+                <TextInputSquare
                   v-model="formData.password_confirmation"
-                  class="rounded-md border-gray-300 border-2 mt-2 h-12 w-full outline-none pl-4"
                   type="password"
                   name="password"
                   placeholder="Enter your password"
@@ -185,12 +178,7 @@
                 </p>
               </div>
 
-              <button
-                type="submit"
-                class="mb-5 px-6 py-3 h-12 w-full md:col-start-1 md:col-end-13 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
-              >
-                Submit
-              </button>
+              <ButtonSquare class="md:col-start-1 md:col-end-13" />
             </form>
           </div>
           <div class="text-center">
@@ -204,6 +192,9 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+import TextInputSquare from '~/components/FormComponents/Texts/TextInputSquare'
+import ButtonSquare from '~/components/FormComponents/Buttons/Primary/ButtonSquare'
 import {
   required,
   minLength,
@@ -214,6 +205,10 @@ import {
 } from 'vuelidate/lib/validators'
 
 export default {
+  components: {
+    TextInputSquare,
+    ButtonSquare,
+  },
   data() {
     return {
       formData: {
@@ -261,6 +256,9 @@ export default {
     },
   },
   methods: {
+    ...mapMutations({
+      setState: 'setStates',
+    }),
     async registerUser() {
       this.submitted = true
 
@@ -280,11 +278,15 @@ export default {
             ...this.formData,
             ref_code: 'CD0061284',
           })
+          this.$auth.loginWith('local', {
+            data: this.formData,
+          })
           this.setState({
             user,
           })
         } catch (error) {
           console.log(error)
+          vm.$noty.error(error.response.data.message)
         }
       }
     },
