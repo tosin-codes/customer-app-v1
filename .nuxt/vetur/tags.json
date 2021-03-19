@@ -1,18 +1,18 @@
 {
+  "ActiveLoan": {
+    "description": "Auto imported from components/ActiveLoan.vue"
+  },
   "ActiveLoanSchedule": {
     "description": "Auto imported from components/ActiveLoanSchedule.vue"
-  },
-  "AppHeader": {
-    "description": "Auto imported from components/AppHeader.vue"
   },
   "DashboardCards": {
     "description": "Auto imported from components/DashboardCards.vue"
   },
-  "DashboardFixed": {
-    "description": "Auto imported from components/DashboardFixed.vue"
-  },
   "DashboardNav": {
     "description": "Auto imported from components/DashboardNav.vue"
+  },
+  "GeneralNavbarComponent": {
+    "description": "Auto imported from components/GeneralNavbarComponent.vue"
   },
   "Kyc1": {
     "description": "Auto imported from components/Kyc1.vue"
@@ -29,7 +29,55 @@
   "KycNumbers": {
     "description": "Auto imported from components/KycNumbers.vue"
   },
-  "MobileNav": {
-    "description": "Auto imported from components/MobileNav.vue"
+  "FormComponentsCheckboxComponent": {
+    "description": "Auto imported from components/FormComponents/CheckboxComponent.vue"
+  },
+  "FormComponentsRadioComponent": {
+    "description": "Auto imported from components/FormComponents/RadioComponent.vue"
+  },
+  "MasterHeaderNav": {
+    "description": "Auto imported from components/master/HeaderNav.vue"
+  },
+  "MasterMobileNav": {
+    "description": "Auto imported from components/master/MobileNav.vue"
+  },
+  "MasterSidebarNav": {
+    "description": "Auto imported from components/master/SidebarNav.vue"
+  },
+  "FormComponentsBigTextsTextRounded": {
+    "description": "Auto imported from components/FormComponents/BigTexts/TextRounded.vue"
+  },
+  "FormComponentsBigTextsTextSquare": {
+    "description": "Auto imported from components/FormComponents/BigTexts/TextSquare.vue"
+  },
+  "FormComponentsDropdownsSelectRounded": {
+    "description": "Auto imported from components/FormComponents/Dropdowns/SelectRounded.vue"
+  },
+  "FormComponentsDropdownsSelectSquare": {
+    "description": "Auto imported from components/FormComponents/Dropdowns/SelectSquare.vue"
+  },
+  "FormComponentsTextsTextInputRounded": {
+    "description": "Auto imported from components/FormComponents/Texts/TextInputRounded.vue"
+  },
+  "FormComponentsTextsTextInputSquare": {
+    "description": "Auto imported from components/FormComponents/Texts/TextInputSquare.vue"
+  },
+  "FormComponentsButtonsDefaultButtonRounded": {
+    "description": "Auto imported from components/FormComponents/Buttons/Default/ButtonRounded.vue"
+  },
+  "FormComponentsButtonsDefaultButtonSquare": {
+    "description": "Auto imported from components/FormComponents/Buttons/Default/ButtonSquare.vue"
+  },
+  "FormComponentsButtonsPrimaryButtonRounded": {
+    "description": "Auto imported from components/FormComponents/Buttons/Primary/ButtonRounded.vue"
+  },
+  "FormComponentsButtonsPrimaryButtonSquare": {
+    "description": "Auto imported from components/FormComponents/Buttons/Primary/ButtonSquare.vue"
+  },
+  "FormComponentsButtonsSecondaryButtonRounded": {
+    "description": "Auto imported from components/FormComponents/Buttons/Secondary/ButtonRounded.vue"
+  },
+  "FormComponentsButtonsSecondaryButtonSquare": {
+    "description": "Auto imported from components/FormComponents/Buttons/Secondary/ButtonSquare.vue"
   }
 }

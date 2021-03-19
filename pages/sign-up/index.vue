@@ -1,15 +1,11 @@
 <template>
-  <div class="my-container">
-    <div class="md:p-6">
-      <div class="">
-        <div
-          class="font-bold text-3xl text-orange-500 mb-5 text-center md:text-left"
-        >
-          Sign Up
+  <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+          <h2 class="mt-6 p-3 text-3xl font-medium text-gray-900">
+            Sign up
+          </h2>
         </div>
-        <div
-          class="bg-white p-3 md:p-12 rounded-xl border-gray-200 border-2 max-w-6xl mx-auto"
-        >
+        <div class="sm:mx-auto sm:w-full sm:max-w-md p-3">
           <div class="form">
             <form
               action=""
@@ -49,13 +45,13 @@
                     class="errorInfo"
                   >
                     <small>
-                      Please ensure your last name matches the one on your BVN.
+                      Please ensure your names matches the ones on your BVN.
                     </small></template
                   >
                 </p>
               </div>
               <div class="mb-5 md:col-start-1 md:col-end-7">
-                <label for="" class="font-bold opacity-75">Email address</label>
+                <label for="" class="font-bold opacity-75">Email Address</label>
                 <TextInputSquare
                   v-model="formData.email"
                   type="email"
@@ -183,11 +179,9 @@
           </div>
           <div class="text-center">
             Have an account?
-            <nuxt-link class="text-orange-700" to="signin">Sign In</nuxt-link>
+            <nuxt-link class="text-orange-700" to="/">Sign In</nuxt-link>
           </div>
         </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -276,7 +270,7 @@ export default {
         try {
           const user = await this.$axios.post('/signup', {
             ...this.formData,
-            ref_code: 'CD0061284',
+            ref_code: '',
           })
           this.$auth.loginWith('local', {
             data: this.formData,

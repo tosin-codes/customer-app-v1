@@ -4,11 +4,11 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _2881b1b6 = () => interopDefault(import('..\\pages\\active-loans\\index.vue' /* webpackChunkName: "pages/active-loans/index" */))
-const _8748dc66 = () => interopDefault(import('..\\pages\\kyc\\index.vue' /* webpackChunkName: "pages/kyc/index" */))
-const _60d63966 = () => interopDefault(import('..\\pages\\sign-in\\index.vue' /* webpackChunkName: "pages/sign-in/index" */))
-const _0d1c7c17 = () => interopDefault(import('..\\pages\\sign-up\\index.vue' /* webpackChunkName: "pages/sign-up/index" */))
-const _c6ccde9c = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _153618a4 = () => interopDefault(import('..\\pages\\active-loans\\index.vue' /* webpackChunkName: "pages/active-loans/index" */))
+const _f1330740 = () => interopDefault(import('..\\pages\\dashboard\\index.vue' /* webpackChunkName: "pages/dashboard/index" */))
+const _ccfdf1c2 = () => interopDefault(import('..\\pages\\kyc\\index.vue' /* webpackChunkName: "pages/kyc/index" */))
+const _4502f869 = () => interopDefault(import('..\\pages\\sign-up\\index.vue' /* webpackChunkName: "pages/sign-up/index" */))
+const _3cb09020 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -23,23 +23,23 @@ export const routerOptions = {
 
   routes: [{
     path: "/active-loans",
-    component: _2881b1b6,
+    component: _153618a4,
     name: "active-loans"
   }, {
+    path: "/dashboard",
+    component: _f1330740,
+    name: "dashboard"
+  }, {
     path: "/kyc",
-    component: _8748dc66,
+    component: _ccfdf1c2,
     name: "kyc"
   }, {
-    path: "/sign-in",
-    component: _60d63966,
-    name: "sign-in"
-  }, {
     path: "/sign-up",
-    component: _0d1c7c17,
+    component: _4502f869,
     name: "sign-up"
   }, {
     path: "/",
-    component: _c6ccde9c,
+    component: _3cb09020,
     name: "index"
   }],
 

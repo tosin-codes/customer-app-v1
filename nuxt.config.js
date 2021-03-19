@@ -25,6 +25,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    './plugins/mixins/user.js',
+    './plugins/axios.js',
+    './plugins/mixins/validation.js',
     { src: '~/plugins/vuelidate.js' },
 
     { src: '~/plugins/noty.js', mode: 'client' },
@@ -61,62 +64,41 @@ export default {
       },
     ],
   ],
-  auth: {
-    // Options
 
+  auth: {
     strategies: {
       local: {
         token: {
-          property: 'data.token',
-          // required: true,
-          // type: 'Bearer'
+          property: 'token',
+          required: true,
+          type: 'Bearer'
         },
         user: {
-          property: 'data.data',
-          autoFetch: false,
+          property: 'data',
+          autoFetch: true
         },
         endpoints: {
-          login: {
-            url: '/signin',
-            method: 'post',
-            propertyName: 'data.token.token',
-          },
-          user: { url: '/sessions/user', method: 'get', propertyName: 'data' },
-          signup: {
-            url: 'signup',
-            method: 'post',
-          },
-        },
-      },
+          login: { url: '/signin', method: 'post'},
+          signup: { url: '/signup', method: 'post'},
+          logout: { url: '/logout', method: 'post'},
+          user: { url: '/user', method: 'get'}
+        }
+      }
     },
-    //       endpoints:{
-    //   login:{
-    //       url:'login',
-    //       method:'post',
-    //       propertyName:'data.token.token'
-    //   },
-    // signup:{
-    //     url:'signup',
-    //     method:'post'
-    // },
-    //   user:{
-    //       url:'me',
-    //       method:'get',
-    //       propertyName: 'data'
-    //   },
-    //   logout:{
-    //       url:'logout',
-    //       method:'post',
-    //   }
-    // },
-    // redirect:{
-    //   login:'/auth/login'
-    // }
+    redirect:{
+      login:'/',
+      home: '/dashboard'
+    }
   },
-
+  router: {
+    middleware: [
+      'clearValidationErrors'
+    ]
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'https://cashapi.cashdrive.co/api/v1/',
+    // baseURL: 'https://cashapi.cashdrive.co/api/v1/',
+    baseURL: 'http://127.0.0.1:8000/api/v1/',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

@@ -2,36 +2,36 @@
   {
     "name": "active-loans",
     "path": "/active-loans",
-    "component": "C:\\\\Users\\\\ToluwanimiAkinleye\\\\Desktop\\\\dashboard\\\\pages\\\\active-loans\\\\index.vue",
+    "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\active-loans\\\\index.vue",
     "chunkName": "pages/active-loans/index",
-    "_name": "_2881b1b6"
+    "_name": "_153618a4"
+  },
+  {
+    "name": "dashboard",
+    "path": "/dashboard",
+    "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\dashboard\\\\index.vue",
+    "chunkName": "pages/dashboard/index",
+    "_name": "_f1330740"
   },
   {
     "name": "kyc",
     "path": "/kyc",
-    "component": "C:\\\\Users\\\\ToluwanimiAkinleye\\\\Desktop\\\\dashboard\\\\pages\\\\kyc\\\\index.vue",
+    "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\kyc\\\\index.vue",
     "chunkName": "pages/kyc/index",
-    "_name": "_8748dc66"
-  },
-  {
-    "name": "sign-in",
-    "path": "/sign-in",
-    "component": "C:\\\\Users\\\\ToluwanimiAkinleye\\\\Desktop\\\\dashboard\\\\pages\\\\sign-in\\\\index.vue",
-    "chunkName": "pages/sign-in/index",
-    "_name": "_60d63966"
+    "_name": "_ccfdf1c2"
   },
   {
     "name": "sign-up",
     "path": "/sign-up",
-    "component": "C:\\\\Users\\\\ToluwanimiAkinleye\\\\Desktop\\\\dashboard\\\\pages\\\\sign-up\\\\index.vue",
+    "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\sign-up\\\\index.vue",
     "chunkName": "pages/sign-up/index",
-    "_name": "_0d1c7c17"
+    "_name": "_4502f869"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\ToluwanimiAkinleye\\\\Desktop\\\\dashboard\\\\pages\\\\index.vue",
+    "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_c6ccde9c"
+    "_name": "_3cb09020"
   }
 ]
