@@ -30,7 +30,7 @@
           </div>
           <div class="flex justify-between items-center mt-8">
             <button
-              @click.prevent="prevSlide"
+              @click.prevent="back"
               class="mb-5 px-6 py-3 h-12 sm:w-full md:w-2/6 border-transparent focus:outline-none rounded-full shadow-sm text-base font-medium text-orange-500 bg-white border-2 border-orange-500"
             >
               Prev
@@ -78,22 +78,26 @@ export default {
       var isValid = !this.$v.inspectionDate.$invalid
 
       if (isValid) {
+        console.log(this.user.token)
+        const id = this.$store.getters.user.id
         try {
-          const user = await this.$axios.put(
-            '/loans/8/vehicles/inspection',
-            this.inspectionDate
-          )
-          this.setState({
-            user,
+          const user = await this.$axios({
+            method: 'PUT',
+            url: `loans/${id}/vehicles/inspection`,
+            data: this.inspectionDate,
+            headers: {
+              Token: `Bearer ${this.user.token}`,
+            },
           })
         } catch (error) {
           console.log(error)
+
+          this.$emit('lastSlide')
         }
-        this.$emit('lastSlide')
       }
     },
-    previous() {
-      this.$emit('back')
+    back() {
+      this.$emit('prevSlide')
     },
   },
 }

@@ -1,30 +1,54 @@
 <template>
-  <form class="mx-4 w-40" @submit.prevent="validateSubmit">
-    <h4 class="text-center">Upload the following documents for your vehicle</h4>
-    <div class="">
-      <div class="" v-for="(value, key, i) in document" :key="i">
-        <div class="">
-          <div>
-            <label class="" for>{{ key.replace(/_/g, ' ') }}</label>
-          </div>
+  <div class="bg-gray-100 p-4 py-8 mb-10 w-full rounded-md">
+    <form class="mx-4" @submit.prevent="validateSubmit">
+      <h4
+        class="sm:ml-6 lg:ml-16 lg:text-2xl lg:font-bold sm:font-medium sm:text-xl text-gray-600 pb-5"
+      >
+        Upload the following documents for your vehicle
+      </h4>
+      <div class="grid lg:grid-cols-2 lg:gap-8 place-items-center">
+        <div class="" v-for="(value, key, i) in document" :key="i">
           <div class="">
-            <Upload :no="i" @uploaded="getUpload(key, $event)" />
+            <div>
+              <Upload :no="i" @uploaded="getUpload(key, $event)" />
+            </div>
+            <div>
+              <label
+                class="lg:font-medium lg:text-xl capitalize text-gray-600 lg:pt-5 sm:pb-10 sm:pt-2 sm:font-bold"
+                for
+                >{{ key.replace(/_/g, ' ') }}</label
+              >
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="text-center">
-        <button @click.prevent="validateSubmit" class="">Next</button>
+      <!-- 
+        <div class="text-center">
+          <button @click.prevent="validateSubmit" class="">Next</button>
+        </div> -->
+      <div class="flex justify-between lg:m-6 items-center mt-5">
+        <button
+          @click.prevent="back"
+          class="mb-5 lg:ml-6 px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none rounded-full shadow-sm text-base font-medium text-orange-500 bg-white hover:bg-orange-600"
+        >
+          Back
+        </button>
+        <button
+          @click.prevent="validateSubmit"
+          class="mb-5 lg:mr-6 px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none rounded-full shadow-sm text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
+        >
+          Next
+        </button>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </template>
 
 <script>
-// import Upload from '../Upload.vue'
+import Upload from './Upload.vue'
 export default {
   components: {
-    // Upload,
+    Upload,
   },
   data: () => ({
     document: {
@@ -44,6 +68,7 @@ export default {
   },
   methods: {
     getUpload(key, value) {
+      console.log(key, value)
       this.document[key] = value
       this.$forceUpdate()
     },
@@ -56,24 +81,25 @@ export default {
       const errorMessage = `${error.join(', ')} ${
         error.length > 1 ? 'are' : 'is'
       } empty!`
-      if (error.length)
-        return this.$toastr.e(errorMessage, 'Upload all documents')
+      if (error.length) return this.$noty.error('Upload all documents')
       const vehicle_documents = [
         {
           ...this.document,
-          vehicle_id: this.$store.state.loan_offer.id,
+          vehicle_id: this.$store.getters.user.id,
         },
       ]
       this.uploadDocuments(vehicle_documents)
+      this.$emit('next')
     },
     async uploadDocuments(data) {
-      this.$store.commit('set', { loading: true })
+      console.log(this.$store.getters.user.id)
+      // this.$store.commit('set', { loading: true })
       const formData = new FormData()
       for (let i = 0; i < data.length; i++) {
         for (let key of Object.keys(data[i]))
           formData.append(`vehicles[${i}][${key}]`, data[i][key])
       }
-      const { id } = this.$store.state.loan_offer
+      const id = this.$store.getters.user.id
       try {
         const res = await this.$axios({
           method: 'POST',
@@ -86,11 +112,15 @@ export default {
         this.$store.commit('set', {
           loan_offer: res.data.data,
         })
-        // this.$emit('next');
-        this.$store.commit('set', { loading: false })
+
+        // this.$store.commit('set', { loading: false })
       } catch (err) {
-        this.catchErrors(err)
+        console.log(err)
+        // this.catchErrors(err)
       }
+    },
+    back() {
+      this.$emit('back')
     },
   },
 }

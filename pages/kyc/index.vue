@@ -39,7 +39,7 @@
               <Kyc2 @next="nextSlide" @back="previous" />
             </div>
             <div v-if="showTwo" class="slide-page">
-              <Kyc3 @lastSlide="last" @back="prevSlide" />
+              <Kyc3 @lastSlide="last" @prevSlide="previousSlide" />
             </div>
             <div v-if="showThree" class="slide-page">
               <Kyc4 />
@@ -93,6 +93,7 @@ export default {
       this.showOne = false
     },
     nextSlide() {
+      console.log('next')
       this.showOne = false
       this.showTwo = true
     },
@@ -100,7 +101,7 @@ export default {
       this.showTwo = false
       this.showThree = true
     },
-    prevSlide() {
+    previousSlide() {
       this.showTwo = false
       this.showOne = true
     },
@@ -138,6 +139,7 @@ input:focus {
   position: relative;
   transition: background-color 500ms;
   line-height: 28px;
+  z-index: 2;
 }
 .bullet .completed {
   color: #fff;
@@ -151,6 +153,7 @@ input:focus {
   height: 3px;
   width: 94px;
   background-color: orange;
+  z-index: 1;
 }
 
 .progress-bar .step:last-child .bullet:before,
@@ -160,5 +163,19 @@ input:focus {
 
 input {
   width: 100%;
+}
+@media screen and (max-width: 520px) {
+  .progress-bar {
+    width: 300px;
+  }
+  .bullet::after {
+    content: '';
+    position: absolute;
+    right: -62px;
+    bottom: 10px;
+    height: 3px;
+    width: 57px;
+    background-color: orange;
+  }
 }
 </style>

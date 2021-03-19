@@ -153,14 +153,16 @@ export default {
       // this.$auth.user
 
       if (isValid) {
-        const id = this.$store.state.loan_offer
+        console.log(this.$store.getters.user.id)
+        const id = this.$store.getters.user.id
+
         try {
           const user = await this.$axios({
             method: 'PUT',
             url: `loans/${id}/banks/verify`,
             data: this.bankInformation,
             headers: {
-              Authorization: `Bearer ${this.user.token}`,
+              Token: `Bearer ${this.user.token}`,
             },
           })
         } catch (error) {
