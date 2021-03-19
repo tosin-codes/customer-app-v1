@@ -2,28 +2,49 @@
   <div class="my-container">
     <div class="">
       <div class="flex flex-row items-center mb-10">
-        <div><img class="w-8 mr-4" src="../../assets/svg/kyc.svg" alt=""></div>
+        <div>
+          <img class="w-8 mr-4" src="../../assets/svg/kyc.svg" alt="" />
+        </div>
         <div class="font-bold text-gray-700">KYC</div>
       </div>
       <div class="bg-white rounded-xl p-1 md:p-6">
-        <div>
-          <vue-good-wizard 
-            :steps="steps"
-            :onNext="nextClicked" 
-            :onBack="backClicked">
-            <div slot="page1">
-              <Kyc1 />
+        <div id="app">
+          <div>
+            <div class="progress-bar">
+              <div class="step pt-6">
+                <div class="bullet h-6 w-6">
+                  <span>1</span>
+                </div>
+              </div>
+              <div class="step pt-6">
+                <div class="bullet">
+                  <span>2</span>
+                </div>
+              </div>
+              <div class="step pt-6">
+                <div class="bullet">
+                  <span>3</span>
+                </div>
+              </div>
+              <div class="step pt-6">
+                <div class="bullet">
+                  <span>4</span>
+                </div>
+              </div>
             </div>
-            <div slot="page2">
-              <Kyc2 />
+            <div v-if="show" class="slide-page">
+              <Kyc1 @on-validate="slide" />
             </div>
-            <div slot="page3">
-              <Kyc3 />
+            <div v-if="showOne" class="slide-page">
+              <Kyc2 @next="nextSlide" @back="previous" />
             </div>
-            <div slot="page4">
+            <div v-if="showTwo" class="slide-page">
+              <Kyc3 @lastSlide="last" @back="prevSlide" />
+            </div>
+            <div v-if="showThree" class="slide-page">
               <Kyc4 />
             </div>
-          </vue-good-wizard>
+          </div>
         </div>
       </div>
     </div>
@@ -36,54 +57,108 @@ import Kyc2 from '../../components/Kyc2'
 import Kyc1 from '../../components/Kyc1'
 import Kyc3 from '../../components/Kyc3'
 import Kyc4 from '../../components/Kyc4'
+
 export default {
   components: {
     KycNumbers,
     Kyc2,
     Kyc1,
     Kyc3,
-    Kyc4
+    Kyc4,
+    Kyc1,
   },
-  data(){
+  data() {
     return {
-      steps: [
-        {
-          label: 'Account Details',
-          slot: 'page1',
-        },
-        {
-          label: 'Vehicle Documents',
-          slot: 'page2',
-        },
-        {
-          label: 'Inspection Date',
-          slot: 'page3',
-        },
-        {
-          label: 'Take Selfie',
-          slot: 'page4',
-        }
-      ],
-    };
+      show: true,
+      showOne: false,
+      showTwo: false,
+      showThree: false,
+    }
   },
   methods: {
-    nextClicked(currentPage) {
-      console.log('next clicked', currentPage)
-      return true; //return false if you want to prevent moving to next page
+    slide() {
+      this.show = false
+      this.showOne = true
+
+      if ((this.showOne = true)) {
+        let currentStep = 1
+        const bullets = [...document.querySelectorAll('.bullet')]
+
+        bullets[currentStep - 1].classList.add('completed')
+        currentStep += 1
+      }
     },
-    backClicked(currentPage) {
-      console.log('back clicked', currentPage);
-      return true; //return false if you want to prevent moving to previous page
-    }
+    previous() {
+      this.show = true
+      this.showOne = false
+    },
+    nextSlide() {
+      this.showOne = false
+      this.showTwo = true
+    },
+    last() {
+      this.showTwo = false
+      this.showThree = true
+    },
+    prevSlide() {
+      this.showTwo = false
+      this.showOne = true
+    },
   },
 }
 </script>
 
 <style>
 input {
-  @apply py-4 outline-none rounded-full pl-6
+  @apply py-4 outline-none rounded-full pl-6;
 }
 input:focus {
-  @apply border-2 border-gray-200
+  @apply border-2 border-gray-200;
+}
+.progress-bar {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 450px;
+  margin-bottom: 40px;
+  user-select: none;
+}
+.progress-bar .step {
+  text-align: center;
+}
+
+.progress-bar .step .bullet {
+  height: 35px;
+  width: 35px;
+  border: 2px solid orange;
+  display: inline-block;
+  border-radius: 50%;
+  color: orange;
+  position: relative;
+  transition: background-color 500ms;
+  line-height: 28px;
+}
+.bullet .completed {
+  color: #fff;
+  background-color: orange;
+}
+.bullet::after {
+  content: '';
+  position: absolute;
+  right: -100px;
+  bottom: 10px;
+  height: 3px;
+  width: 94px;
+  background-color: orange;
+}
+
+.progress-bar .step:last-child .bullet:before,
+.progress-bar .step:last-child .bullet:after {
+  display: none;
+}
+
+input {
+  width: 100%;
 }
 </style>

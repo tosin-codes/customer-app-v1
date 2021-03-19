@@ -4,7 +4,7 @@
       <header class="flex flex-row justify-between md:grid md:grid-cols-12 py-3 px-6 items-center">
         <nuxt-link to="/">
           <div class="md:col-start-1 md:col-end-4">
-            <img class="w-24" src="../assets/images/logo.png" alt="logo" />
+            <img class="w-24" src="~/assets/images/logo.png" alt="logo" />
           </div>
         </nuxt-link>
         <div
@@ -48,11 +48,11 @@
               <div>
                 <img
                   class="w-12 rounded-full"
-                  src="../assets/images/profile.jpg"
+                  src="~/assets/images/profile.jpg"
                   alt=""
                 />
               </div>
-              <div class="ml-4">Fagunjade Folajimi</div>
+              <div class="ml-4">{{ this.$store.getters.user.first_name }} {{ this.$store.getters.user.last_name }}</div>
             </div>
             <nuxt-link to="/" class="md:mx-12 w-5 text-gray-700">
               <svg
@@ -83,7 +83,7 @@
                 </g>
               </svg>
             </nuxt-link>
-            <nuxt-link to="/" class="w-5 text-gray-700">
+            <span @click.prevent="logout()" class="w-5 text-gray-700">
               <svg
                 class="inline-block fill-current"
                 xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +95,7 @@
                   d="m361.5 392v40c0 44.113281-35.886719 80-80 80h-201c-44.113281 0-80-35.886719-80-80v-352c0-44.113281 35.886719-80 80-80h201c44.113281 0 80 35.886719 80 80v40c0 11.046875-8.953125 20-20 20s-20-8.953125-20-20v-40c0-22.054688-17.945312-40-40-40h-201c-22.054688 0-40 17.945312-40 40v352c0 22.054688 17.945312 40 40 40h201c22.054688 0 40-17.945312 40-40v-40c0-11.046875 8.953125-20 20-20s20 8.953125 20 20zm136.355469-170.355469-44.785157-44.785156c-7.8125-7.8125-20.476562-7.8125-28.285156 0-7.8125 7.808594-7.8125 20.472656 0 28.28125l31.855469 31.859375h-240.140625c-11.046875 0-20 8.953125-20 20s8.953125 20 20 20h240.140625l-31.855469 31.859375c-7.8125 7.808594-7.8125 20.472656 0 28.28125 3.90625 3.90625 9.023438 5.859375 14.140625 5.859375 5.121094 0 10.238281-1.953125 14.144531-5.859375l44.785157-44.785156c19.496093-19.496094 19.496093-51.214844 0-70.710938zm0 0"
                 />
               </svg>
-            </nuxt-link>
+            </span>
           </div>
         </div>
       </header>
@@ -171,7 +171,11 @@ export default {
         this.navShow = true
       } else {this.navSVG = this.burger; this.navShow = false}
     }
-  }
+  },
+  async logout(){
+      let vm = this
+      await this.$auth.logout()
+    },
 }
 </script>
 
