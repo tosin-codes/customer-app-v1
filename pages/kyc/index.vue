@@ -42,7 +42,7 @@
               <Kyc3 @lastSlide="last" @prevSlide="previousSlide" />
             </div>
             <div v-if="showThree" class="slide-page">
-              <Kyc4 />
+              <Kyc4 @showPrev="showPrevious" />
             </div>
           </div>
         </div>
@@ -104,6 +104,10 @@ export default {
     previousSlide() {
       this.showTwo = false
       this.showOne = true
+    },
+    showPrevious() {
+      this.showTwo = true
+      this.showThree = false
     },
   },
 }

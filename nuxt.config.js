@@ -29,7 +29,7 @@ export default {
     './plugins/axios.js',
     './plugins/mixins/validation.js',
     { src: '~/plugins/vuelidate.js' },
-
+    // { src: '~/plugins/vue-web-cam.js', mode: 'client' },
     { src: '~/plugins/noty.js', mode: 'client' },
   ],
 
@@ -47,6 +47,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
+    // 'vue-web-cam/nuxt',
 
     [
       'nuxt-fontawesome',
@@ -71,34 +72,32 @@ export default {
         token: {
           property: 'token',
           required: true,
-          type: 'Bearer'
+          type: 'Bearer',
         },
         user: {
           property: 'data',
-          autoFetch: true
+          autoFetch: true,
         },
         endpoints: {
-          login: { url: '/signin', method: 'post'},
-          signup: { url: '/signup', method: 'post'},
-          logout: { url: '/logout', method: 'post'},
-          user: { url: '/user', method: 'get'}
-        }
-      }
+          login: { url: '/signin', method: 'post' },
+          signup: { url: '/signup', method: 'post' },
+          logout: { url: '/logout', method: 'post' },
+          user: { url: '/user', method: 'get' },
+        },
+      },
     },
-    redirect:{
-      login:'/',
-      home: '/dashboard'
-    }
+    redirect: {
+      login: '/',
+      home: '/dashboard',
+    },
   },
   router: {
-    middleware: [
-      'clearValidationErrors'
-    ]
+    middleware: ['clearValidationErrors'],
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // baseURL: 'https://cashapi.cashdrive.co/api/v1/',
-    baseURL: 'http://127.0.0.1:8000/api/v1/',
+    baseURL: 'https://cashapi.cashdrive.co/api/v1/',
+    // baseURL: 'http://127.0.0.1:8000/api/v1/',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
