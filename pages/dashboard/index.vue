@@ -10,7 +10,13 @@
           <div class="font-bold text-gray-700">Dashboard</div>
         </div>
         <DashboardCards />
+        <div v-if="!this.$store.getters.active_loans">
+          <ActiveLoan />
         </div>
+        <div v-else>
+          <ActiveLoanSchedule />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -25,12 +31,15 @@ export default {
   },
   data() {
     return {
-
+      inActiveLoan: false,
+      activeLoan: false,
     }
   },
-  middleware: 'auth'
+  middleware: ['auth', 'setLevelForNewLoan'],
+  mounted() {
+    
+  },
 }
 </script>
 
-<style>
-</style>
+<style></style>

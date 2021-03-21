@@ -1,4 +1,6 @@
 <template>
+<div class="grid grid-cols-12 maxWidth mx-auto">
+    <GeneralNav />
   <div class="my-container">
     <div class="">
       <div class="flex flex-row items-center mb-10">
@@ -10,62 +12,49 @@
       <div class="bg-white rounded-xl p-1 md:p-6">
         <div id="app">
           <div>
-            <div class="progress-bar">
-              <div class="step pt-6">
-                <div class="bullet h-6 w-6">
-                  <span>1</span>
-                </div>
-              </div>
-              <div class="step pt-6">
-                <div class="bullet">
-                  <span>2</span>
-                </div>
-              </div>
-              <div class="step pt-6">
-                <div class="bullet">
-                  <span>3</span>
-                </div>
-              </div>
-              <div class="step pt-6">
-                <div class="bullet">
-                  <span>4</span>
-                </div>
-              </div>
-            </div>
-            <div v-if="show" class="slide-page">
+              <KycNumbers />
+            <div v-if="activeloan.level.passed_bvn == false && activeloan.level.passed_document_upload == false && activeloan.level.passed_set_inspection_date == false && activeloan.level.passed_picture_upload == false" class="slide-page">
               <Kyc1 @on-validate="slide" />
             </div>
-            <div v-if="showOne" class="slide-page">
+            <div v-if="activeloan.level.passed_bvn == true && activeloan.level.passed_document_upload == false && activeloan.level.passed_set_inspection_date == false && activeloan.level.passed_picture_upload == false" class="slide-page">
               <Kyc2 @next="nextSlide" @back="previous" />
             </div>
-            <div v-if="showTwo" class="slide-page">
-              <Kyc3 @lastSlide="last" @back="prevSlide" />
+            <div v-if="activeloan.level.passed_bvn == true && activeloan.level.passed_document_upload == true && activeloan.level.passed_set_inspection_date == false && activeloan.level.passed_picture_upload == false" class="slide-page">
+              <Kyc3 @lastSlide="last" @prevSlide="previousSlide" />
             </div>
-            <div v-if="showThree" class="slide-page">
-              <Kyc4 />
+            <div v-if="activeloan.level.passed_bvn == true && activeloan.level.passed_document_upload == true && activeloan.level.passed_set_inspection_date == true && activeloan.level.passed_picture_upload == false" class="slide-page">
+              <Kyc4 @showPrev="showPrevious" />
+            </div>
+            <div v-if="activeloan.level.passed_bvn == true && activeloan.level.passed_document_upload == true && activeloan.level.passed_set_inspection_date == true && activeloan.level.passed_picture_upload == true" class="slide-page">
+              <Message />
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
-import KycNumbers from '../../components/KycNumbers'
-import Kyc2 from '../../components/Kyc2'
-import Kyc1 from '../../components/Kyc1'
-import Kyc3 from '../../components/Kyc3'
-import Kyc4 from '../../components/Kyc4'
+import GeneralNav from '~/components/GeneralNavbarComponent'
+import { mapGetters } from 'vuex'
+import KycNumbers from '../../components/kyc/KycNumbers'
+import Kyc2 from '../../components/kyc/Kyc2'
+import Kyc1 from '../../components/kyc/Kyc1'
+import Kyc3 from '../../components/kyc/Kyc3'
+import Kyc4 from '../../components/kyc/Kyc4'
+import Message from '../../components/messages/AwaitingVerificationMessage'
 
 export default {
   components: {
     KycNumbers,
-    Kyc2,
     Kyc1,
+    Kyc2,
     Kyc3,
     Kyc4,
-    Kyc1,
+    GeneralNav,
+    Message
   },
   data() {
     return {
@@ -74,6 +63,11 @@ export default {
       showTwo: false,
       showThree: false,
     }
+  },
+  computed: {
+    ...mapGetters([
+      'activeloan'
+    ])
   },
   methods: {
     slide() {
@@ -93,6 +87,7 @@ export default {
       this.showOne = false
     },
     nextSlide() {
+      console.log('next')
       this.showOne = false
       this.showTwo = true
     },
@@ -100,11 +95,16 @@ export default {
       this.showTwo = false
       this.showThree = true
     },
-    prevSlide() {
+    previousSlide() {
       this.showTwo = false
       this.showOne = true
     },
+    showPrevious() {
+      this.showTwo = true
+      this.showThree = false
+    },
   },
+  middleware: ['auth'],
 }
 </script>
 
@@ -138,6 +138,7 @@ input:focus {
   position: relative;
   transition: background-color 500ms;
   line-height: 28px;
+  z-index: 2;
 }
 .bullet .completed {
   color: #fff;
@@ -151,6 +152,7 @@ input:focus {
   height: 3px;
   width: 94px;
   background-color: orange;
+  z-index: 1;
 }
 
 .progress-bar .step:last-child .bullet:before,
@@ -160,5 +162,19 @@ input:focus {
 
 input {
   width: 100%;
+}
+@media screen and (max-width: 520px) {
+  .progress-bar {
+    width: 300px;
+  }
+  .bullet::after {
+    content: '';
+    position: absolute;
+    right: -62px;
+    bottom: 10px;
+    height: 3px;
+    width: 57px;
+    background-color: orange;
+  }
 }
 </style>

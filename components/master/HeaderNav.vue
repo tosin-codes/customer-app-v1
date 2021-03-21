@@ -170,12 +170,12 @@ export default {
         this.navSVG = this.close;
         this.navShow = true
       } else {this.navSVG = this.burger; this.navShow = false}
-    }
-  },
-  async logout(){
+    },
+    async logout(){
       let vm = this
       await this.$auth.logout()
     },
+  }
 }
 </script>
 

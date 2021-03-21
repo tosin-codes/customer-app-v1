@@ -15,6 +15,11 @@
                 "
                 >Date is required</span
               >
+              <div v-if="errors">
+              <span class="text-red-700 text-xs" v-if="errors.date">
+                {{ errors.date[0] }}
+              </span>
+              </div>
             </div>
             <div>
               <input class="my-4" type="time" v-model="inspectionDate.time" />
@@ -26,11 +31,16 @@
                 "
                 >Time is required</span
               >
+              <div v-if="errors">
+              <span class="text-red-700 text-xs" v-if="errors.time">
+                {{ errors.time[0] }}
+              </span>
+              </div>
             </div>
           </div>
           <div class="flex justify-between items-center mt-8">
             <button
-              @click.prevent="prevSlide"
+              @click.prevent="back"
               class="mb-5 px-6 py-3 h-12 sm:w-full md:w-2/6 border-transparent focus:outline-none rounded-full shadow-sm text-base font-medium text-orange-500 bg-white border-2 border-orange-500"
             >
               Prev
@@ -73,27 +83,39 @@ export default {
     }),
 
     async submitDate() {
-      console.log('clicked')
       this.$v.inspectionDate.$touch()
       var isValid = !this.$v.inspectionDate.$invalid
 
-      if (isValid) {
-        try {
-          const user = await this.$axios.put(
-            '/loans/8/vehicles/inspection',
-            this.inspectionDate
-          )
-          this.setState({
-            user,
-          })
-        } catch (error) {
-          console.log(error)
-        }
-        this.$emit('lastSlide')
+      if (!isValid) {
+        return false;
       }
+        const loan_id = this.$store.getters.activeloan.id
+        
+        await this.$axios({
+          method: 'PUT',
+          url: `loans/${loan_id}/vehicles/inspection`,
+          data: this.inspectionDate
+        }).then(response =>{
+        let loan = response.data.data
+        this.$store.commit('setActiveLoanLevel', loan)
+      })
+      .catch(error =>{
+          if (error.response) {
+            if(error.response.status === 401 || error.response.status === 403 || error.response.status === 500){
+              const data = error.response.data.message
+              this.$noty.error(data)
+              return false;
+            }
+            if(error.response.status === 422){
+              this.$store.commit('setValidationErrors', error.response.data.errors);
+              return false;
+            }
+          }
+      })
+        
     },
-    previous() {
-      this.$emit('back')
+    back() {
+      this.$emit('prevSlide')
     },
   },
 }
