@@ -10,7 +10,7 @@
           <div class="font-bold text-gray-700">Dashboard</div>
         </div>
         <DashboardCards />
-        <div v-if="!this.$store.getters.user.active_loans">
+        <div v-if="!this.$store.getters.active_loans">
           <ActiveLoan />
         </div>
         <div v-else>
@@ -27,7 +27,7 @@ import DashboardCards from '~/components/DashboardCards'
 export default {
   components: {
     DashboardCards,
-    GeneralNav,
+    GeneralNav
   },
   data() {
     return {
@@ -35,16 +35,9 @@ export default {
       activeLoan: false,
     }
   },
-  middleware: 'auth',
+  middleware: ['auth', 'setLevelForNewLoan'],
   mounted() {
-    //   if (this.$store.getter.user.active_loans === 0) {
-    //     this.inActiveLoan = true
-    //   } else if (this.$store.getter.user.active_loans > 0) {
-    //     this.activeLoan = true
-    //   } else {
-    //     this.activeLoan = false
-    //     this.inActiveLoan = false
-    //   }
+    
   },
 }
 </script>

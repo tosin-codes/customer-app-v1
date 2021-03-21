@@ -15,6 +15,11 @@
                 "
                 >Date is required</span
               >
+              <div v-if="errors">
+              <span class="text-red-700 text-xs" v-if="errors.date">
+                {{ errors.date[0] }}
+              </span>
+              </div>
             </div>
             <div>
               <input class="my-4" type="time" v-model="inspectionDate.time" />
@@ -26,6 +31,11 @@
                 "
                 >Time is required</span
               >
+              <div v-if="errors">
+              <span class="text-red-700 text-xs" v-if="errors.time">
+                {{ errors.time[0] }}
+              </span>
+              </div>
             </div>
           </div>
           <div class="flex justify-between items-center mt-8">
@@ -73,28 +83,36 @@ export default {
     }),
 
     async submitDate() {
-      console.log('clicked')
       this.$v.inspectionDate.$touch()
       var isValid = !this.$v.inspectionDate.$invalid
 
-      if (isValid) {
-        console.log(this.user.token)
-        const id = this.$store.getters.user.id
-        try {
-          const user = await this.$axios({
-            method: 'PUT',
-            url: `loans/${id}/vehicles/inspection`,
-            data: this.inspectionDate,
-            headers: {
-              Token: `Bearer ${this.user.token}`,
-            },
-          })
-        } catch (error) {
-          console.log(error)
-
-          this.$emit('lastSlide')
-        }
+      if (!isValid) {
+        return false;
       }
+        const loan_id = this.$store.getters.activeloan.id
+        
+        await this.$axios({
+          method: 'PUT',
+          url: `loans/${loan_id}/vehicles/inspection`,
+          data: this.inspectionDate
+        }).then(response =>{
+        let loan = response.data.data
+        this.$store.commit('setActiveLoanLevel', loan)
+      })
+      .catch(error =>{
+          if (error.response) {
+            if(error.response.status === 401 || error.response.status === 403 || error.response.status === 500){
+              const data = error.response.data.message
+              this.$noty.error(data)
+              return false;
+            }
+            if(error.response.status === 422){
+              this.$store.commit('setValidationErrors', error.response.data.errors);
+              return false;
+            }
+          }
+      })
+        
     },
     back() {
       this.$emit('prevSlide')

@@ -32,6 +32,9 @@
                 </small></template
               >
             </p>
+            <span class="text-red-700 text-xs" v-if="errors.first_name">
+                {{ errors.first_name[0] }}
+              </span>
           </div>
           <div class="mb-5 md:col-start-7 md:col-end-13">
             <label for="" class="font-bold opacity-75">Last Name</label>
@@ -51,6 +54,9 @@
                 </small></template
               >
             </p>
+            <span class="text-red-700 text-xs" v-if="errors.last_name">
+                {{ errors.last_name[0] }}
+              </span>
           </div>
           <div class="mb-5 md:col-start-1 md:col-end-7">
             <label for="" class="font-bold opacity-75">Email Address</label>
@@ -71,6 +77,9 @@
                 <small v-if="!$v.formData.email.email">Email is invalid</small>
               </template>
             </p>
+            <span class="text-red-700 text-xs" v-if="errors.email">
+                {{ errors.email[0] }}
+              </span>
           </div>
           <div class="mb-5 md:col-start-7 md:col-end-13">
             <label for="" class="font-bold opacity-75">Phone Number</label>
@@ -100,6 +109,9 @@
                 </small>
               </template>
             </p>
+            <span class="text-red-700 text-xs" v-if="errors.phone">
+                {{ errors.phone[0] }}
+            </span>
           </div>
           <div class="mb-5 md:col-start-1 md:col-end-13">
             <label for="" class="font-bold opacity-75">Date of birth</label>
@@ -119,6 +131,9 @@
                 </small>
               </template>
             </p>
+            <span class="text-red-700 text-xs" v-if="errors.date_of_birth">
+                {{ errors.date_of_birth[0] }}
+            </span>
           </div>
 
           <div class="mb-5 md:col-start-1 md:col-end-7">
@@ -142,6 +157,9 @@
                 </small>
               </template>
             </p>
+            <span class="text-red-700 text-xs" v-if="errors.password">
+                {{ errors.password[0] }}
+            </span>
           </div>
           <div class="mb-5 md:col-start-7 md:col-end-13">
             <label for="" class="font-bold opacity-75">Confirm Password</label>
@@ -166,9 +184,12 @@
                 </small>
               </template>
             </p>
+            <span class="text-red-700 text-xs" v-if="errors.password_confirmation">
+                {{ errors.password_confirmation[0] }}
+            </span>
           </div>
 
-          <ButtonSquare class="md:col-start-1 md:col-end-13" />
+          <ButtonSquare  :disabled="disable" class="md:col-start-1 md:col-end-13" />
         </form>
       </div>
       <div class="text-center">
@@ -199,6 +220,7 @@ export default {
   },
   data() {
     return {
+      disable: false,
       formData: {
         first_name: '',
         last_name: '',
@@ -258,21 +280,27 @@ export default {
 
       this.$v.$touch()
       if (!this.$v.$invalid) {
-        try {
           await this.$axios.post('/signup', {
             ...this.formData,
             ref_code: '',
-          })
-          this.$router.push({
-            path: '/dashboard',
-          })
-        } catch (error) {
-          console.log(error)
-          this.disable = !this.disable
-        }
+          }).then(response => {
+            console.log(response)
+            let user = response.data.data
+            let token = response.data.token
+            this.$auth.setUser(user)
+            this.$auth.setUserToken(token)
+            this.disable = !this.disable
+          }).catch( (error) =>{
+            if (error.response) {
+              const data = error.response.data.message
+              vm.$noty.error(data)
+            }
+            this.disable = !this.disable
+        })
       }
     },
   },
+  middleware: ['guest']
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
-  <div class="form-group" :style="{ textAlign: avatar ? 'center' : '' }">
+  <div class="flex flex-col">
     <!-- <h6>click to upload.</h6> -->
-    <div class="uploaded-image" v-if="avatar">
+    <div class="w-32 h-16" v-if="avatar">
       <img :src="avatar" />
     </div>
 

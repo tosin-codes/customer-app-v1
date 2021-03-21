@@ -31,7 +31,7 @@
           </div>
           <div>Active Loan</div>
         </div>
-        <div class="font-semibold text-xl">₦1,200,000</div>
+        <div class="font-semibold text-xl">₦{{ this.$store.getters.activeloan === 0 ? 0 : this.$store.getters.activeloan.offer_amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</div>
       </div>
       <div
         class="flex flex-col justify-between p-6 bg-blue-400 bg-no-repeat bg-right-bottom bg-card-bg h-40 rounded-2xl mb-10"
@@ -93,7 +93,7 @@
           </div>
           <div>Total Loans</div>
         </div>
-        <div class="font-semibold text-xl">₦1,200,000</div>
+        <div class="font-semibold text-xl">₦{{ this.$store.getters.totalloans }}</div>
       </div>
       <div
         class="flex flex-col justify-between p-6 bg-orange-400 bg-no-repeat bg-right-bottom bg-card-bg h-40 rounded-2xl mb-10"
@@ -118,7 +118,7 @@
           </div>
           <div>Closed Loans</div>
         </div>
-        <div class="font-semibold text-xl">₦1,200,000</div>
+        <div class="font-semibold text-xl">₦{{ this.$store.getters.closedloans }}</div>
       </div>
     </div>
   </div>

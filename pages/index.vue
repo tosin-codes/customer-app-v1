@@ -175,31 +175,6 @@ export default {
           this.disable = !this.disable
         })
     },
-    async logInUser() {
-      this.errorMessage = this.$v.$invalid
-
-      if (!this.$v.$invalid) {
-        const login = {
-          email: this.email,
-          password: this.password,
-        }
-
-        try {
-          let response = await this.$auth.loginWith('local', {
-            data: login,
-          })
-          // console.log(response.data)
-          this.$auth.setUser(response.data)
-          // localStorage.setItem('loans', response.data.all_loans.toString())
-          // localStorage.setItem('isLoggedIn', true)
-          this.$noty.success('Logged In')
-        } catch (err) {
-          console.log(err)
-          this.$noty.error(err)
-        }
-        // this.authenticated
-      }
-    },
     authenticated() {
       const logged = this.$store.state.auth.loggedIn
       if (logged) {
@@ -207,7 +182,7 @@ export default {
       }
     },
   },
-  middleware: ['guest'],
+  middleware: ['guest']
 }
 </script>
 

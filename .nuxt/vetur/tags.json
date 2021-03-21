@@ -14,26 +14,29 @@
   "GeneralNavbarComponent": {
     "description": "Auto imported from components/GeneralNavbarComponent.vue"
   },
-  "Kyc1": {
-    "description": "Auto imported from components/Kyc1.vue"
-  },
-  "Kyc2": {
-    "description": "Auto imported from components/Kyc2.vue"
-  },
-  "Kyc3": {
-    "description": "Auto imported from components/Kyc3.vue"
-  },
-  "Kyc4": {
-    "description": "Auto imported from components/Kyc4.vue"
-  },
-  "KycNumbers": {
-    "description": "Auto imported from components/KycNumbers.vue"
-  },
   "FormComponentsCheckboxComponent": {
     "description": "Auto imported from components/FormComponents/CheckboxComponent.vue"
   },
   "FormComponentsRadioComponent": {
     "description": "Auto imported from components/FormComponents/RadioComponent.vue"
+  },
+  "Kyc1": {
+    "description": "Auto imported from components/kyc/Kyc1.vue"
+  },
+  "Kyc2": {
+    "description": "Auto imported from components/kyc/Kyc2.vue"
+  },
+  "Kyc3": {
+    "description": "Auto imported from components/kyc/Kyc3.vue"
+  },
+  "Kyc4": {
+    "description": "Auto imported from components/kyc/Kyc4.vue"
+  },
+  "KycNumbers": {
+    "description": "Auto imported from components/kyc/KycNumbers.vue"
+  },
+  "KycUpload": {
+    "description": "Auto imported from components/kyc/Upload.vue"
   },
   "MasterHeaderNav": {
     "description": "Auto imported from components/master/HeaderNav.vue"
@@ -43,6 +46,9 @@
   },
   "MasterSidebarNav": {
     "description": "Auto imported from components/master/SidebarNav.vue"
+  },
+  "MessagesAwaitingVerificationMessage": {
+    "description": "Auto imported from components/messages/AwaitingVerificationMessage.vue"
   },
   "FormComponentsBigTextsTextRounded": {
     "description": "Auto imported from components/FormComponents/BigTexts/TextRounded.vue"

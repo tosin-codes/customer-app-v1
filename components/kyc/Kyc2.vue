@@ -2,7 +2,7 @@
   <div class="bg-gray-100 p-4 py-8 mb-10 w-full rounded-md">
     <form class="mx-4" @submit.prevent="validateSubmit">
       <h4
-        class="sm:ml-6 lg:ml-16 lg:text-2xl lg:font-bold sm:font-medium sm:text-xl text-gray-600 pb-5"
+        class="lg:text-xl lg:font-medium sm:font-medium sm:text-xl text-gray-500 pb-5"
       >
         Upload the following documents for your vehicle
       </h4>
@@ -22,20 +22,17 @@
           </div>
         </div>
       </div>
-      <!-- 
-        <div class="text-center">
-          <button @click.prevent="validateSubmit" class="">Next</button>
-        </div> -->
+      
       <div class="flex justify-between lg:m-6 items-center mt-5">
         <button
           @click.prevent="back"
-          class="mb-5 lg:ml-6 px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none rounded-full shadow-sm text-base font-medium text-orange-500 bg-white hover:bg-orange-600"
+          class="mb-5 px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none rounded-full shadow-sm text-base font-medium text-orange-500 bg-white hover:bg-orange-600"
         >
           Back
         </button>
         <button
           @click.prevent="validateSubmit"
-          class="mb-5 lg:mr-6 px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none rounded-full shadow-sm text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
+          class="mb-5 px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none rounded-full shadow-sm text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
         >
           Next
         </button>
@@ -68,7 +65,6 @@ export default {
   },
   methods: {
     getUpload(key, value) {
-      console.log(key, value)
       this.document[key] = value
       this.$forceUpdate()
     },
@@ -85,39 +81,42 @@ export default {
       const vehicle_documents = [
         {
           ...this.document,
-          vehicle_id: this.$store.getters.user.id,
+          vehicle_id: 1
         },
       ]
       this.uploadDocuments(vehicle_documents)
       this.$emit('next')
     },
     async uploadDocuments(data) {
-      console.log(this.$store.getters.user.id)
+      const loan_id = this.$store.getters.activeloan.id
       // this.$store.commit('set', { loading: true })
       const formData = new FormData()
       for (let i = 0; i < data.length; i++) {
         for (let key of Object.keys(data[i]))
           formData.append(`vehicles[${i}][${key}]`, data[i][key])
       }
-      const id = this.$store.getters.user.id
-      try {
-        const res = await this.$axios({
-          method: 'POST',
-          url: `/loans/${id}/vehicles/documents`,
-          data: formData,
-          headers: {
-            Authorization: `Bearer ${this.user.token}`,
-          },
-        })
-        this.$store.commit('set', {
-          loan_offer: res.data.data,
-        })
-
-        // this.$store.commit('set', { loading: false })
-      } catch (err) {
-        console.log(err)
-        // this.catchErrors(err)
-      }
+      
+      await this.$axios({
+        method: 'POST',
+        url: `/loans/${loan_id}/vehicles/documents`,
+        data: formData
+      }).then(response =>{
+        let loan = response.data.data
+        this.$store.commit('setActiveLoanLevel', loan)
+      })
+      .catch(error =>{
+          if (error.response) {
+            if(error.response.status === 401 || error.response.status === 403 || error.response.status === 500){
+              const data = error.response.data.message
+              this.$noty.error(data)
+              return false;
+            }
+            if(error.response.status === 422){
+              this.$store.commit('setValidationErrors', error.response.data.errors);
+              return false;
+            }
+          }
+      })
     },
     back() {
       this.$emit('back')

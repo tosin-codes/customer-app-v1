@@ -25,22 +25,11 @@
                 v-if="!$v.bankInformation.bvn.minLength"
                 >Enter a valid BVN</span
               >
-            </div>
-            <div>
-              <input
-                class="my-4"
-                type="text"
-                placeholder="Account Name "
-                v-model.trim="bankInformation.holder_name"
-              />
-              <span
-                class="text-red-500 italics text-sm pl-4"
-                v-if="
-                  $v.bankInformation.holder_name.$error &&
-                  !$v.bankInformation.holder_name.required
-                "
-                >Account name is required</span
-              >
+              <div v-if="errors">
+              <span class="text-red-700 text-xs" v-if="errors.bvn">
+                {{ errors.bvn[0] }}
+              </span>
+              </div>
             </div>
             <div>
               <input
@@ -57,30 +46,38 @@
                 "
                 >Account number is required</span
               >
+              <div v-if="errors">
+              <span class="text-red-700 text-xs" v-if="errors.number">
+                {{ errors.number[0] }}
+              </span>
+              </div>
             </div>
             <div>
-              <input
-                class="my-4"
-                type="text"
-                placeholder="Bank name"
-                v-model.trim="bankInformation.name"
-              />
+              <select name="" class="w-full p-4 rounded-full my-4" v-model.trim="bankInformation.code" id="">
+                  <option value="" disabled selected>Select bank name</option>
+                 <option v-for="bank in banks" :key="bank.code+'-'+bank.name" :value="bank.code">{{bank.name}}</option>
+              </select>
               <span
                 class="text-red-500 italics text-sm pl-4"
                 v-if="
-                  $v.bankInformation.name.$error &&
-                  !$v.bankInformation.name.required
+                  $v.bankInformation.code.$error &&
+                  !$v.bankInformation.code.required
                 "
                 >Bank name is required</span
               >
+              <div v-if="errors">
+                  <span class="text-red-700 text-xs" v-if="errors.code">
+                  {{ errors.code[0] }}
+                </span>
+              </div>
+              
             </div>
             <div>
-              <input
-                class="my-4"
-                type="text"
-                placeholder="Account Type"
-                v-model.trim="bankInformation.type"
-              />
+              <select name="" class="w-full p-4 rounded-full my-4" v-model.trim="bankInformation.type" placeholder="type">
+                <option value="" disabled selected>Select account type</option>
+                 <option value="savings">SAVINGS</option>
+                 <option value="current">CURRENT</option>
+              </select>
               <span
                 class="text-red-500 italics text-sm pl-4"
                 v-if="
@@ -89,6 +86,11 @@
                 "
                 >Account type is required</span
               >
+              <div v-if="errors">
+              <span class="text-red-700 text-xs" v-if="errors.type">
+                {{ errors.type[0] }}
+              </span>
+              </div>
             </div>
           </div>
 
@@ -112,11 +114,11 @@ import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 export default {
   data() {
     return {
+      banks:'',
       bankInformation: {
-        bvn: '',
-        holder_name: '',
-        number: '',
-        name: '',
+        bvn: '12345678920',
+        number: '1234567890',
+        code: '',
         type: '',
       },
     }
@@ -128,13 +130,10 @@ export default {
         minLength: minLength(11),
         maxLength: maxLength(11),
       },
-      holder_name: {
-        required,
-      },
       number: {
         required,
       },
-      name: {
+      code: {
         required,
       },
       type: {
@@ -152,26 +151,46 @@ export default {
 
       // this.$auth.user
 
-      if (isValid) {
-        console.log(this.$store.getters.user.id)
-        const id = this.$store.getters.user.id
-
-        try {
-          const user = await this.$axios({
-            method: 'PUT',
-            url: `loans/${id}/banks/verify`,
-            data: this.bankInformation,
-            headers: {
-              Token: `Bearer ${this.user.token}`,
-            },
-          })
-        } catch (error) {
-          console.log(error)
-        }
-        this.$emit('on-validate')
+      if (!isValid) {
+        return false;
       }
+
+      const loan_id = this.$store.getters.activeloan.id
+
+      
+      this.$axios.put(`loans/${loan_id}/banks/verify`,{
+        ...this.bankInformation,
+      })
+      .then(response => {
+          let loan = response.data.data
+          this.$store.commit('setActiveLoanLevel', loan)
+      })
+      .catch(error => {
+        if (error.response) {
+          if(error.response.status === 401 || error.response.status === 403 || error.response.status === 500){
+            const data = error.response.data.message
+            this.$noty.error(data)
+            return false;
+          }
+          if(error.response.status === 422){
+            this.$store.commit('setValidationErrors', error.response.data.errors);
+            return false;
+          }
+        }
+      });
+      this.$emit('on-validate')
     },
+    getStates(){
+      this.$axios.get('/banks')
+      .then(response =>{
+        this.banks = response.data.data;
+      })
+      .catch(error => console.log(error.response))
+    }
   },
+  mounted(){
+    this.getStates()
+  }
 }
 </script>
 

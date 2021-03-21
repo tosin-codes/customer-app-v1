@@ -23,15 +23,9 @@
         to="/"
         class="flex flex-row justify-center my-6 hover:text-orange-500"
       >
-        <div class="font-semibold">Cards</div>
-      </nuxt-link>
-      <nuxt-link
-        to="/"
-        class="flex flex-row justify-center my-6 hover:text-orange-500"
-      >
         <div class="font-semibold">Profile</div>
       </nuxt-link>
-      <nuxt-link to="/">
+      <nuxt-link to="/" v-if="!activeloan">
         <div class="rounded-full bg-orange-500 hover:bg-orange-600 text-base py-3 text-white text-center">
           Create Loan
         </div>
@@ -47,8 +41,14 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  name:"MobileNav"
+  name:"MobileNav",
+  computed: {
+    ...mapGetters([
+      'activeloan'
+    ])
+  }
 }
 </script>
 
