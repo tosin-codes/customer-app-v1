@@ -49,7 +49,7 @@
                 </div>
               </nuxt-link>
               <nuxt-link
-                to="/"
+                to="active-loans"
                 class="flex flex-row justify-between items-center my-8 hover:text-orange-500"
               >
                 <div class="font-semibold">Active Loans</div>
@@ -135,7 +135,7 @@
                   </svg>
                 </div>
               </nuxt-link>
-              <nuxt-link to="/" v-if="!activeloan">
+              <nuxt-link to="/create-loan" v-if="!activeloan">
                 <div class="rounded-full bg-orange-500 hover:bg-orange-600 text-base py-3 text-white text-center">
                   Create Loan
                 </div>
