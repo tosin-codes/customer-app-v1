@@ -3,35 +3,30 @@
     "name": "active-loans",
     "path": "/active-loans",
     "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\active-loans\\\\index.vue",
-    "chunkName": "pages/active-loans/index",
-    "_name": "_153618a4"
+    "chunkName": "pages/active-loans/index"
   },
   {
     "name": "dashboard",
     "path": "/dashboard",
     "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\dashboard\\\\index.vue",
-    "chunkName": "pages/dashboard/index",
-    "_name": "_f1330740"
+    "chunkName": "pages/dashboard/index"
   },
   {
     "name": "kyc",
     "path": "/kyc",
     "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\kyc\\\\index.vue",
-    "chunkName": "pages/kyc/index",
-    "_name": "_ccfdf1c2"
+    "chunkName": "pages/kyc/index"
   },
   {
     "name": "sign-up",
     "path": "/sign-up",
     "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\sign-up\\\\index.vue",
-    "chunkName": "pages/sign-up/index",
-    "_name": "_4502f869"
+    "chunkName": "pages/sign-up/index"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_3cb09020"
+    "chunkName": "pages/index"
   }
 ]
