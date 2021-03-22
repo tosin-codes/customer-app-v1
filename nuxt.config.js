@@ -21,7 +21,9 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+    'vue-select/dist/vue-select.css'
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -96,8 +98,8 @@ export default {
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // baseURL: 'https://cashapi.cashdrive.co/api/v1/',
-    baseURL: 'http://127.0.0.1:8000/api/v1/',
+    baseURL: 'https://cashapi.cashdrive.co/api/v1/',
+    // baseURL: 'http://127.0.0.1:8000/api/v1/',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

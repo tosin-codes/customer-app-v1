@@ -8,9 +8,11 @@ You can directly use them in pages and other components without the need to impo
 
 - `<ActiveLoan>` | `<active-loan>` (components/ActiveLoan.vue)
 - `<ActiveLoanSchedule>` | `<active-loan-schedule>` (components/ActiveLoanSchedule.vue)
+- `<CreateLoan2>` | `<create-loan-2>` (components/CreateLoan2.vue)
 - `<DashboardCards>` | `<dashboard-cards>` (components/DashboardCards.vue)
 - `<DashboardNav>` | `<dashboard-nav>` (components/DashboardNav.vue)
 - `<GeneralNavbarComponent>` | `<general-navbar-component>` (components/GeneralNavbarComponent.vue)
+- `<ModalChild>` | `<modal-child>` (components/ModalChild.vue)
 - `<FormComponentsCheckboxComponent>` | `<form-components-checkbox-component>` (components/FormComponents/CheckboxComponent.vue)
 - `<FormComponentsRadioComponent>` | `<form-components-radio-component>` (components/FormComponents/RadioComponent.vue)
 - `<Kyc1>` | `<kyc-1>` (components/kyc/Kyc1.vue)

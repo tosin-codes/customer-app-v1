@@ -3,9 +3,11 @@ import Vue from 'vue'
 const components = {
   ActiveLoan: () => import('../..\\components\\ActiveLoan.vue' /* webpackChunkName: "components/active-loan" */).then(c => c.default || c),
   ActiveLoanSchedule: () => import('../..\\components\\ActiveLoanSchedule.vue' /* webpackChunkName: "components/active-loan-schedule" */).then(c => c.default || c),
+  CreateLoan2: () => import('../..\\components\\CreateLoan2.vue' /* webpackChunkName: "components/create-loan-2" */).then(c => c.default || c),
   DashboardCards: () => import('../..\\components\\DashboardCards.vue' /* webpackChunkName: "components/dashboard-cards" */).then(c => c.default || c),
   DashboardNav: () => import('../..\\components\\DashboardNav.vue' /* webpackChunkName: "components/dashboard-nav" */).then(c => c.default || c),
   GeneralNavbarComponent: () => import('../..\\components\\GeneralNavbarComponent.vue' /* webpackChunkName: "components/general-navbar-component" */).then(c => c.default || c),
+  ModalChild: () => import('../..\\components\\ModalChild.vue' /* webpackChunkName: "components/modal-child" */).then(c => c.default || c),
   FormComponentsCheckboxComponent: () => import('../..\\components\\FormComponents\\CheckboxComponent.vue' /* webpackChunkName: "components/form-components-checkbox-component" */).then(c => c.default || c),
   FormComponentsRadioComponent: () => import('../..\\components\\FormComponents\\RadioComponent.vue' /* webpackChunkName: "components/form-components-radio-component" */).then(c => c.default || c),
   Kyc1: () => import('../..\\components\\kyc\\Kyc1.vue' /* webpackChunkName: "components/kyc-1" */).then(c => c.default || c),

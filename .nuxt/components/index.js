@@ -1,8 +1,10 @@
 export { default as ActiveLoan } from '../..\\components\\ActiveLoan.vue'
 export { default as ActiveLoanSchedule } from '../..\\components\\ActiveLoanSchedule.vue'
+export { default as CreateLoan2 } from '../..\\components\\CreateLoan2.vue'
 export { default as DashboardCards } from '../..\\components\\DashboardCards.vue'
 export { default as DashboardNav } from '../..\\components\\DashboardNav.vue'
 export { default as GeneralNavbarComponent } from '../..\\components\\GeneralNavbarComponent.vue'
+export { default as ModalChild } from '../..\\components\\ModalChild.vue'
 export { default as FormComponentsCheckboxComponent } from '../..\\components\\FormComponents\\CheckboxComponent.vue'
 export { default as FormComponentsRadioComponent } from '../..\\components\\FormComponents\\RadioComponent.vue'
 export { default as Kyc1 } from '../..\\components\\kyc\\Kyc1.vue'
@@ -30,9 +32,11 @@ export { default as FormComponentsButtonsSecondaryButtonSquare } from '../..\\co
 
 export const LazyActiveLoan = import('../..\\components\\ActiveLoan.vue' /* webpackChunkName: "components/active-loan" */).then(c => c.default || c)
 export const LazyActiveLoanSchedule = import('../..\\components\\ActiveLoanSchedule.vue' /* webpackChunkName: "components/active-loan-schedule" */).then(c => c.default || c)
+export const LazyCreateLoan2 = import('../..\\components\\CreateLoan2.vue' /* webpackChunkName: "components/create-loan-2" */).then(c => c.default || c)
 export const LazyDashboardCards = import('../..\\components\\DashboardCards.vue' /* webpackChunkName: "components/dashboard-cards" */).then(c => c.default || c)
 export const LazyDashboardNav = import('../..\\components\\DashboardNav.vue' /* webpackChunkName: "components/dashboard-nav" */).then(c => c.default || c)
 export const LazyGeneralNavbarComponent = import('../..\\components\\GeneralNavbarComponent.vue' /* webpackChunkName: "components/general-navbar-component" */).then(c => c.default || c)
+export const LazyModalChild = import('../..\\components\\ModalChild.vue' /* webpackChunkName: "components/modal-child" */).then(c => c.default || c)
 export const LazyFormComponentsCheckboxComponent = import('../..\\components\\FormComponents\\CheckboxComponent.vue' /* webpackChunkName: "components/form-components-checkbox-component" */).then(c => c.default || c)
 export const LazyFormComponentsRadioComponent = import('../..\\components\\FormComponents\\RadioComponent.vue' /* webpackChunkName: "components/form-components-radio-component" */).then(c => c.default || c)
 export const LazyKyc1 = import('../..\\components\\kyc\\Kyc1.vue' /* webpackChunkName: "components/kyc-1" */).then(c => c.default || c)
