@@ -27,7 +27,7 @@ import DashboardCards from '~/components/DashboardCards'
 export default {
   components: {
     DashboardCards,
-    GeneralNav
+    GeneralNav,
   },
   data() {
     return {
@@ -36,9 +36,7 @@ export default {
     }
   },
   middleware: ['auth', 'setLevelForNewLoan'],
-  mounted() {
-    
-  },
+  mounted() {},
 }
 </script>
 
