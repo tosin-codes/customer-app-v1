@@ -3,9 +3,9 @@
     <div class="text-center text-xl mb-5">You do not have any active loans</div>
     <div class="mx-auto">
       <nuxt-link
-        to="#"
-        class="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-full text-white"
-        >Create Loan</nuxt-link
+        to="/create-loan"
+        class="bg-orange-500 hover:bg-orange-600 px-4 py-3 rounded-full text-white"
+        >Apply for a Loan</nuxt-link
       >
     </div>
   </div>
