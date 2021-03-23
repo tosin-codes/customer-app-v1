@@ -21,7 +21,7 @@
             <div class="text-gray-900 font-semibold my-8">Dashboard</div>
             <div class="pr-6 lg:pr-24 text-gray-600">
               <nuxt-link
-                to="/"
+                to="/create-loan"
                 class="flex flex-row justify-between items-center mb-8 hover:text-orange-500"
               >
                 <div class="font-semibold">My Loans</div>
@@ -49,7 +49,7 @@
                 </div>
               </nuxt-link>
               <nuxt-link
-                to="/"
+                to="/create-loan"
                 class="flex flex-row justify-between items-center my-8 hover:text-orange-500"
               >
                 <div class="font-semibold">Active Loans</div>
@@ -77,7 +77,7 @@
                 </div>
               </nuxt-link>
               <nuxt-link
-                to="/"
+                to="/create-loan"
                 class="flex flex-row justify-between items-center my-8 hover:text-orange-500"
               >
                 <div class="font-semibold">Accounts</div>
@@ -111,7 +111,7 @@
                 </div>
               </nuxt-link>
               <nuxt-link
-                to="/"
+                to="/create-loan"
                 class="flex flex-row justify-between items-center my-8 hover:text-orange-500"
               >
                 <div class="font-semibold">Profile</div>
@@ -135,9 +135,9 @@
                   </svg>
                 </div>
               </nuxt-link>
-              <nuxt-link to="/" v-if="!activeloan">
+              <nuxt-link to="/create-loan" v-if="!activeloan">
                 <div class="rounded-full bg-orange-500 hover:bg-orange-600 text-base py-3 text-white text-center">
-                  Apply
+                  Apply for a Loan
                 </div>
               </nuxt-link>
             </div>

@@ -5,6 +5,9 @@
   "ActiveLoanSchedule": {
     "description": "Auto imported from components/ActiveLoanSchedule.vue"
   },
+  "CreateLoan2": {
+    "description": "Auto imported from components/CreateLoan2.vue"
+  },
   "DashboardCards": {
     "description": "Auto imported from components/DashboardCards.vue"
   },
@@ -13,6 +16,9 @@
   },
   "GeneralNavbarComponent": {
     "description": "Auto imported from components/GeneralNavbarComponent.vue"
+  },
+  "ModalChild": {
+    "description": "Auto imported from components/ModalChild.vue"
   },
   "FormComponentsCheckboxComponent": {
     "description": "Auto imported from components/FormComponents/CheckboxComponent.vue"

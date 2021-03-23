@@ -5,6 +5,7 @@ import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
 const _0b371798 = () => interopDefault(import('..\\pages\\active-loans\\index.vue' /* webpackChunkName: "pages/active-loans/index" */))
+const _24775c82 = () => interopDefault(import('..\\pages\\create-loan\\index.vue' /* webpackChunkName: "pages/create-loan/index" */))
 const _319b01ec = () => interopDefault(import('..\\pages\\dashboard\\index.vue' /* webpackChunkName: "pages/dashboard/index" */))
 const _10bba5ab = () => interopDefault(import('..\\pages\\kyc\\index.vue' /* webpackChunkName: "pages/kyc/index" */))
 const _497370f5 = () => interopDefault(import('..\\pages\\sign-up\\index.vue' /* webpackChunkName: "pages/sign-up/index" */))
@@ -25,6 +26,10 @@ export const routerOptions = {
     path: "/active-loans",
     component: _0b371798,
     name: "active-loans"
+  }, {
+    path: "/create-loan",
+    component: _24775c82,
+    name: "create-loan"
   }, {
     path: "/dashboard",
     component: _319b01ec,
