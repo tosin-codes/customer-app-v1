@@ -99,7 +99,7 @@
                   type="text"
                   name="duration"
                   id="input"
-                  class="px-3 h-12 bg-gray-100 border-2 border-gray-500 rounded-full"
+                  class="px-3 h-12 bg-gray-100 border-2 border-solid border-gray-500 outline-none rounded-full"
                   v-model.trim="$v.vehicleInformation.plate_number.$model"
                   :reduce="(name) => name.name"
                   placeholder="Enter Plate Number..."
@@ -204,13 +204,7 @@
 <script>
 import vehicles from '~/static/vehicles.json'
 import vSelect from 'vue-select'
-import {
-  required,
-  minLength,
-  maxLength,
-  numeric,
-  sameAs,
-} from 'vuelidate/lib/validators'
+import { required, sameAs } from 'vuelidate/lib/validators'
 import { mapMutations } from 'vuex'
 export default {
   components: {
@@ -309,10 +303,9 @@ export default {
     submitDetails() {
       this.$v.vehicleInformation.$touch()
       this.empty = !this.$v.vehicleInformation.$anyDirty
-      this.errorMessage = this.$v.$invalid
-      // console.log('hi')
-      if (this.$v.$invalid) {
-        // console.log('hi')
+      this.errorMessage = this.$v.vehicleInformation.$invalid
+
+      if (!this.$v.vehicleInformation.$invalid) {
         this.$emit('nextForm')
         window.scrollTo(0, 0)
         this.setStates({
@@ -326,7 +319,6 @@ export default {
           vehicle_registration: this.vehicleInformation.state,
         })
       } else {
-        console.log('uche')
       }
     },
     previous() {
@@ -336,7 +328,10 @@ export default {
 
   computed: {
     years() {
-      return this.vehicles[0].selections.years.map((el) => el.id).reverse()
+      return this.vehicles[0].selections.years
+        .filter((el) => el.id >= 2000)
+        .map((el) => el.id)
+        .reverse()
     },
     makes() {
       const yearObject = this.vehicles[0].selections.years.find(
@@ -385,6 +380,11 @@ export default {
 </script>
 
 <style>
+#input:focus {
+  border-color: #2684ff;
+  outline: none;
+  box-shadow: 0 0 0 1px #2684ff;
+}
 #select .vs__dropdown-toggle:focus-within {
   border-color: #2684ff;
   outline: none;

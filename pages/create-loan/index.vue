@@ -77,7 +77,7 @@
               <CreateLoan2 @previousForm="showForm1" @nextForm="showModal" />
             </div>
             <div v-show="modal">
-              <ModalChild />
+              <ModalChild @closeCard="showForm" />
             </div>
           </form>
         </div>
@@ -150,8 +150,11 @@ export default {
       this.createLoan2 = false
       this.modal = true
     },
+    showForm() {
+      this.createLoan2 = true
+      this.modal = false
+    },
     checkForm() {
-      console.log('clicked')
       const amount = this.amount.replace(/\,/g, '')
 
       if (amount == '' || amount < 200000) {
@@ -176,13 +179,10 @@ export default {
         this.error_duration = ''
         this.error_plan = ''
         this.desired.desired_amount = Number(this.amount.split(',').join(''))
-        console.log(this.desired.desired_amount)
         this.setStates({
-          // loanDetails: {
           amount: this.desired.desired_amount,
-          duration: this.desired.desired_repayment_plan,
-          repayment_plan: this.desired.desired_tenor,
-          // },
+          duration: this.desired.desired_tenor,
+          repayment_plan: this.desired.desired_repayment_plan,
         })
         this.createLoan2 = true
         this.createLoan1 = false

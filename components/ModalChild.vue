@@ -63,7 +63,8 @@ export default {
       this.$router.push('/offer')
     },
     reject() {
-      this.$emit('close-card')
+      console.log('yoo')
+      this.$emit('closeCard')
     },
   },
   computed: {

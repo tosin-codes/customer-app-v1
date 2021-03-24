@@ -5,7 +5,7 @@
       <nuxt-link
         to="/create-loan"
         class="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-full text-white"
-        >Create Loan</nuxt-link
+        >Apply for a loan</nuxt-link
       >
     </div>
   </div>

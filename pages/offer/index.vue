@@ -10,10 +10,10 @@
             </div>
             <div class="font-bold text-gray-700">Dashboard</div>
           </div>
-          <DashboardCards />
-          <div class="mt-24">
-            <div>
-              <!-- <div class="bg-gray-100">
+
+          <div class="mt-4">
+            <div class="container p-2" v-if="loading">
+              <div class="bg-gray-100">
                 <div class="px-4 sm:px-6 lg:px-8">
                   <div class="text-center">
                     <div>
@@ -25,7 +25,7 @@
                     </div>
                   </div>
                 </div>
-              </div> -->
+              </div>
             </div>
             <div class="container p-3" v-if="error">
               <div class="bg-gray-100">
@@ -41,9 +41,10 @@
                 </div>
               </div>
             </div>
-            <div class="container p-3">
+
+            <div class="container p-3" v-if="!loading && !error">
               <div class="bg-gray-100">
-                <div class="pt-12 px-4 sm:px-6 lg:px-8 lg:pt-20">
+                <div class="pt-12 px-4 sm:px-6 lg:px-8 lg:pt-12">
                   <div class="text-center">
                     <div>
                       <img
@@ -79,7 +80,8 @@
                             ₦
                           </span>
                           <span class="font-extrabold text-3xl">
-                            {{ desired_amount | currency }}
+                            <!-- currency -->
+                            {{ summaryDetails.amount | currency }}
                           </span>
                         </span>
                       </div>
@@ -98,7 +100,8 @@
                           class="px-3 flex items-start text-6xl tracking-tight text-gray-500"
                         >
                           <span class="font-extrabold text-3xl">
-                            {{ desired_tenor }} Months
+                            {{ summaryDetails.repayment_plan }}
+                            Months
                           </span>
                         </span>
                       </div>
@@ -117,7 +120,7 @@
                           class="px-3 flex items-start text-6xl tracking-tight text-gray-500"
                         >
                           <span class="font-extrabold text-3xl">
-                            {{ desired_repayment_plan }}
+                            {{ checkRepayment(summaryDetails.duration) }}
                           </span>
                         </span>
                       </div>
@@ -154,11 +157,11 @@
                                       class="px-3 flex items-start lg:text-4xl xl:text-6xl text-6xl tracking-tight text-gray-900"
                                     >
                                       <span
-                                        class="mt-2 mr-2 text-4xl font-medium"
+                                        class="mt-2 mr-2 text-3xl font-medium"
                                       >
                                         ₦
                                       </span>
-                                      <span class="font-extrabold text-5xl">
+                                      <span class="font-extrabold text-4xl">
                                         {{ offer.standard_offer.offer }}
                                       </span>
                                     </span>
@@ -255,9 +258,9 @@
                           </div>
                         </div>
                         <div
-                          class="mt-10 max-w-lg mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-start-3 lg:col-end-6 lg:row-start-1 lg:row-end-4"
+                          class="mt-14 max-w-lg mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-start-3 lg:col-end-6 lg:row-start-1 lg:row-end-4"
                         >
-                          <div class="relative z-10 rounded-lg shadow-xl">
+                          <div class="relative z-10 rounded-lg shadow-xl mb-12">
                             <div
                               class="pointer-events-none absolute inset-0 rounded-lg border-2 border-orange-300"
                               aria-hidden="true"
@@ -290,11 +293,11 @@
                                     class="px-3 flex items-start text-6xl tracking-tight text-gray-900 sm:text-6xl"
                                   >
                                     <span
-                                      class="mt-2 mr-2 text-4xl font-medium"
+                                      class="mt-2 mr-2 text-3xl font-medium"
                                     >
                                       ₦
                                     </span>
-                                    <span class="font-extrabold text-5xl">
+                                    <span class="font-extrabold text-4xl">
                                       {{ offer.best_offer.offer }}
                                     </span>
                                   </span>
@@ -306,7 +309,7 @@
                             >
                               <div class="flex flex-col">
                                 <!-- put values here -->
-                                <div class="text-center">
+                                <div class="text-center mb-12">
                                   <div class="my-5">
                                     <div class="text-orange-600">
                                       Comprehensive Insurance & Car Tracker
@@ -320,6 +323,7 @@
                                     <div class="text-orange-600">
                                       Disbursement amount
                                     </div>
+
                                     <div class="font-semibold text-2xl">
                                       ₦{{ offer.best_offer.disbursed_amount }}
                                     </div>
@@ -405,11 +409,11 @@
                                       class="px-3 flex items-start lg:text-4xl xl:text-6xl text-6xl tracking-tight text-gray-900"
                                     >
                                       <span
-                                        class="mt-2 mr-2 text-4xl font-medium"
+                                        class="mt-2 mr-2 text-3xl font-medium"
                                       >
                                         ₦
                                       </span>
-                                      <span class="font-extrabold text-5xl">
+                                      <span class="font-extrabold text-4xl">
                                         {{ offer.premium_offer.offer }}
                                       </span>
                                     </span>
@@ -648,35 +652,54 @@
 
 <script>
 import GeneralNav from '~/components/GeneralNavbarComponent'
-import DashboardCards from '~/components/DashboardCards'
+import { mapState } from 'vuex'
+
 export default {
   components: {
-    DashboardCards,
     GeneralNav,
   },
   data() {
-    return {}
+    return {
+      loading: true,
+      offer: '',
+    }
+  },
+  computed: {
+    ...mapState('information', { summaryDetails: (state) => state }),
   },
   methods: {
     getEstimation() {
       let vm = this
-      if (localStorage.getItem('estimation') == null) {
-        this.$router.push('/')
-        return false
-      }
-      let data = JSON.parse(localStorage.getItem('estimation'))
-      localStorage.removeItem('estimation')
-      localStorage.removeItem('desired')
       this.$axios
-        .post('/estimate', data)
+        .post('/estimate', {
+          desired_amount: this.$store.state.information.amount,
+          desired_tenor: this.$store.state.information.duration,
+          desired_repayment_plan: this.$store.state.information.repayment_plan,
+          insurance: this.$store.state.information.car_insurance,
+          make: this.$store.state.information.make,
+          model: this.$store.state.information.model,
+          phone: this.$store.state.information.phone,
+          plate_number: this.$store.state.information.plate_number,
+          registered_owner: this.$store.state.information.registered_owner,
+          state: this.$store.state.information.vehicle_registration,
+          trim: this.$store.state.information.size,
+          year: this.$store.state.information.year,
+          first_name: this.$store.getters.user.first_name,
+          email: this.$store.getters.user.email,
+          last_name: this.$store.getters.user.last_name,
+          phone: this.$store.getters.user.phone,
+        })
         .then(function (response) {
           let data = response.data
+
           vm.desired_amount = data.desired_amount
           vm.desired_tenor = data.desired_tenor
           vm.desired_repayment_plan = vm.checkRepayment(
             data.desired_repayment_plan
           )
-          vm.offer = data.offer
+
+          vm.offer = data.data
+          console.log(vm.offer)
           vm.loading = false
           vm.$noty.success('success')
         })
@@ -705,10 +728,10 @@ export default {
     },
     checkRepayment(value) {
       switch (value) {
-        case 2:
+        case '2':
           return 'Bi-Monthly'
           break
-        case 4:
+        case '4':
           return 'Quarterly'
           break
         default:
@@ -727,8 +750,8 @@ export default {
     },
   },
   mounted() {
-    // let vm = this
-    // vm.getEstimation()
+    let vm = this
+    vm.getEstimation()
   },
 }
 </script>
