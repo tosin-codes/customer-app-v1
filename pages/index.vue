@@ -110,7 +110,7 @@
           <div class="relative">
             <div class="text-center">
               Don't have an account?
-              <nuxt-link class="text-orange-600" to="sign-up"
+              <nuxt-link class="text-orange-600" to="/sign-up"
                 >Sign Up</nuxt-link
               >
             </div>
@@ -153,7 +153,6 @@ export default {
       setState: 'setStates',
     }),
     async submit() {
-      let vm = this
       this.errorMessage = this.$v.$invalid
       if (this.$v.$invalid) {
         return false
@@ -182,7 +181,7 @@ export default {
       }
     },
   },
-  middleware: ['guest']
+  middleware: ['guest'],
 }
 </script>
 
