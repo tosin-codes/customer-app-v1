@@ -240,13 +240,13 @@
                                 </div>
                                 <div class="mt-8">
                                   <div class="rounded-lg shadow-md">
-                                    <a
-                                      href="#"
+                                    <button
+                                      @click="accept()"
                                       class="block w-full text-center rounded-lg border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
                                       aria-describedby="tier-hobby"
                                     >
                                       Accept
-                                    </a>
+                                    </button>
                                   </div>
                                   <small
                                     class="text-orange-600 text-center block"
@@ -372,13 +372,13 @@
                               </div>
                               <div class="mt-8">
                                 <div class="rounded-lg shadow-md">
-                                  <a
-                                    href="#"
+                                  <button
+                                  @click="accept()"
                                     class="block w-full text-center rounded-lg border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
                                     aria-describedby="tier-scale"
                                   >
                                     Accept
-                                  </a>
+                                  </button>
                                 </div>
                                 <small class="text-orange-600 text-center block"
                                   >(Drop Your Car)</small
@@ -498,13 +498,13 @@
                                 </div>
                                 <div class="mt-8">
                                   <div class="rounded-lg shadow-md">
-                                    <a
-                                      href="#"
+                                    <button
+                                      @click="accept"
                                       class="block w-full text-center rounded-lg border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
                                       aria-describedby="tier-scale"
                                     >
                                       Accept
-                                    </a>
+                                    </button>
                                   </div>
                                   <small
                                     class="text-orange-600 text-center block"
@@ -528,118 +528,6 @@
                   >
                     Decline
                   </button>
-                </div>
-              </div>
-              <div class="flex flex-col">
-                <div class="bg-gray-200 text-white p-6 rounded-lg">
-                  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div
-                      class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
-                    >
-                      <div
-                        class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
-                      >
-                        <table class="min-w-full divide-y divide-gray-200">
-                          <thead class="bg-gray-50">
-                            <tr>
-                              <th
-                                scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-orange-600 uppercase tracking-wider"
-                              >
-                                Type
-                              </th>
-                              <th
-                                scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-orange-600 uppercase tracking-wider"
-                              >
-                                Standard
-                              </th>
-                              <th
-                                scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-orange-600 uppercase tracking-wider"
-                              >
-                                Premium
-                              </th>
-                              <th
-                                scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-orange-600 uppercase tracking-wider"
-                              >
-                                Best
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody class="bg-white divide-y divide-gray-100">
-                            <tr>
-                              <td
-                                class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-                              >
-                                Interest Rate
-                              </td>
-                              <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"
-                              >
-                                8%
-                              </td>
-                              <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"
-                              >
-                                8%
-                              </td>
-                              <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"
-                              >
-                                10%
-                              </td>
-                            </tr>
-                            <tr>
-                              <td
-                                class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-                              >
-                                Comprehensive Insurance
-                              </td>
-                              <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"
-                              >
-                                3% of car value
-                              </td>
-                              <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"
-                              >
-                                3% of car value
-                              </td>
-                              <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"
-                              >
-                                3% of car value
-                              </td>
-                            </tr>
-                            <tr>
-                              <td
-                                class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-                              >
-                                Car Tracker
-                              </td>
-                              <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"
-                              >
-                                ₦50,0000
-                              </td>
-                              <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"
-                              >
-                                ₦50,000
-                              </td>
-                              <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"
-                              >
-                                ₦50,000
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -668,6 +556,24 @@ export default {
     ...mapState('information', { summaryDetails: (state) => state }),
   },
   methods: {
+    async accept(token){
+        await this.$axios
+          .post(`/estimations/${token}/accept`)
+          .then((response) => {
+            let user = response.data.data
+            let token = response.data.token
+            this.$auth.setUser(user)
+            this.$auth.setUserToken(token)
+            this.$router.push('/dashboard')
+          })
+          .catch((error) => {
+            if (error.response) {
+              const data = error.response.data.message
+              vm.$noty.error(data)
+            }
+            this.disable = !this.disable
+          })
+    },
     getEstimation() {
       let vm = this
       this.$axios

@@ -235,6 +235,7 @@ export default {
         password_confirmation: '',
         phone: '',
         date_of_birth: '',
+        ref_code: ''
       },
       errorInfo: '',
       submitted: false,
@@ -288,10 +289,10 @@ export default {
       if (!this.$v.$invalid) {
         await this.$axios
           .post('/signup', {
-            ...this.formData,
-            ref_code: '',
+            ...this.formData
           })
           .then((response) => {
+            localStorage.removeItem('ref_code')
             let user = response.data.data
             let token = response.data.token
             this.$auth.setUser(user)
@@ -307,6 +308,25 @@ export default {
           })
       }
     },
+    async checkAndSetTokenIfExist(){
+      if(this.$route.query.token){
+        localStorage.setItem('ref_code', this.$route.query.token);
+        let code = localStorage.getItem('ref_code');
+        await this.$axios
+          .get(`/estimate/${code}`)
+          .then((response) => {
+              let data = response.data.data;
+              this.formData.first_name = data.first_name;
+              this.formData.last_name = data.last_name;
+              this.formData.email = data.email;
+              this.formData.phone = data.phone;
+              this.formData.ref_code = code;
+          })
+      }
+    }
+  },
+  mounted(){
+    this.checkAndSetTokenIfExist();
   },
   middleware: ['guest'],
 }

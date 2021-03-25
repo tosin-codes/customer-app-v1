@@ -153,6 +153,7 @@ export default {
       setState: 'setStates',
     }),
     async submit() {
+      let vm = this
       this.errorMessage = this.$v.$invalid
       if (this.$v.$invalid) {
         return false
