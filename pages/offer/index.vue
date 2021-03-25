@@ -12,16 +12,12 @@
           </div>
 
           <div class="mt-4">
-            <div class="container p-2" v-if="loading">
-              <div class="bg-gray-100">
+            <div class="container p-4" v-if="loading">
+              <div class="">
                 <div class="px-4 sm:px-6 lg:px-8">
                   <div class="text-center">
                     <div>
-                      <img
-                        class="mx-auto my-5"
-                        src="../../assets/images/loading.gif"
-                        alt=""
-                      />
+                      <Spinner />
                     </div>
                   </div>
                 </div>
@@ -373,7 +369,7 @@
                               <div class="mt-8">
                                 <div class="rounded-lg shadow-md">
                                   <button
-                                  @click="accept()"
+                                    @click="accept()"
                                     class="block w-full text-center rounded-lg border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
                                     aria-describedby="tier-scale"
                                   >
@@ -520,16 +516,6 @@
                   </div>
                 </div>
               </div>
-
-              <div class="flex justify-center mb-10" v-if="!loading && !error">
-                <div class="w-64">
-                  <button
-                    class="block w-full px-6 py-3 border rounded-md shadow-sm text-base font-medium text-orange-600 hover:bg-gray-100"
-                  >
-                    Decline
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -540,43 +526,46 @@
 
 <script>
 import GeneralNav from '~/components/GeneralNavbarComponent'
+import Spinner from '~/components/Spinner'
 import { mapState } from 'vuex'
 
 export default {
   components: {
     GeneralNav,
+    Spinner,
   },
   data() {
     return {
       loading: true,
       offer: '',
+      error: '',
     }
   },
   computed: {
     ...mapState('information', { summaryDetails: (state) => state }),
   },
   methods: {
-    async accept(token){
-        await this.$axios
-          .post(`/estimations/${token}/accept`)
-          .then((response) => {
-            let user = response.data.data
-            let token = response.data.token
-            this.$auth.setUser(user)
-            this.$auth.setUserToken(token)
-            this.$router.push('/dashboard')
-          })
-          .catch((error) => {
-            if (error.response) {
-              const data = error.response.data.message
-              vm.$noty.error(data)
-            }
-            this.disable = !this.disable
-          })
+    async accept(token) {
+      await this.$axios
+        .post(`/estimations/${token}/accept`)
+        .then((response) => {
+          let user = response.data.data
+          let token = response.data.token
+          this.$auth.setUser(user)
+          this.$auth.setUserToken(token)
+          this.$router.push('/dashboard')
+        })
+        .catch((error) => {
+          if (error.response) {
+            const data = error.response.data.message
+            vm.$noty.error(data)
+          }
+          this.disable = !this.disable
+        })
     },
-    getEstimation() {
+    async getEstimation() {
       let vm = this
-      this.$axios
+      await this.$axios
         .post('/estimate', {
           desired_amount: this.$store.state.information.amount,
           desired_tenor: this.$store.state.information.duration,
@@ -595,6 +584,7 @@ export default {
           last_name: this.$store.getters.user.last_name,
           phone: this.$store.getters.user.phone,
         })
+
         .then(function (response) {
           let data = response.data
 
@@ -605,7 +595,7 @@ export default {
           )
 
           vm.offer = data.data
-          console.log(vm.offer)
+          // console.log(vm.offer)
           vm.loading = false
           vm.$noty.success('success')
         })
@@ -658,6 +648,7 @@ export default {
   mounted() {
     let vm = this
     vm.getEstimation()
+    // console.log(this.$store.state.information)
   },
 }
 </script>
