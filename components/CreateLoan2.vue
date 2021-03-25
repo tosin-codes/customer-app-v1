@@ -317,7 +317,6 @@ export default {
           registered_owner: this.vehicleInformation.registered_owner,
           vehicle_registration: this.vehicleInformation.state,
         })
-      } else {
       }
     },
     previous() {
