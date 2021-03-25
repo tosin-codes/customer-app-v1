@@ -22,7 +22,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="flex justify-between lg:m-6 items-center mt-5">
         <button
           @click.prevent="back"
@@ -81,7 +81,7 @@ export default {
       const vehicle_documents = [
         {
           ...this.document,
-          vehicle_id: 1
+          vehicle_id: 1,
         },
       ]
       this.uploadDocuments(vehicle_documents)
@@ -95,28 +95,36 @@ export default {
         for (let key of Object.keys(data[i]))
           formData.append(`vehicles[${i}][${key}]`, data[i][key])
       }
-      
+
       await this.$axios({
         method: 'POST',
         url: `/loans/${loan_id}/vehicles/documents`,
-        data: formData
-      }).then(response =>{
-        let loan = response.data.data
-        this.$store.commit('setActiveLoanLevel', loan)
+        data: formData,
       })
-      .catch(error =>{
+        .then((response) => {
+          let loan = response.data.data
+          this.$store.commit('setActiveLoanLevel', loan)
+        })
+        .catch((error) => {
           if (error.response) {
-            if(error.response.status === 401 || error.response.status === 403 || error.response.status === 500){
+            if (
+              error.response.status === 401 ||
+              error.response.status === 403 ||
+              error.response.status === 500
+            ) {
               const data = error.response.data.message
               this.$noty.error(data)
-              return false;
+              return false
             }
-            if(error.response.status === 422){
-              this.$store.commit('setValidationErrors', error.response.data.errors);
-              return false;
+            if (error.response.status === 422) {
+              this.$store.commit(
+                'setValidationErrors',
+                error.response.data.errors
+              )
+              return false
             }
           }
-      })
+        })
     },
     back() {
       this.$emit('back')
@@ -131,21 +139,5 @@ input {
 }
 input:focus {
   @apply border-2 border-gray-200;
-}
-.wrapper {
-  position: relative;
-  height: 250px;
-  width: 250px;
-  border: 2px dashed #c2cdda;
-  border-radius: 10px;
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-.wrapper .icon {
-  font-size: 100px;
-  color: gray;
 }
 </style>

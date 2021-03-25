@@ -5,7 +5,7 @@
         <form action="" autocomplete="off">
           <div class="">
             <div class="lg:flex lg:flex-row justify-between">
-              <div class="flex flex-col lg:mr-10 lg:w-3/6 mb-5">
+              <div class="flex flex-col lg:mr-10 lg:w-3/6 sm:w-1/6 mb-5">
                 <label class="mb-2 font-semibold text-gray-700" for=""
                   >What year is your car</label
                 >
