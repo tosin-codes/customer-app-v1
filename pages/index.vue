@@ -2,7 +2,7 @@
   <div
     class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8"
   >
-    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md pl-5 lg:pl-0">
       <h2 class="mt-6 text-3xl font-medium text-gray-900">Sign in</h2>
     </div>
 
@@ -110,7 +110,7 @@
           <div class="relative">
             <div class="text-center">
               Don't have an account?
-              <nuxt-link class="text-orange-600" to="sign-up"
+              <nuxt-link class="text-orange-600" to="/sign-up"
                 >Sign Up</nuxt-link
               >
             </div>
@@ -182,7 +182,7 @@ export default {
       }
     },
   },
-  middleware: ['guest']
+  middleware: ['guest'],
 }
 </script>
 

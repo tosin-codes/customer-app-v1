@@ -33,8 +33,8 @@
               >
             </p>
             <span class="text-red-700 text-xs" v-if="errors.first_name">
-                {{ errors.first_name[0] }}
-              </span>
+              {{ errors.first_name[0] }}
+            </span>
           </div>
           <div class="mb-5 md:col-start-7 md:col-end-13">
             <label for="" class="font-bold opacity-75">Last Name</label>
@@ -55,8 +55,8 @@
               >
             </p>
             <span class="text-red-700 text-xs" v-if="errors.last_name">
-                {{ errors.last_name[0] }}
-              </span>
+              {{ errors.last_name[0] }}
+            </span>
           </div>
           <div class="mb-5 md:col-start-1 md:col-end-7">
             <label for="" class="font-bold opacity-75">Email Address</label>
@@ -78,8 +78,8 @@
               </template>
             </p>
             <span class="text-red-700 text-xs" v-if="errors.email">
-                {{ errors.email[0] }}
-              </span>
+              {{ errors.email[0] }}
+            </span>
           </div>
           <div class="mb-5 md:col-start-7 md:col-end-13">
             <label for="" class="font-bold opacity-75">Phone Number</label>
@@ -110,7 +110,7 @@
               </template>
             </p>
             <span class="text-red-700 text-xs" v-if="errors.phone">
-                {{ errors.phone[0] }}
+              {{ errors.phone[0] }}
             </span>
           </div>
           <div class="mb-5 md:col-start-1 md:col-end-13">
@@ -132,7 +132,7 @@
               </template>
             </p>
             <span class="text-red-700 text-xs" v-if="errors.date_of_birth">
-                {{ errors.date_of_birth[0] }}
+              {{ errors.date_of_birth[0] }}
             </span>
           </div>
 
@@ -158,7 +158,7 @@
               </template>
             </p>
             <span class="text-red-700 text-xs" v-if="errors.password">
-                {{ errors.password[0] }}
+              {{ errors.password[0] }}
             </span>
           </div>
           <div class="mb-5 md:col-start-7 md:col-end-13">
@@ -184,12 +184,18 @@
                 </small>
               </template>
             </p>
-            <span class="text-red-700 text-xs" v-if="errors.password_confirmation">
-                {{ errors.password_confirmation[0] }}
+            <span
+              class="text-red-700 text-xs"
+              v-if="errors.password_confirmation"
+            >
+              {{ errors.password_confirmation[0] }}
             </span>
           </div>
 
-          <ButtonSquare  :disabled="disable" class="md:col-start-1 md:col-end-13" />
+          <ButtonSquare
+            :disabled="disable"
+            class="md:col-start-1 md:col-end-13"
+          />
         </form>
       </div>
       <div class="text-center">
@@ -229,6 +235,7 @@ export default {
         password_confirmation: '',
         phone: '',
         date_of_birth: '',
+        ref_code: ''
       },
       errorInfo: '',
       submitted: false,
@@ -280,27 +287,48 @@ export default {
 
       this.$v.$touch()
       if (!this.$v.$invalid) {
-          await this.$axios.post('/signup', {
-            ...this.formData,
-            ref_code: '',
-          }).then(response => {
-            console.log(response)
+        await this.$axios
+          .post('/signup', {
+            ...this.formData
+          })
+          .then((response) => {
+            localStorage.removeItem('ref_code')
             let user = response.data.data
             let token = response.data.token
             this.$auth.setUser(user)
             this.$auth.setUserToken(token)
             this.disable = !this.disable
-          }).catch( (error) =>{
+          })
+          .catch((error) => {
             if (error.response) {
               const data = error.response.data.message
               vm.$noty.error(data)
             }
             this.disable = !this.disable
-        })
+          })
       }
     },
+    async checkAndSetTokenIfExist(){
+      if(this.$route.query.token){
+        localStorage.setItem('ref_code', this.$route.query.token);
+        let code = localStorage.getItem('ref_code');
+        await this.$axios
+          .get(`/estimate/${code}`)
+          .then((response) => {
+              let data = response.data.data;
+              this.formData.first_name = data.first_name;
+              this.formData.last_name = data.last_name;
+              this.formData.email = data.email;
+              this.formData.phone = data.phone;
+              this.formData.ref_code = code;
+          })
+      }
+    }
   },
-  middleware: ['guest']
+  mounted(){
+    this.checkAndSetTokenIfExist();
+  },
+  middleware: ['guest'],
 }
 </script>
 

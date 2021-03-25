@@ -9,23 +9,23 @@
           <tbody>
             <tr>
               <td>Year</td>
-              <td>Year</td>
+              <td>{{ summaryDetails.year }}</td>
             </tr>
             <tr>
               <td>Make</td>
-              <td>Car Make</td>
+              <td>{{ summaryDetails.make }}</td>
             </tr>
             <tr>
               <td>Model</td>
-              <td>Car Model</td>
+              <td>{{ summaryDetails.model }}</td>
             </tr>
             <tr>
               <td>Body Style</td>
-              <td>Body Style</td>
+              <td>{{ summaryDetails.size }}</td>
             </tr>
             <tr>
               <td>Insurance</td>
-              <td>Third Party</td>
+              <td>{{ summaryDetails.car_insurance }}</td>
             </tr>
           </tbody>
         </table>
@@ -34,14 +34,14 @@
         >
           <button
             type="button"
-            @click="confirm"
+            @click.prevent="confirm"
             class="w-full inline-flex justify-center rounded-full border border-transparent shadow-sm px-4 py-2 bg-orange-600 text-base font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
           >
             Yes, Submit
           </button>
           <button
             type="button"
-            @click="reject"
+            @click.prevent="reject"
             class="mt-3 w-full inline-flex justify-center rounded-full shadow-sm px-8 py-2 border border-solid border-orange-500 bg-gray text-base font-medium text-orange-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm"
           >
             No
@@ -53,29 +53,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  // props: {
-  //   year: {
-  //     type: String,
-  //     default: null,
-  //   },
-  //   make: {
-  //     type: String,
-  //     default: null,
-  //   },
-  //   model: {
-  //     type: String,
-  //     default: null,
-  //   },
-  //   body: {
-  //     type: String,
-  //     default: null,
-  //   },
-  //   insurance: {
-  //     type: String,
-  //     default: null,
-  //   },
-  // },
   data() {
     return {}
   },
@@ -84,8 +63,12 @@ export default {
       this.$router.push('/offer')
     },
     reject() {
-      this.$emit('close-card')
+      console.log('yoo')
+      this.$emit('closeCard')
     },
+  },
+  computed: {
+    ...mapState('information', { summaryDetails: (state) => state }),
   },
 }
 </script>

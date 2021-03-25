@@ -4,8 +4,8 @@
     <div class="mx-auto">
       <nuxt-link
         to="/create-loan"
-        class="bg-orange-500 hover:bg-orange-600 px-4 py-3 rounded-full text-white"
-        >Apply for a Loan</nuxt-link
+        class="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-full text-white"
+        >Apply for a loan</nuxt-link
       >
     </div>
   </div>

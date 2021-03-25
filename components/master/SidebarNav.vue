@@ -49,7 +49,7 @@
                 </div>
               </nuxt-link>
               <nuxt-link
-                to="/create-loan"
+                to="active-loans"
                 class="flex flex-row justify-between items-center my-8 hover:text-orange-500"
               >
                 <div class="font-semibold">Active Loans</div>
