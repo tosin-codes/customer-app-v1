@@ -10,6 +10,7 @@ export const state = () => ({
   amount: null,
   duration: '',
   repayment_plan: '',
+  offer: {},
 })
 export const mutations = {
   setStates(state, data) {

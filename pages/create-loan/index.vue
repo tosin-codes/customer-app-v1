@@ -13,7 +13,7 @@
           <form action="" class="" @submit.prevent="checkForm">
             <div
               v-show="createLoan1"
-              class="bg-gray-100 py-6 px-48 rounded-lg mb-5 flex flex-col"
+              class="bg-gray-100 py-6 lg:px-48 md:px-8 px-4 rounded-lg mb-5 flex flex-col"
             >
               <div class="font-light text-center mb-10 text-xl">
                 Please Enter the details correctly
