@@ -10,6 +10,7 @@
           <div class="font-bold text-gray-700">Create Loan</div>
         </div>
         <div class="bg-white px-6 py-6 pb-24">
+
           <form action="" class="" @submit.prevent="checkForm">
             <div
               v-show="createLoan1"

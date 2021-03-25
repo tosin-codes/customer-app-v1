@@ -27,7 +27,7 @@
       </nuxt-link>
       <nuxt-link to="/" v-if="!activeloan">
         <div class="rounded-full bg-orange-500 hover:bg-orange-600 text-base py-3 text-white text-center">
-          Create Loan
+          Apply for a Loan
         </div>
       </nuxt-link>
       <nuxt-link

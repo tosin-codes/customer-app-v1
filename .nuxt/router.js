@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
-
 const _fc2824b2 = () => interopDefault(import('..\\pages\\account\\index.vue' /* webpackChunkName: "pages/account/index" */))
 const _153618a4 = () => interopDefault(import('..\\pages\\active-loans\\index.vue' /* webpackChunkName: "pages/active-loans/index" */))
 const _02ca019a = () => interopDefault(import('..\\pages\\create-loan\\index.vue' /* webpackChunkName: "pages/create-loan/index" */))
@@ -13,6 +12,7 @@ const _55b216d0 = () => interopDefault(import('..\\pages\\offer\\index.vue' /* w
 const _43b7a8ab = () => interopDefault(import('..\\pages\\profile\\index.vue' /* webpackChunkName: "pages/profile/index" */))
 const _4502f869 = () => interopDefault(import('..\\pages\\sign-up\\index.vue' /* webpackChunkName: "pages/sign-up/index" */))
 const _3cb09020 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+
 
 const emptyFn = () => {}
 
@@ -31,7 +31,7 @@ export const routerOptions = {
     name: "account"
   }, {
     path: "/active-loans",
-    component: _153618a4,
+    component: _0b371798,
     name: "active-loans"
   }, {
     path: "/create-loan",
@@ -39,11 +39,11 @@ export const routerOptions = {
     name: "create-loan"
   }, {
     path: "/dashboard",
-    component: _f1330740,
+    component: _319b01ec,
     name: "dashboard"
   }, {
     path: "/kyc",
-    component: _ccfdf1c2,
+    component: _10bba5ab,
     name: "kyc"
   }, {
     path: "/offer",
@@ -55,11 +55,11 @@ export const routerOptions = {
     name: "profile"
   }, {
     path: "/sign-up",
-    component: _4502f869,
+    component: _497370f5,
     name: "sign-up"
   }, {
     path: "/",
-    component: _3cb09020,
+    component: _38980a14,
     name: "index"
   }],
 

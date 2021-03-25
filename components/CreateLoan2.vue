@@ -271,7 +271,6 @@ export default {
         'Yobe',
         'Zamfara',
       ],
-
       surveys: [
         { id: 1, value: 'Cash4DriveCampaign' },
         { id: 2, value: 'Instagram' },
@@ -379,7 +378,7 @@ export default {
 }
 </script>
 
-<style>
+
 #input:focus {
   border-color: #2684ff;
   outline: none;
