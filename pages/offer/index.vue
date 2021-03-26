@@ -72,9 +72,7 @@
                         <span
                           class="px-3 flex items-start text-6xl tracking-tight text-gray-500"
                         >
-                          <span class="mt-2 mr-2 text-2xl font-medium">
-                            ₦
-                          </span>
+                          <span class="mr-2 text-2xl font-medium"> ₦ </span>
                           <span class="font-extrabold text-3xl">
                             <!-- currency -->
                             {{ summaryDetails.amount | currency }}
@@ -227,7 +225,8 @@
                                       </div>
                                       <div class="font-semibold text-2xl">
                                         ₦{{
-                                          offer.standard_offer.total_amount_payable
+                                          offer.standard_offer
+                                            .total_amount_payable
                                         }}
                                       </div>
                                     </div>
@@ -236,7 +235,9 @@
                                 <div class="mt-8">
                                   <div class="rounded-lg shadow-md">
                                     <button
-                                      @click="accept(offer.standard_offer.token)"
+                                      @click="
+                                        accept(offer.standard_offer.token)
+                                      "
                                       class="block w-full text-center rounded-lg border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
                                       aria-describedby="tier-hobby"
                                     >
@@ -552,6 +553,7 @@ export default {
           let user = response.data.data
           this.$auth.setUser(user)
           this.$router.push('/dashboard')
+          this.loading = true
         })
         .catch((error) => {
           if (error.response) {

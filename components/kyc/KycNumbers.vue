@@ -57,7 +57,7 @@
             <span
               class="px-3 flex items-start text-6xl tracking-tight text-gray-500"
             >
-              <span class="mt-2 mr-2 text-2xl font-medium"> ₦ </span>
+              <span class="mr-2 text-2xl font-medium"> ₦ </span>
               <span class="font-extrabold text-2xl">
                 <!-- currency -->
                 {{ activeloan.offer_amount | currency }}
@@ -114,7 +114,7 @@
 import { mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['activeloan'])
+    ...mapGetters(['activeloan']),
   },
   methods: {
     checkRepayment(value) {

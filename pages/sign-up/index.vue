@@ -192,10 +192,13 @@
             </span>
           </div>
 
-          <ButtonSquare
+          <button
+            :class="{ disabled: disable }"
             :disabled="disable"
-            class="md:col-start-1 md:col-end-13"
-          />
+            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md md:col-start-1 md:col-end-13 shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+          >
+            Sign Up
+          </button>
         </form>
       </div>
       <div class="text-center">
@@ -235,7 +238,7 @@ export default {
         password_confirmation: '',
         phone: '',
         date_of_birth: '',
-        ref_code: ''
+        ref_code: '',
       },
       errorInfo: '',
       submitted: false,
@@ -286,11 +289,12 @@ export default {
       }
 
       this.$v.$touch()
+
       if (!this.$v.$invalid) {
         let vm = this
         await this.$axios
           .post('/signup', {
-            ...this.formData
+            ...this.formData,
           })
           .then((response) => {
             localStorage.removeItem('ref_code')
@@ -307,30 +311,35 @@ export default {
             }
             this.disable = !this.disable
           })
+      } else {
+        this.disable = false
       }
     },
-    async checkAndSetTokenIfExist(){
-      if(this.$route.query.token){
-        localStorage.setItem('ref_code', this.$route.query.token);
-        let code = localStorage.getItem('ref_code');
-        await this.$axios
-          .get(`/estimate/${code}`)
-          .then((response) => {
-              let data = response.data.data;
-              this.formData.first_name = data.first_name;
-              this.formData.last_name = data.last_name;
-              this.formData.email = data.email;
-              this.formData.phone = data.phone;
-              this.formData.ref_code = code;
-          })
+    async checkAndSetTokenIfExist() {
+      if (this.$route.query.token) {
+        localStorage.setItem('ref_code', this.$route.query.token)
+        let code = localStorage.getItem('ref_code')
+        await this.$axios.get(`/estimate/${code}`).then((response) => {
+          let data = response.data.data
+          this.formData.first_name = data.first_name
+          this.formData.last_name = data.last_name
+          this.formData.email = data.email
+          this.formData.phone = data.phone
+          this.formData.ref_code = code
+        })
       }
-    }
+    },
   },
-  mounted(){
-    this.checkAndSetTokenIfExist();
+  mounted() {
+    this.checkAndSetTokenIfExist()
   },
   middleware: ['guest'],
 }
 </script>
 
-<style></style>
+<style>
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+</style>

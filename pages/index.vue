@@ -98,7 +98,7 @@
           <div>
             <button
               type="submit"
-              :disabled="disable"
+              :class="{ disabled: disable }"
               class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
             >
               Sign in
@@ -158,7 +158,7 @@ export default {
       if (this.$v.$invalid) {
         return false
       }
-      this.disable = !this.disable
+      this.disable = true
       let form = {
         email: this.email,
         password: this.password,

@@ -11,8 +11,8 @@ export default {}
   color: orange;
   font-size: 20px;
   margin: 100px auto;
-  width: 1em;
-  height: 1em;
+  width: 0.7em;
+  height: 0.7em;
   border-radius: 50%;
   position: relative;
   text-indent: -9999em;
