@@ -210,7 +210,7 @@ export default {
   components: {
     vSelect,
   },
-  // props: ['desired'],
+
   data() {
     return {
       errorMessage: '',
