@@ -30,7 +30,8 @@ export const getters = {
       .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   },
   activeloan(state) {
-    if (state.auth.user.active_loan.length === 0) {
+    console.log(!state.auth.user.active_loan);
+    if (!state.auth.user.active_loan) {
       return 0
     }
     return state.auth.user.active_loan

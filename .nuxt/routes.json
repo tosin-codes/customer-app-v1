@@ -9,14 +9,9 @@
   {
     "name": "active-loans",
     "path": "/active-loans",
-    "component": "C:\\\\Users\\\\ToluwanimiAkinleye\\\\Desktop\\\\customer-app-v1\\\\pages\\\\active-loans\\\\index.vue",
-    "chunkName": "pages/active-loans/index"
-  },
-  {
-    "name": "create-loan",
-    "path": "/create-loan",
-    "component": "C:\\\\Users\\\\ToluwanimiAkinleye\\\\Desktop\\\\customer-app-v1\\\\pages\\\\create-loan\\\\index.vue",
-    "chunkName": "pages/create-loan/index"
+    "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\active-loans\\\\index.vue",
+    "chunkName": "pages/active-loans/index",
+    "_name": "_153618a4"
   },
   {
     "name": "create-loan",
@@ -28,14 +23,16 @@
   {
     "name": "dashboard",
     "path": "/dashboard",
-    "component": "C:\\\\Users\\\\ToluwanimiAkinleye\\\\Desktop\\\\customer-app-v1\\\\pages\\\\dashboard\\\\index.vue",
-    "chunkName": "pages/dashboard/index"
+    "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\dashboard\\\\index.vue",
+    "chunkName": "pages/dashboard/index",
+    "_name": "_f1330740"
   },
   {
     "name": "kyc",
     "path": "/kyc",
-    "component": "C:\\\\Users\\\\ToluwanimiAkinleye\\\\Desktop\\\\customer-app-v1\\\\pages\\\\kyc\\\\index.vue",
-    "chunkName": "pages/kyc/index"
+    "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\kyc\\\\index.vue",
+    "chunkName": "pages/kyc/index",
+    "_name": "_ccfdf1c2"
   },
   {
     "name": "offer",
@@ -54,13 +51,15 @@
   {
     "name": "sign-up",
     "path": "/sign-up",
-    "component": "C:\\\\Users\\\\ToluwanimiAkinleye\\\\Desktop\\\\customer-app-v1\\\\pages\\\\sign-up\\\\index.vue",
-    "chunkName": "pages/sign-up/index"
+    "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\sign-up\\\\index.vue",
+    "chunkName": "pages/sign-up/index",
+    "_name": "_4502f869"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\ToluwanimiAkinleye\\\\Desktop\\\\customer-app-v1\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_3cb09020"
   }
 ]

@@ -116,8 +116,8 @@ export default {
     return {
       banks:'',
       bankInformation: {
-        bvn: '12345678920',
-        number: '1234567890',
+        bvn: '',
+        number: '',
         code: '',
         type: '',
       },

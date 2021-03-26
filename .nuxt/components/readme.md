@@ -13,6 +13,7 @@ You can directly use them in pages and other components without the need to impo
 - `<DashboardNav>` | `<dashboard-nav>` (components/DashboardNav.vue)
 - `<GeneralNavbarComponent>` | `<general-navbar-component>` (components/GeneralNavbarComponent.vue)
 - `<ModalChild>` | `<modal-child>` (components/ModalChild.vue)
+- `<Spinner>` | `<spinner>` (components/Spinner.vue)
 - `<FormComponentsCheckboxComponent>` | `<form-components-checkbox-component>` (components/FormComponents/CheckboxComponent.vue)
 - `<FormComponentsRadioComponent>` | `<form-components-radio-component>` (components/FormComponents/RadioComponent.vue)
 - `<Kyc1>` | `<kyc-1>` (components/kyc/Kyc1.vue)

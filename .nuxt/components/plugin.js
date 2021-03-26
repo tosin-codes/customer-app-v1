@@ -8,6 +8,7 @@ const components = {
   DashboardNav: () => import('../..\\components\\DashboardNav.vue' /* webpackChunkName: "components/dashboard-nav" */).then(c => c.default || c),
   GeneralNavbarComponent: () => import('../..\\components\\GeneralNavbarComponent.vue' /* webpackChunkName: "components/general-navbar-component" */).then(c => c.default || c),
   ModalChild: () => import('../..\\components\\ModalChild.vue' /* webpackChunkName: "components/modal-child" */).then(c => c.default || c),
+  Spinner: () => import('../..\\components\\Spinner.vue' /* webpackChunkName: "components/spinner" */).then(c => c.default || c),
   FormComponentsCheckboxComponent: () => import('../..\\components\\FormComponents\\CheckboxComponent.vue' /* webpackChunkName: "components/form-components-checkbox-component" */).then(c => c.default || c),
   FormComponentsRadioComponent: () => import('../..\\components\\FormComponents\\RadioComponent.vue' /* webpackChunkName: "components/form-components-radio-component" */).then(c => c.default || c),
   Kyc1: () => import('../..\\components\\kyc\\Kyc1.vue' /* webpackChunkName: "components/kyc-1" */).then(c => c.default || c),

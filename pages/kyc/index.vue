@@ -12,7 +12,7 @@
       <div class="bg-white rounded-xl p-1 md:p-6">
         <div id="app">
           <div>
-              <KycNumbers />
+            <KycNumbers />
             <div v-if="activeloan.level.passed_bvn == false && activeloan.level.passed_document_upload == false && activeloan.level.passed_set_inspection_date == false && activeloan.level.passed_picture_upload == false" class="slide-page">
               <Kyc1 @on-validate="slide" />
             </div>
@@ -76,9 +76,6 @@ export default {
 
       if ((this.showOne = true)) {
         let currentStep = 1
-        const bullets = [...document.querySelectorAll('.bullet')]
-
-        bullets[currentStep - 1].classList.add('completed')
         currentStep += 1
       }
     },

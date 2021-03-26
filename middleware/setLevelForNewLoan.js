@@ -10,7 +10,6 @@ export default function ({ store, redirect, $axios, $auth }) {
             let loan = response.data.data
             store.commit('setActiveLoanLevel', loan)
             return redirect('/kyc')
-            // return true;
         }
     })
     .catch((error) => {

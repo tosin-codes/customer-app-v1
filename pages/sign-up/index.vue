@@ -287,6 +287,7 @@ export default {
 
       this.$v.$touch()
       if (!this.$v.$invalid) {
+        let vm = this
         await this.$axios
           .post('/signup', {
             ...this.formData

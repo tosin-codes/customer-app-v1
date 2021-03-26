@@ -118,6 +118,7 @@
                 >
                 <v-select
                   id="select"
+                  class=""
                   :options="insuranceOptions"
                   v-model.trim="$v.vehicleInformation.insurance.$model"
                   placeholder="Select..."

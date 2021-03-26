@@ -20,6 +20,9 @@
   "ModalChild": {
     "description": "Auto imported from components/ModalChild.vue"
   },
+  "Spinner": {
+    "description": "Auto imported from components/Spinner.vue"
+  },
   "FormComponentsCheckboxComponent": {
     "description": "Auto imported from components/FormComponents/CheckboxComponent.vue"
   },

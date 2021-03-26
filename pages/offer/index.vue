@@ -227,8 +227,7 @@
                                       </div>
                                       <div class="font-semibold text-2xl">
                                         ₦{{
-                                          offer.standard_offer
-                                            .total_amount_payable
+                                          offer.standard_offer.total_amount_payable
                                         }}
                                       </div>
                                     </div>
@@ -237,7 +236,7 @@
                                 <div class="mt-8">
                                   <div class="rounded-lg shadow-md">
                                     <button
-                                      @click="accept()"
+                                      @click="accept(offer.standard_offer.token)"
                                       class="block w-full text-center rounded-lg border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
                                       aria-describedby="tier-hobby"
                                     >
@@ -369,7 +368,7 @@
                               <div class="mt-8">
                                 <div class="rounded-lg shadow-md">
                                   <button
-                                    @click="accept()"
+                                    @click="accept(offer.best_offer.token)"
                                     class="block w-full text-center rounded-lg border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
                                     aria-describedby="tier-scale"
                                   >
@@ -495,7 +494,7 @@
                                 <div class="mt-8">
                                   <div class="rounded-lg shadow-md">
                                     <button
-                                      @click="accept"
+                                      @click="accept(offer.premium_offer.token)"
                                       class="block w-full text-center rounded-lg border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
                                       aria-describedby="tier-scale"
                                     >
@@ -546,13 +545,12 @@ export default {
   },
   methods: {
     async accept(token) {
+      let vm = this
       await this.$axios
         .post(`/estimations/${token}/accept`)
         .then((response) => {
           let user = response.data.data
-          let token = response.data.token
           this.$auth.setUser(user)
-          this.$auth.setUserToken(token)
           this.$router.push('/dashboard')
         })
         .catch((error) => {

@@ -60,7 +60,7 @@
               <span class="mt-2 mr-2 text-2xl font-medium"> ₦ </span>
               <span class="font-extrabold text-2xl">
                 <!-- currency -->
-                {{ store.state.information.offer.offered_amount | currency }}
+                {{ activeloan.offer_amount | currency }}
                 <!-- {{ summaryDetails.amount | currency }} -->
               </span>
             </span>
@@ -80,7 +80,7 @@
               class="px-3 flex items-start text-2xl tracking-tight text-gray-500"
             >
               <span class="font-extrabold text-2xl">
-                {{ summaryDetails.repayment_plan }}
+                {{ activeloan.offer_tenor }}
                 Months
               </span>
             </span>
@@ -100,7 +100,7 @@
               class="px-3 flex items-start text-2xl tracking-tight text-gray-500"
             >
               <span class="font-extrabold text-2xl">
-                {{ checkRepayment(summaryDetails.duration) }}
+                {{ checkRepayment(activeloan.offer_repayment_plan) }}
               </span>
             </span>
           </div>
@@ -112,11 +112,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { mapState } from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['activeloan']),
-    ...mapState('information', { summaryDetails: (state) => state }),
+    ...mapGetters(['activeloan'])
   },
   methods: {
     checkRepayment(value) {
