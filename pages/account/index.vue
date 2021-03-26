@@ -11,7 +11,7 @@
         </div>
         <DashboardCards />
         <div
-          class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8"
+          class="min-h-screen bg-gray-50 flex flex-col py-12 sm:px-6 lg:px-8"
         >
           <div v-if="!this.$store.getters.user.bank">
             <div class="flex flex-col bg-white border-dashed border-2 py-32">
