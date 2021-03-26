@@ -378,7 +378,7 @@ export default {
 }
 </script>
 
-
+<style>
 #input:focus {
   border-color: #2684ff;
   outline: none;
@@ -391,7 +391,7 @@ export default {
 }
 #select .vs__dropdown-toggle {
   border-radius: 50px;
-  border: 2px solid #ccc;
+  border: 2px solid #a0aec0;
   height: 50px !important;
   width: 100%;
   padding: 0 10px;
