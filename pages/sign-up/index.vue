@@ -193,7 +193,7 @@
           </div>
 
           <button
-            :class="{ disabled: disable }"
+            :class="{'opacity-50 cursor-not-allowed': disable}"
             :disabled="disable"
             class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md md:col-start-1 md:col-end-13 shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
           >

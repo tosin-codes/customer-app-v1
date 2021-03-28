@@ -45,8 +45,8 @@
         <div class="text-lg font-semibold mt-3">4</div>
       </nuxt-link>
     </div>
-    <div class="my-10 lg:grid lg:grid-cols-3 px-12 md:gap-x-12">
-      <div class="my-6">
+    <div class="my-5 flex justify-between">
+      <div class="my-6 w-full">
         <div
           class="absolute -mt-3 ml-3 uppercase inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-gray-600 bg-gray-100 rounded"
         >
@@ -68,7 +68,7 @@
         </div>
       </div>
 
-      <div class="my-6">
+      <div class="my-6 w-full ml-3">
         <div
           class="absolute -mt-3 ml-3 uppercase inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-gray-600 bg-gray-100 rounded"
         >
@@ -88,7 +88,7 @@
         </div>
       </div>
 
-      <div class="my-6">
+      <div class="my-6 w-full ml-3">
         <div
           class="absolute -mt-3 ml-3 uppercase inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-gray-600 bg-gray-100 rounded"
         >

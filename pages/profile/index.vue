@@ -1,13 +1,18 @@
 <template>
+<div class="grid grid-cols-12 maxWidth mx-auto">
+    <GeneralNav />
+    <div class="my-container">
+      <div class="mt-5">
+        <div class="flex flex-row items-center mb-5">
+          <div>
+            <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
+          </div>
+          <div class="font-bold text-gray-700">Profile</div>
+        </div>
   <div
-    class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8"
+    class="bg-gray-50 flex flex-col"
   >
-    <div class="sm:mx-auto sm:w-full sm:max-w-md">
-      <h2 class="mt-6 p-3 text-3xl font-medium text-gray-900 text-center">
-        Profile
-      </h2>
-    </div>
-    <div class="sm:mx-auto sm:w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl p-3">
+    <div class="sm:w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl">
       <div class="form bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
         <form
           action=""
@@ -53,21 +58,26 @@
             />
           </div>
 
-          <ButtonSquare class="md:col-start-1 md:col-end-13" />
+          <ButtonSquare class="md:col-start-1 md:col-end-13" :class="{'opacity-50 cursor-not-allowed': disable}" disabled="disable" />
         </form>
       </div>
     </div>
   </div>
+      </div>
+  </div>
+</div>
 </template>
 
 <script>
 import TextInputSquare from '~/components/FormComponents/Texts/TextInputSquare'
 import ButtonSquare from '~/components/FormComponents/Buttons/Primary/ButtonSquare'
+import GeneralNav from '~/components/GeneralNavbarComponent'
 import { mapGetters } from 'vuex'
 export default {
   components: {
     TextInputSquare,
     ButtonSquare,
+    GeneralNav,
   },
   data() {
     return {
@@ -77,6 +87,7 @@ export default {
         email: '',
         phone: '',
       },
+      disable:false,
       errorInfo: '',
       submitted: false,
       userData: {},
@@ -91,6 +102,8 @@ export default {
   },
   methods: {
     async updateUser() {
+      let vm = this
+      vm.disable = true
       await this.$axios
         .post('/users/update', {
           ...this.form,
@@ -101,8 +114,10 @@ export default {
           let token = response.data.token
           this.$auth.setUser(user)
           this.$auth.setUserToken(token)
+          vm.disable = false
         })
         .catch((error) => {
+          vm.disable = false
           if (error.response) {
             const data = error.response.data.message
             this.$noty.error(data)

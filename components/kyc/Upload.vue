@@ -32,8 +32,6 @@
             />
           </div>
         </label>
-
-        <!-- <span v-if="loader">Loading...</span> -->
       </div>
     </div>
   </div>
@@ -100,7 +98,7 @@ export default {
 .wrapper {
   position: relative;
   height: 250px;
-  width: 250px;
+  width: 95%;
   border: 2px dashed #c2cdda;
   border-radius: 10px;
   background-color: #fff;

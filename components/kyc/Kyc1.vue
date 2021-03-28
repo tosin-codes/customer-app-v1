@@ -1,7 +1,9 @@
 <template>
   <div class="bg-gray-100 p-4 py-8 mb-10 rounded-md">
     <div>
-      <div class="pl-4">Please enter your account details</div>
+      <div class="mb-5">
+          <h3>Please enter your account details</h3>
+      </div>
       <div>
         <form action="">
           <div class="grid lg:grid-cols-2 lg:gap-8">
@@ -94,10 +96,20 @@
             </div>
           </div>
 
-          <div class="flex justify-end">
+          <div class="flex justify-end items-center">
+            <span v-if="disable">
+                <img
+                class="mx-auto my-5"
+                src="../../assets/images/loading-sm.gif"
+                alt=""
+              />
+            </span>
+            
             <button
               @click.prevent="next"
-              class="mb-5 px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none rounded-full shadow-sm text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
+              :disabled="disable"
+              :class="{'opacity-50 cursor-not-allowed': disable}"
+              class="px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none rounded-full shadow-sm text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
             >
               Next
             </button>
@@ -114,6 +126,7 @@ import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 export default {
   data() {
     return {
+      disable: false,
       banks:'',
       bankInformation: {
         bvn: '',
@@ -146,6 +159,7 @@ export default {
       setState: 'setStates',
     }),
     async next() {
+      let vm = this
       this.$v.bankInformation.$touch()
       const isValid = !this.$v.bankInformation.$invalid
 
@@ -157,15 +171,17 @@ export default {
 
       const loan_id = this.$store.getters.activeloan.id
 
-      
+      vm.disable = true
       this.$axios.put(`loans/${loan_id}/banks/verify`,{
         ...this.bankInformation,
       })
       .then(response => {
           let loan = response.data.data
           this.$store.commit('setActiveLoanLevel', loan)
+          vm.disable = false
       })
       .catch(error => {
+        vm.disable = false
         if (error.response) {
           if(error.response.status === 401 || error.response.status === 403 || error.response.status === 500){
             const data = error.response.data.message

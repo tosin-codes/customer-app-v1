@@ -18,8 +18,17 @@
                 <div class="text-sm font-light text-green-500" v-else>verified</div>
               </div>
             </div>
-            <div class="text-gray-900 font-semibold my-8">Dashboard</div>
-            <div class="pr-6 lg:pr-24 text-gray-600">
+            <!-- <div class="text-gray-900 font-semibold my-8">Dashboard</div> -->
+            <div class="pr-6 lg:pr-24 text-gray-600 mt-10">
+              <nuxt-link
+                to="/dashboard"
+                class="flex flex-row justify-between items-center mb-8 hover:text-orange-500"
+              >
+                <div class="font-semibold">Dashboard</div>
+                <div>
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+                </div>
+              </nuxt-link>
               <nuxt-link
                 to="/create-loan"
                 class="flex flex-row justify-between items-center mb-8 hover:text-orange-500"
@@ -49,7 +58,7 @@
                 </div>
               </nuxt-link>
               <nuxt-link
-                to="active-loans"
+                to="/active-loans"
                 class="flex flex-row justify-between items-center my-8 hover:text-orange-500"
               >
                 <div class="font-semibold">Active Loans</div>
@@ -77,7 +86,7 @@
                 </div>
               </nuxt-link>
               <nuxt-link
-                to="/create-loan"
+                to="/account"
                 class="flex flex-row justify-between items-center my-8 hover:text-orange-500"
               >
                 <div class="font-semibold">Accounts</div>
@@ -111,7 +120,7 @@
                 </div>
               </nuxt-link>
               <nuxt-link
-                to="/create-loan"
+                to="/profile"
                 class="flex flex-row justify-between items-center my-8 hover:text-orange-500"
               >
                 <div class="font-semibold">Profile</div>

@@ -4,8 +4,8 @@
       <div class="pl-4">Please select your preferred inspection date</div>
       <div>
         <form action="">
-          <div class="grid lg:grid-cols-2 lg:gap-8">
-            <div>
+          <div class="flex flex-col md:flex-row justify-between">
+            <div class="w-full">
               <input class="my-4" type="date" v-model="inspectionDate.date" />
               <span
                 class="text-red-500 italics text-sm pl-4"
@@ -21,7 +21,7 @@
               </span>
               </div>
             </div>
-            <div>
+            <div class="w-full md:ml-3">
               <input class="my-4" type="time" v-model="inspectionDate.time" />
               <span
                 class="text-red-500 italics text-sm pl-4"
@@ -45,13 +45,24 @@
             >
               Prev
             </button>
-            <button
-              type="submit"
-              @click.prevent="submitDate"
-              class="mb-5 px-6 py-3 h-12 sm:w-full md:w-2/6 border-transparent focus:outline-none border-none rounded-full shadow-sm text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
-            >
-              Next
-            </button>
+            
+            <div class="flex items-center sm:w-full justify-end">
+              <span v-if="disable" class="flex items-center mb-3">
+                  <img
+                  src="../../assets/images/loading-sm.gif"
+                  alt=""
+                />
+              </span>
+              <button
+                type="submit"
+                :disabled="disable"
+                :class="{'opacity-50 cursor-not-allowed': disable}"
+                @click.prevent="submitDate"
+                class="mb-5 px-6 py-3 h-12 sm:w-full md:w-2/6 border-transparent focus:outline-none border-none rounded-full shadow-sm text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
+              >
+                Next
+              </button>
+            </div>
           </div>
         </form>
       </div>
@@ -69,6 +80,7 @@ export default {
         date: '',
         time: '',
       },
+      disable:false
     }
   },
   validations: {
@@ -83,6 +95,7 @@ export default {
     }),
 
     async submitDate() {
+      let vm = this
       this.$v.inspectionDate.$touch()
       var isValid = !this.$v.inspectionDate.$invalid
 
@@ -90,7 +103,7 @@ export default {
         return false;
       }
         const loan_id = this.$store.getters.activeloan.id
-        
+        vm.disable = true
         await this.$axios({
           method: 'PUT',
           url: `loans/${loan_id}/vehicles/inspection`,
@@ -98,8 +111,10 @@ export default {
         }).then(response =>{
         let loan = response.data.data
         this.$store.commit('setActiveLoanLevel', loan)
+        vm.disable = false
       })
       .catch(error =>{
+        vm.disable = false
           if (error.response) {
             if(error.response.status === 401 || error.response.status === 403 || error.response.status === 500){
               const data = error.response.data.message

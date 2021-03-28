@@ -3,7 +3,7 @@
     <div class="grid grid-cols-12 maxWidth mx-auto">
       <GeneralNav />
       <div class="my-container">
-        <div class="">
+        <div class="mt-5">
           <div class="flex flex-row items-center mb-10">
             <div>
               <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
