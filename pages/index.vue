@@ -115,12 +115,12 @@
           </div>
           <div class="mb-5 md:col-start-1 md:col-end-13">
             <label for="" class="font-bold opacity-75">Date of birth</label>
-            <TextInputSquare
-              v-model="formData.date_of_birth"
-              type="date"
-              name="text"
-              placeholder="yyyy-mm-dd"
-            />
+            <input type="date" name="" 
+            class="appearance-none block rounded-md border-gray-300 border-2 mt-2 h-12 w-full outline-none pl-4" 
+            v-model="formData.date_of_birth" 
+            placeholder="yyyy-mm-dd"
+            id="">
+
             <p class="errors italics text-red-500 text-sm">
               <template
                 v-if="submitted && $v.formData.date_of_birth.$error"

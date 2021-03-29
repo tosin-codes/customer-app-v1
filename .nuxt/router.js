@@ -9,9 +9,9 @@ const _153618a4 = () => interopDefault(import('..\\pages\\active-loans\\index.vu
 const _02ca019a = () => interopDefault(import('..\\pages\\create-loan\\index.vue' /* webpackChunkName: "pages/create-loan/index" */))
 const _f1330740 = () => interopDefault(import('..\\pages\\dashboard\\index.vue' /* webpackChunkName: "pages/dashboard/index" */))
 const _ccfdf1c2 = () => interopDefault(import('..\\pages\\kyc\\index.vue' /* webpackChunkName: "pages/kyc/index" */))
+const _5369352a = () => interopDefault(import('..\\pages\\login\\index.vue' /* webpackChunkName: "pages/login/index" */))
 const _55b216d0 = () => interopDefault(import('..\\pages\\offer\\index.vue' /* webpackChunkName: "pages/offer/index" */))
 const _43b7a8ab = () => interopDefault(import('..\\pages\\profile\\index.vue' /* webpackChunkName: "pages/profile/index" */))
-const _4502f869 = () => interopDefault(import('..\\pages\\sign-up\\index.vue' /* webpackChunkName: "pages/sign-up/index" */))
 const _3cb09020 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
@@ -46,6 +46,10 @@ export const routerOptions = {
     component: _ccfdf1c2,
     name: "kyc"
   }, {
+    path: "/login",
+    component: _5369352a,
+    name: "login"
+  }, {
     path: "/offer",
     component: _55b216d0,
     name: "offer"
@@ -53,10 +57,6 @@ export const routerOptions = {
     path: "/profile",
     component: _43b7a8ab,
     name: "profile"
-  }, {
-    path: "/sign-up",
-    component: _4502f869,
-    name: "sign-up"
   }, {
     path: "/",
     component: _3cb09020,

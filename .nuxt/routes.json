@@ -35,6 +35,13 @@
     "_name": "_ccfdf1c2"
   },
   {
+    "name": "login",
+    "path": "/login",
+    "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\login\\\\index.vue",
+    "chunkName": "pages/login/index",
+    "_name": "_5369352a"
+  },
+  {
     "name": "offer",
     "path": "/offer",
     "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\offer\\\\index.vue",
@@ -47,13 +54,6 @@
     "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\profile\\\\index.vue",
     "chunkName": "pages/profile/index",
     "_name": "_43b7a8ab"
-  },
-  {
-    "name": "sign-up",
-    "path": "/sign-up",
-    "component": "C:\\\\Users\\\\OluwatosinIkudayisi\\\\Desktop\\\\customer-app-v1\\\\pages\\\\sign-up\\\\index.vue",
-    "chunkName": "pages/sign-up/index",
-    "_name": "_4502f869"
   },
   {
     "name": "index",
