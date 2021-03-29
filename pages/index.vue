@@ -203,7 +203,7 @@
       </div>
       <div class="text-center">
         Have an account?
-        <nuxt-link class="text-orange-700" to="/">Sign In</nuxt-link>
+        <nuxt-link class="text-orange-700" to="/login">Sign In</nuxt-link>
       </div>
     </div>
   </div>

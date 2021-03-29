@@ -111,7 +111,7 @@
           <div class="relative">
             <div class="text-center">
               Don't have an account?
-              <nuxt-link class="text-orange-600" to="/sign-up"
+              <nuxt-link class="text-orange-600" to="/"
                 >Sign Up</nuxt-link
               >
             </div>
