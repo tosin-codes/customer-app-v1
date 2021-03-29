@@ -36,12 +36,12 @@
           Apply for a Loan
         </div>
       </nuxt-link>
-      <nuxt-link
-        to="/"
-        class="rounded-full flex flex-row justify-center my-6 bg-blue-500 py-3 text-white"
+      <span
+        @click="logout()"
+        class="rounded-full flex flex-row justify-center cursor-pointer my-6 bg-blue-500 py-3 text-white"
       >
         <div class="font-semibold">Log out</div>
-      </nuxt-link>
+      </span>
     </div>
   </div>
 </template>
@@ -54,6 +54,12 @@ export default {
     ...mapGetters([
       'activeloan'
     ])
+  },
+  methods:{
+    async logout() {
+      let vm = this
+      await this.$auth.logout()
+    },
   }
 }
 </script>
