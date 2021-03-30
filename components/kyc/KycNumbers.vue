@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="flex items-center justify-between mb-10">
+      <client-only placeholder="Loading...">
       <nuxt-link
         to="#"
         :class="[
@@ -44,6 +45,7 @@
       >
         <div class="text-lg font-semibold mt-3">4</div>
       </nuxt-link>
+      </client-only>
     </div>
     <div class="my-5 flex justify-between">
       <div class="my-6 w-full">
@@ -54,6 +56,7 @@
         </div>
         <div class="border border-gray-600 p-4 rounded-lg shadow">
           <div class="flex items-center justify-center">
+            <client-only placeholder="Loading...">
             <span
               class="px-3 flex items-start text-6xl tracking-tight text-gray-500"
             >
@@ -64,6 +67,7 @@
                 <!-- {{ summaryDetails.amount | currency }} -->
               </span>
             </span>
+            </client-only>
           </div>
         </div>
       </div>
@@ -76,6 +80,7 @@
         </div>
         <div class="border border-gray-600 p-4 rounded-lg shadow">
           <div class="flex items-center justify-center">
+            <client-only placeholder="Loading...">
             <span
               class="px-3 flex items-start text-2xl tracking-tight text-gray-500"
             >
@@ -84,6 +89,7 @@
                 Months
               </span>
             </span>
+            </client-only>
           </div>
         </div>
       </div>

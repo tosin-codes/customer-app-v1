@@ -11,7 +11,7 @@
               </svg>
             </span>
           </div>
-
+          <client-only placeholder="Loading...">
           <div class="ml-5 w-1/3 mt-5 md:mt-0 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             <input
             type="file"
@@ -25,6 +25,7 @@
               </span>
             </div>
           </div>
+          </client-only>
         </div>
       </div>
       <div class="flex justify-between items-center mt-8">

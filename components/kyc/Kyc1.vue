@@ -5,6 +5,7 @@
           <h3>Please enter your account details</h3>
       </div>
       <div>
+        <client-only placeholder="Loading...">
         <form action="">
           <div class="grid lg:grid-cols-2 lg:gap-8">
             <div>
@@ -115,6 +116,7 @@
             </button>
           </div>
         </form>
+        </client-only>
       </div>
     </div>
   </div>

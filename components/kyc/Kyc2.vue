@@ -6,6 +6,7 @@
       >
         Upload the following documents for your vehicle
       </h4>
+      <client-only placeholder="Loading...">
       <div class="flex justify-between flex-wrap">
         <div class="w-full lg:w-1/2 md:w-1/2" v-for="(value, key, i) in document" :key="i">
           <div class="">
@@ -22,6 +23,7 @@
           </div>
         </div>
       </div>
+      </client-only>
 
       <div class="flex justify-between items-center">
         <button

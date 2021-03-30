@@ -14,6 +14,7 @@
   >
     <div class="sm:w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl">
       <div class="form bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <client-only placeholder="Loading...">
         <form
           action=""
           @submit.prevent="updateUser"
@@ -60,6 +61,7 @@
 
           <ButtonSquare class="md:col-start-1 md:col-end-13" :class="{'opacity-50 cursor-not-allowed': disable}" disabled="disable" />
         </form>
+        </client-only>
       </div>
     </div>
   </div>
@@ -94,7 +96,7 @@ export default {
     }
   },
 
-  created() {
+  mounted() {
     this.form = this.user
   },
   computed: {

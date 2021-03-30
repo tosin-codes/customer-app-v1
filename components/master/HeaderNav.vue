@@ -58,10 +58,12 @@
                   alt=""
                 />
               </div>
-              <div class="ml-4">
-                {{ this.$store.getters.user.first_name }}
-                {{ this.$store.getters.user.last_name }}
-              </div>
+              <client-only placeholder="Loading...">
+                <div class="ml-4">
+                  {{ this.$store.getters.user.first_name }}
+                  {{ this.$store.getters.user.last_name }}
+                </div>
+              </client-only>
             </div>
             <nuxt-link to="/" class="md:mx-12 w-5 text-gray-700">
               <svg

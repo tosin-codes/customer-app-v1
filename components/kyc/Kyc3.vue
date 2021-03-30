@@ -3,6 +3,7 @@
     <div>
       <div class="pl-4">Please select your preferred inspection date</div>
       <div>
+        <client-only placeholder="Loading...">
         <form action="">
           <div class="flex flex-col md:flex-row justify-between">
             <div class="w-full">
@@ -65,6 +66,7 @@
             </div>
           </div>
         </form>
+        </client-only>
       </div>
     </div>
   </div>

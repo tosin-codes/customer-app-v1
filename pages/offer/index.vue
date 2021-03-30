@@ -12,35 +12,38 @@
           </div>
 
           <div class="mt-4">
-            <div class="container p-4" v-if="loading">
-              <div class="">
-                <div class="px-4 sm:px-6 lg:px-8">
-                  <div class="text-center">
-                    <div>
-                      <Spinner />
-                    </div>
-                  </div>
-                </div>
+            <div class="container flex flex-col justify-center px-3 pb-3 h-screen" v-if="loading">
+          <div class="px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+              <div class="flex flex-col">
+                <img
+                  class="mx-auto my-5"
+                  src="../../assets/images/loading.gif"
+                  alt=""
+                />
+                <span class="text-gray-400">Loading...</span>
               </div>
             </div>
-            <div class="container p-3" v-if="error">
-              <div class="bg-gray-100">
-                <div class="py-12 px-4 sm:px-6 lg:px-8 lg:pt-20">
-                  <div class="text-center">
-                    <div>
-                      <h2 class="text-3xl font-bold sm:text-3xl lg:text-3xl">
-                        Ooops :(
-                      </h2>
-                      <p>{{ error }}!!!</p>
-                    </div>
-                  </div>
-                </div>
+          </div>
+      </div>
+      <div class="container px-3 pb-3" v-if="error">
+        <div class="bg-gray-100">
+          <div class="py-12 px-4 sm:px-6 lg:px-8 lg:pt-20">
+            <div class="text-center">
+              <div>
+                <h2 class="text-3xl font-bold sm:text-3xl lg:text-3xl">
+                  Sorry :(
+                </h2>
+                <p>{{ error }}!!!</p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <div class="container p-3" v-if="!loading && !error">
+            <div class="container" v-if="!loading && !error">
               <div class="bg-gray-100">
-                <div class="pt-12 px-4 sm:px-6 lg:px-8 lg:pt-12">
+                <div class="pt-3 px-2 sm:px-2 lg:px-2">
                   <div class="text-center">
                     <div>
                       <img

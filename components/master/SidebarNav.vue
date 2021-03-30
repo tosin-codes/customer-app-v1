@@ -13,9 +13,11 @@
                 />
               </div>
               <div>
-                <div class="font-bold text-orange-600">{{ this.$store.getters.user.first_name }} {{ this.$store.getters.user.last_name }}</div>
-                <div class="text-sm font-light text-green-500" v-if="!this.$store.getters.user.active">not verified</div>
-                <div class="text-sm font-light text-green-500" v-else>verified</div>
+                <client-only placeholder="Loading...">
+                  <div class="font-bold text-orange-600">{{ this.$store.getters.user.first_name }} {{ this.$store.getters.user.last_name }}</div>
+                  <div class="text-sm font-light text-green-500" v-if="!this.$store.getters.user.active">not verified</div>
+                  <div class="text-sm font-light text-green-500" v-else>verified</div>
+                </client-only>
               </div>
             </div>
             <!-- <div class="text-gray-900 font-semibold my-8">Dashboard</div> -->

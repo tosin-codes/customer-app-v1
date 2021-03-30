@@ -14,10 +14,10 @@ export { default as Kyc3 } from '../..\\components\\kyc\\Kyc3.vue'
 export { default as Kyc4 } from '../..\\components\\kyc\\Kyc4.vue'
 export { default as KycNumbers } from '../..\\components\\kyc\\KycNumbers.vue'
 export { default as KycUpload } from '../..\\components\\kyc\\Upload.vue'
+export { default as MessagesAwaitingVerificationMessage } from '../..\\components\\messages\\AwaitingVerificationMessage.vue'
 export { default as MasterHeaderNav } from '../..\\components\\master\\HeaderNav.vue'
 export { default as MasterMobileNav } from '../..\\components\\master\\MobileNav.vue'
 export { default as MasterSidebarNav } from '../..\\components\\master\\SidebarNav.vue'
-export { default as MessagesAwaitingVerificationMessage } from '../..\\components\\messages\\AwaitingVerificationMessage.vue'
 export { default as FormComponentsBigTextsTextRounded } from '../..\\components\\FormComponents\\BigTexts\\TextRounded.vue'
 export { default as FormComponentsBigTextsTextSquare } from '../..\\components\\FormComponents\\BigTexts\\TextSquare.vue'
 export { default as FormComponentsDropdownsSelectRounded } from '../..\\components\\FormComponents\\Dropdowns\\SelectRounded.vue'
@@ -47,10 +47,10 @@ export const LazyKyc3 = import('../..\\components\\kyc\\Kyc3.vue' /* webpackChun
 export const LazyKyc4 = import('../..\\components\\kyc\\Kyc4.vue' /* webpackChunkName: "components/kyc-4" */).then(c => c.default || c)
 export const LazyKycNumbers = import('../..\\components\\kyc\\KycNumbers.vue' /* webpackChunkName: "components/kyc-numbers" */).then(c => c.default || c)
 export const LazyKycUpload = import('../..\\components\\kyc\\Upload.vue' /* webpackChunkName: "components/kyc-upload" */).then(c => c.default || c)
+export const LazyMessagesAwaitingVerificationMessage = import('../..\\components\\messages\\AwaitingVerificationMessage.vue' /* webpackChunkName: "components/messages-awaiting-verification-message" */).then(c => c.default || c)
 export const LazyMasterHeaderNav = import('../..\\components\\master\\HeaderNav.vue' /* webpackChunkName: "components/master-header-nav" */).then(c => c.default || c)
 export const LazyMasterMobileNav = import('../..\\components\\master\\MobileNav.vue' /* webpackChunkName: "components/master-mobile-nav" */).then(c => c.default || c)
 export const LazyMasterSidebarNav = import('../..\\components\\master\\SidebarNav.vue' /* webpackChunkName: "components/master-sidebar-nav" */).then(c => c.default || c)
-export const LazyMessagesAwaitingVerificationMessage = import('../..\\components\\messages\\AwaitingVerificationMessage.vue' /* webpackChunkName: "components/messages-awaiting-verification-message" */).then(c => c.default || c)
 export const LazyFormComponentsBigTextsTextRounded = import('../..\\components\\FormComponents\\BigTexts\\TextRounded.vue' /* webpackChunkName: "components/form-components-big-texts-text-rounded" */).then(c => c.default || c)
 export const LazyFormComponentsBigTextsTextSquare = import('../..\\components\\FormComponents\\BigTexts\\TextSquare.vue' /* webpackChunkName: "components/form-components-big-texts-text-square" */).then(c => c.default || c)
 export const LazyFormComponentsDropdownsSelectRounded = import('../..\\components\\FormComponents\\Dropdowns\\SelectRounded.vue' /* webpackChunkName: "components/form-components-dropdowns-select-rounded" */).then(c => c.default || c)
