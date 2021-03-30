@@ -60,8 +60,8 @@
               </div>
               <client-only placeholder="Loading...">
                 <div class="ml-4">
-                  {{ this.$store.getters.user.first_name }}
-                  {{ this.$store.getters.user.last_name }}
+                  <!-- {{ this.$store.getters.user.first_name }}
+                  {{ this.$store.getters.user.last_name }} -->
                 </div>
               </client-only>
             </div>
