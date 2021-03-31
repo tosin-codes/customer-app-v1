@@ -1,5 +1,5 @@
 <template>
-  <div class="text-red-900">
+  <div class="text-red-900 maxWidth">
     <h1>hello world from Cashdrive</h1>
     <!-- <div class="grid grid-cols-12 maxWidth mx-auto"> -->
       <!-- <GeneralNav /> -->
