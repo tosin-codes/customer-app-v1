@@ -31,7 +31,7 @@
       >
         <div class="font-semibold">Profile</div>
       </nuxt-link>
-      <nuxt-link to="/create-loan" v-if="!activeloan">
+      <!-- <nuxt-link to="/create-loan" v-if="!activeloan"> -->
         <div class="rounded-full bg-orange-500 hover:bg-orange-600 text-base py-3 text-white text-center">
           Apply for a Loan
         </div>
@@ -51,9 +51,9 @@ import { mapGetters } from 'vuex'
 export default {
   name:"MobileNav",
   computed: {
-    ...mapGetters([
-      'activeloan'
-    ])
+    // ...mapGetters([
+    //   'activeloan'
+    // ])
   },
   methods:{
     async logout() {

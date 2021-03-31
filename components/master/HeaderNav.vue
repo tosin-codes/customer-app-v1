@@ -6,13 +6,13 @@
       >
         <nuxt-link to="/">
           <div class="md:col-start-1 md:col-end-4">
-            <img class="w-24" src="~/assets/images/logo.png" alt="logo" />
+            <!-- <img class="w-24" src="~/assets/images/logo.png" alt="logo" /> -->
           </div>
         </nuxt-link>
         <div
           class="flex flex-row md:col-start-4 md:col-end-13 md:flex md:flex-row md:justify-between md:items-center"
         >
-          <div class="px-3 py-1 flex">
+          <!-- <div class="px-3 py-1 flex">
             <svg
               class="w-4 mr-3"
               xmlns="http://www.w3.org/2000/svg"
@@ -35,19 +35,19 @@
               type="search"
               placeholder="Search"
             />
-          </div>
+          </div> -->
 
-          <div class="md:hidden -mr-2 self-center">
+          <!-- <div class="md:hidden -mr-2 self-center">
             <button
               type="button"
               class="bg-white rounded-b-md p-2 inline-flex text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
               @click="toggleNav"
             >
-              <span class="sr-only">Close menu</span>
+              <span class="sr-only">Close menu</span> -->
               <!-- Heroicon name: outline/x -->
-              <div v-html="navSVG"></div>
+              <!-- <div v-html="navSVG"></div>
             </button>
-          </div>
+          </div> -->
 
           <div class="hidden md:flex md:flex-row items-center">
             <div class="md:flex items-center">
@@ -66,7 +66,7 @@
               </client-only>
             </div>
             <nuxt-link to="/" class="md:mx-12 w-5 text-gray-700">
-              <svg
+              <!-- <svg
                 class="inline-block fill-current"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -92,9 +92,9 @@
                     />
                   </g>
                 </g>
-              </svg>
+              </svg> -->
             </nuxt-link>
-            <span
+            <!-- <span
               @click.prevent="logout()"
               class="w-5 text-gray-700 cursor-pointer"
             >
@@ -109,75 +109,75 @@
                   d="m361.5 392v40c0 44.113281-35.886719 80-80 80h-201c-44.113281 0-80-35.886719-80-80v-352c0-44.113281 35.886719-80 80-80h201c44.113281 0 80 35.886719 80 80v40c0 11.046875-8.953125 20-20 20s-20-8.953125-20-20v-40c0-22.054688-17.945312-40-40-40h-201c-22.054688 0-40 17.945312-40 40v352c0 22.054688 17.945312 40 40 40h201c22.054688 0 40-17.945312 40-40v-40c0-11.046875 8.953125-20 20-20s20 8.953125 20 20zm136.355469-170.355469-44.785157-44.785156c-7.8125-7.8125-20.476562-7.8125-28.285156 0-7.8125 7.808594-7.8125 20.472656 0 28.28125l31.855469 31.859375h-240.140625c-11.046875 0-20 8.953125-20 20s8.953125 20 20 20h240.140625l-31.855469 31.859375c-7.8125 7.808594-7.8125 20.472656 0 28.28125 3.90625 3.90625 9.023438 5.859375 14.140625 5.859375 5.121094 0 10.238281-1.953125 14.144531-5.859375l44.785157-44.785156c19.496093-19.496094 19.496093-51.214844 0-70.710938zm0 0"
                 />
               </svg>
-            </span>
+            </span> -->
           </div>
         </div>
       </header>
 
-      <div class="fixed mx-auto w-full md:hidden">
+      <!-- <div class="fixed mx-auto w-full md:hidden">
         <div
           v-show="navShow"
           class="py-6 z-20 animate-slide rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50"
         >
           <MobileNav />
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
 
 <script>
-import MobileNav from './MobileNav'
+// import MobileNav from './MobileNav'
 export default {
   components: {
-    MobileNav,
+    // MobileNav,
   },
   data() {
     return {
-      burger: `<svg
-                  class="h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor" 
-                  width="24" height="24" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    d="M24 
-                    6h-24v-4h24v4zm0 
-                    4h-24v4h24v-4zm0 
-                    8h-24v4h24v-4z"
-                  />
-                </svg>`,
-      close: `<svg
-                  class="h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>`,
-      navSVG: `<svg
-                  class="h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor" 
-                  width="24" height="24" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    d="M24 
-                    6h-24v-4h24v4zm0 
-                    4h-24v4h24v-4zm0 
-                    8h-24v4h24v-4z"
-                  />
-                </svg>`,
-      navShow: false,
+      // burger: `<svg
+      //             class="h-6 w-6"
+      //             xmlns="http://www.w3.org/2000/svg"
+      //             fill="currentColor" 
+      //             width="24" height="24" 
+      //             viewBox="0 0 24 24"
+      //           >
+      //             <path 
+      //               d="M24 
+      //               6h-24v-4h24v4zm0 
+      //               4h-24v4h24v-4zm0 
+      //               8h-24v4h24v-4z"
+      //             />
+      //           </svg>`,
+      // close: `<svg
+      //             class="h-6 w-6"
+      //             xmlns="http://www.w3.org/2000/svg"
+      //             fill="none"
+      //             viewBox="0 0 24 24"
+      //             stroke="currentColor"
+      //             aria-hidden="true"
+      //           >
+      //             <path
+      //               stroke-linecap="round"
+      //               stroke-linejoin="round"
+      //               stroke-width="2"
+      //               d="M6 18L18 6M6 6l12 12"
+      //             />
+      //           </svg>`,
+      // navSVG: `<svg
+      //             class="h-6 w-6"
+      //             xmlns="http://www.w3.org/2000/svg"
+      //             fill="currentColor" 
+      //             width="24" height="24" 
+      //             viewBox="0 0 24 24"
+      //           >
+      //             <path 
+      //               d="M24 
+      //               6h-24v-4h24v4zm0 
+      //               4h-24v4h24v-4zm0 
+      //               8h-24v4h24v-4z"
+      //             />
+      //           </svg>`,
+      // navShow: false,
     }
   },
   methods: {
@@ -215,5 +215,9 @@ export default {
   animation-iteration-count: 1;
   opacity: 1;
   animation-name: slideDown;
+}
+svg{ 
+  width: '100%';
+  height: 'auto'
 }
 </style>

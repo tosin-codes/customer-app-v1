@@ -333,7 +333,7 @@ export default {
   mounted() {
     this.checkAndSetTokenIfExist()
   },
-  middleware: ['guest'],
+  middleware: ['guest']
 }
 </script>
 

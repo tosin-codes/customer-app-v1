@@ -1,7 +1,7 @@
 <template>
 <div class="grid grid-cols-12 maxWidth mx-auto">
     <GeneralNav />
-    <div class="my-container">
+    <!-- <div class="my-container">
       <div class="mt-5">
         <div class="flex flex-row items-center mb-5">
           <div>
@@ -66,66 +66,66 @@
     </div>
   </div>
       </div>
-  </div>
+  </div> -->
 </div>
 </template>
 
 <script>
-import TextInputSquare from '~/components/FormComponents/Texts/TextInputSquare'
-import ButtonSquare from '~/components/FormComponents/Buttons/Primary/ButtonSquare'
+// import TextInputSquare from '~/components/FormComponents/Texts/TextInputSquare'
+// import ButtonSquare from '~/components/FormComponents/Buttons/Primary/ButtonSquare'
 import GeneralNav from '~/components/GeneralNavbarComponent'
 import { mapGetters } from 'vuex'
 export default {
   components: {
-    TextInputSquare,
-    ButtonSquare,
+    // TextInputSquare,
+    // ButtonSquare,
     GeneralNav,
   },
   data() {
     return {
-      form: {
-        first_name: '',
-        last_name: '',
-        email: '',
-        phone: '',
-      },
-      disable:false,
-      errorInfo: '',
-      submitted: false,
-      userData: {},
+      // form: {
+      //   first_name: '',
+      //   last_name: '',
+      //   email: '',
+      //   phone: '',
+      // },
+      // disable:false,
+      // errorInfo: '',
+      // submitted: false,
+      // userData: {},
     }
   },
 
   mounted() {
-    this.form = this.user
+    // this.form = this.user
   },
   computed: {
-    ...mapGetters(['user']),
+    // ...mapGetters(['user']),
   },
   methods: {
-    async updateUser() {
-      let vm = this
-      vm.disable = true
-      await this.$axios
-        .post('/users/update', {
-          ...this.form,
-        })
-        .then((response) => {
-          console.log(response)
-          let user = response.data.data
-          let token = response.data.token
-          this.$auth.setUser(user)
-          this.$auth.setUserToken(token)
-          vm.disable = false
-        })
-        .catch((error) => {
-          vm.disable = false
-          if (error.response) {
-            const data = error.response.data.message
-            this.$noty.error(data)
-          }
-        })
-    },
+    // async updateUser() {
+    //   let vm = this
+    //   vm.disable = true
+    //   await this.$axios
+    //     .post('/users/update', {
+    //       ...this.form,
+    //     })
+    //     .then((response) => {
+    //       console.log(response)
+    //       let user = response.data.data
+    //       let token = response.data.token
+    //       this.$auth.setUser(user)
+    //       this.$auth.setUserToken(token)
+    //       vm.disable = false
+    //     })
+    //     .catch((error) => {
+    //       vm.disable = false
+    //       if (error.response) {
+    //         const data = error.response.data.message
+    //         this.$noty.error(data)
+    //       }
+    //     })
+    // },
   },
 }
 </script>
