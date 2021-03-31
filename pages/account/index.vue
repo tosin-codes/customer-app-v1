@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-12 maxWidth mx-auto">
     <GeneralNav />
-    <!-- <div class="my-container">
+    <div class="my-container">
       <div class="mt-5">
         <div class="flex flex-row items-center mb-10">
           <div>
@@ -73,7 +73,7 @@
                             <td
                               class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
                             >
-                              <!-- {{ this.$store.getters.user.number }} -->
+                              {{ this.$store.getters.user.number }}
                             </td>
                             <td
                               class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
@@ -85,7 +85,7 @@
                               class="uppercase px-6 py-4 whitespace-nowrap text-center text-sm font-light"
                             >
                               <div class="bg-green-200 py-1 px-2">
-                                <!-- {{ this.$store.getters.user.status }} -->
+                                 {{ this.$store.getters.user.status }}
                               </div>
                             </td>
                           </tr>
@@ -128,7 +128,7 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
