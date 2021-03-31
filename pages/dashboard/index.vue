@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div class="grid grid-cols-12 mx-auto">
+    <div class="">
       <!-- <GeneralNav /> -->
         <!-- <div class="mt-5"> -->
-          <div class="flex flex-row items-center mb-10">
+          <div class="">
               <!-- <div>
                 <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
               </div> -->
-              <h1 class="font-bold text-gray-700">
+              <h1 class="">
                 Dashboard
               </h1>
           </div>
