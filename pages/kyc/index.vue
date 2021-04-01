@@ -30,8 +30,7 @@
                     activeloan.level.passed_bvn == true &&
                     activeloan.level.passed_document_upload == false &&
                     activeloan.level.passed_set_inspection_date == false &&
-                    activeloan.level.passed_picture_upload == false &&
-                    show
+                    activeloan.level.passed_picture_upload == false
                   "
                   class="slide-page"
                 >
