@@ -32,7 +32,7 @@
       <div class="flex justify-between items-center">
         <button
           @click.prevent="back"
-          class="mb-5 px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none rounded-full shadow-sm text-base font-medium text-orange-500 bg-white hover:bg-orange-600 hover:text-white"
+          class="mb-5 hidden px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none rounded-full shadow-sm text-base font-medium text-orange-500 bg-white hover:bg-orange-600 hover:text-white"
         >
           Back
         </button>

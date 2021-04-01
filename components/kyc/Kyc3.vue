@@ -33,8 +33,8 @@
                 <date-picker
                   id="input"
                   class="w-full rounded-input"
-                  placeholder="hh-mm"
-                  format="hh-mm A"
+                  placeholder="HH:MM"
+                  format="hh:mm A"
                   value-type="format"
                   type="time"
                   v-model="inspectionDate.time"
@@ -57,7 +57,7 @@
             <div class="flex justify-between items-center mt-8">
               <button
                 @click.prevent="back"
-                class="mb-5 px-6 py-3 h-12 sm:w-full md:w-2/6 border-transparent focus:outline-none rounded-full shadow-sm text-base font-medium text-orange-500 bg-white border-2 border-orange-500"
+                class="mb-5 hidden px-6 py-3 h-12 sm:w-full md:w-2/6 border-transparent focus:outline-none rounded-full shadow-sm text-base font-medium text-orange-500 bg-white border-2 border-orange-500"
               >
                 Prev
               </button>
