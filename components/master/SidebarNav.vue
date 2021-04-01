@@ -6,17 +6,17 @@
           <div class="flex flex-col">
             <div class="flex flex-row items-center">
               <div>
-                <!-- <img
+                <img
                   class="rounded-full w-16 mr-5"
                   src="~/assets/images/profile.jpg"
                   alt=""
-                /> -->
+                />
               </div>
               <div>
                 <client-only placeholder="Loading...">
-                  <!-- <div class="font-bold text-orange-600">{{ this.$store.getters.user.first_name }} {{ this.$store.getters.user.last_name }}</div>
+                  <div class="font-bold text-orange-600">{{ this.$store.getters.user.first_name }} {{ this.$store.getters.user.last_name }}</div>
                   <div class="text-sm font-light text-green-500" v-if="!this.$store.getters.user.active">not verified</div>
-                  <div class="text-sm font-light text-green-500" v-else>verified</div> -->
+                  <div class="text-sm font-light text-green-500" v-else>verified</div>
                 </client-only>
               </div>
             </div>
@@ -28,7 +28,7 @@
               >
                 <div class="font-semibold">Dashboard</div>
                 <div>
-                  <!-- <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg> -->
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
                 </div>
               </nuxt-link>
               <nuxt-link
@@ -37,7 +37,7 @@
               >
                 <div class="font-semibold">My Loans</div>
                 <div>
-                  <!-- <svg
+                  <svg
                     class="fill-current w-5"
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
@@ -56,7 +56,7 @@
                         d="M289.527,190.476l-135.045,72.016L19.459,190.476c-6.464-3.452-14.468-1.002-17.894,5.441    c-3.45,6.449-1.003,14.459,5.443,17.894l141.257,75.33c1.948,1.045,4.083,1.562,6.224,1.562c2.152,0,4.284-0.51,6.235-1.562    l141.264-75.33c6.431-3.435,8.875-11.444,5.445-17.894C303.981,189.474,295.982,187.023,289.527,190.476z"
                       />
                     </g>
-                  </svg> -->
+                  </svg>
                 </div>
               </nuxt-link>
               <nuxt-link
@@ -65,7 +65,7 @@
               >
                 <div class="font-semibold">Active Loans</div>
                 <div>
-                  <!-- <svg
+                  <svg
                     class="w-5 fill-current"
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
@@ -84,7 +84,7 @@
                         d="M24.087,0.923l2.592,2.322l4.232,3.794l2.591,2.322c0.569,0.51,1.03,0.339,1.03-0.382V1.306C34.533,0.585,33.88,0,33.076,0   h-8.561C23.709,0,23.519,0.414,24.087,0.923z"
                       />
                     </g>
-                  </svg> -->
+                  </svg>
                 </div>
               </nuxt-link>
               <nuxt-link
@@ -93,7 +93,7 @@
               >
                 <div class="font-semibold">Accounts</div>
                 <div>
-                  <!-- <svg
+                  <svg
                     class="w-5 fill-current"
                     xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -118,7 +118,7 @@
                         </g>
                       </g>
                     </g>
-                  </svg> -->
+                  </svg>
                 </div>
               </nuxt-link>
               <nuxt-link
@@ -127,7 +127,7 @@
               >
                 <div class="font-semibold">Profile</div>
                 <div>
-                  <!-- <svg
+                  <svg
                     class="w-5 fill-current"
                     xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -143,7 +143,7 @@
                         d="M255,0C114.75,0,0,114.75,0,255s114.75,255,255,255s255-114.75,255-255S395.25,0,255,0z M255,76.5    c43.35,0,76.5,33.15,76.5,76.5s-33.15,76.5-76.5,76.5c-43.35,0-76.5-33.15-76.5-76.5S211.65,76.5,255,76.5z M255,438.6    c-63.75,0-119.85-33.149-153-81.6c0-51,102-79.05,153-79.05S408,306,408,357C374.85,405.45,318.75,438.6,255,438.6z"
                       />
                     </g>
-                  </svg> -->
+                  </svg>
                 </div>
               </nuxt-link>
               <nuxt-link to="/create-loan" v-if="!activeloan">
@@ -161,13 +161,13 @@
 </template>
 
 <script>
-// import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
     name:'SidebarNav',
     computed: {
-    // ...mapGetters([
-    //   'activeloan'
-    // ])
+    ...mapGetters([
+      'activeloan'
+    ])
   },
 }
 </script>

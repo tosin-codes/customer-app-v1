@@ -1,5 +1,6 @@
 <template>
 <div class="grid grid-cols-12 maxWidth mx-auto">
+  <client-only>
     <GeneralNav />
   <div class="my-container">
     <div class="mt-5">
@@ -33,6 +34,7 @@
       </div>
     </div>
   </div>
+  </client-only>
 </div>
 </template>
 

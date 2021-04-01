@@ -3,7 +3,7 @@
     <div
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 text-white"
     >
-      <!-- <div
+      <div
         class="flex flex-col justify-between p-6 bg-pink-400 bg-no-repeat bg-right-bottom bg-card-bg h-40 rounded-2xl mb-10"
       >
         <div class="flex flex-row justify-between">
@@ -132,7 +132,6 @@
           ₦{{ this.$store.getters.closedloans }}
         </div>
       </div>
-    </div> -->
     </div>
   </div>
 </template>

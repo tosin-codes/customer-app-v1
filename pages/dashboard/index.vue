@@ -1,7 +1,8 @@
 <template>
-  <div class="grid grid-cols-12 mx-auto">
+  <div class="grid grid-cols-12 maxWidth mx-auto">
     <client-only>
       <GeneralNav />
+      <div class="my-container">
         <div class="mt-5">
           <div class="flex flex-row items-center mb-10">
             <div>
@@ -17,41 +18,28 @@
             <ActiveLoanSchedule />
           </div>
         </div>
-      </client-only>
+      </div>
+    </client-only>
   </div>
 </template>
 
 <script>
-// import GeneralNav from '~/components/GeneralNavbarComponent'
-// import DashboardCards from '~/components/DashboardCards'
+import GeneralNav from '~/components/GeneralNavbarComponent'
+import DashboardCards from '~/components/DashboardCards'
 export default {
   components: {
-    // DashboardCards,
-    // GeneralNav,
+    DashboardCards,
+    GeneralNav,
   },
   data() {
     return {
-      // inActiveLoan: false,
-      // activeLoan: false,
+      inActiveLoan: false,
+      activeLoan: false,
     }
   },
-  // middleware: ['auth', 'setLevelForNewLoan'],
+  middleware: ['auth', 'setLevelForNewLoan'],
   mounted() {},
 }
 </script>
 
-<style>
-.my-container {
-  @apply mt-16 col-start-1 col-end-13 px-3 py-6 mx-auto bg-gray-200 bg-opacity-50 min-h-screen rounded-md z-10
-}
-
-@screen md {
-  .my-container {
-    @apply col-start-4 col-end-13 p-12 w-full
-  }
-}
-
-.maxWidth {
-  max-width: 1500px;
-}
-</style>
+<style></style>
