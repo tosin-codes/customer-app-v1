@@ -69,14 +69,14 @@ export default {
         type === 'image/jpeg' || type === 'image/png' || type === 'image/jpg'
       const imageSize = size / 1024 / 1000
       if (!isType) {
-        this.$toastr.w(
+        this.$noty.error(
           'You can only upload JPG, JPEG or PNG files!',
           'This file type is not allowed'
         )
         return false
       }
       if (imageSize > 2) {
-        this.$toastr.w(
+        this.$noty.error(
           'You can only upload images with maximum size of 2MB!',
           'This file type is not allowed'
         )

@@ -1,90 +1,89 @@
 <template>
   <div class="grid grid-cols-12 maxWidth mx-auto">
     <client-only>
-    <GeneralNav />
-    <div class="my-container">
-      <div class="mt-5">
-        <div class="flex flex-row items-center mb-10">
-          <div>
-            <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
+      <GeneralNav />
+      <div class="my-container">
+        <div class="mt-5">
+          <div class="flex flex-row items-center mb-10">
+            <div>
+              <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
+            </div>
+            <div class="font-bold text-gray-700">Create Loan</div>
           </div>
-          <div class="font-bold text-gray-700">Create Loan</div>
-        </div>
-        <div class="bg-white px-6 py-6 pb-24">
-
-          <form action="" class="" @submit.prevent="checkForm">
-            <div
-              v-show="createLoan1"
-              class="bg-gray-100 py-6 lg:px-48 md:px-8 px-4 rounded-lg mb-5 flex flex-col"
-            >
-              <div class="font-light text-center mb-10 text-xl">
-                Please Enter the details correctly
-              </div>
-              <div class="">
-                <div class="mb-5">
-                  <div class="mb-5 flex flex-col">
-                    <label class="mb-2 font-semibold text-gray-700" for=""
-                      >Amount</label
-                    >
-                    <input
-                      class="px-3 h-12 bg-gray-100 border-2 border-solid border-gray-500 outline-none rounded-full"
-                      placeholder="Please enter amount"
-                      type="text"
-                      v-model="amount"
-                    />
-                    <small class="error text-red-600">{{ error }}</small>
-                  </div>
-                  <div class="flex flex-col mb-5">
-                    <label class="mb-2 font-semibold text-gray-700" for=""
-                      >For how long</label
-                    >
-                    <v-select
-                      class="mySelect rounded-full"
-                      :options="tenors"
-                      placeholder="Select..."
-                      :reduce="(value) => value.id"
-                      label="value"
-                      v-model="desired.desired_tenor"
-                    ></v-select>
-                    <small class="error text-red-600">{{
-                      error_duration
-                    }}</small>
-                  </div>
-                  <div class="flex flex-col mb-5">
-                    <label class="mb-2 font-semibold text-gray-700" for=""
-                      >Repayment Plan</label
-                    >
-                    <v-select
-                      class="mySelect rounded-full"
-                      :options="repayments"
-                      v-model="desired.desired_repayment_plan"
-                      :reduce="(value) => value.id"
-                      label="value"
-                      placeholder="Select..."
-                    ></v-select>
-                    <small class="error text-red-600">{{ error_plan }}</small>
+          <div class="bg-white px-6 py-6 pb-24">
+            <form action="" class="" @submit.prevent="checkForm">
+              <div
+                v-show="createLoan1"
+                class="bg-gray-100 py-6 lg:px-48 md:px-8 px-4 rounded-lg mb-5 flex flex-col"
+              >
+                <div class="font-light text-center mb-10 text-xl">
+                  Please Enter the details correctly
+                </div>
+                <div class="">
+                  <div class="mb-5">
+                    <div class="mb-5 flex flex-col">
+                      <label class="mb-2 font-semibold text-gray-700" for=""
+                        >Amount</label
+                      >
+                      <input
+                        class="px-3 h-12 bg-gray-100 border-2 border-solid border-gray-500 outline-none rounded-full"
+                        placeholder="Please enter amount"
+                        type="text"
+                        v-model="amount"
+                      />
+                      <small class="error text-red-600">{{ error }}</small>
+                    </div>
+                    <div class="flex flex-col mb-5">
+                      <label class="mb-2 font-semibold text-gray-700" for=""
+                        >For how long</label
+                      >
+                      <v-select
+                        class="mySelect rounded-full"
+                        :options="tenors"
+                        placeholder="Select..."
+                        :reduce="(value) => value.id"
+                        label="value"
+                        v-model="desired.desired_tenor"
+                      ></v-select>
+                      <small class="error text-red-600">{{
+                        error_duration
+                      }}</small>
+                    </div>
+                    <div class="flex flex-col mb-5">
+                      <label class="mb-2 font-semibold text-gray-700" for=""
+                        >Repayment Plan</label
+                      >
+                      <v-select
+                        class="mySelect rounded-full"
+                        :options="repayments"
+                        v-model="desired.desired_repayment_plan"
+                        :reduce="(value) => value.id"
+                        label="value"
+                        placeholder="Select..."
+                      ></v-select>
+                      <small class="error text-red-600">{{ error_plan }}</small>
+                    </div>
                   </div>
                 </div>
+                <button
+                  class="bg-white border-2 focus:outline-none outline-none border-orange-500 bg-opacity-0 hover:bg-opacity-100 py-2 px-10 rounded-full text-orange-500 self-center"
+                >
+                  Submit
+                </button>
               </div>
-              <button
-                class="bg-white border-2 focus:outline-none outline-none border-orange-500 bg-opacity-0 hover:bg-opacity-100 py-2 px-10 rounded-full text-orange-500 self-center"
+              <div
+                v-show="createLoan2"
+                class="bg-gray-100 py-12 px-6 rounded-lg mb-5 flex flex-col"
               >
-                Submit
-              </button>
-            </div>
-            <div
-              v-show="createLoan2"
-              class="bg-gray-100 py-12 px-6 rounded-lg mb-5 flex flex-col"
-            >
-              <CreateLoan2 @previousForm="showForm1" @nextForm="showModal" />
-            </div>
-            <div v-show="modal">
-              <ModalChild @closeCard="showForm" />
-            </div>
-          </form>
+                <CreateLoan2 @previousForm="showForm1" @nextForm="showModal" />
+              </div>
+              <div v-show="modal">
+                <ModalChild @closeCard="showForm" />
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
     </client-only>
   </div>
 </template>
@@ -200,6 +199,7 @@ export default {
       this.amount = result
     },
   },
+  middleware: ['auth'],
 }
 </script>
 
@@ -234,5 +234,9 @@ input:focus {
 
 .mySelect .vs__search {
   width: 100%;
+}
+.mySelect .vs__open-indicator,
+.mySelect .vs__clear {
+  cursor: pointer;
 }
 </style>

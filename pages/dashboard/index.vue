@@ -6,7 +6,11 @@
         <div class="mt-5">
           <div class="flex flex-row items-center mb-10">
             <div>
-              <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
+              <img
+                class="w-8 mr-4 ml-2"
+                src="~/assets/svg/dashboard.svg"
+                alt=""
+              />
             </div>
             <div class="font-bold text-gray-700">Dashboard</div>
           </div>

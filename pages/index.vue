@@ -115,11 +115,14 @@
           </div>
           <div class="mb-5 md:col-start-1 md:col-end-13">
             <label for="" class="font-bold opacity-75">Date of birth</label>
-            <input type="date" name="" 
-            class="appearance-none block rounded-md border-gray-300 border-2 mt-2 h-12 w-full outline-none pl-4" 
-            v-model="formData.date_of_birth" 
-            placeholder="yyyy-mm-dd"
-            id="">
+            <date-picker
+              id="input"
+              class="w-full"
+              placeholder="YYYY-MM-DD"
+              format="YYYY-MM-DD"
+              value-type="format"
+              v-model="formData.date_of_birth"
+            />
 
             <p class="errors italics text-red-500 text-sm">
               <template
@@ -138,12 +141,23 @@
 
           <div class="mb-5 md:col-start-1 md:col-end-7">
             <label for="" class="font-bold opacity-75">Password</label>
-            <TextInputSquare
-              v-model="formData.password"
-              type="password"
-              name="password"
-              placeholder="Enter your password"
-            />
+            <div class="flex">
+              <input
+                v-model="formData.password"
+                :type="[showPassword ? 'text' : 'password']"
+                name="password"
+                placeholder="Enter your password"
+                class="rounded-md border-gray-300 border-2 mt-2 rounded-r-none h-12 w-full outline-none pl-4"
+              />
+
+              <span>
+                <font-awesome-icon
+                  :icon="['fas', showPassword ? 'eye' : 'eye-slash']"
+                  class="cursor-pointer bg-gray-500 h-12 mt-2 rounded-r-md shadow-sm"
+                  @click.prevent="showPassword = !showPassword"
+                />
+              </span>
+            </div>
             <p class="errors italics text-red-500 text-sm">
               <template
                 v-if="submitted && $v.formData.password.$error"
@@ -163,12 +177,22 @@
           </div>
           <div class="mb-5 md:col-start-7 md:col-end-13">
             <label for="" class="font-bold opacity-75">Confirm Password</label>
-            <TextInputSquare
-              v-model="formData.password_confirmation"
-              type="password"
-              name="password"
-              placeholder="Enter your password"
-            />
+            <div class="flex">
+              <input
+                v-model="formData.password_confirmation"
+                :type="[showConfirmPassword ? 'text' : 'password']"
+                name="password"
+                placeholder="Enter your password"
+                class="rounded-md border-gray-300 rounded-r-none border-2 mt-2 h-12 w-full outline-none pl-4"
+              />
+              <span>
+                <font-awesome-icon
+                  :icon="['fas', showConfirmPassword ? 'eye' : 'eye-slash']"
+                  class="cursor-pointer bg-gray-500 h-12 mt-2 rounded-r-md shadow-sm"
+                  @click.prevent="showConfirmPassword = !showConfirmPassword"
+                />
+              </span>
+            </div>
             <p class="errors italics text-red-500 text-sm">
               <template
                 v-if="submitted && $v.formData.password_confirmation.$error"
@@ -193,7 +217,7 @@
           </div>
 
           <button
-            :class="{'opacity-50 cursor-not-allowed': disable}"
+            :class="{ 'opacity-50 cursor-not-allowed': disable }"
             :disabled="disable"
             class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md md:col-start-1 md:col-end-13 shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
           >
@@ -210,7 +234,8 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import DatePicker from 'vue2-datepicker'
+import 'vue2-datepicker/index.css'
 import TextInputSquare from '~/components/FormComponents/Texts/TextInputSquare'
 import ButtonSquare from '~/components/FormComponents/Buttons/Primary/ButtonSquare'
 import {
@@ -226,9 +251,12 @@ export default {
   components: {
     TextInputSquare,
     ButtonSquare,
+    DatePicker,
   },
   data() {
     return {
+      showPassword: false,
+      showConfirmPassword: false,
       disable: false,
       formData: {
         first_name: '',
@@ -309,7 +337,7 @@ export default {
               const data = error.response.data.message
               vm.$noty.error(data)
             }
-            this.disable = !this.disable
+            this.disable = false
           })
       } else {
         this.disable = false
@@ -333,7 +361,7 @@ export default {
   mounted() {
     this.checkAndSetTokenIfExist()
   },
-  middleware: ['guest']
+  middleware: ['guest'],
 }
 </script>
 
@@ -342,5 +370,30 @@ export default {
   cursor: not-allowed;
   opacity: 0.6;
 }
-</style>
+.mx-datepicker {
+  width: 100% !important;
+}
+#input .mx-input {
+  width: 100%;
+  padding-left: 1rem;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 3rem;
+  border-width: 2px;
+  border-radius: 0.375rem;
+  border-color: #e2e8f0;
+}
+.pass {
+  left: 29rem;
+  bottom: 16rem;
+}
+.confirm {
+  right: 14.5rem;
+  bottom: 16rem;
+}
 
+@media screen and (max-width: 768px) {
+}
+</style>

@@ -2,411 +2,307 @@
   <div>
     <div class="grid grid-cols-12 maxWidth mx-auto">
       <client-only>
-      <GeneralNav />
-      <div class="my-container">
-        <div class="mt-5">
-          <div class="flex flex-row items-center mb-10">
-            <div>
-              <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
-            </div>
-            <div class="font-bold text-gray-700">Dashboard</div>
-          </div>
-
-          <div class="mt-4">
-            <div class="container flex flex-col justify-center px-3 pb-3 h-screen" v-if="loading">
-          <div class="px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-              <div class="flex flex-col">
-                <img
-                  class="mx-auto my-5"
-                  src="../../assets/images/loading.gif"
-                  alt=""
-                />
-                <span class="text-gray-400">Loading...</span>
-              </div>
-            </div>
-          </div>
-      </div>
-      <div class="container px-3 pb-3" v-if="error">
-        <div class="bg-gray-100">
-          <div class="py-12 px-4 sm:px-6 lg:px-8 lg:pt-20">
-            <div class="text-center">
+        <GeneralNav />
+        <div class="my-container">
+          <div class="mt-5">
+            <div class="flex flex-row items-center mb-10">
               <div>
-                <h2 class="text-3xl font-bold sm:text-3xl lg:text-3xl">
-                  Sorry :(
-                </h2>
-                <p>{{ error }}!!!</p>
+                <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
               </div>
+              <div class="font-bold text-gray-700">Dashboard</div>
             </div>
-          </div>
-        </div>
-      </div>
 
-            <div class="container" v-if="!loading && !error">
-              <div class="bg-gray-100">
-                <div class="pt-3 px-2 sm:px-2 lg:px-2">
+            <div class="mt-4">
+              <div
+                class="container flex flex-col justify-center px-3 pb-3 h-screen"
+                v-if="loading"
+              >
+                <div class="px-4 sm:px-6 lg:px-8">
                   <div class="text-center">
-                    <div>
+                    <div class="flex flex-col">
                       <img
-                        class="mx-auto w-12 my-5"
-                        src="../../assets/icons/approved.png"
+                        class="mx-auto my-5"
+                        src="../../assets/images/loading.gif"
                         alt=""
                       />
+                      <span class="text-gray-400">Loading...</span>
                     </div>
-                    <p class="mt-2 text-3xl font-bold sm:text-4xl lg:text-5xl">
-                      Provisional Offer
-                    </p>
-                    <p
-                      class="mt-3 max-w-4xl mx-auto text-sm sm:mt-5 sm:text-xl"
-                    >
-                      Please find below details of your provisional loan offers.
-                    </p>
                   </div>
                 </div>
-
-                <div class="my-10 md:grid md:grid-cols-3 px-12 md:gap-x-12">
-                  <div class="my-6">
-                    <div
-                      class="absolute -mt-3 ml-3 uppercase inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-gray-600 bg-gray-100 rounded"
-                    >
-                      amount requested
-                    </div>
-                    <div class="border border-gray-600 p-6 rounded-lg shadow">
-                      <div class="flex items-center justify-center">
-                        <span
-                          class="px-3 flex items-start text-6xl tracking-tight text-gray-500"
-                        >
-                          <span class="mr-2 text-2xl font-medium"> ₦ </span>
-                          <span class="font-extrabold text-3xl">
-                            <!-- currency -->
-                            {{ summaryDetails.amount | currency }}
-                          </span>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="my-6">
-                    <div
-                      class="absolute -mt-3 ml-3 uppercase inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-gray-600 bg-gray-100 rounded"
-                    >
-                      duration
-                    </div>
-                    <div class="border border-gray-600 p-6 rounded-lg shadow">
-                      <div class="flex items-center justify-center">
-                        <span
-                          class="px-3 flex items-start text-6xl tracking-tight text-gray-500"
-                        >
-                          <span class="font-extrabold text-3xl">
-                            {{ summaryDetails.repayment_plan }}
-                            Months
-                          </span>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="my-6">
-                    <div
-                      class="absolute -mt-3 ml-3 uppercase inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-gray-600 bg-gray-100 rounded"
-                    >
-                      repayment plan
-                    </div>
-                    <div class="border border-gray-600 p-6 rounded-lg shadow">
-                      <div class="flex items-center justify-center">
-                        <span
-                          class="px-3 flex items-start text-6xl tracking-tight text-gray-500"
-                        >
-                          <span class="font-extrabold text-3xl">
-                            {{ checkRepayment(summaryDetails.duration) }}
-                          </span>
-                        </span>
+              </div>
+              <div class="container px-3 pb-3" v-if="error">
+                <div class="bg-gray-100">
+                  <div class="py-12 px-4 sm:px-6 lg:px-8 lg:pt-20">
+                    <div class="text-center">
+                      <div>
+                        <h2 class="text-3xl font-bold sm:text-3xl lg:text-3xl">
+                          Sorry :(
+                        </h2>
+                        <p>{{ error }}!!!</p>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <div class="mt-16 bg-white pb-12 lg:mt-20">
-                  <div class="relative z-0">
-                    <div
-                      class="absolute inset-0 h-5/6 bg-gray-100 lg:h-2/3"
-                    ></div>
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                      <div class="relative lg:grid lg:grid-cols-7">
-                        <div
-                          class="mx-auto max-w-md lg:mx-0 lg:max-w-none lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-3"
-                        >
-                          <div
-                            class="h-full flex flex-col rounded-lg shadow-lg overflow-hidden lg:rounded-none lg:rounded-l-lg"
+              <div class="container" v-if="!loading && !error">
+                <div class="bg-gray-100">
+                  <div class="pt-3 px-2 sm:px-2 lg:px-2">
+                    <div class="text-center">
+                      <div>
+                        <img
+                          class="mx-auto w-12 my-5"
+                          src="../../assets/icons/approved.png"
+                          alt=""
+                        />
+                      </div>
+                      <p
+                        class="mt-2 text-3xl font-bold sm:text-4xl lg:text-5xl"
+                      >
+                        Provisional Offer
+                      </p>
+                      <p
+                        class="mt-3 max-w-4xl mx-auto text-sm sm:mt-5 sm:text-xl"
+                      >
+                        Please find below details of your provisional loan
+                        offers.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="my-10 md:grid lg:grid-cols-3 px-12 md:gap-x-12">
+                    <div class="my-6">
+                      <div
+                        class="absolute -mt-3 ml-3 uppercase inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-gray-600 bg-gray-100 rounded"
+                      >
+                        amount requested
+                      </div>
+                      <div class="border border-gray-600 p-6 rounded-lg shadow">
+                        <div class="flex items-center justify-center">
+                          <span
+                            class="px-3 flex items-start text-6xl tracking-tight text-gray-500"
                           >
-                            <div class="flex-1 flex flex-col">
-                              <div class="bg-white px-6 py-10">
-                                <div>
-                                  <h3
-                                    class="text-center text-2xl font-medium text-gray-900"
-                                    id="tier-hobby"
-                                  >
-                                    Standard Offer
-                                  </h3>
-                                  <div
-                                    class="mt-4 flex items-center justify-center"
-                                  >
-                                    <span
-                                      class="px-3 flex items-start lg:text-4xl xl:text-6xl text-6xl tracking-tight text-gray-900"
+                            <span class="mr-2 text-2xl font-medium"> ₦ </span>
+                            <span class="font-extrabold text-3xl">
+                              <!-- currency -->
+                              {{ summaryDetails.amount | currency }}
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="my-6">
+                      <div
+                        class="absolute -mt-3 ml-3 uppercase inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-gray-600 bg-gray-100 rounded"
+                      >
+                        duration
+                      </div>
+                      <div class="border border-gray-600 p-6 rounded-lg shadow">
+                        <div class="flex items-center justify-center">
+                          <span
+                            class="px-3 flex items-start text-6xl tracking-tight text-gray-500"
+                          >
+                            <span class="font-extrabold text-3xl">
+                              {{ summaryDetails.repayment_plan }}
+                              Months
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="my-6">
+                      <div
+                        class="absolute -mt-3 ml-3 uppercase inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-gray-600 bg-gray-100 rounded"
+                      >
+                        repayment plan
+                      </div>
+                      <div class="border border-gray-600 p-6 rounded-lg shadow">
+                        <div class="flex items-center justify-center">
+                          <span
+                            class="px-3 flex items-start text-6xl tracking-tight text-gray-500"
+                          >
+                            <span class="font-extrabold text-3xl">
+                              {{ checkRepayment(summaryDetails.duration) }}
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-16 bg-white pb-12 lg:mt-20">
+                    <div class="relative z-0">
+                      <div
+                        class="absolute inset-0 h-5/6 bg-gray-100 lg:h-2/3"
+                      ></div>
+                      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="relative lg:grid lg:grid-cols-7">
+                          <div
+                            class="mx-auto max-w-md lg:mx-0 lg:max-w-none lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-3"
+                          >
+                            <div
+                              class="h-full flex flex-col rounded-lg shadow-lg overflow-hidden lg:rounded-none lg:rounded-l-lg"
+                            >
+                              <div class="flex-1 flex flex-col">
+                                <div class="bg-white px-6 py-10">
+                                  <div>
+                                    <h3
+                                      class="text-center text-2xl font-medium text-gray-900"
+                                      id="tier-hobby"
+                                    >
+                                      Standard Offer
+                                    </h3>
+                                    <div
+                                      class="mt-4 flex items-center justify-center"
                                     >
                                       <span
-                                        class="mt-2 mr-2 text-3xl font-medium"
+                                        class="px-3 flex items-start lg:text-4xl xl:text-6xl text-6xl tracking-tight text-gray-900"
                                       >
-                                        ₦
+                                        <span
+                                          class="mt-2 mr-2 text-3xl font-medium"
+                                        >
+                                          ₦
+                                        </span>
+                                        <span class="font-extrabold text-4xl">
+                                          {{ offer.standard_offer.offer }}
+                                        </span>
                                       </span>
-                                      <span class="font-extrabold text-4xl">
-                                        {{ offer.standard_offer.offer }}
-                                      </span>
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                class="flex-1 flex flex-col justify-between border-t-2 border-gray-100 p-6 bg-gray-50 sm:p-10 lg:p-6 xl:p-10"
-                              >
-                                <div class="flex flex-col">
-                                  <!-- put values here -->
-                                  <div class="text-center">
-                                    <div class="my-5">
-                                      <div class="text-orange-600">
-                                        Comprehensive Insurance & Car Tracker
-                                      </div>
-                                      <div class="font-semibold text-2xl">
-                                        ₦{{ offer.standard_offer.expenses }}
-                                      </div>
-                                    </div>
-                                    <hr />
-                                    <div class="my-5">
-                                      <div class="text-orange-600">
-                                        Disbursement amount
-                                      </div>
-                                      <div class="font-semibold text-2xl">
-                                        ₦{{
-                                          offer.standard_offer.disbursed_amount
-                                        }}
-                                      </div>
-                                    </div>
-                                    <hr />
-                                    <div class="my-5">
-                                      <div class="text-orange-600">
-                                        Monthly repayment amount
-                                      </div>
-                                      <div class="font-semibold text-2xl">
-                                        ₦{{
-                                          offer.standard_offer.final_repayment
-                                        }}
-                                      </div>
-                                    </div>
-                                    <hr />
-                                    <div class="my-5">
-                                      <div class="text-orange-600">
-                                        Car Value
-                                      </div>
-                                      <div class="font-semibold text-2xl">
-                                        ₦{{ offer.standard_offer.car_value }}
-                                      </div>
-                                    </div>
-                                    <hr />
-                                    <div class="my-5">
-                                      <div class="text-orange-600">
-                                        Duration
-                                      </div>
-                                      <div class="font-semibold text-2xl">
-                                        {{
-                                          offer.standard_offer.data.offer_tenor
-                                        }}
-                                      </div>
-                                    </div>
-                                    <hr />
-                                    <div class="my-5">
-                                      <div class="text-orange-600">
-                                        Total amount payable
-                                      </div>
-                                      <div class="font-semibold text-2xl">
-                                        ₦{{
-                                          offer.standard_offer
-                                            .total_amount_payable
-                                        }}
-                                      </div>
                                     </div>
                                   </div>
                                 </div>
-                                <div class="mt-8">
-                                  <div class="rounded-lg shadow-md">
-                                    <button
-                                      @click="
-                                        accept(offer.standard_offer.token)
-                                      "
-                                      class="block w-full text-center rounded-lg border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
-                                      aria-describedby="tier-hobby"
+                                <div
+                                  class="flex-1 flex flex-col justify-between border-t-2 border-gray-100 p-6 bg-gray-50 sm:p-10 lg:p-6 xl:p-10"
+                                >
+                                  <div class="flex flex-col">
+                                    <!-- put values here -->
+                                    <div class="text-center">
+                                      <div class="my-5">
+                                        <div class="text-orange-600">
+                                          Comprehensive Insurance & Car Tracker
+                                        </div>
+                                        <div class="font-semibold text-2xl">
+                                          ₦{{ offer.standard_offer.expenses }}
+                                        </div>
+                                      </div>
+                                      <hr />
+                                      <div class="my-5">
+                                        <div class="text-orange-600">
+                                          Disbursement amount
+                                        </div>
+                                        <div class="font-semibold text-2xl">
+                                          ₦{{
+                                            offer.standard_offer
+                                              .disbursed_amount
+                                          }}
+                                        </div>
+                                      </div>
+                                      <hr />
+                                      <div class="my-5">
+                                        <div class="text-orange-600">
+                                          Monthly repayment amount
+                                        </div>
+                                        <div class="font-semibold text-2xl">
+                                          ₦{{
+                                            offer.standard_offer.final_repayment
+                                          }}
+                                        </div>
+                                      </div>
+                                      <hr />
+                                      <div class="my-5">
+                                        <div class="text-orange-600">
+                                          Car Value
+                                        </div>
+                                        <div class="font-semibold text-2xl">
+                                          ₦{{ offer.standard_offer.car_value }}
+                                        </div>
+                                      </div>
+                                      <hr />
+                                      <div class="my-5">
+                                        <div class="text-orange-600">
+                                          Duration
+                                        </div>
+                                        <div class="font-semibold text-2xl">
+                                          {{
+                                            offer.standard_offer.data
+                                              .offer_tenor
+                                          }}
+                                        </div>
+                                      </div>
+                                      <hr />
+                                      <div class="my-5">
+                                        <div class="text-orange-600">
+                                          Total amount payable
+                                        </div>
+                                        <div class="font-semibold text-2xl">
+                                          ₦{{
+                                            offer.standard_offer
+                                              .total_amount_payable
+                                          }}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="mt-8">
+                                    <div class="rounded-lg shadow-md">
+                                      <button
+                                        @click="
+                                          accept(offer.standard_offer.token)
+                                        "
+                                        class="block w-full text-center focus:outline-none rounded-lg border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
+                                        aria-describedby="tier-hobby"
+                                      >
+                                        Accept
+                                      </button>
+                                    </div>
+                                    <small
+                                      class="text-orange-600 text-center block"
+                                      >(Keep Your Car)</small
                                     >
-                                      Accept
-                                    </button>
                                   </div>
-                                  <small
-                                    class="text-orange-600 text-center block"
-                                    >(Keep Your Car)</small
-                                  >
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div
-                          class="mt-14 max-w-lg mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-start-3 lg:col-end-6 lg:row-start-1 lg:row-end-4"
-                        >
-                          <div class="relative z-10 rounded-lg shadow-xl mb-12">
+                          <div
+                            class="mt-14 max-w-lg mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-start-3 lg:col-end-6 lg:row-start-1 lg:row-end-4"
+                          >
                             <div
-                              class="pointer-events-none absolute inset-0 rounded-lg border-2 border-orange-300"
-                              aria-hidden="true"
-                            ></div>
-                            <div
-                              class="absolute inset-x-0 top-0 transform translate-y-px"
+                              class="relative z-10 rounded-lg shadow-xl mb-12"
                             >
                               <div
-                                class="flex justify-center transform -translate-y-1/2"
+                                class="pointer-events-none absolute inset-0 rounded-lg border-2 border-orange-300"
+                                aria-hidden="true"
+                              ></div>
+                              <div
+                                class="absolute inset-x-0 top-0 transform translate-y-px"
                               >
-                                <span
-                                  class="inline-flex rounded-full bg-orange-600 px-4 py-1 text-sm font-semibold tracking-wider uppercase text-white"
-                                >
-                                  Exclusive
-                                </span>
-                              </div>
-                            </div>
-                            <div class="bg-white rounded-t-lg px-6 pt-12 pb-10">
-                              <div>
-                                <h3
-                                  class="text-center text-3xl font-semibold text-gray-900 sm:-mx-6"
-                                  id="tier-growth"
-                                >
-                                  Best Offer
-                                </h3>
                                 <div
-                                  class="mt-4 flex items-center justify-center"
+                                  class="flex justify-center transform -translate-y-1/2"
                                 >
                                   <span
-                                    class="px-3 flex items-start text-6xl tracking-tight text-gray-900 sm:text-6xl"
+                                    class="inline-flex rounded-full bg-orange-600 px-4 py-1 text-sm font-semibold tracking-wider uppercase text-white"
                                   >
-                                    <span
-                                      class="mt-2 mr-2 text-3xl font-medium"
-                                    >
-                                      ₦
-                                    </span>
-                                    <span class="font-extrabold text-4xl">
-                                      {{ offer.best_offer.offer }}
-                                    </span>
+                                    Exclusive
                                   </span>
                                 </div>
                               </div>
-                            </div>
-                            <div
-                              class="border-t-2 border-gray-100 rounded-b-lg pt-10 pb-8 px-6 bg-gray-50 sm:px-10 sm:py-10"
-                            >
-                              <div class="flex flex-col">
-                                <!-- put values here -->
-                                <div class="text-center mb-12">
-                                  <div class="my-5">
-                                    <div class="text-orange-600">
-                                      Comprehensive Insurance & Car Tracker
-                                    </div>
-                                    <div class="font-semibold text-2xl">
-                                      ₦{{ offer.best_offer.expenses }}
-                                    </div>
-                                  </div>
-                                  <hr />
-                                  <div class="my-5">
-                                    <div class="text-orange-600">
-                                      Disbursement amount
-                                    </div>
-
-                                    <div class="font-semibold text-2xl">
-                                      ₦{{ offer.best_offer.disbursed_amount }}
-                                    </div>
-                                  </div>
-                                  <hr />
-                                  <div class="my-5">
-                                    <div class="text-orange-600">
-                                      Monthly repayment amount
-                                    </div>
-                                    <div class="font-semibold text-2xl">
-                                      ₦{{ offer.best_offer.final_repayment }}
-                                    </div>
-                                  </div>
-                                  <hr />
-                                  <div class="my-5">
-                                    <div class="text-orange-600">Car Value</div>
-                                    <div class="font-semibold text-2xl">
-                                      ₦{{ offer.best_offer.car_value }}
-                                    </div>
-                                  </div>
-                                  <hr />
-                                  <div class="my-5">
-                                    <div class="text-orange-600">Duration</div>
-                                    <div class="font-semibold text-2xl">
-                                      {{ offer.best_offer.data.offer_tenor }}
-                                    </div>
-                                  </div>
-                                  <hr />
-                                  <div class="my-5">
-                                    <div class="text-orange-600">
-                                      Total amount payable
-                                    </div>
-                                    <div class="font-semibold text-2xl">
-                                      ₦{{
-                                        offer.best_offer.total_amount_payable
-                                      }}
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div>
-                                <!-- put values here -->
-                              </div>
-                              <div>
-                                <!-- put values here -->
-                              </div>
-                              <div class="mt-8">
-                                <div class="rounded-lg shadow-md">
-                                  <button
-                                    @click="accept(offer.best_offer.token)"
-                                    class="block w-full text-center rounded-lg border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
-                                    aria-describedby="tier-scale"
-                                  >
-                                    Accept
-                                  </button>
-                                </div>
-                                <small class="text-orange-600 text-center block"
-                                  >(Drop Your Car)</small
-                                >
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          class="mt-10 mx-auto max-w-md lg:m-0 lg:max-w-none lg:col-start-6 lg:col-end-8 lg:row-start-2 lg:row-end-3"
-                        >
-                          <div
-                            class="h-full flex flex-col rounded-lg shadow-lg overflow-hidden lg:rounded-none lg:rounded-r-lg"
-                          >
-                            <div class="flex-1 flex flex-col">
-                              <div class="bg-white px-6 py-10">
+                              <div
+                                class="bg-white rounded-t-lg px-6 pt-12 pb-10"
+                              >
                                 <div>
                                   <h3
-                                    class="text-center text-2xl font-medium text-gray-900"
-                                    id="tier-scale"
+                                    class="text-center text-3xl font-semibold text-gray-900 sm:-mx-6"
+                                    id="tier-growth"
                                   >
-                                    Premium Offer
+                                    Best Offer
                                   </h3>
                                   <div
                                     class="mt-4 flex items-center justify-center"
                                   >
                                     <span
-                                      class="px-3 flex items-start lg:text-4xl xl:text-6xl text-6xl tracking-tight text-gray-900"
+                                      class="px-3 flex items-start text-6xl tracking-tight text-gray-900 sm:text-6xl"
                                     >
                                       <span
                                         class="mt-2 mr-2 text-3xl font-medium"
@@ -414,24 +310,24 @@
                                         ₦
                                       </span>
                                       <span class="font-extrabold text-4xl">
-                                        {{ offer.premium_offer.offer }}
+                                        {{ offer.best_offer.offer }}
                                       </span>
                                     </span>
                                   </div>
                                 </div>
                               </div>
                               <div
-                                class="flex-1 flex flex-col justify-between border-t-2 border-gray-100 p-6 bg-gray-50 sm:p-10 lg:p-6 xl:p-10"
+                                class="border-t-2 border-gray-100 rounded-b-lg pt-10 pb-8 px-6 bg-gray-50 sm:px-10 sm:py-10"
                               >
                                 <div class="flex flex-col">
                                   <!-- put values here -->
-                                  <div class="text-center">
+                                  <div class="text-center mb-12">
                                     <div class="my-5">
                                       <div class="text-orange-600">
                                         Comprehensive Insurance & Car Tracker
                                       </div>
                                       <div class="font-semibold text-2xl">
-                                        ₦{{ offer.premium_offer.expenses }}
+                                        ₦{{ offer.best_offer.expenses }}
                                       </div>
                                     </div>
                                     <hr />
@@ -439,10 +335,9 @@
                                       <div class="text-orange-600">
                                         Disbursement amount
                                       </div>
+
                                       <div class="font-semibold text-2xl">
-                                        ₦{{
-                                          offer.premium_offer.disbursed_amount
-                                        }}
+                                        ₦{{ offer.best_offer.disbursed_amount }}
                                       </div>
                                     </div>
                                     <hr />
@@ -451,9 +346,7 @@
                                         Monthly repayment amount
                                       </div>
                                       <div class="font-semibold text-2xl">
-                                        ₦{{
-                                          offer.premium_offer.final_repayment
-                                        }}
+                                        ₦{{ offer.best_offer.final_repayment }}
                                       </div>
                                     </div>
                                     <hr />
@@ -462,7 +355,7 @@
                                         Car Value
                                       </div>
                                       <div class="font-semibold text-2xl">
-                                        ₦{{ offer.premium_offer.car_value }}
+                                        ₦{{ offer.best_offer.car_value }}
                                       </div>
                                     </div>
                                     <hr />
@@ -471,9 +364,7 @@
                                         Duration
                                       </div>
                                       <div class="font-semibold text-2xl">
-                                        {{
-                                          offer.premium_offer.data.offer_tenor
-                                        }}
+                                        {{ offer.best_offer.data.offer_tenor }}
                                       </div>
                                     </div>
                                     <hr />
@@ -483,8 +374,7 @@
                                       </div>
                                       <div class="font-semibold text-2xl">
                                         ₦{{
-                                          offer.premium_offer
-                                            .total_amount_payable
+                                          offer.best_offer.total_amount_payable
                                         }}
                                       </div>
                                     </div>
@@ -499,8 +389,8 @@
                                 <div class="mt-8">
                                   <div class="rounded-lg shadow-md">
                                     <button
-                                      @click="accept(offer.premium_offer.token)"
-                                      class="block w-full text-center rounded-lg border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
+                                      @click="accept(offer.best_offer.token)"
+                                      class="block w-full text-center rounded-lg focus:outline-none border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
                                       aria-describedby="tier-scale"
                                     >
                                       Accept
@@ -514,6 +404,136 @@
                               </div>
                             </div>
                           </div>
+                          <div
+                            class="mt-10 mx-auto max-w-md lg:m-0 lg:max-w-none lg:col-start-6 lg:col-end-8 lg:row-start-2 lg:row-end-3"
+                          >
+                            <div
+                              class="h-full flex flex-col rounded-lg shadow-lg overflow-hidden lg:rounded-none lg:rounded-r-lg"
+                            >
+                              <div class="flex-1 flex flex-col">
+                                <div class="bg-white px-6 py-10">
+                                  <div>
+                                    <h3
+                                      class="text-center text-2xl font-medium text-gray-900"
+                                      id="tier-scale"
+                                    >
+                                      Premium Offer
+                                    </h3>
+                                    <div
+                                      class="mt-4 flex items-center justify-center"
+                                    >
+                                      <span
+                                        class="px-3 flex items-start lg:text-4xl xl:text-6xl text-6xl tracking-tight text-gray-900"
+                                      >
+                                        <span
+                                          class="mt-2 mr-2 text-3xl font-medium"
+                                        >
+                                          ₦
+                                        </span>
+                                        <span class="font-extrabold text-4xl">
+                                          {{ offer.premium_offer.offer }}
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div
+                                  class="flex-1 flex flex-col justify-between border-t-2 border-gray-100 p-6 bg-gray-50 sm:p-10 lg:p-6 xl:p-10"
+                                >
+                                  <div class="flex flex-col">
+                                    <!-- put values here -->
+                                    <div class="text-center">
+                                      <div class="my-5">
+                                        <div class="text-orange-600">
+                                          Comprehensive Insurance & Car Tracker
+                                        </div>
+                                        <div class="font-semibold text-2xl">
+                                          ₦{{ offer.premium_offer.expenses }}
+                                        </div>
+                                      </div>
+                                      <hr />
+                                      <div class="my-5">
+                                        <div class="text-orange-600">
+                                          Disbursement amount
+                                        </div>
+                                        <div class="font-semibold text-2xl">
+                                          ₦{{
+                                            offer.premium_offer.disbursed_amount
+                                          }}
+                                        </div>
+                                      </div>
+                                      <hr />
+                                      <div class="my-5">
+                                        <div class="text-orange-600">
+                                          Monthly repayment amount
+                                        </div>
+                                        <div class="font-semibold text-2xl">
+                                          ₦{{
+                                            offer.premium_offer.final_repayment
+                                          }}
+                                        </div>
+                                      </div>
+                                      <hr />
+                                      <div class="my-5">
+                                        <div class="text-orange-600">
+                                          Car Value
+                                        </div>
+                                        <div class="font-semibold text-2xl">
+                                          ₦{{ offer.premium_offer.car_value }}
+                                        </div>
+                                      </div>
+                                      <hr />
+                                      <div class="my-5">
+                                        <div class="text-orange-600">
+                                          Duration
+                                        </div>
+                                        <div class="font-semibold text-2xl">
+                                          {{
+                                            offer.premium_offer.data.offer_tenor
+                                          }}
+                                        </div>
+                                      </div>
+                                      <hr />
+                                      <div class="my-5">
+                                        <div class="text-orange-600">
+                                          Total amount payable
+                                        </div>
+                                        <div class="font-semibold text-2xl">
+                                          ₦{{
+                                            offer.premium_offer
+                                              .total_amount_payable
+                                          }}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <!-- put values here -->
+                                  </div>
+                                  <div>
+                                    <!-- put values here -->
+                                  </div>
+                                  <div class="mt-8">
+                                    <div class="rounded-lg shadow-md">
+                                      <button
+                                        @click="
+                                          accept(offer.premium_offer.token)
+                                        "
+                                        class="block w-full text-center focus:outline-none rounded-lg border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
+                                        aria-describedby="tier-scale"
+                                      >
+                                        Accept
+                                      </button>
+                                    </div>
+                                    <small
+                                      class="text-orange-600 text-center block"
+                                      >(Drop Your Car)</small
+                                    >
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -523,9 +543,8 @@
             </div>
           </div>
         </div>
-      </div>
+      </client-only>
     </div>
-    <client-only>
   </div>
 </template>
 
