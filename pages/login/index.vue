@@ -7,7 +7,7 @@
     </div>
 
     <div class="mt-3 sm:mx-auto sm:w-full sm:max-w-md">
-      <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <div class="bg-white py-8 px-4 shadow sm:px-10">
         <form class="space-y-6" @submit.prevent="submit">
           <div>
             <label for="email" class="block text-sm font-medium text-gray-700">
@@ -20,7 +20,7 @@
                 type="email"
                 autocomplete="email"
                 v-model="$v.email.$model"
-                class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                class="border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-10 w-full outline-none text-xs"
               />
 
               <p class="errors text-red-500 text-xs">
@@ -54,12 +54,12 @@
                   :type="[showPassword ? 'text' : 'password']"
                   autocomplete="current-password"
                   v-model="$v.password.$model"
-                  class="appearance-none block w-full px-3 py-2 border rounded-r-none border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  class="border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-10 w-full outline-none text-xs"
                 />
                 <span>
                   <font-awesome-icon
                     :icon="['fas', showPassword ? 'eye' : 'eye-slash']"
-                    class="cursor-pointer bg-gray-500 h-10 rounded-r-md shadow-sm"
+                    class="cursor-pointer h-12 border-gray-500 focus:border-gray-900 border-b-2"
                     @click.prevent="showPassword = !showPassword"
                   />
                 </span>
@@ -109,7 +109,7 @@
               type="submit"
               :class="{ 'opacity-50 cursor-not-allowed': disable }"
               :disabled="disable"
-              class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+              class="w-full flex justify-center py-2 px-4 text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
             >
               Sign in
             </button>

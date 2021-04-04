@@ -30,6 +30,7 @@ You can directly use them in pages and other components without the need to impo
 - `<FormComponentsBigTextsTextSquare>` | `<form-components-big-texts-text-square>` (components/FormComponents/BigTexts/TextSquare.vue)
 - `<FormComponentsDropdownsSelectRounded>` | `<form-components-dropdowns-select-rounded>` (components/FormComponents/Dropdowns/SelectRounded.vue)
 - `<FormComponentsDropdownsSelectSquare>` | `<form-components-dropdowns-select-square>` (components/FormComponents/Dropdowns/SelectSquare.vue)
+- `<FormComponentsTextsTextInputClassic>` | `<form-components-texts-text-input-classic>` (components/FormComponents/Texts/TextInputClassic.vue)
 - `<FormComponentsTextsTextInputRounded>` | `<form-components-texts-text-input-rounded>` (components/FormComponents/Texts/TextInputRounded.vue)
 - `<FormComponentsTextsTextInputSquare>` | `<form-components-texts-text-input-square>` (components/FormComponents/Texts/TextInputSquare.vue)
 - `<FormComponentsButtonsDefaultButtonRounded>` | `<form-components-buttons-default-button-rounded>` (components/FormComponents/Buttons/Default/ButtonRounded.vue)

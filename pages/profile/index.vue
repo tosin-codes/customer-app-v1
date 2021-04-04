@@ -5,65 +5,81 @@
     <div class="my-container">
       <div class="mt-5">
         <div class="flex flex-row items-center mb-5">
-          <div>
-            <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
+          <div class="pl-3 md:pl-0">
+            <!-- <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" /> -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </div>
-          <div class="font-bold text-gray-700">Profile</div>
+          <div class="font-semibold text-sm text-gray-700">Profile</div>
         </div>
-  <div
-    class="bg-gray-50 flex flex-col"
-  >
-    <div class="sm:w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl">
-      <div class="form bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-        <form
-          action=""
-          @submit.prevent="updateUser"
-          class="md:grid md:grid-cols-12 md:gap-x-12"
+        <div
+          class="bg-gray-50 flex flex-col"
         >
-          <div class="mb-5 md:col-start-1 md:col-end-7">
-            <label for="" class="font-bold opacity-75">First Name</label>
-            <TextInputSquare
-              v-model="form.first_name"
-              type="text"
-              name="text"
-              placeholder="Enter your first name"
-            />
+        <div class="sm:w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl">
+          <div class="form bg-white py-8 px-4 shadow sm:px-10">
+            <form
+              action=""
+              class="md:grid md:grid-cols-12 md:gap-x-12"
+            >
+              <div class="mb-5 md:col-start-1 md:col-end-7">
+                <label for="" class="font-semibold text-sm opacity-75">First Name</label>
+                <TextInputClassic
+                  v-model="form.first_name"
+                  type="text"
+                  name="text"
+                  placeholder="Enter your first name"
+                />
+              </div>
+              <div class="mb-5 md:col-start-7 md:col-end-13">
+                <label for="" class="font-semibold text-sm opacity-75">Last Name</label>
+                <TextInputClassic
+                  v-model="form.last_name"
+                  type="text"
+                  name="text"
+                  placeholder="Enter your last name"
+                />
+              </div>
+              <div class="mb-5 md:col-start-1 md:col-end-7">
+                <label for="" class="font-semibold text-sm opacity-75">Email Address</label>
+                <input
+                  class="border-gray-500 border-b-2 mt-2 h-12 w-full outline-none opacity-50 cursor-not-allowed"
+                  v-model="form.email"
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  disabled
+                />
+              </div>
+              <div class="mb-5 md:col-start-7 md:col-end-13">
+                <label for="" class="font-semibold text-sm opacity-75">Phone Number</label>
+                <TextInputClassic
+                  v-model="form.phone"
+                  type="tel"
+                  name="tel"
+                  placeholder="Enter your phone number"
+                />
+              </div>
+              <div class="w-full md:col-span-5 flex">
+                <button
+                  type="submit"
+                  :disabled="disable"
+                  :class="{ 'opacity-50 cursor-not-allowed': disable }"
+                  @click.prevent="updateUser"
+                  class="md:col-start-1 md:col-end-13 mb-5 px-6 py-3 h-12 focus:outline-none shadow-sm text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
+                >
+                  Save
+                </button>
+                <span v-if="disable">
+                <img
+                  class="mx-auto my-5"
+                  src="../../assets/images/loading-sm.gif"
+                  alt=""
+                />
+              </span>
+              </div>
+            </form>
           </div>
-          <div class="mb-5 md:col-start-7 md:col-end-13">
-            <label for="" class="font-bold opacity-75">Last Name</label>
-            <TextInputSquare
-              v-model="form.last_name"
-              type="text"
-              name="text"
-              placeholder="Enter your last name"
-            />
-          </div>
-          <div class="mb-5 md:col-start-1 md:col-end-7">
-            <label for="" class="font-bold opacity-75">Email Address</label>
-            <input
-              class="rounded-md border-gray-300 border-2 mt-2 h-12 w-full outline-none pl-4"
-              v-model="form.email"
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              readonly
-            />
-          </div>
-          <div class="mb-5 md:col-start-7 md:col-end-13">
-            <label for="" class="font-bold opacity-75">Phone Number</label>
-            <TextInputSquare
-              v-model="form.phone"
-              type="tel"
-              name="tel"
-              placeholder="Enter your phone number"
-            />
-          </div>
-
-          <ButtonSquare class="md:col-start-1 md:col-end-13" :class="{'opacity-50 cursor-not-allowed': disable}" disabled="disable" />
-        </form>
+        </div>
       </div>
-    </div>
-  </div>
       </div>
   </div>
   </client-only>
@@ -71,14 +87,12 @@
 </template>
 
 <script>
-import TextInputSquare from '~/components/FormComponents/Texts/TextInputSquare'
-import ButtonSquare from '~/components/FormComponents/Buttons/Primary/ButtonSquare'
+import TextInputClassic from '~/components/FormComponents/Texts/TextInputClassic'
 import GeneralNav from '~/components/GeneralNavbarComponent'
 import { mapGetters } from 'vuex'
 export default {
   components: {
-    TextInputSquare,
-    ButtonSquare,
+    TextInputClassic,
     GeneralNav,
   },
   data() {
@@ -104,6 +118,7 @@ export default {
   },
   methods: {
     async updateUser() {
+      alert('yo');
       let vm = this
       vm.disable = true
       await this.$axios
@@ -117,6 +132,7 @@ export default {
           this.$auth.setUser(user)
           this.$auth.setUserToken(token)
           vm.disable = false
+          this.$noty.success("Saved.")
         })
         .catch((error) => {
           vm.disable = false

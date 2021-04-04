@@ -2,7 +2,7 @@
   <div>
     <div>
       <input
-        class="border-gray-500 border-2 mt-2 h-12 w-full outline-none pl-4"
+        class="border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-12 w-full outline-none text-xs"
         :value="value"
         :type="type"
         :name="name"

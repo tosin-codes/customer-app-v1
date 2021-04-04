@@ -71,6 +71,9 @@
   "FormComponentsDropdownsSelectSquare": {
     "description": "Auto imported from components/FormComponents/Dropdowns/SelectSquare.vue"
   },
+  "FormComponentsTextsTextInputClassic": {
+    "description": "Auto imported from components/FormComponents/Texts/TextInputClassic.vue"
+  },
   "FormComponentsTextsTextInputRounded": {
     "description": "Auto imported from components/FormComponents/Texts/TextInputRounded.vue"
   },

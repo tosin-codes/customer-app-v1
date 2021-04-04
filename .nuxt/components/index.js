@@ -22,6 +22,7 @@ export { default as FormComponentsBigTextsTextRounded } from '../..\\components\
 export { default as FormComponentsBigTextsTextSquare } from '../..\\components\\FormComponents\\BigTexts\\TextSquare.vue'
 export { default as FormComponentsDropdownsSelectRounded } from '../..\\components\\FormComponents\\Dropdowns\\SelectRounded.vue'
 export { default as FormComponentsDropdownsSelectSquare } from '../..\\components\\FormComponents\\Dropdowns\\SelectSquare.vue'
+export { default as FormComponentsTextsTextInputClassic } from '../..\\components\\FormComponents\\Texts\\TextInputClassic.vue'
 export { default as FormComponentsTextsTextInputRounded } from '../..\\components\\FormComponents\\Texts\\TextInputRounded.vue'
 export { default as FormComponentsTextsTextInputSquare } from '../..\\components\\FormComponents\\Texts\\TextInputSquare.vue'
 export { default as FormComponentsButtonsDefaultButtonRounded } from '../..\\components\\FormComponents\\Buttons\\Default\\ButtonRounded.vue'
@@ -55,6 +56,7 @@ export const LazyFormComponentsBigTextsTextRounded = import('../..\\components\\
 export const LazyFormComponentsBigTextsTextSquare = import('../..\\components\\FormComponents\\BigTexts\\TextSquare.vue' /* webpackChunkName: "components/form-components-big-texts-text-square" */).then(c => c.default || c)
 export const LazyFormComponentsDropdownsSelectRounded = import('../..\\components\\FormComponents\\Dropdowns\\SelectRounded.vue' /* webpackChunkName: "components/form-components-dropdowns-select-rounded" */).then(c => c.default || c)
 export const LazyFormComponentsDropdownsSelectSquare = import('../..\\components\\FormComponents\\Dropdowns\\SelectSquare.vue' /* webpackChunkName: "components/form-components-dropdowns-select-square" */).then(c => c.default || c)
+export const LazyFormComponentsTextsTextInputClassic = import('../..\\components\\FormComponents\\Texts\\TextInputClassic.vue' /* webpackChunkName: "components/form-components-texts-text-input-classic" */).then(c => c.default || c)
 export const LazyFormComponentsTextsTextInputRounded = import('../..\\components\\FormComponents\\Texts\\TextInputRounded.vue' /* webpackChunkName: "components/form-components-texts-text-input-rounded" */).then(c => c.default || c)
 export const LazyFormComponentsTextsTextInputSquare = import('../..\\components\\FormComponents\\Texts\\TextInputSquare.vue' /* webpackChunkName: "components/form-components-texts-text-input-square" */).then(c => c.default || c)
 export const LazyFormComponentsButtonsDefaultButtonRounded = import('../..\\components\\FormComponents\\Buttons\\Default\\ButtonRounded.vue' /* webpackChunkName: "components/form-components-buttons-default-button-rounded" */).then(c => c.default || c)
