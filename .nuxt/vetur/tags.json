@@ -23,6 +23,12 @@
   "Spinner": {
     "description": "Auto imported from components/Spinner.vue"
   },
+  "FormComponentsCheckboxComponent": {
+    "description": "Auto imported from components/FormComponents/CheckboxComponent.vue"
+  },
+  "FormComponentsRadioComponent": {
+    "description": "Auto imported from components/FormComponents/RadioComponent.vue"
+  },
   "Kyc1": {
     "description": "Auto imported from components/kyc/Kyc1.vue"
   },
@@ -52,12 +58,6 @@
   },
   "MessagesAwaitingVerificationMessage": {
     "description": "Auto imported from components/messages/AwaitingVerificationMessage.vue"
-  },
-  "FormComponentsCheckboxComponent": {
-    "description": "Auto imported from components/FormComponents/CheckboxComponent.vue"
-  },
-  "FormComponentsRadioComponent": {
-    "description": "Auto imported from components/FormComponents/RadioComponent.vue"
   },
   "FormComponentsBigTextsTextRounded": {
     "description": "Auto imported from components/FormComponents/BigTexts/TextRounded.vue"
