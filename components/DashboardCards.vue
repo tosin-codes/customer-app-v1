@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="lg:mx-0 mx-4">
     <div
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 text-white"
     >
@@ -11,8 +11,8 @@
             <svg
               class="w-5 fill-current"
               xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
+              height="0px"
+              width="0px"
               viewBox="0 0 41.708 41.708"
               xml:space="preserve"
             >
@@ -49,8 +49,8 @@
             <svg
               class="w-5 fill-current"
               xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
+              height="0px"
+              width="0px"
               viewBox="0 0 512 512"
               style="enable-background: new 0 0 512 512"
               xml:space="preserve"

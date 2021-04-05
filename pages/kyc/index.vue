@@ -1,41 +1,79 @@
 <template>
-<div class="grid grid-cols-12 maxWidth mx-auto">
-  <client-only>
-    <GeneralNav />
-  <div class="my-container">
-    <div class="mt-5">
-      <div class="flex flex-row items-center mb-10">
-        <div>
-          <img class="w-8 mr-4" src="../../assets/svg/kyc.svg" alt=""/>
-        </div>
-        <div class="font-bold text-gray-700">KYC</div>
-      </div>
-      <div class="bg-white rounded-xl p-1 md:p-6">
-        <div id="app">
-          <div>
-            <KycNumbers />
-            <div v-if="activeloan.level.passed_bvn == false && activeloan.level.passed_document_upload == false && activeloan.level.passed_set_inspection_date == false && activeloan.level.passed_picture_upload == false" class="slide-page">
-              <Kyc1 @on-validate="slide" />
+  <div class="grid grid-cols-12 maxWidth mx-auto">
+    <client-only>
+      <GeneralNav />
+      <div class="my-container">
+        <div class="mt-5">
+          <div class="flex flex-row items-center mb-10 ml-3 md:ml-0">
+            <div>
+              <img class="w-8 mr-4" src="../../assets/svg/kyc.svg" alt="" />
             </div>
-            <div v-if="activeloan.level.passed_bvn == true && activeloan.level.passed_document_upload == false && activeloan.level.passed_set_inspection_date == false && activeloan.level.passed_picture_upload == false" class="slide-page">
-              <Kyc2 @next="nextSlide" @back="previous" />
-            </div>
-            <div v-if="activeloan.level.passed_bvn == true && activeloan.level.passed_document_upload == true && activeloan.level.passed_set_inspection_date == false && activeloan.level.passed_picture_upload == false" class="slide-page">
-              <Kyc3 @lastSlide="last" @prevSlide="previousSlide" />
-            </div>
-            <div v-if="activeloan.level.passed_bvn == true && activeloan.level.passed_document_upload == true && activeloan.level.passed_set_inspection_date == true && activeloan.level.passed_picture_upload == false" class="slide-page">
-              <Kyc4 @showPrev="showPrevious" />
-            </div>
-            <div v-if="activeloan.level.passed_bvn == true && activeloan.level.passed_document_upload == true && activeloan.level.passed_set_inspection_date == true && activeloan.level.passed_picture_upload == true" class="slide-page">
-              <Message />
+            <div class="font-bold text-gray-700">KYC</div>
+          </div>
+          <div class="flex flex-col w-full bg-white py-4 px-4 md:px-4">
+            <div>
+              <KycNumbers />
+              <div
+                v-if="
+                  activeloan.level.passed_bvn == false &&
+                  activeloan.level.passed_document_upload == false &&
+                  activeloan.level.passed_set_inspection_date == false &&
+                  activeloan.level.passed_picture_upload == false
+                "
+                class="slide-page"
+              >
+                <Kyc1 @on-validate="slide" />
+              </div>
+              <div
+                v-if="
+                  activeloan.level.passed_bvn == true &&
+                  activeloan.level.passed_document_upload == false &&
+                  activeloan.level.passed_set_inspection_date == false &&
+                  activeloan.level.passed_picture_upload == false
+                "
+                class="slide-page"
+              >
+                <Kyc2 @next="nextSlide" @back="previous" />
+              </div>
+              <div
+                v-if="
+                  activeloan.level.passed_bvn == true &&
+                  activeloan.level.passed_document_upload == true &&
+                  activeloan.level.passed_set_inspection_date == false &&
+                  activeloan.level.passed_picture_upload == false
+                "
+                class="slide-page"
+              >
+                <Kyc3 @lastSlide="last" @prevSlide="previousSlide" />
+              </div>
+              <div
+                v-if="
+                  activeloan.level.passed_bvn == true &&
+                  activeloan.level.passed_document_upload == true &&
+                  activeloan.level.passed_set_inspection_date == true &&
+                  activeloan.level.passed_picture_upload == false
+                "
+                class="slide-page"
+              >
+                <Kyc4 @showPrev="showPrevious" />
+              </div>
+              <div
+                v-if="
+                  activeloan.level.passed_bvn == true &&
+                  activeloan.level.passed_document_upload == true &&
+                  activeloan.level.passed_set_inspection_date == true &&
+                  activeloan.level.passed_picture_upload == true
+                "
+                class="slide-page"
+              >
+                <Message />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </client-only>
   </div>
-  </client-only>
-</div>
 </template>
 
 <script>
@@ -56,7 +94,7 @@ export default {
     Kyc3,
     Kyc4,
     GeneralNav,
-    Message
+    Message,
   },
   data() {
     return {
@@ -67,19 +105,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'activeloan'
-    ])
+    ...mapGetters(['activeloan']),
   },
   methods: {
     slide() {
       this.show = false
       this.showOne = true
-
-      if ((this.showOne = true)) {
-        let currentStep = 1
-        currentStep += 1
-      }
     },
     previous() {
       this.show = true
@@ -102,6 +133,12 @@ export default {
       this.showTwo = true
       this.showThree = false
     },
+  },
+  validate({ store, redirect }) {
+    if (!store.getters.user.active_loan.level) {
+      return redirect('/create-loan')
+    }
+    return true
   },
   middleware: ['auth'],
 }
