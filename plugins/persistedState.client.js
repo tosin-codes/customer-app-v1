@@ -4,5 +4,6 @@ export default ({ store }) => {
   createPersistedState({
     key: 'vuex',
     paths: '~/store/information.js',
+    storage: window.sessionStorage,
   })(store)
 }

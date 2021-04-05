@@ -1,126 +1,129 @@
 <template>
   <div class="grid grid-cols-12 maxWidth mx-auto">
     <client-only>
-    <GeneralNav />
-    <div class="my-container">
-      <div class="mt-5">
-        <div class="flex flex-row items-center mb-10">
-          <div>
-            <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
+      <GeneralNav />
+      <div class="my-container">
+        <div class="mt-5">
+          <div class="flex flex-row items-center mb-10 ml-3 md:ml-0">
+            <div>
+              <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
+            </div>
+            <div class="font-bold text-gray-700">Dashboard</div>
           </div>
-          <div class="font-bold text-gray-700">Dashboard</div>
-        </div>
-        <DashboardCards />
-        <div
-          class="min-h-screen bg-gray-50 flex flex-col py-12 sm:px-6 lg:px-8"
-        >
-          <div v-if="!this.$store.getters.user.bank">
-            <div class="flex flex-col bg-white border-dashed border-2 py-32">
-              <div class="text-center text-xl mb-5">
-                You do not have any bank listed.
+          <DashboardCards />
+          <div
+            class="min-h-screen bg-gray-50 flex flex-col py-12 sm:px-6 md:px-1"
+          >
+            <div v-if="!this.$store.getters.user.bank">
+              <div class="flex flex-col bg-white border-dashed border-2 py-32 mx-3 md:mx-0">
+                <div class="text-center text-xl mb-5">
+                  You do not have any bank listed.
+                </div>
               </div>
             </div>
-          </div>
 
-          <div v-else>
-            <div class="p-6 bg-white rounded-lg shadow-lg">
-              <div class="mb-3">Bank Details</div>
-              <div class="flex flex-col">
-                <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                  <div
-                    class="py-2 align-middle inline-block w-screen md:w-full min-w-full sm:px-3 lg:px-4"
-                  >
+            <div v-else>
+              <div class="p-6 bg-white rounded-lg shadow-lg">
+                <div class="mb-3">Bank Details</div>
+                <div class="flex flex-col">
+                  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div
-                      class="overflow-x-auto border-b border-gray-200 sm:rounded-lg"
+                      class="py-2 align-middle inline-block w-screen md:w-full min-w-full sm:px-3 lg:px-4"
                     >
-                      <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
-                          <tr>
-                            <th
-                              scope="col"
-                              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                            >
-                              Bank Name
-                            </th>
+                      <div
+                        class="overflow-x-auto border-b border-gray-200 sm:rounded-lg"
+                      >
+                        <table class="min-w-full divide-y divide-gray-200">
+                          <thead class="bg-gray-50">
+                            <tr>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Bank Name
+                              </th>
 
-                            <th
-                              scope="col"
-                              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                            >
-                              Account Type
-                            </th>
-                            <th
-                              scope="col"
-                              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                            >
-                              Account Number
-                            </th>
-                            <th
-                              scope="col"
-                              class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
-                            >
-                              Bank Code
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr class="bg-white">
-                            <td
-                              class="px-6 py-4 whitespace-nowrap text-sm font-normal text-gray-900"
-                            ></td>
-                            <td
-                              class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
-                            ></td>
-                            <td
-                              class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
-                            >
-                              <!-- {{ this.$store.getters.user.number }} -->
-                            </td>
-                            <td
-                              class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
-                            >
-                              ₦1,200,000
-                            </td>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Account Type
+                              </th>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Account Number
+                              </th>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Bank Code
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="bg-white">
+                              <td
+                                class="px-6 py-4 whitespace-nowrap text-sm font-normal text-gray-900"
+                              ></td>
+                              <td
+                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                              ></td>
+                              <td
+                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                              >
+                                <!-- {{ this.$store.getters.user.number }} -->
+                              </td>
+                              <td
+                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                              >
+                                ₦1,200,000
+                              </td>
 
-                            <td
-                              class="uppercase px-6 py-4 whitespace-nowrap text-center text-sm font-light"
-                            >
-                              <div class="bg-green-200 py-1 px-2">
-                                <!-- {{ this.$store.getters.user.status }} -->
-                              </div>
-                            </td>
-                          </tr>
+                              <td
+                                class="uppercase px-6 py-4 whitespace-nowrap text-center text-sm font-light"
+                              >
+                                <div class="bg-green-200 py-1 px-2">
+                                  <!-- {{ this.$store.getters.user.status }} -->
+                                </div>
+                              </td>
+                            </tr>
 
-                          <tr class="bg-gray-100">
-                            <td
-                              class="px-6 py-4 whitespace-nowrap text-sm font-normal text-gray-900"
-                            >
-                              ₦1,200,000
-                            </td>
-                            <td
-                              class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
-                            >
-                              ₦1,200,000
-                            </td>
-                            <td
-                              class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
-                            >
-                              ₦1,200,000
-                            </td>
-                            <td
-                              class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
-                            >
-                              ₦1,200,000
-                            </td>
+                            <tr class="bg-gray-100">
+                              <td
+                                class="px-6 py-4 whitespace-nowrap text-sm font-normal text-gray-900"
+                              >
+                                ₦1,200,000
+                              </td>
+                              <td
+                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                              >
+                                ₦1,200,000
+                              </td>
+                              <td
+                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                              >
+                                ₦1,200,000
+                              </td>
+                              <td
+                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                              >
+                                ₦1,200,000
+                              </td>
 
-                            <td
-                              class="uppercase px-6 py-4 whitespace-nowrap text-center text-sm font-light"
-                            >
-                              <div class="bg-green-200 py-1 px-2">success</div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                              <td
+                                class="uppercase px-6 py-4 whitespace-nowrap text-center text-sm font-light"
+                              >
+                                <div class="bg-green-200 py-1 px-2">
+                                  success
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -129,8 +132,7 @@
           </div>
         </div>
       </div>
-    </div>
-    <client-only>
+    </client-only>
   </div>
 </template>
 

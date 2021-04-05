@@ -6,10 +6,11 @@
           <div class="">
             <div class="lg:flex lg:flex-row justify-between">
               <div class="flex flex-col lg:mr-10 lg:w-3/6 mb-5">
-                <label class="mb-2 font-semibold text-gray-700" for=""
+                <label class="font-semibold text-sm text-gray-800" for=""
                   >What year is your car</label
                 >
                 <v-select
+                  class="border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-12 w-full outline-none text-xs"
                   id="select"
                   :options="years"
                   placeholder="Select year..."
@@ -24,10 +25,11 @@
                 </p>
               </div>
               <div class="flex flex-col lg:w-3/6 mb-5">
-                <label class="mb-2 font-semibold text-gray-700" for=""
+                <label class="font-semibold text-sm text-gray-800" for=""
                   >What make is your car</label
                 >
                 <v-select
+                  class="border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-12 w-full outline-none text-xs"
                   id="select"
                   :options="makes"
                   label="name"
@@ -48,10 +50,11 @@
           <div class="">
             <div class="lg:flex lg:flex-row justify-between">
               <div class="flex flex-col lg:mr-10 lg:w-3/6 mb-5">
-                <label class="mb-2 font-semibold text-gray-700" for=""
+                <label class="font-semibold text-sm text-gray-800" for=""
                   >Select your car model</label
                 >
                 <v-select
+                  class="border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-12 w-full outline-none text-xs"
                   id="select"
                   :options="models"
                   label="name"
@@ -68,10 +71,11 @@
                 </p>
               </div>
               <div class="flex flex-col lg:w-3/6 mb-5">
-                <label class="mb-2 font-semibold text-gray-700" for=""
+                <label class="font-semibold text-sm text-gray-800" for=""
                   >Select's your car's body size</label
                 >
                 <v-select
+                  class="border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-12 w-full outline-none text-xs"
                   id="select"
                   :options="trims"
                   label="name"
@@ -92,14 +96,14 @@
           <div class="">
             <div class="lg:flex lg:flex-row justify-between">
               <div class="flex flex-col lg:mr-10 lg:w-3/6 mb-5">
-                <label class="mb-2 font-semibold text-gray-700" for=""
+                <label class="font-semibold text-sm text-gray-800" for=""
                   >Please type your plate number</label
                 >
                 <input
                   type="text"
                   name="duration"
                   id="input"
-                  class="px-3 h-12 bg-gray-100 border-2 border-solid border-gray-500 outline-none rounded-full"
+                  class="border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-12 w-full outline-none text-xs"
                   v-model.trim="$v.vehicleInformation.plate_number.$model"
                   :reduce="(name) => name.name"
                   placeholder="Enter Plate Number..."
@@ -113,12 +117,12 @@
                 </p>
               </div>
               <div class="flex flex-col lg:w-3/6 mb-5">
-                <label class="mb-2 font-semibold text-gray-700" for=""
+                <label class="font-semibold text-sm text-gray-800" for=""
                   >Select your car insurance type</label
                 >
                 <v-select
                   id="select"
-                  class=""
+                  class="border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-12 w-full outline-none text-xs"
                   :options="insuranceOptions"
                   v-model.trim="$v.vehicleInformation.insurance.$model"
                   placeholder="Select..."
@@ -137,12 +141,13 @@
           <div class="">
             <div class="lg:flex lg:flex-row justify-between">
               <div class="flex flex-col lg:mr-10 lg:w-3/6 mb-5">
-                <label class="mb-2 font-semibold text-gray-700" for=""
+                <label class="font-semibold text-sm text-gray-800" for=""
                   >Are you the registered owner</label
                 >
                 <v-select
                   :options="registeredOptions"
                   id="select"
+                  class="border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-12 w-full outline-none text-xs"
                   :reduce="(value) => value.id"
                   v-model.trim="$v.vehicleInformation.registered_owner.$model"
                   label="value"
@@ -160,11 +165,12 @@
                 </p>
               </div>
               <div class="flex flex-col lg:w-3/6 mb-5">
-                <label class="mb-2 font-semibold text-gray-700" for=""
+                <label class="font-semibold text-sm text-gray-800" for=""
                   >State of vehicle registration</label
                 >
                 <v-select
                   id="select"
+                  class="border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-12 w-full outline-none text-xs"
                   :options="stateOptions"
                   v-model.trim="$v.vehicleInformation.state.$model"
                   label="name"
@@ -184,14 +190,14 @@
           <div class="flex justify-between">
             <button
               @click.prevent="previous"
-              class="bg-white bg-opacity-0 hover:bg-opacity-100 border border-orange-500 text-orange-500 py-2 px-10 rounded-full self-end"
+              class="bg-white bg-opacity-0 hover:bg-opacity-100 border border-orange-500 text-orange-500 py-2 px-10 self-end"
             >
               Prev.
             </button>
             <button
               @click.prevent="submitDetails"
               type="submit"
-              class="bg-orange-500 hover:bg-orange-600 py-2 px-10 rounded-full text-white self-end"
+              class="bg-orange-500 hover:bg-orange-600 py-2 px-10 text-white self-end"
             >
               Next
             </button>
@@ -380,21 +386,18 @@ export default {
 
 <style>
 #input:focus {
-  border-color: #2684ff;
+  border-color: #444444;
   outline: none;
-  box-shadow: 0 0 0 1px #2684ff;
 }
 #select .vs__dropdown-toggle:focus-within {
-  border-color: #2684ff;
+  border-color: #444444;
   outline: none;
-  box-shadow: 0 0 0 1px #2684ff;
 }
 #select .vs__dropdown-toggle {
-  border-radius: 50px;
-  border: 2px solid #a0aec0;
+  border: none;
   height: 50px !important;
   width: 100%;
-  padding: 0 10px;
+  padding: 0 0;
 }
 
 #select .vs__dropdown-toggle input::placeholder {

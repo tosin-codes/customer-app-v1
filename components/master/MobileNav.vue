@@ -26,7 +26,7 @@
         <div class="font-semibold">Accounts</div>
       </nuxt-link>
       <nuxt-link
-        to="/pofile"
+        to="/profile"
         class="flex flex-row justify-center my-6 hover:text-orange-500"
       >
         <div class="font-semibold">Profile</div>

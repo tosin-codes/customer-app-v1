@@ -6,30 +6,21 @@
 </template>
 
 <script>
-  import Header from './master/HeaderNav'
-  import SidebarNav from './master/SidebarNav'
-  export default {
-    name:'GeneralNav',
-    components: {
-      Header,
-      SidebarNav
-    }
-  }
+import Header from './master/HeaderNav'
+import SidebarNav from './master/SidebarNav'
+export default {
+  name: 'GeneralNav',
+  components: {
+    Header,
+    SidebarNav,
+  },
+}
 </script>
 
 <style>
-
 html {
-  font-family:
-    'Poppins',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: 'Poppins', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 3px;
   -ms-text-size-adjust: 100%;
@@ -46,20 +37,17 @@ html {
   margin: 0;
 }
 
-
-
 .my-container {
-  @apply mt-16 col-start-1 col-end-13 px-3 py-6 mx-auto bg-gray-200 bg-opacity-50 min-h-screen rounded-md z-10
+  @apply mt-16 col-start-1 col-end-13 py-6  bg-gray-200 bg-opacity-50 min-h-screen rounded-md z-10;
 }
 
 @screen md {
   .my-container {
-    @apply col-start-4 col-end-13 p-12 w-full
+    @apply col-start-4 col-end-13 p-12 w-full;
   }
 }
 
 .maxWidth {
   max-width: 1500px;
 }
-
 </style>

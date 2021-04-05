@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="modal__content m-6 w-full lg:w-3/6 rounded-2xl shadow">
+    <div class="w-full md:w-3/6 shadow">
       <h3 class="modal__title px-4 py-5 text-orange-600 font-bold">
         Is this your car?
       </h3>
@@ -8,24 +8,24 @@
         <table class="modal__table table-striped">
           <tbody>
             <tr>
-              <td>Year</td>
-              <td>{{ summaryDetails.year }}</td>
+              <td class="text-xs">Year</td>
+              <td class="text-xs">{{ summaryDetails.year }}</td>
             </tr>
             <tr>
-              <td>Make</td>
-              <td>{{ summaryDetails.make }}</td>
+              <td class="text-xs">Make</td>
+              <td class="text-xs">{{ summaryDetails.make }}</td>
             </tr>
             <tr>
-              <td>Model</td>
-              <td>{{ summaryDetails.model }}</td>
+              <td class="text-xs">Model</td>
+              <td class="text-xs">{{ summaryDetails.model }}</td>
             </tr>
             <tr>
-              <td>Body Style</td>
-              <td>{{ summaryDetails.size }}</td>
+              <td class="text-xs">Body Style</td>
+              <td class="text-xs">{{ summaryDetails.size }}</td>
             </tr>
             <tr>
-              <td>Insurance</td>
-              <td>{{ summaryDetails.car_insurance }}</td>
+              <td class="text-xs">Insurance</td>
+              <td class="text-xs">{{ summaryDetails.car_insurance }}</td>
             </tr>
           </tbody>
         </table>
@@ -35,14 +35,14 @@
           <button
             type="button"
             @click.prevent="confirm"
-            class="w-full inline-flex justify-center rounded-full border border-transparent shadow-sm px-4 py-2 bg-orange-600 text-base font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+            class="w-full inline-flex justify-center border border-transparent px-4 py-2 bg-orange-600 text-base font-medium text-white hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
           >
             Yes, Submit
           </button>
           <button
             type="button"
             @click.prevent="reject"
-            class="mt-3 w-full inline-flex justify-center rounded-full shadow-sm px-8 py-2 border border-solid border-orange-500 bg-gray text-base font-medium text-orange-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm"
+            class="mt-3 w-full inline-flex justify-center px-8 py-2 border border-solid border-orange-500 bg-gray text-base font-medium text-orange-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm"
           >
             No
           </button>
@@ -75,9 +75,7 @@ export default {
 <style scoped>
 .modal__content {
   background-color: #fff;
-  margin: 3% auto;
   border-radius: 5px;
-  z-index: 100;
 }
 
 .modal__title {

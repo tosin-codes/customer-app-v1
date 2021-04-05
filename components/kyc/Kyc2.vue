@@ -1,49 +1,50 @@
 <template class="mt-5">
-  <div class="bg-gray-100 p-4 py-8 mb-10 w-full rounded-md">
+  <div class="bg-gray-100 p-4 py-8 w-full rounded-md">
     <form class="mx-4" @submit.prevent="validateSubmit">
       <h4
-        class="lg:text-xl lg:font-medium sm:font-medium sm:text-xl text-gray-500 pb-5"
+        class="text-sm md:font-semibold sm:font-semibold sm:text-sm text-gray-800 pb-5"
       >
         Upload the following documents for your vehicle
       </h4>
       <client-only placeholder="Loading...">
-      <div class="flex justify-between flex-wrap">
-        <div class="w-full lg:w-1/2 md:w-1/2" v-for="(value, key, i) in document" :key="i">
-          <div class="">
-            <div>
-              <Upload :no="i" @uploaded="getUpload(key, $event)" />
-            </div>
-            <div  class="mb-12 mt-2">
-              <label
-                class="lg:font-medium lg:text-sm capitalize text-gray-600 lg:pt-5 sm:pb-10 sm:pt-2 sm:font-bold"
-                for
-                >{{ key.replace(/_/g, ' ') }}</label
-              >
+        <div class="flex justify-between flex-wrap">
+          <div
+            class="w-full lg:w-1/2 md:w-1/2"
+            v-for="(value, key, i) in document"
+            :key="i"
+          >
+            <div class="">
+              <div>
+                <Upload :no="i" @uploaded="getUpload(key, $event)" />
+              </div>
+              <div class="mb-12 mt-2">
+                <label
+                  class="md:font-medium md:text-xs capitalize text-gray-600 md:pt-5 sm:pb-10 sm:pt-2 sm:font-bold"
+                  for
+                  >{{ key.replace(/_/g, ' ') }}</label
+                >
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </client-only>
 
       <div class="flex justify-between items-center">
         <button
           @click.prevent="back"
-          class="mb-5 px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none rounded-full shadow-sm text-base font-medium text-orange-500 bg-white hover:bg-orange-600"
+          class="mb-5 hidden px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none rounded-full shadow-sm text-base font-medium text-orange-500 bg-white hover:bg-orange-600 hover:text-white"
         >
           Back
         </button>
         <div class="flex items-center sm:w-full justify-end">
-            <span v-if="disable" class="flex items-center mb-3">
-                <img
-                src="../../assets/images/loading-sm.gif"
-                alt=""
-              />
-            </span>
-            <button
+          <span v-if="disable" class="flex items-center mb-3">
+            <img src="../../assets/images/loading-sm.gif" alt="" />
+          </span>
+          <button
             @click.prevent="validateSubmit"
             :disabled="disable"
-            :class="{'opacity-50 cursor-not-allowed': disable}"
-            class="mb-5 px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent border-none rounded-full shadow-sm text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
+            :class="{ 'opacity-50 cursor-not-allowed': disable }"
+            class="px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
           >
             Next
           </button>
@@ -69,7 +70,7 @@ export default {
     errorMessage: '',
     loading: false,
     error: false,
-    disable:false
+    disable: false,
   }),
   mounted() {
     this.document = {
@@ -103,7 +104,7 @@ export default {
     },
     async uploadDocuments(data) {
       const loan_id = this.$store.getters.activeloan.id
-      let vm = this;
+      let vm = this
       const formData = new FormData()
       for (let i = 0; i < data.length; i++) {
         for (let key of Object.keys(data[i]))

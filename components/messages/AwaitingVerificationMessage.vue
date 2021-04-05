@@ -7,7 +7,7 @@
             alt=""
         />
     </div>
-    <p class="text-center text-md mb-5">Kindly endure with us in patience while our data experts are <br> verifying your information :) </p>
+    <p class="text-center text-md mb-5">Please hold on, your application is being processed :) </p>
   </div>
 </template>
 

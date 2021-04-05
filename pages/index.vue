@@ -15,8 +15,8 @@
           class="md:grid md:grid-cols-12 md:gap-x-12"
         >
           <div class="mb-5 md:col-start-1 md:col-end-7">
-            <label for="" class="font-bold opacity-75">First Name</label>
-            <TextInputSquare
+            <label for="" class="font-semibold text-sm opacity-75">First Name</label>
+            <TextInputClassic
               v-model="formData.first_name"
               type="text"
               name="text"
@@ -37,8 +37,8 @@
             </span>
           </div>
           <div class="mb-5 md:col-start-7 md:col-end-13">
-            <label for="" class="font-bold opacity-75">Last Name</label>
-            <TextInputSquare
+            <label for="" class="font-semibold text-sm opacity-75">Last Name</label>
+            <TextInputClassic
               v-model="formData.last_name"
               type="text"
               name="text"
@@ -59,8 +59,8 @@
             </span>
           </div>
           <div class="mb-5 md:col-start-1 md:col-end-7">
-            <label for="" class="font-bold opacity-75">Email Address</label>
-            <TextInputSquare
+            <label for="" class="font-semibold text-sm opacity-75">Email Address</label>
+            <TextInputClassic
               v-model="formData.email"
               type="email"
               name="email"
@@ -82,8 +82,8 @@
             </span>
           </div>
           <div class="mb-5 md:col-start-7 md:col-end-13">
-            <label for="" class="font-bold opacity-75">Phone Number</label>
-            <TextInputSquare
+            <label for="" class="font-semibold text-sm opacity-75">Phone Number</label>
+            <TextInputClassic
               v-model="formData.phone"
               type="tel"
               name="tel"
@@ -114,7 +114,7 @@
             </span>
           </div>
           <div class="mb-5 md:col-start-1 md:col-end-13">
-            <label for="" class="font-bold opacity-75">Date of birth</label>
+            <label for="" class="font-semibold text-sm opacity-75">Date of birth</label>
             <input type="date" name="" 
             class="appearance-none block rounded-md border-gray-300 border-2 mt-2 h-12 w-full outline-none pl-4" 
             v-model="formData.date_of_birth" 
@@ -137,8 +137,8 @@
           </div>
 
           <div class="mb-5 md:col-start-1 md:col-end-7">
-            <label for="" class="font-bold opacity-75">Password</label>
-            <TextInputSquare
+            <label for="" class="font-semibold text-sm opacity-75">Password</label>
+            <TextInputClassic
               v-model="formData.password"
               type="password"
               name="password"
@@ -162,8 +162,8 @@
             </span>
           </div>
           <div class="mb-5 md:col-start-7 md:col-end-13">
-            <label for="" class="font-bold opacity-75">Confirm Password</label>
-            <TextInputSquare
+            <label for="" class="font-semibold text-sm opacity-75">Confirm Password</label>
+            <TextInputClassic
               v-model="formData.password_confirmation"
               type="password"
               name="password"
@@ -191,17 +191,25 @@
               {{ errors.password_confirmation[0] }}
             </span>
           </div>
-
-          <button
-            :class="{'opacity-50 cursor-not-allowed': disable}"
-            :disabled="disable"
-            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md md:col-start-1 md:col-end-13 shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-          >
-            Sign Up
-          </button>
+          <div class="w-full md:col-span-5 flex">
+            <button
+              :class="{'opacity-50 cursor-not-allowed': disable}"
+              :disabled="disable"
+              class="md:col-start-1 md:col-end-13 mb-5 px-6 py-3 h-12 shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+            >
+              Sign Up
+            </button>
+            <span v-if="disable">
+              <img
+                class="mx-auto my-5"
+                src="~/assets/images/loading-sm.gif"
+                alt=""
+              />
+            </span>
+          </div>
         </form>
       </div>
-      <div class="text-center">
+      <div class="text-center mt-5">
         Have an account?
         <nuxt-link class="text-orange-700" to="/login">Sign In</nuxt-link>
       </div>
@@ -211,8 +219,7 @@
 
 <script>
 import { mapMutations } from 'vuex'
-import TextInputSquare from '~/components/FormComponents/Texts/TextInputSquare'
-import ButtonSquare from '~/components/FormComponents/Buttons/Primary/ButtonSquare'
+import TextInputClassic from '~/components/FormComponents/Texts/TextInputClassic'
 import {
   required,
   minLength,
@@ -224,8 +231,7 @@ import {
 
 export default {
   components: {
-    TextInputSquare,
-    ButtonSquare,
+    TextInputClassic
   },
   data() {
     return {
@@ -292,6 +298,7 @@ export default {
 
       if (!this.$v.$invalid) {
         let vm = this
+        this.disable = !this.disable
         await this.$axios
           .post('/signup', {
             ...this.formData,
