@@ -191,17 +191,25 @@
               {{ errors.password_confirmation[0] }}
             </span>
           </div>
-
-          <button
-            :class="{'opacity-50 cursor-not-allowed': disable}"
-            :disabled="disable"
-            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md md:col-start-1 md:col-end-13 shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-          >
-            Sign Up
-          </button>
+          <div class="w-full md:col-span-5 flex">
+            <button
+              :class="{'opacity-50 cursor-not-allowed': disable}"
+              :disabled="disable"
+              class="md:col-start-1 md:col-end-13 mb-5 px-6 py-3 h-12 shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+            >
+              Sign Up
+            </button>
+            <span v-if="disable">
+              <img
+                class="mx-auto my-5"
+                src="~/assets/images/loading-sm.gif"
+                alt=""
+              />
+            </span>
+          </div>
         </form>
       </div>
-      <div class="text-center">
+      <div class="text-center mt-5">
         Have an account?
         <nuxt-link class="text-orange-700" to="/login">Sign In</nuxt-link>
       </div>
@@ -290,6 +298,7 @@ export default {
 
       if (!this.$v.$invalid) {
         let vm = this
+        this.disable = !this.disable
         await this.$axios
           .post('/signup', {
             ...this.formData,

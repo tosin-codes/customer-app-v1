@@ -30,10 +30,14 @@
 <script>
 import GeneralNav from '~/components/GeneralNavbarComponent'
 import DashboardCards from '~/components/DashboardCards'
+import ActiveLoan from '~/components/ActiveLoan'
+import ActiveLoanSchedule from '~/components/ActiveLoanSchedule'
 export default {
   components: {
     DashboardCards,
     GeneralNav,
+    ActiveLoan,
+    ActiveLoanSchedule
   },
   data() {
     return {

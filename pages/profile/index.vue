@@ -71,7 +71,7 @@
                 <span v-if="disable">
                 <img
                   class="mx-auto my-5"
-                  src="../../assets/images/loading-sm.gif"
+                  src="~/assets/images/loading-sm.gif"
                   alt=""
                 />
               </span>

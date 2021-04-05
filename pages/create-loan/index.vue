@@ -5,40 +5,35 @@
       <div class="my-container">
         <div class="mt-5">
           <div class="flex flex-row items-center mb-10">
-            <div>
+            <div class="ml-3 md:ml-0">
               <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
             </div>
             <div class="font-bold text-gray-700">Create Loan</div>
           </div>
-          <div class="bg-white px-6 py-6 pb-24">
+          <div v-show="createLoan1" class="flex flex-col w-full md:w-2/3 bg-white py-6 px-4 md:px-10">
             <form action="" class="" @submit.prevent="checkForm">
-              <div
-                v-show="createLoan1"
-                class="bg-gray-100 py-6 lg:px-48 md:px-8 px-4 rounded-lg mb-5 flex flex-col"
-              >
-                <div class="font-light text-center mb-10 text-xl">
+                <h2 class="font-semibold mb-10 text-sm">
                   Please Enter the details correctly
-                </div>
-                <div class="">
-                  <div class="mb-5">
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                     <div class="mb-5 flex flex-col">
-                      <label class="mb-2 font-semibold text-gray-700" for=""
+                      <label class="font-semibold text-sm text-gray-700" for=""
                         >Amount</label
                       >
-                      <input
-                        class="px-3 h-12 bg-gray-100 border-2 border-solid border-gray-500 outline-none rounded-full"
-                        placeholder="Please enter amount"
-                        type="text"
+                      <TextInputClassic
                         v-model="amount"
+                        type="text"
+                        placeholder="Please enter amount"
+                        name="amount"
                       />
                       <small class="error text-red-600">{{ error }}</small>
                     </div>
                     <div class="flex flex-col mb-5">
-                      <label class="mb-2 font-semibold text-gray-700" for=""
+                      <label class="font-semibold text-sm text-gray-700" for=""
                         >For how long</label
                       >
                       <v-select
-                        class="mySelect rounded-full"
+                        class="mySelect border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-12 w-full outline-none text-xs"
                         :options="tenors"
                         placeholder="Select..."
                         :reduce="(value) => value.id"
@@ -49,12 +44,12 @@
                         error_duration
                       }}</small>
                     </div>
-                    <div class="flex flex-col mb-5">
-                      <label class="mb-2 font-semibold text-gray-700" for=""
+                    <div class="col-span-2 flex flex-col mb-5">
+                      <label class="font-semibold text-sm text-gray-700" for=""
                         >Repayment Plan</label
                       >
                       <v-select
-                        class="mySelect rounded-full"
+                        class="mySelect border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-12 w-full outline-none text-xs"
                         :options="repayments"
                         v-model="desired.desired_repayment_plan"
                         :reduce="(value) => value.id"
@@ -63,33 +58,32 @@
                       ></v-select>
                       <small class="error text-red-600">{{ error_plan }}</small>
                     </div>
-                  </div>
                 </div>
                 <button
-                  class="bg-white border-2 focus:outline-none outline-none border-orange-500 bg-opacity-0 hover:bg-opacity-100 py-2 px-10 rounded-full text-orange-500 self-center"
+                  class="bg-orange-600 focus:outline-none hover:bg-opacity-100 py-2 px-10 text-white self-center"
                 >
                   Submit
                 </button>
+                </form>
               </div>
               <div
                 v-show="createLoan2"
-                class="bg-gray-100 py-12 px-6 rounded-lg mb-5 flex flex-col"
+                class="flex flex-col w-full md:w-2/3 bg-white py-6 px-4 md:px-10"
               >
                 <CreateLoan2 @previousForm="showForm1" @nextForm="showModal" />
               </div>
-              <div v-show="modal">
+              <div v-show="modal" class="flex flex-col w-full md:w-2/3 bg-white py-6 md:px-5">
                 <ModalChild @closeCard="showForm" />
               </div>
-            </form>
           </div>
         </div>
-      </div>
     </client-only>
-  </div>
+      </div>
 </template>
 
 <script>
 import GeneralNav from '../../components/GeneralNavbarComponent'
+import TextInputClassic from '~/components/FormComponents/Texts/TextInputClassic'
 import CreateLoan2 from '../../components/CreateLoan2'
 import ModalChild from '../../components/ModalChild'
 import { mapMutations } from 'vuex'
@@ -100,6 +94,7 @@ export default {
     CreateLoan2,
     ModalChild,
     vSelect,
+    TextInputClassic
   },
   data() {
     return {
@@ -206,22 +201,19 @@ export default {
 <style scoped>
 input:focus {
   outline: none;
-  border-color: #2684ff;
-  box-shadow: 0 0 0 1px #2684ff;
+  border-color: #444444;
 }
 </style>
 <style>
 .mySelect .vs__dropdown-toggle {
   height: 50px;
-  border-radius: 50px;
-  border: 2px solid #a0aec0;
+  border-style: none;
   padding: 0 10px;
 }
 
 .mySelect .vs__dropdown-toggle:focus-within {
-  border-color: #2684ff;
+  border-color: #444444;
   outline: none;
-  box-shadow: 0 0 0 1px #2684ff;
 }
 
 .mySelect .vs__dropdown-toggle input::placeholder {

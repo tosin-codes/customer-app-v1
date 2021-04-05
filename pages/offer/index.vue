@@ -5,19 +5,12 @@
         <GeneralNav />
         <div class="my-container">
           <div class="mt-5">
-            <div class="flex flex-row items-center mb-10">
-              <div>
-                <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
-              </div>
-              <div class="font-bold text-gray-700">Dashboard</div>
-            </div>
-
             <div class="mt-4">
               <div
-                class="container flex flex-col justify-center px-3 pb-3 h-screen"
+                class="container flex flex-col justify-center pb-3 h-screen"
                 v-if="loading"
               >
-                <div class="px-4 sm:px-6 lg:px-8">
+                <div class="px-4 lg:px-8">
                   <div class="text-center">
                     <div class="flex flex-col">
                       <img
@@ -30,9 +23,9 @@
                   </div>
                 </div>
               </div>
-              <div class="container px-3 pb-3" v-if="error">
+              <div class="container pb-3" v-if="error">
                 <div class="bg-gray-100">
-                  <div class="py-12 px-4 sm:px-6 lg:px-8 lg:pt-20">
+                  <div class="py-12 px-4 lg:px-8 lg:pt-20">
                     <div class="text-center">
                       <div>
                         <h2 class="text-3xl font-bold sm:text-3xl lg:text-3xl">
@@ -176,7 +169,6 @@
                                   class="flex-1 flex flex-col justify-between border-t-2 border-gray-100 p-6 bg-gray-50 sm:p-10 lg:p-6 xl:p-10"
                                 >
                                   <div class="flex flex-col">
-                                    <!-- put values here -->
                                     <div class="text-center">
                                       <div class="my-5">
                                         <div class="text-orange-600">
@@ -250,7 +242,7 @@
                                         @click="
                                           accept(offer.standard_offer.token)
                                         "
-                                        class="block w-full text-center focus:outline-none rounded-lg border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
+                                        class="block w-full text-center focus:outline-none border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
                                         aria-describedby="tier-hobby"
                                       >
                                         Accept
@@ -390,7 +382,7 @@
                                   <div class="rounded-lg shadow-md">
                                     <button
                                       @click="accept(offer.best_offer.token)"
-                                      class="block w-full text-center rounded-lg focus:outline-none border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
+                                      class="block w-full text-center focus:outline-none border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
                                       aria-describedby="tier-scale"
                                     >
                                       Accept
@@ -507,19 +499,13 @@
                                       </div>
                                     </div>
                                   </div>
-                                  <div>
-                                    <!-- put values here -->
-                                  </div>
-                                  <div>
-                                    <!-- put values here -->
-                                  </div>
                                   <div class="mt-8">
                                     <div class="rounded-lg shadow-md">
                                       <button
                                         @click="
                                           accept(offer.premium_offer.token)
                                         "
-                                        class="block w-full text-center focus:outline-none rounded-lg border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
+                                        class="block w-full text-center focus:outline-none border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
                                         aria-describedby="tier-scale"
                                       >
                                         Accept
@@ -671,8 +657,7 @@ export default {
   },
   mounted() {
     let vm = this
-    vm.getEstimation()
-    // console.log(this.$store.state.information)
+    // vm.getEstimation()
   },
 }
 </script>
