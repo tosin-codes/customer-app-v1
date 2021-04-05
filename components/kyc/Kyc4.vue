@@ -54,7 +54,7 @@
             :disabled="disable"
             :class="{ 'opacity-50 cursor-not-allowed': disable }"
             @click.prevent="submitImage"
-            class="px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
+            class="px-6 py-3 h-12 sm:w-full md:w-1/6 flex items-center justify-center border border-transparent focus:outline-none border-none text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
           >
             Next
           </button>

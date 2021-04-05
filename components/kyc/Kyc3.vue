@@ -1,12 +1,14 @@
 <template>
   <div class="bg-gray-100 p-4 py-8 mb-10 rounded-md">
     <div>
-      <div class="font-semibold text-sm">Please select your preferred inspection date</div>
+      <div class="font-semibold text-sm">
+        Please select your preferred inspection date
+      </div>
       <div>
         <client-only placeholder="Loading...">
           <form action="">
             <div class="flex flex-col md:flex-row justify-between mt-3">
-              <div class="w-full">
+              <div class="w-full mb-6">
                 <date-picker
                   id="input"
                   class=""
@@ -71,7 +73,7 @@
                   :disabled="disable"
                   :class="{ 'opacity-50 cursor-not-allowed': disable }"
                   @click.prevent="submitDate"
-                  class="px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
+                  class="px-6 py-3 h-12 sm:w-full md:w-1/6 border flex items-center justify-center border-transparent focus:outline-none border-none text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
                 >
                   Next
                 </button>
@@ -163,13 +165,12 @@ export default {
 </script>
 
 <style scoped>
-
 .mx-datepicker {
-  width:100%;
+  width: 100%;
 }
-.mx-input{
- border:none !important;
- background: #F7FAFC !important;
+.mx-input {
+  border: none !important;
+  background: #f7fafc !important;
 }
 input {
   @apply py-4 outline-none rounded-full pl-6;

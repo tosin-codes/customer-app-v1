@@ -5,135 +5,133 @@
         <h3>Please enter your account details</h3>
       </div>
       <div>
-          <form action="">
-            <div class="grid grid-cols-1 md:grid-cols-2 md:gap-4">
-              <div>
-                <input
-                    type="number"
-                    placeholder="BVN"
-                    v-model.trim="bankInformation.bvn"
-                    name="bvn"
-                    class="border-b-2 border-gray-500 bg-gray-100 mt-2 h-12 w-full rounded-none text-xs"
-                  />
-                <span
-                  class="text-red-500 italics text-xs"
-                  v-if="
-                    $v.bankInformation.bvn.$error &&
-                    !$v.bankInformation.bvn.required
-                  "
-                  >BVN is required</span
-                >
-                <span
-                  class="text-red-500 italics text-xs"
-                  v-if="!$v.bankInformation.bvn.minLength"
-                  >Enter a valid BVN</span
-                >
-                <div v-if="errors">
-                  <span class="text-red-700 text-xs" v-if="errors.bvn">
-                    {{ errors.bvn[0] }}
-                  </span>
-                </div>
-              </div>
-              <div>
-                <input
-                    type="number"
-                    placeholder="Account Number"
-                    v-model.trim="bankInformation.number"
-                    name="account_number"
-                    class="border-b-2 border-gray-500 bg-gray-100 mt-2 h-12 w-full rounded-none text-xs"
-                  />
-                <span
-                  class="text-red-500 italics text-xs"
-                  v-if="
-                    $v.bankInformation.number.$error &&
-                    !$v.bankInformation.number.required
-                  "
-                  >Account number is required</span
-                >
-                <div v-if="errors">
-                  <span class="text-red-700 text-xs" v-if="errors.number">
-                    {{ errors.number[0] }}
-                  </span>
-                </div>
-              </div>
-              <div>
-                <select
-                  name=""
-                  class="border-gray-500 focus:border-gray-900 bg-gray-100 border-b-2 mt-2 h-12 w-full outline-none text-xs"
-                  v-model.trim="bankInformation.code"
-                  id=""
-                >
-                  <option value="" disabled selected>Select bank name</option>
-                  <option
-                    v-for="bank in banks"
-                    :key="bank.code + '-' + bank.name"
-                    :value="bank.code"
-                  >
-                    {{ bank.name }}
-                  </option>
-                </select>
-                <span
-                  class="text-red-500 italics text-xs"
-                  v-if="
-                    $v.bankInformation.code.$error &&
-                    !$v.bankInformation.code.required
-                  "
-                  >Bank name is required</span
-                >
-                <div v-if="errors">
-                  <span class="text-red-700 text-xs" v-if="errors.code">
-                    {{ errors.code[0] }}
-                  </span>
-                </div>
-              </div>
-              <div>
-                <select
-                  name=""
-                  class="border-gray-500 focus:border-gray-900 bg-gray-100 border-b-2 mt-2 h-12 w-full outline-none text-xs"
-                  v-model.trim="bankInformation.type"
-                  placeholder="type"
-                >
-                  <option value="" disabled selected>
-                    Select...
-                  </option>
-                  <option value="savings">SAVINGS</option>
-                  <option value="current">CURRENT</option>
-                </select>
-                <span
-                  class="text-red-500 italics text-xs"
-                  v-if="
-                    $v.bankInformation.type.$error &&
-                    !$v.bankInformation.type.required
-                  "
-                  >Account type is required</span
-                >
-                <div v-if="errors">
-                  <span class="text-red-700 text-xs" v-if="errors.type">
-                    {{ errors.type[0] }}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex justify-end items-center mt-3">
-              <span v-if="disable">
-                <img
-                  class="mx-auto my-5"
-                  src="~/assets/images/loading-sm.gif"
-                  alt=""
-                />
-              </span>
-
-              <button
-                @click.prevent="next"
-                :disabled="disable"
-                :class="{ 'opacity-50 cursor-not-allowed': disable }"
-                class="px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
+        <form action="">
+          <div class="grid grid-cols-1 md:grid-cols-2 md:gap-4">
+            <div>
+              <input
+                type="number"
+                placeholder="BVN"
+                v-model.trim="bankInformation.bvn"
+                name="bvn"
+                class="border-b-2 border-gray-500 bg-gray-100 mt-2 h-12 w-full rounded-none text-xs"
+              />
+              <span
+                class="text-red-500 italics text-xs"
+                v-if="
+                  $v.bankInformation.bvn.$error &&
+                  !$v.bankInformation.bvn.required
+                "
+                >BVN is required</span
               >
-                Next
-              </button>
+              <span
+                class="text-red-500 italics text-xs"
+                v-if="!$v.bankInformation.bvn.minLength"
+                >Enter a valid BVN</span
+              >
+              <div v-if="errors">
+                <span class="text-red-700 text-xs" v-if="errors.bvn">
+                  {{ errors.bvn[0] }}
+                </span>
+              </div>
             </div>
-          </form>
+            <div>
+              <input
+                type="number"
+                placeholder="Account Number"
+                v-model.trim="bankInformation.number"
+                name="account_number"
+                class="border-b-2 border-gray-500 bg-gray-100 mt-2 h-12 w-full rounded-none text-xs"
+              />
+              <span
+                class="text-red-500 italics text-xs"
+                v-if="
+                  $v.bankInformation.number.$error &&
+                  !$v.bankInformation.number.required
+                "
+                >Account number is required</span
+              >
+              <div v-if="errors">
+                <span class="text-red-700 text-xs" v-if="errors.number">
+                  {{ errors.number[0] }}
+                </span>
+              </div>
+            </div>
+            <div>
+              <select
+                name=""
+                class="border-gray-500 focus:border-gray-900 bg-gray-100 border-b-2 mt-2 h-12 w-full outline-none text-xs"
+                v-model.trim="bankInformation.code"
+                id=""
+              >
+                <option value="" disabled selected>Select bank name</option>
+                <option
+                  v-for="bank in banks"
+                  :key="bank.code + '-' + bank.name"
+                  :value="bank.code"
+                >
+                  {{ bank.name }}
+                </option>
+              </select>
+              <span
+                class="text-red-500 italics text-xs"
+                v-if="
+                  $v.bankInformation.code.$error &&
+                  !$v.bankInformation.code.required
+                "
+                >Bank name is required</span
+              >
+              <div v-if="errors">
+                <span class="text-red-700 text-xs" v-if="errors.code">
+                  {{ errors.code[0] }}
+                </span>
+              </div>
+            </div>
+            <div>
+              <select
+                name=""
+                class="border-gray-500 focus:border-gray-900 bg-gray-100 border-b-2 mt-2 h-12 w-full outline-none text-xs"
+                v-model.trim="bankInformation.type"
+                placeholder="type"
+              >
+                <option value="" disabled selected>Select...</option>
+                <option value="savings">SAVINGS</option>
+                <option value="current">CURRENT</option>
+              </select>
+              <span
+                class="text-red-500 italics text-xs"
+                v-if="
+                  $v.bankInformation.type.$error &&
+                  !$v.bankInformation.type.required
+                "
+                >Account type is required</span
+              >
+              <div v-if="errors">
+                <span class="text-red-700 text-xs" v-if="errors.type">
+                  {{ errors.type[0] }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-end items-center mt-3">
+            <span v-if="disable">
+              <img
+                class="mx-auto my-5"
+                src="~/assets/images/loading-sm.gif"
+                alt=""
+              />
+            </span>
+
+            <button
+              @click.prevent="next"
+              :disabled="disable"
+              :class="{ 'opacity-50 cursor-not-allowed': disable }"
+              class="px-6 py-3 h-12 sm:w-full md:w-1/6 flex items-center justify-center border border-transparent focus:outline-none border-none text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
+            >
+              Next
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -144,8 +142,8 @@ import { mapMutations } from 'vuex'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 import TextInputClassic from '~/components/FormComponents/Texts/TextInputClassic'
 export default {
-  components:{
-    TextInputClassic
+  components: {
+    TextInputClassic,
   },
   data() {
     return {
@@ -242,5 +240,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

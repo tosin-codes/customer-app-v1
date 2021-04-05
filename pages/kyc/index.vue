@@ -10,65 +10,65 @@
             </div>
             <div class="font-bold text-gray-700">KYC</div>
           </div>
-          <div class="flex flex-col w-full md:w-2/3 bg-white py-4 px-4 md:px-4">
-              <div>
-                <KycNumbers />
-                <div
-                  v-if="
-                    activeloan.level.passed_bvn == false &&
-                    activeloan.level.passed_document_upload == false &&
-                    activeloan.level.passed_set_inspection_date == false &&
-                    activeloan.level.passed_picture_upload == false
-                  "
-                  class="slide-page"
-                >
-                  <Kyc1 @on-validate="slide" />
-                </div>
-                <div
-                  v-if="
-                    activeloan.level.passed_bvn == true &&
-                    activeloan.level.passed_document_upload == false &&
-                    activeloan.level.passed_set_inspection_date == false &&
-                    activeloan.level.passed_picture_upload == false
-                  "
-                  class="slide-page"
-                >
-                  <Kyc2 @next="nextSlide" @back="previous" />
-                </div>
-                <div
-                  v-if="
-                    activeloan.level.passed_bvn == true &&
-                    activeloan.level.passed_document_upload == true &&
-                    activeloan.level.passed_set_inspection_date == false &&
-                    activeloan.level.passed_picture_upload == false
-                  "
-                  class="slide-page"
-                >
-                  <Kyc3 @lastSlide="last" @prevSlide="previousSlide" />
-                </div>
-                <div
-                  v-if="
-                    activeloan.level.passed_bvn == true &&
-                    activeloan.level.passed_document_upload == true &&
-                    activeloan.level.passed_set_inspection_date == true &&
-                    activeloan.level.passed_picture_upload == false
-                  "
-                  class="slide-page"
-                >
-                  <Kyc4 @showPrev="showPrevious" />
-                </div>
-                <div
-                  v-if="
-                    activeloan.level.passed_bvn == true &&
-                    activeloan.level.passed_document_upload == true &&
-                    activeloan.level.passed_set_inspection_date == true &&
-                    activeloan.level.passed_picture_upload == true
-                  "
-                  class="slide-page"
-                >
-                  <Message />
-                </div>
+          <div class="flex flex-col w-full bg-white py-4 px-4 md:px-4">
+            <div>
+              <KycNumbers />
+              <div
+                v-if="
+                  activeloan.level.passed_bvn == false &&
+                  activeloan.level.passed_document_upload == false &&
+                  activeloan.level.passed_set_inspection_date == false &&
+                  activeloan.level.passed_picture_upload == false
+                "
+                class="slide-page"
+              >
+                <Kyc1 @on-validate="slide" />
               </div>
+              <div
+                v-if="
+                  activeloan.level.passed_bvn == true &&
+                  activeloan.level.passed_document_upload == false &&
+                  activeloan.level.passed_set_inspection_date == false &&
+                  activeloan.level.passed_picture_upload == false
+                "
+                class="slide-page"
+              >
+                <Kyc2 @next="nextSlide" @back="previous" />
+              </div>
+              <div
+                v-if="
+                  activeloan.level.passed_bvn == true &&
+                  activeloan.level.passed_document_upload == true &&
+                  activeloan.level.passed_set_inspection_date == false &&
+                  activeloan.level.passed_picture_upload == false
+                "
+                class="slide-page"
+              >
+                <Kyc3 @lastSlide="last" @prevSlide="previousSlide" />
+              </div>
+              <div
+                v-if="
+                  activeloan.level.passed_bvn == true &&
+                  activeloan.level.passed_document_upload == true &&
+                  activeloan.level.passed_set_inspection_date == true &&
+                  activeloan.level.passed_picture_upload == false
+                "
+                class="slide-page"
+              >
+                <Kyc4 @showPrev="showPrevious" />
+              </div>
+              <div
+                v-if="
+                  activeloan.level.passed_bvn == true &&
+                  activeloan.level.passed_document_upload == true &&
+                  activeloan.level.passed_set_inspection_date == true &&
+                  activeloan.level.passed_picture_upload == true
+                "
+                class="slide-page"
+              >
+                <Message />
+              </div>
+            </div>
           </div>
         </div>
       </div>
