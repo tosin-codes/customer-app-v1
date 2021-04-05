@@ -2,11 +2,13 @@
   <div
     class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8"
   >
-    <div class="sm:mx-auto sm:w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl p-3">
-      <h2 class="mt-6 text-3xl font-medium text-gray-900">Sign up</h2>
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+      <h2 class="mt-6 p-3 text-3xl font-medium text-gray-900 text-justify">
+        Sign up
+      </h2>
     </div>
     <div class="sm:mx-auto sm:w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl p-3">
-      <div class="form bg-white py-8 px-4 shadow sm:px-10">
+      <div class="form bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
         <form
           action=""
           @submit.prevent="registerUser"
@@ -20,15 +22,15 @@
               name="text"
               placeholder="Enter your first name"
             />
-            <p class="errors italics text-red-500 text-xs">
+            <p class="errors italics text-red-500 text-sm">
               <template
                 v-if="submitted && !$v.formData.first_name.required"
                 class="errorInfo"
               >
-              </template>
-              <small class="text-yellow-500">
-                  First name must match BVN first name.
-              </small>
+                <small>
+                  Please ensure your first name matches the one on your BVN.
+                </small></template
+              >
             </p>
             <span class="text-red-700 text-xs" v-if="errors.first_name">
               {{ errors.first_name[0] }}
@@ -42,15 +44,15 @@
               name="text"
               placeholder="Enter your last name"
             />
-            <p class="errors italics text-red-500 text-xs">
+            <p class="errors italics text-red-500 text-sm">
               <template
                 v-if="submitted && !$v.formData.last_name.required"
                 class="errorInfo"
               >
-              </template>
-              <small class="text-yellow-500">
-                  Last name must match BVN last name.
-              </small>
+                <small>
+                  Please ensure your names matches the ones on your BVN.
+                </small></template
+              >
             </p>
             <span class="text-red-700 text-xs" v-if="errors.last_name">
               {{ errors.last_name[0] }}
@@ -64,7 +66,7 @@
               name="email"
               placeholder="Enter your email"
             />
-            <p class="errors italics text-red-500 text-xs">
+            <p class="errors italics text-red-500 text-sm">
               <template
                 v-if="submitted && $v.formData.email.$error"
                 class="errorInfo"
@@ -87,7 +89,7 @@
               name="tel"
               placeholder="Enter your phone number"
             />
-            <p class="errors italics text-red-500 text-xs">
+            <p class="errors italics text-red-500 text-sm">
               <template
                 v-if="submitted && $v.formData.email.$error"
                 class="errorInfo"
@@ -113,16 +115,13 @@
           </div>
           <div class="mb-5 md:col-start-1 md:col-end-13">
             <label for="" class="font-semibold text-sm opacity-75">Date of birth</label>
-            <date-picker
-              id="input"
-              class="w-full border-gray-500 border-b-2 h-12 w-full outline-none focus:border-gray-900"
-              placeholder="YYYY-MM-DD"
-              format="YYYY-MM-DD"
-              value-type="format"
-              v-model="formData.date_of_birth"
-            />
+            <input type="date" name="" 
+            class="appearance-none block rounded-md border-gray-300 border-2 mt-2 h-12 w-full outline-none pl-4" 
+            v-model="formData.date_of_birth" 
+            placeholder="yyyy-mm-dd"
+            id="">
 
-            <p class="errors italics text-red-500 text-xs mt-2">
+            <p class="errors italics text-red-500 text-sm">
               <template
                 v-if="submitted && $v.formData.date_of_birth.$error"
                 class="errorInfo"
@@ -132,31 +131,20 @@
                 </small>
               </template>
             </p>
-            <span class="text-red-700 text-xs mt-2" v-if="errors.date_of_birth">
+            <span class="text-red-700 text-xs" v-if="errors.date_of_birth">
               {{ errors.date_of_birth[0] }}
             </span>
           </div>
 
           <div class="mb-5 md:col-start-1 md:col-end-7">
             <label for="" class="font-semibold text-sm opacity-75">Password</label>
-            <div class="flex">
-              <input
-                v-model="formData.password"
-                :type="[showPassword ? 'text' : 'password']"
-                name="password"
-                placeholder="Enter your password"
-                class="border-gray-500 border-b-2 mt-2 h-12 w-full outline-none focus:border-gray-900"
-              />
-
-              <span>
-                <font-awesome-icon
-                  :icon="['fas', showPassword ? 'eye' : 'eye-slash']"
-                  class="cursor-pointer border-b-2 border-gray-500 h-12 mt-2"
-                  @click.prevent="showPassword = !showPassword"
-                />
-              </span>
-            </div>
-            <p class="errors italics text-red-500 text-xs">
+            <TextInputClassic
+              v-model="formData.password"
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+            />
+            <p class="errors italics text-red-500 text-sm">
               <template
                 v-if="submitted && $v.formData.password.$error"
                 class="errorInfo"
@@ -175,23 +163,13 @@
           </div>
           <div class="mb-5 md:col-start-7 md:col-end-13">
             <label for="" class="font-semibold text-sm opacity-75">Confirm Password</label>
-            <div class="flex">
-              <input
-                v-model="formData.password_confirmation"
-                :type="[showConfirmPassword ? 'text' : 'password']"
-                name="password"
-                placeholder="Enter your password"
-                class="border-gray-500 border-b-2 mt-2 h-12 w-full outline-none focus:border-gray-900"
-              />
-              <span>
-                <font-awesome-icon
-                  :icon="['fas', showConfirmPassword ? 'eye' : 'eye-slash']"
-                  class="cursor-pointer border-b-2 border-gray-500 h-12 mt-2"
-                  @click.prevent="showConfirmPassword = !showConfirmPassword"
-                />
-              </span>
-            </div>
-            <p class="errors italics text-red-500 text-xs">
+            <TextInputClassic
+              v-model="formData.password_confirmation"
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+            />
+            <p class="errors italics text-red-500 text-sm">
               <template
                 v-if="submitted && $v.formData.password_confirmation.$error"
                 class="errorInfo"
@@ -214,35 +192,25 @@
             </span>
           </div>
 
-          <div class="w-full md:col-span-5 flex">
-            <button
-              :class="{ 'opacity-50 cursor-not-allowed': disable }"
-              :disabled="disable"
-              class="w-full md:col-span-3 flex justify-center items-center py-2 px-4 h-12 border border-transparent shadow-sm text-xs font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-            >
-              Sign Up
-            </button>
-            <!-- <span v-if="disable">
-                  <img
-                    class="mx-auto my-5"
-                    src="~/assets/images/loading-sm.gif"
-                    alt=""
-                  />
-              </span> -->
-          </div>
+          <button
+            :class="{'opacity-50 cursor-not-allowed': disable}"
+            :disabled="disable"
+            class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md md:col-start-1 md:col-end-13 shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+          >
+            Sign Up
+          </button>
         </form>
       </div>
-      <div class="text-center mt-5">
+      <div class="text-center">
         Have an account?
-        <nuxt-link class="text-orange-700" to="/login"><u>Sign In</u></nuxt-link>
+        <nuxt-link class="text-orange-700" to="/login">Sign In</nuxt-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import DatePicker from 'vue2-datepicker'
-import 'vue2-datepicker/index.css'
+import { mapMutations } from 'vuex'
 import TextInputClassic from '~/components/FormComponents/Texts/TextInputClassic'
 import {
   required,
@@ -255,13 +223,10 @@ import {
 
 export default {
   components: {
-    TextInputClassic,
-    DatePicker,
+    TextInputClassic
   },
   data() {
     return {
-      showPassword: false,
-      showConfirmPassword: false,
       disable: false,
       formData: {
         first_name: '',
@@ -342,7 +307,7 @@ export default {
               const data = error.response.data.message
               vm.$noty.error(data)
             }
-            this.disable = false
+            this.disable = !this.disable
           })
       } else {
         this.disable = false
@@ -366,7 +331,7 @@ export default {
   mounted() {
     this.checkAndSetTokenIfExist()
   },
-  middleware: ['guest'],
+  middleware: ['guest']
 }
 </script>
 
@@ -375,30 +340,5 @@ export default {
   cursor: not-allowed;
   opacity: 0.6;
 }
-.mx-datepicker {
-  width: 100% !important;
-}
-#input .mx-input {
-  width: 100%;
-  padding-left: 1rem;
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  height: 3rem;
-  border-width: 2px;
-  border-radius: 0.375rem;
-  border-color: #e2e8f0;
-}
-.pass {
-  left: 29rem;
-  bottom: 16rem;
-}
-.confirm {
-  right: 14.5rem;
-  bottom: 16rem;
-}
-
-@media screen and (max-width: 768px) {
-}
 </style>
+
