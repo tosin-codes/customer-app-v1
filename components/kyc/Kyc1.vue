@@ -1,22 +1,22 @@
 <template>
-  <div class="bg-gray-100 p-4 py-8 mb-10 rounded-md">
+  <div class="bg-gray-100 p-4 md:px-8 py-8 rounded-md md:round-none">
     <div>
       <div class="mb-5">
         <h3>Please enter your account details</h3>
       </div>
       <div>
-        <client-only placeholder="Loading...">
           <form action="">
-            <div class="grid lg:grid-cols-2 lg:gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 md:gap-4">
               <div>
                 <input
-                  class="my-4"
-                  type="number"
-                  placeholder="BVN"
-                  v-model.trim="bankInformation.bvn"
-                />
+                    type="number"
+                    placeholder="BVN"
+                    v-model.trim="bankInformation.bvn"
+                    name="bvn"
+                    class="border-b-2 border-gray-500 bg-gray-100 mt-2 h-12 w-full rounded-none text-xs"
+                  />
                 <span
-                  class="text-red-500 italics text-sm pl-4"
+                  class="text-red-500 italics text-xs"
                   v-if="
                     $v.bankInformation.bvn.$error &&
                     !$v.bankInformation.bvn.required
@@ -24,7 +24,7 @@
                   >BVN is required</span
                 >
                 <span
-                  class="text-red-500 italics text-sm pl-4"
+                  class="text-red-500 italics text-xs"
                   v-if="!$v.bankInformation.bvn.minLength"
                   >Enter a valid BVN</span
                 >
@@ -36,13 +36,14 @@
               </div>
               <div>
                 <input
-                  class="my-4"
-                  type="number"
-                  placeholder="Account Number"
-                  v-model.trim="bankInformation.number"
-                />
+                    type="number"
+                    placeholder="Account Number"
+                    v-model.trim="bankInformation.number"
+                    name="account_number"
+                    class="border-b-2 border-gray-500 bg-gray-100 mt-2 h-12 w-full rounded-none text-xs"
+                  />
                 <span
-                  class="text-red-500 italics text-sm pl-4"
+                  class="text-red-500 italics text-xs"
                   v-if="
                     $v.bankInformation.number.$error &&
                     !$v.bankInformation.number.required
@@ -58,7 +59,7 @@
               <div>
                 <select
                   name=""
-                  class="w-full p-4 focus:outline-none rounded-full my-4"
+                  class="border-gray-500 focus:border-gray-900 bg-gray-100 border-b-2 mt-2 h-12 w-full outline-none text-xs"
                   v-model.trim="bankInformation.code"
                   id=""
                 >
@@ -72,7 +73,7 @@
                   </option>
                 </select>
                 <span
-                  class="text-red-500 italics text-sm pl-4"
+                  class="text-red-500 italics text-xs"
                   v-if="
                     $v.bankInformation.code.$error &&
                     !$v.bankInformation.code.required
@@ -88,18 +89,18 @@
               <div>
                 <select
                   name=""
-                  class="w-full focus:outline-none p-4 rounded-full my-4"
+                  class="border-gray-500 focus:border-gray-900 bg-gray-100 border-b-2 mt-2 h-12 w-full outline-none text-xs"
                   v-model.trim="bankInformation.type"
                   placeholder="type"
                 >
                   <option value="" disabled selected>
-                    Select account type
+                    Select...
                   </option>
                   <option value="savings">SAVINGS</option>
                   <option value="current">CURRENT</option>
                 </select>
                 <span
-                  class="text-red-500 italics text-sm pl-4"
+                  class="text-red-500 italics text-xs"
                   v-if="
                     $v.bankInformation.type.$error &&
                     !$v.bankInformation.type.required
@@ -114,11 +115,11 @@
               </div>
             </div>
 
-            <div class="flex justify-end items-center">
+            <div class="flex justify-end items-center mt-3">
               <span v-if="disable">
                 <img
                   class="mx-auto my-5"
-                  src="../../assets/images/loading-sm.gif"
+                  src="~/assets/images/loading-sm.gif"
                   alt=""
                 />
               </span>
@@ -127,13 +128,12 @@
                 @click.prevent="next"
                 :disabled="disable"
                 :class="{ 'opacity-50 cursor-not-allowed': disable }"
-                class="px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none rounded-full shadow-sm text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
+                class="px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
               >
                 Next
               </button>
             </div>
           </form>
-        </client-only>
       </div>
     </div>
   </div>
@@ -142,7 +142,11 @@
 <script>
 import { mapMutations } from 'vuex'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
+import TextInputClassic from '~/components/FormComponents/Texts/TextInputClassic'
 export default {
+  components:{
+    TextInputClassic
+  },
   data() {
     return {
       disable: false,
@@ -239,10 +243,4 @@ export default {
 </script>
 
 <style>
-input {
-  @apply py-4 outline-none rounded-full pl-6;
-}
-input:focus {
-  @apply border-2 border-gray-200;
-}
 </style>

@@ -4,14 +4,13 @@
       <GeneralNav />
       <div class="my-container">
         <div class="mt-5">
-          <div class="flex flex-row items-center mb-10">
+          <div class="flex flex-row items-center mb-10 ml-3 md:ml-0">
             <div>
               <img class="w-8 mr-4" src="../../assets/svg/kyc.svg" alt="" />
             </div>
             <div class="font-bold text-gray-700">KYC</div>
           </div>
-          <div class="bg-white rounded-xl p-1 md:p-6">
-            <div id="app">
+          <div class="flex flex-col w-full md:w-2/3 bg-white py-4 px-4 md:px-4">
               <div>
                 <KycNumbers />
                 <div
@@ -70,7 +69,6 @@
                   <Message />
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </div>

@@ -657,7 +657,7 @@ export default {
   },
   mounted() {
     let vm = this
-    // vm.getEstimation()
+    vm.getEstimation()
   },
 }
 </script>

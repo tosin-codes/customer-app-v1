@@ -4,7 +4,7 @@
       <div class="pl-4">Please take a photo of yourself</div>
       <div class="my-3 sm:mt-0 sm:col-span-2">
         <div
-          class="flex flex-col justify-between md:flex-row md:justify-start items-center"
+          class="flex flex-col justify-between md:flex-row md:justify-between items-center"
         >
           <div class="h-28 w-28 rounded-full overflow-hidden bg-gray-100">
             <span>
@@ -21,7 +21,7 @@
           </div>
           <client-only placeholder="Loading...">
             <div
-              class="ml-5 w-1/3 mt-5 md:mt-0 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              class="ml-5 w-full mt-5 md:mt-0 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               <input
                 type="file"
@@ -54,7 +54,7 @@
             :disabled="disable"
             :class="{ 'opacity-50 cursor-not-allowed': disable }"
             @click.prevent="submitImage"
-            class="mb-5 px-6 py-3 h-12 sm:w-full md:w-2/6 border-transparent focus:outline-none border-none rounded-full shadow-sm text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
+            class="px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
           >
             Next
           </button>

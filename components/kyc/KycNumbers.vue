@@ -48,13 +48,13 @@
       </client-only>
     </div>
     <div
-      class="my-5 flex justify-between flex-col lg:flex-row md:flex-col mx-4"
+      class="my-5 flex justify-between flex-col lg:flex-row md:flex-col"
     >
       <div class="my-6 w-full lg:ml-3">
         <div
-          class="absolute -mt-3 ml-3 uppercase inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-gray-600 bg-gray-100 rounded"
+          class="absolute -mt-3 ml-3 uppercase inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-gray-600 bg-white"
         >
-          amount requested
+          Offered Amount
         </div>
         <div class="border border-gray-600 p-4 rounded-lg shadow">
           <div class="flex items-center justify-center">
@@ -76,7 +76,7 @@
 
       <div class="my-6 w-full lg:ml-3">
         <div
-          class="absolute -mt-3 ml-3 uppercase inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-gray-600 bg-gray-100 rounded"
+          class="absolute -mt-3 ml-3 uppercase inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-gray-600 bg-white"
         >
           duration
         </div>
@@ -98,7 +98,7 @@
 
       <div class="my-6 w-full lg:ml-3">
         <div
-          class="absolute -mt-3 ml-3 uppercase inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-gray-600 bg-gray-100 rounded"
+          class="absolute -mt-3 ml-3 uppercase inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-gray-600 bg-white"
         >
           repayment plan
         </div>

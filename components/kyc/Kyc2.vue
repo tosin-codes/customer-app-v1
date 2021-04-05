@@ -1,8 +1,8 @@
 <template class="mt-5">
-  <div class="bg-gray-100 p-4 py-8 mb-10 w-full rounded-md">
+  <div class="bg-gray-100 p-4 py-8 w-full rounded-md">
     <form class="mx-4" @submit.prevent="validateSubmit">
       <h4
-        class="lg:text-xl lg:font-medium sm:font-medium sm:text-xl text-gray-500 pb-5"
+        class="text-sm md:font-semibold sm:font-semibold sm:text-sm text-gray-800 pb-5"
       >
         Upload the following documents for your vehicle
       </h4>
@@ -19,7 +19,7 @@
               </div>
               <div class="mb-12 mt-2">
                 <label
-                  class="lg:font-medium lg:text-sm capitalize text-gray-600 lg:pt-5 sm:pb-10 sm:pt-2 sm:font-bold"
+                  class="md:font-medium md:text-xs capitalize text-gray-600 md:pt-5 sm:pb-10 sm:pt-2 sm:font-bold"
                   for
                   >{{ key.replace(/_/g, ' ') }}</label
                 >
@@ -44,7 +44,7 @@
             @click.prevent="validateSubmit"
             :disabled="disable"
             :class="{ 'opacity-50 cursor-not-allowed': disable }"
-            class="mb-5 px-6 py-3 h-12 sm:w-full md:w-1/6 border focus:outline-none border-transparent border-none rounded-full shadow-sm text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
+            class="px-6 py-3 h-12 sm:w-full md:w-1/6 border border-transparent focus:outline-none border-none text-base font-medium text-white bg-orange-500 hover:bg-orange-600"
           >
             Next
           </button>
