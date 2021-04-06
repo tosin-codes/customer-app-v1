@@ -87,6 +87,11 @@ import Kyc4 from '../../components/kyc/Kyc4'
 import Message from '../../components/messages/AwaitingVerificationMessage'
 
 export default {
+  head() {
+    return {
+      title: 'KYC',
+    }
+  },
   components: {
     KycNumbers,
     Kyc1,
@@ -143,14 +148,16 @@ export default {
   middleware: ['auth'],
 }
 </script>
-
-<style>
+<style scoped>
 input {
   @apply py-4 outline-none rounded-full pl-6;
 }
 input:focus {
   @apply border-2 border-gray-200;
 }
+</style>
+
+<style>
 .progress-bar {
   display: flex;
   margin: 0 auto;

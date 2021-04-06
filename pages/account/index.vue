@@ -15,7 +15,9 @@
             class="min-h-screen bg-gray-50 flex flex-col py-12 sm:px-6 md:px-1"
           >
             <div v-if="!this.$store.getters.user.bank">
-              <div class="flex flex-col bg-white border-dashed border-2 py-32 mx-3 md:mx-0">
+              <div
+                class="flex flex-col bg-white border-dashed border-2 py-32 mx-3 md:mx-0"
+              >
                 <div class="text-center text-xl mb-5">
                   You do not have any bank listed.
                 </div>
@@ -143,6 +145,11 @@ import GeneralNav from '~/components/GeneralNavbarComponent'
 import DashboardCards from '~/components/DashboardCards'
 
 export default {
+  head() {
+    return {
+      title: 'Account',
+    }
+  },
   components: {
     TextInputSquare,
     ButtonSquare,
