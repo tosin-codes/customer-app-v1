@@ -148,14 +148,16 @@ export default {
   middleware: ['auth'],
 }
 </script>
-
-<style>
+<style scoped>
 input {
   @apply py-4 outline-none rounded-full pl-6;
 }
 input:focus {
   @apply border-2 border-gray-200;
 }
+</style>
+
+<style>
 .progress-bar {
   display: flex;
   margin: 0 auto;

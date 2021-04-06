@@ -1,33 +1,27 @@
 <template>
-  <div class="flex flex-col items-center justify-center bg-white border-dashed border-2 py-32">
+  <div
+    class="flex flex-col items-center justify-center bg-white border-dashed border-2 py-32"
+  >
     <div>
-        <img
-            class="w-40"
-            src="~/assets/images/wait.png"
-            alt=""
-        />
+      <img class="w-40" src="~/assets/images/wait.png" alt="" />
     </div>
-    <p class="text-center text-md mb-5">Please hold on, your application is being processed :) </p>
+    <p class="text-center text-md mb-5">
+      Please hold on, your application is being processed :)
+    </p>
   </div>
 </template>
 
 <script>
-
 export default {
-  components: {
-  },
+  components: {},
   data() {
-    return {
-      
-    }
+    return {}
   },
-  methods: {
-    
-  },
+  methods: {},
 }
 </script>
 
-<style>
+<style scoped>
 input {
   @apply py-4 outline-none rounded-full pl-6;
 }
