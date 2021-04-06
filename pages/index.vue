@@ -259,6 +259,11 @@ import {
 } from 'vuelidate/lib/validators'
 
 export default {
+  head() {
+    return {
+      title: 'Sign-Up',
+    }
+  },
   components: {
     TextInputClassic,
   },

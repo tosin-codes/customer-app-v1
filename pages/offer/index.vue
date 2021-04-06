@@ -540,6 +540,11 @@ import Spinner from '~/components/Spinner'
 import { mapState } from 'vuex'
 
 export default {
+  head() {
+    return {
+      title: 'Offer',
+    }
+  },
   components: {
     GeneralNav,
     Spinner,

@@ -87,6 +87,11 @@ import Kyc4 from '../../components/kyc/Kyc4'
 import Message from '../../components/messages/AwaitingVerificationMessage'
 
 export default {
+  head() {
+    return {
+      title: 'KYC',
+    }
+  },
   components: {
     KycNumbers,
     Kyc1,
