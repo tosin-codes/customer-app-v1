@@ -14,9 +14,19 @@
               </div>
               <div>
                 <client-only placeholder="Loading...">
-                  <div class="font-bold text-orange-600">{{ this.$store.getters.user.first_name }} {{ this.$store.getters.user.last_name }}</div>
-                  <div class="text-sm font-light text-green-500" v-if="!this.$store.getters.user.active">not verified</div>
-                  <div class="text-sm font-light text-green-500" v-else>verified</div>
+                  <div class="font-bold text-orange-600">
+                    {{ this.$store.getters.user.first_name }}
+                    {{ this.$store.getters.user.last_name }}
+                  </div>
+                  <!-- <div
+                    class="text-sm font-light text-green-500"
+                    v-if="!this.$store.getters.user.active"
+                  >
+                    not verified
+                  </div>
+                  <div class="text-sm font-light text-green-500" v-else>
+                    verified
+                  </div> -->
                 </client-only>
               </div>
             </div>
@@ -28,34 +38,42 @@
               >
                 <div class="font-semibold">Dashboard</div>
                 <div>
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="{2}"
+                      d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                    />
+                  </svg>
                 </div>
               </nuxt-link>
               <nuxt-link
-                to="#"
+                to="/create-loan"
                 class="flex flex-row justify-between items-center mb-8 hover:text-orange-500"
               >
-                <div class="font-semibold">My Loans</div>
+                <div class="font-semibold">New Loan</div>
                 <div>
                   <svg
-                    class="fill-current w-5"
+                    class="w-5 fill-current"
                     xmlns="http://www.w3.org/2000/svg"
-                    x="0px"
-                    y="0px"
-                    viewBox="0 0 308.99 308.99"
-                    xml:space="preserve"
+                    viewBox="-29 0 426 426"
                   >
-                    <g>
-                      <path
-                        d="M301.135,82.438L159.869,19.441c-3.42-1.537-7.329-1.537-10.767,0L7.843,82.438c-4.611,2.053-7.656,6.572-7.827,11.623    c-0.165,5.041,2.534,9.751,6.993,12.123l141.257,75.333c1.948,1.045,4.083,1.556,6.224,1.556c2.152,0,4.284-0.511,6.235-1.556    l141.264-75.333c4.455-2.372,7.157-7.082,6.995-12.123C308.791,89.01,305.753,84.491,301.135,82.438z"
-                      />
-                      <path
-                        d="M289.527,138.805l-135.045,72.04l-135.023-72.04c-6.464-3.449-14.468-1.002-17.894,5.45    c-3.45,6.449-1.003,14.451,5.443,17.891L148.265,237.5c1.948,1.038,4.083,1.555,6.224,1.555c2.152,0,4.284-0.51,6.235-1.555    l141.264-75.354c6.431-3.44,8.875-11.442,5.445-17.891C303.981,137.802,295.971,135.355,289.527,138.805z"
-                      />
-                      <path
-                        d="M289.527,190.476l-135.045,72.016L19.459,190.476c-6.464-3.452-14.468-1.002-17.894,5.441    c-3.45,6.449-1.003,14.459,5.443,17.894l141.257,75.33c1.948,1.045,4.083,1.562,6.224,1.562c2.152,0,4.284-0.51,6.235-1.562    l141.264-75.33c6.431-3.435,8.875-11.444,5.445-17.894C303.981,189.474,295.982,187.023,289.527,190.476z"
-                      />
-                    </g>
+                    <path
+                      d="m304.78125 74h51.820312l-60.601562-62.140625v53.640625c0 4.574219 4.203125 8.5 8.78125 8.5zm0 0"
+                    />
+                    <path
+                      d="m280 65.5v-65.5h-167.519531c-12.128907 0-22.480469 10-22.480469 22.132812v311.46875c.207031 12.3125 10.164062 22.234376 22.480469 22.398438h233.039062c12.316407-.164062 22.273438-10.085938 22.480469-22.398438v-243.601562h-63.21875c-13.398438 0-24.78125-11.101562-24.78125-24.5zm-51 92.730469c-17.863281-.003907-32.949219-13.273438-35.230469-30.992188-2.28125-17.714843 8.949219-34.375 26.230469-38.902343v-11.335938c0-4.417969 3.582031-8 8-8s8 3.582031 8 8v10.875c16.578125 3.355469 28.5 17.914062 28.523438 34.824219 0 4.417969-3.582032 8-8 8-4.417969 0-8-3.582031-8-8 0-10.78125-8.742188-19.523438-19.527344-19.519531-10.78125 0-19.523438 8.742187-19.519532 19.523437 0 10.785156 8.742188 19.523437 19.523438 19.523437 18.257812.003907 33.539062 13.84375 35.347656 32.007813 1.808594 18.167969-10.449218 34.746094-28.347656 38.347656v9.417969c0 4.417969-3.582031 8-8 8s-8-3.582031-8-8v-9.882812c-15.613281-4.109376-26.503906-18.21875-26.523438-34.363282 0-4.421875 3.582032-8 8-8 4.417969 0 8 3.578125 8 8-.003906 10.78125 8.738282 19.523438 19.523438 19.523438 10.78125 0 19.523438-8.742188 19.523438-19.523438 0-10.785156-8.738282-19.527344-19.523438-19.527344zm-96.320312 92.769531h112.320312c4.417969 0 8 3.582031 8 8s-3.582031 8-8 8h-112.320312c-4.417969 0-8-3.582031-8-8s3.582031-8 8-8zm195.621093 52c0 4.417969-3.582031 8-8 8h-187.621093c-4.417969 0-8-3.582031-8-8s3.582031-8 8-8h187.621093c4.417969 0 8 3.582031 8 8zm0 0"
+                    />
+                    <path
+                      d="m74 333.601562v-263.601562h-51.519531c-12.316407.164062-22.273438 10.085938-22.480469 22.398438v311.46875c0 12.132812 10.351562 22.132812 22.480469 22.132812h233.039062c12.128907 0 22.480469-10 22.480469-22.132812v-31.867188h-165.519531c-20.953125 0-38.480469-17.449219-38.480469-38.398438zm0 0"
+                    />
                   </svg>
                 </div>
               </nuxt-link>
@@ -91,7 +109,7 @@
                 to="/account"
                 class="flex flex-row justify-between items-center my-8 hover:text-orange-500"
               >
-                <div class="font-semibold">Accounts</div>
+                <div class="font-semibold">Bank Accounts</div>
                 <div>
                   <svg
                     class="w-5 fill-current"
@@ -114,6 +132,33 @@
                           />
                           <path
                             d="M2.136,13.891h42.708c0.007,0,0.015,0,0.021,0c1.181,0,2.136-0.956,2.136-2.136c0-0.938-0.604-1.733-1.443-2.021     l-21.19-9.535c-0.557-0.25-1.194-0.25-1.752,0L1.26,9.808c-0.919,0.414-1.424,1.412-1.212,2.396     C0.259,13.188,1.129,13.891,2.136,13.891z"
+                          />
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </nuxt-link>
+              <nuxt-link
+                to="/account"
+                class="flex flex-row justify-between items-center my-8 hover:text-orange-500"
+              >
+                <div class="font-semibold">Loan History</div>
+                <div>
+                  <svg
+                    class="w-5 fill-current"
+                    viewBox="0 0 448 448"
+                    style="enable-background: new 0 0 448 448"
+                    xml:space="preserve"
+                  >
+                    <g>
+                      <g>
+                        <g>
+                          <path
+                            d="M255.893,32C149.76,32,64,117.973,64,224H0l83.093,83.093l1.493,3.093L170.667,224h-64     c0-82.453,66.88-149.333,149.333-149.333S405.333,141.547,405.333,224S338.453,373.333,256,373.333     c-41.28,0-78.507-16.853-105.493-43.84L120.32,359.68C154.987,394.453,202.88,416,255.893,416C362.027,416,448,330.027,448,224     S362.027,32,255.893,32z"
+                          />
+                          <polygon
+                            points="234.667,138.667 234.667,245.333 325.973,299.52 341.333,273.6 266.667,229.333 266.667,138.667    "
                           />
                         </g>
                       </g>
@@ -147,7 +192,9 @@
                 </div>
               </nuxt-link>
               <nuxt-link to="/create-loan" v-if="!activeloan">
-                <div class="rounded-full bg-orange-500 hover:bg-orange-600 text-base py-3 text-white text-center">
+                <div
+                  class="rounded-full bg-orange-500 hover:bg-orange-600 text-base py-3 text-white text-center"
+                >
                   Apply for a Loan
                 </div>
               </nuxt-link>
@@ -163,11 +210,9 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
-    name:'SidebarNav',
-    computed: {
-    ...mapGetters([
-      'activeloan'
-    ])
+  name: 'SidebarNav',
+  computed: {
+    ...mapGetters(['activeloan']),
   },
 }
 </script>
