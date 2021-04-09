@@ -129,7 +129,7 @@
                   {{ errors.phone[0] }}
                 </span>
               </div>
-              <div class="mb-5 md:col-start-1 md:col-end-13">
+              <!-- <div class="mb-5 md:col-start-1 md:col-end-13">
                 <label for="" class="font-semibold text-sm opacity-75"
                   >Date of birth</label
                 >
@@ -155,7 +155,7 @@
                 <span class="text-red-700 text-xs" v-if="errors.date_of_birth">
                   {{ errors.date_of_birth[0] }}
                 </span>
-              </div>
+              </div> -->
 
               <div class="mb-5 md:col-start-1 md:col-end-7">
                 <label for="" class="font-semibold text-sm opacity-75"
@@ -277,7 +277,7 @@ export default {
         password: '',
         password_confirmation: '',
         phone: '',
-        date_of_birth: '',
+        // date_of_birth: '',
         ref_code: '',
       },
       errorInfo: '',
@@ -310,9 +310,9 @@ export default {
         required,
         sameAsPassword: sameAs('password'),
       },
-      date_of_birth: {
-        required,
-      },
+      // date_of_birth: {
+      //   required,
+      // },
     },
   },
   methods: {
