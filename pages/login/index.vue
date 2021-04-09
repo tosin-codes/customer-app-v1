@@ -135,6 +135,11 @@
 import { mapMutations } from 'vuex'
 import { required, minLength, email } from 'vuelidate/lib/validators'
 export default {
+  head() {
+    return {
+      title: 'Login',
+    }
+  },
   data() {
     return {
       showPassword: false,

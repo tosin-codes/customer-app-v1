@@ -10,75 +10,79 @@
             </div>
             <div class="font-bold text-gray-700">Create Loan</div>
           </div>
-          <div v-show="createLoan1" class="flex flex-col w-full md:w-2/3 bg-white py-6 px-4 md:px-10">
+          <div
+            v-show="createLoan1"
+            class="flex flex-col w-full md:w-2/3 bg-white py-6 px-4 md:px-10"
+          >
             <form action="" class="" @submit.prevent="checkForm">
-                <h2 class="font-semibold mb-10 text-sm">
-                  Please Enter the details correctly
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    <div class="mb-5 flex flex-col">
-                      <label class="font-semibold text-sm text-gray-700" for=""
-                        >Amount</label
-                      >
-                      <TextInputClassic
-                        v-model="amount"
-                        type="text"
-                        placeholder="Please enter amount"
-                        name="amount"
-                      />
-                      <small class="error text-red-600">{{ error }}</small>
-                    </div>
-                    <div class="flex flex-col mb-5">
-                      <label class="font-semibold text-sm text-gray-700" for=""
-                        >For how long</label
-                      >
-                      <v-select
-                        class="mySelect border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-12 w-full outline-none text-xs"
-                        :options="tenors"
-                        placeholder="Select..."
-                        :reduce="(value) => value.id"
-                        label="value"
-                        v-model="desired.desired_tenor"
-                      ></v-select>
-                      <small class="error text-red-600">{{
-                        error_duration
-                      }}</small>
-                    </div>
-                    <div class="col-span-2 flex flex-col mb-5">
-                      <label class="font-semibold text-sm text-gray-700" for=""
-                        >Repayment Plan</label
-                      >
-                      <v-select
-                        class="mySelect border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-12 w-full outline-none text-xs"
-                        :options="repayments"
-                        v-model="desired.desired_repayment_plan"
-                        :reduce="(value) => value.id"
-                        label="value"
-                        placeholder="Select..."
-                      ></v-select>
-                      <small class="error text-red-600">{{ error_plan }}</small>
-                    </div>
+              <h2 class="font-semibold mb-10 text-sm">
+                Please Enter the details correctly
+              </h2>
+              <div class="grid sm:grid-cols-1 lg:grid-cols-2 gap-2">
+                <div class="col-span-2 flex flex-col mb-5 lg:col-span-1">
+                  <label class="font-semibold text-sm text-gray-700" for=""
+                    >Amount</label
+                  >
+                  <TextInputClassic
+                    v-model="amount"
+                    type="text"
+                    placeholder="Please enter amount"
+                    name="amount"
+                  />
+                  <small class="error text-red-600">{{ error }}</small>
                 </div>
-                <button
-                  class="bg-orange-600 focus:outline-none hover:bg-opacity-100 py-2 px-10 text-white self-center"
-                >
-                  Submit
-                </button>
-                </form>
+                <div class="col-span-2 flex flex-col mb-5 lg:col-span-1">
+                  <label class="font-semibold text-sm text-gray-700" for=""
+                    >For how long</label
+                  >
+                  <v-select
+                    class="mySelect border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-12 w-full outline-none text-xs"
+                    :options="tenors"
+                    placeholder="Select..."
+                    :reduce="(value) => value.id"
+                    label="value"
+                    v-model="desired.desired_tenor"
+                  ></v-select>
+                  <small class="error text-red-600">{{ error_duration }}</small>
+                </div>
+                <div class="col-span-2 flex flex-col mb-5 lg:col-span-2">
+                  <label class="font-semibold text-sm text-gray-700" for=""
+                    >Repayment Plan</label
+                  >
+                  <v-select
+                    class="mySelect border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-12 w-full outline-none text-xs"
+                    :options="repayments"
+                    v-model="desired.desired_repayment_plan"
+                    :reduce="(value) => value.id"
+                    label="value"
+                    placeholder="Select..."
+                  ></v-select>
+                  <small class="error text-red-600">{{ error_plan }}</small>
+                </div>
               </div>
-              <div
-                v-show="createLoan2"
-                class="flex flex-col w-full md:w-2/3 bg-white py-6 px-4 md:px-10"
+              <button
+                class="bg-orange-600 focus:outline-none hover:bg-opacity-100 py-2 px-10 text-white self-center"
               >
-                <CreateLoan2 @previousForm="showForm1" @nextForm="showModal" />
-              </div>
-              <div v-show="modal" class="flex flex-col w-full md:w-2/3 bg-white py-6 md:px-5">
-                <ModalChild @closeCard="showForm" />
-              </div>
+                Submit
+              </button>
+            </form>
+          </div>
+          <div
+            v-show="createLoan2"
+            class="flex flex-col w-full md:w-2/3 bg-white py-6 px-4 md:px-10"
+          >
+            <CreateLoan2 @previousForm="showForm1" @nextForm="showModal" />
+          </div>
+          <div
+            v-show="modal"
+            class="flex flex-col w-full md:w-2/3 bg-white py-6 md:px-5"
+          >
+            <ModalChild @closeCard="showForm" />
           </div>
         </div>
-    </client-only>
       </div>
+    </client-only>
+  </div>
 </template>
 
 <script>
@@ -89,12 +93,17 @@ import ModalChild from '../../components/ModalChild'
 import { mapMutations } from 'vuex'
 import vSelect from 'vue-select'
 export default {
+  head() {
+    return {
+      title: 'Create-Loan',
+    }
+  },
   components: {
     GeneralNav,
     CreateLoan2,
     ModalChild,
     vSelect,
-    TextInputClassic
+    TextInputClassic,
   },
   data() {
     return {
@@ -194,7 +203,7 @@ export default {
       this.amount = result
     },
   },
-  middleware: ['auth'],
+  middleware: ['auth', 'setLevelForNewLoan'],
 }
 </script>
 

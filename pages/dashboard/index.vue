@@ -34,10 +34,15 @@ import ActiveLoan from '~/components/ActiveLoan'
 import ActiveLoanSchedule from '~/components/ActiveLoanSchedule'
 export default {
   components: {
+    head() {
+      return {
+        title: 'Dashboard',
+      }
+    },
     DashboardCards,
     GeneralNav,
     ActiveLoan,
-    ActiveLoanSchedule
+    ActiveLoanSchedule,
   },
   data() {
     return {

@@ -150,7 +150,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 input {
   @apply py-4 outline-none rounded-full pl-6;
 }
