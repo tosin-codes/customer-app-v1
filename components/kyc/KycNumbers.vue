@@ -47,9 +47,7 @@
         </nuxt-link>
       </client-only>
     </div>
-    <div
-      class="my-5 flex justify-between flex-col lg:flex-row md:flex-col"
-    >
+    <div class="my-5 flex justify-between flex-col lg:flex-row md:flex-col">
       <div class="my-6 w-full lg:ml-3">
         <div
           class="absolute -mt-3 ml-3 uppercase inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-gray-600 bg-white"
@@ -113,6 +111,32 @@
             </span>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="flex flex-row md:justify-end justify-center mb-12">
+      <div>
+        <div class="flex justify-between bg-gray-200 hover:bg-orange-500 px-6 py-3 text-gray-600  hover:text-white">
+        <svg
+          class="w-5 fill-current mr-3"
+          viewBox="0 0 512 512"
+          style="enable-background: new 0 0 512 512"
+          xml:space="preserve"
+        >
+          <path
+            
+            d="M256,0C115.3,0,0,115.3,0,256s115.3,256,256,256s256-115.3,256-256S396.7,0,256,0z M61,256  c0-107.401,87.599-195,195-195c40.499,0,79.501,12.599,112.8,36.299L256,210.099L97.301,368.8C73.599,335.499,61,296.499,61,256z   M256,451c-40.499,0-79.501-12.601-112.8-36.301l271.5-271.5c23.701,33.3,36.3,72.3,36.3,112.801C451,363.399,363.401,451,256,451z"
+          />
+          <path
+            
+            d="M512,256c0,140.7-115.3,256-256,256v-61c107.401,0,195-87.601,195-195  c0-40.501-12.599-79.501-36.301-112.8L256,301.899v-91.8l112.8-112.8C335.501,73.599,296.499,61,256,61V0C396.7,0,512,115.3,512,256  z"
+          />
+        </svg>
+        <div
+          class=""
+        >
+          Cancel this loan
+        </div>        
+      </div>
       </div>
     </div>
   </div>

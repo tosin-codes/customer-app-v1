@@ -203,7 +203,7 @@ export default {
       this.amount = result
     },
   },
-  middleware: ['auth'],
+  middleware: ['auth', 'setLevelForNewLoan'],
 }
 </script>
 

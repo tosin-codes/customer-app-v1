@@ -29,6 +29,15 @@
   "FormComponentsRadioComponent": {
     "description": "Auto imported from components/FormComponents/RadioComponent.vue"
   },
+  "MasterHeaderNav": {
+    "description": "Auto imported from components/master/HeaderNav.vue"
+  },
+  "MasterMobileNav": {
+    "description": "Auto imported from components/master/MobileNav.vue"
+  },
+  "MasterSidebarNav": {
+    "description": "Auto imported from components/master/SidebarNav.vue"
+  },
   "Kyc1": {
     "description": "Auto imported from components/kyc/Kyc1.vue"
   },
@@ -46,15 +55,6 @@
   },
   "KycUpload": {
     "description": "Auto imported from components/kyc/Upload.vue"
-  },
-  "MasterHeaderNav": {
-    "description": "Auto imported from components/master/HeaderNav.vue"
-  },
-  "MasterMobileNav": {
-    "description": "Auto imported from components/master/MobileNav.vue"
-  },
-  "MasterSidebarNav": {
-    "description": "Auto imported from components/master/SidebarNav.vue"
   },
   "MessagesAwaitingVerificationMessage": {
     "description": "Auto imported from components/messages/AwaitingVerificationMessage.vue"
