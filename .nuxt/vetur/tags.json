@@ -47,6 +47,9 @@
   "KycUpload": {
     "description": "Auto imported from components/kyc/Upload.vue"
   },
+  "MessagesAwaitingVerificationMessage": {
+    "description": "Auto imported from components/messages/AwaitingVerificationMessage.vue"
+  },
   "MasterHeaderNav": {
     "description": "Auto imported from components/master/HeaderNav.vue"
   },
@@ -55,9 +58,6 @@
   },
   "MasterSidebarNav": {
     "description": "Auto imported from components/master/SidebarNav.vue"
-  },
-  "MessagesAwaitingVerificationMessage": {
-    "description": "Auto imported from components/messages/AwaitingVerificationMessage.vue"
   },
   "FormComponentsBigTextsTextRounded": {
     "description": "Auto imported from components/FormComponents/BigTexts/TextRounded.vue"
