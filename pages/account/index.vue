@@ -150,6 +150,9 @@ export default {
       title: 'Account',
     }
   },
+  transition: {
+    name: 'fade',
+  },
   components: {
     TextInputSquare,
     ButtonSquare,

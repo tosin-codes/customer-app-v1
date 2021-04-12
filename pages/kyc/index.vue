@@ -92,6 +92,9 @@ export default {
       title: 'KYC',
     }
   },
+  transition: {
+    name: 'fade',
+  },
   components: {
     KycNumbers,
     Kyc1,

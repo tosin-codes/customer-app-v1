@@ -115,6 +115,9 @@ export default {
       title: 'Profile',
     }
   },
+  transition: {
+    name: 'fade',
+  },
   components: {
     TextInputClassic,
     GeneralNav,

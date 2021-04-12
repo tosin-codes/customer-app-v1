@@ -43,6 +43,9 @@ export default {
       title: 'Active-Loans',
     }
   },
+  transition: {
+    name: 'fade',
+  },
   components: {
     GeneralNav,
     DashboardCards,
