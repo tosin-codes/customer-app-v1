@@ -8,7 +8,7 @@
             <div>
               <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
             </div>
-            <div class="font-bold text-gray-700">Dashboard</div>
+            <div class="font-bold text-gray-700">Account</div>
           </div>
           <DashboardCards />
           <div
