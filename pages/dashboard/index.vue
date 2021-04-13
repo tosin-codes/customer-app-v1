@@ -39,6 +39,9 @@ export default {
         title: 'Dashboard',
       }
     },
+    transition: {
+      name: 'fade',
+    },
     DashboardCards,
     GeneralNav,
     ActiveLoan,
