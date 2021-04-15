@@ -7,7 +7,7 @@
             <div class="flex flex-row items-center">
               <div>
                 <img
-                  class="rounded-full w-16 mr-5 md:mr-3"
+                  class="rounded-full w-16 lg:mr-5 md:mr-2"
                   src="~/assets/images/profile.jpg"
                   alt=""
                 />

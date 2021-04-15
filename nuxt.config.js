@@ -95,6 +95,7 @@ export default {
     redirect: {
       login: '/login',
       home: '/dashboard',
+      logout: '/login',
     },
   },
   router: {
