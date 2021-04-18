@@ -545,6 +545,9 @@ export default {
       title: 'Offer',
     }
   },
+  transition: {
+    name: 'fade',
+  },
   components: {
     GeneralNav,
     Spinner,

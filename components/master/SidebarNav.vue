@@ -7,7 +7,7 @@
             <div class="flex flex-row items-center">
               <div>
                 <img
-                  class="rounded-full w-16 mr-5"
+                  class="rounded-full w-16 mr-5 md:mr-3"
                   src="~/assets/images/profile.jpg"
                   alt=""
                 />
@@ -217,5 +217,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

@@ -105,6 +105,9 @@ export default {
     vSelect,
     TextInputClassic,
   },
+  transition: {
+    name: 'fade',
+  },
   data() {
     return {
       amount: '',

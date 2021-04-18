@@ -12,7 +12,7 @@
                 alt=""
               />
             </div>
-            <div class="font-bold text-gray-700">Dashboard</div>
+            <div class="font-bold text-gray-700">Active LOans</div>
           </div>
           <DashboardCards />
           <div class="flex flex-col bg-white border-dashed border-2 py-32 mx-3">
@@ -42,6 +42,9 @@ export default {
     return {
       title: 'Active-Loans',
     }
+  },
+  transition: {
+    name: 'fade',
   },
   components: {
     GeneralNav,
