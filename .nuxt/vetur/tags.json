@@ -23,11 +23,8 @@
   "Spinner": {
     "description": "Auto imported from components/Spinner.vue"
   },
-  "FormComponentsCheckboxComponent": {
-    "description": "Auto imported from components/FormComponents/CheckboxComponent.vue"
-  },
-  "FormComponentsRadioComponent": {
-    "description": "Auto imported from components/FormComponents/RadioComponent.vue"
+  "MessagesAwaitingVerificationMessage": {
+    "description": "Auto imported from components/messages/AwaitingVerificationMessage.vue"
   },
   "Kyc1": {
     "description": "Auto imported from components/kyc/Kyc1.vue"
@@ -56,20 +53,23 @@
   "MasterSidebarNav": {
     "description": "Auto imported from components/master/SidebarNav.vue"
   },
-  "MessagesAwaitingVerificationMessage": {
-    "description": "Auto imported from components/messages/AwaitingVerificationMessage.vue"
+  "FormComponentsCheckboxComponent": {
+    "description": "Auto imported from components/FormComponents/CheckboxComponent.vue"
   },
-  "FormComponentsBigTextsTextRounded": {
-    "description": "Auto imported from components/FormComponents/BigTexts/TextRounded.vue"
-  },
-  "FormComponentsBigTextsTextSquare": {
-    "description": "Auto imported from components/FormComponents/BigTexts/TextSquare.vue"
+  "FormComponentsRadioComponent": {
+    "description": "Auto imported from components/FormComponents/RadioComponent.vue"
   },
   "FormComponentsDropdownsSelectRounded": {
     "description": "Auto imported from components/FormComponents/Dropdowns/SelectRounded.vue"
   },
   "FormComponentsDropdownsSelectSquare": {
     "description": "Auto imported from components/FormComponents/Dropdowns/SelectSquare.vue"
+  },
+  "FormComponentsBigTextsTextRounded": {
+    "description": "Auto imported from components/FormComponents/BigTexts/TextRounded.vue"
+  },
+  "FormComponentsBigTextsTextSquare": {
+    "description": "Auto imported from components/FormComponents/BigTexts/TextSquare.vue"
   },
   "FormComponentsTextsTextInputClassic": {
     "description": "Auto imported from components/FormComponents/Texts/TextInputClassic.vue"

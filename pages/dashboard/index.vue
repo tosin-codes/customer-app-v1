@@ -33,12 +33,12 @@ import DashboardCards from '~/components/DashboardCards'
 import ActiveLoan from '~/components/ActiveLoan'
 import ActiveLoanSchedule from '~/components/ActiveLoanSchedule'
 export default {
-  components: {
-    head() {
+  head() {
       return {
         title: 'Dashboard',
       }
-    },
+  },
+  components: {
     DashboardCards,
     GeneralNav,
     ActiveLoan,
