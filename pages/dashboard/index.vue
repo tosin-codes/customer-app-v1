@@ -34,13 +34,14 @@ import ActiveLoan from '~/components/ActiveLoan'
 import ActiveLoanSchedule from '~/components/ActiveLoanSchedule'
 export default {
   head() {
-      return {
-        title: 'Dashboard',
-      }
-    },
-    transition: {
-      name: 'fade',
-    },
+    return {
+      title: 'Dashboard',
+    }
+  },
+  transition: {
+    name: 'fade',
+  },
+  components: {
     DashboardCards,
     GeneralNav,
     ActiveLoan,
