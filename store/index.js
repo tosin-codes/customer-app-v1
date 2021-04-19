@@ -10,8 +10,12 @@ export const getters = {
     if (state.auth.user.loans.length === 0) {
       return 0
     }
+
     return state.auth.user.loans
       .reduce((acc, loan) => {
+        if (loan.status == 2) {
+          return acc
+        }
         return acc + loan.offer_amount
       }, 0)
       .toString()

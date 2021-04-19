@@ -21,7 +21,7 @@
             </div>
             <div class="mx-auto">
               <nuxt-link
-                to="/kyc"
+                to="/create-loan"
                 class="bg-orange-500 hover:bg-orange-600 px-4 py-2 text-white"
                 >Create Loan</nuxt-link
               >

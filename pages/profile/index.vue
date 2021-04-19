@@ -30,8 +30,8 @@
           <div class="bg-gray-50 flex flex-col">
             <div class="sm:w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl">
               <div class="form bg-white py-8 px-4 shadow sm:px-10">
-                <form action="" class="md:grid md:grid-cols-12 md:gap-x-12">
-                  <div class="mb-5 md:col-start-1 md:col-end-7">
+                <form action="" class="xl:grid xl:grid-cols-12 xl:gap-x-12">
+                  <div class="mb-5 xl:col-start-1 xl:col-end-7">
                     <label for="" class="font-semibold text-sm opacity-75"
                       >First Name</label
                     >
@@ -42,7 +42,7 @@
                       placeholder="Enter your first name"
                     />
                   </div>
-                  <div class="mb-5 md:col-start-7 md:col-end-13">
+                  <div class="mb-5 xl:col-start-7 xl:col-end-13">
                     <label for="" class="font-semibold text-sm opacity-75"
                       >Last Name</label
                     >
@@ -53,7 +53,7 @@
                       placeholder="Enter your last name"
                     />
                   </div>
-                  <div class="mb-5 md:col-start-1 md:col-end-7">
+                  <div class="mb-5 xl:col-start-1 xl:col-end-7">
                     <label for="" class="font-semibold text-sm opacity-75"
                       >Email Address</label
                     >
@@ -66,7 +66,7 @@
                       disabled
                     />
                   </div>
-                  <div class="mb-5 md:col-start-7 md:col-end-13">
+                  <div class="mb-5 xl:col-start-7 xl:col-end-13">
                     <label for="" class="font-semibold text-sm opacity-75"
                       >Phone Number</label
                     >

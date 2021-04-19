@@ -39,7 +39,7 @@
               </div>
 
               <div class="container" v-if="!loading && !error">
-                <div class="bg-gray-100">
+                <div class="bg-gray-100" v-show="message2">
                   <div class="pt-3 px-2 sm:px-2 lg:px-2">
                     <div class="text-center">
                       <div>
@@ -526,6 +526,9 @@
                   </div>
                 </div>
               </div>
+              <div v-show="message">
+                <AwaitMessage />
+              </div>
             </div>
           </div>
         </div>
@@ -537,6 +540,7 @@
 <script>
 import GeneralNav from '~/components/GeneralNavbarComponent'
 import Spinner from '~/components/Spinner'
+import AwaitMessage from '~/components/messages/AwaitMessage'
 import { mapState } from 'vuex'
 
 export default {
@@ -551,12 +555,15 @@ export default {
   components: {
     GeneralNav,
     Spinner,
+    AwaitMessage,
   },
   data() {
     return {
       loading: true,
       offer: '',
       error: '',
+      message: false,
+      message2: true,
     }
   },
   computed: {
@@ -618,6 +625,42 @@ export default {
           vm.$noty.success('success')
         })
         .catch(function (error) {
+          if (error.response) {
+            switch (error.response.status) {
+              case 422:
+                const data = error.response.data.errors
+                for (var key in data) {
+                  vm.$noty.error(data[key])
+                  vm.loading = false
+                  vm.error = data[key]
+                }
+                break
+              case 500:
+                vm.$noty.error(error.response.data.message)
+                vm.loading = false
+                vm.error = 'SOMETHING WENT WRONG'
+                break
+              default:
+                vm.$noty.error('SOMETHING WENT WRONG')
+                break
+            }
+          }
+        })
+    },
+    accept(token) {
+      let vm = this
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      vm.message2 = false
+      vm.loading = true
+      this.$axios
+        .post(`/estimate/${token}/create-loan`)
+        .then((response) => {
+          vm.loading = false
+          vm.message = true
+          vm.message2 = false
+        })
+        .catch(function (error) {
+          vm.loading = false
           if (error.response) {
             switch (error.response.status) {
               case 422:
