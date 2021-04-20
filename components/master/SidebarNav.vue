@@ -140,7 +140,7 @@
                 </div>
               </nuxt-link>
               <nuxt-link
-                to="/account"
+                to="/history"
                 class="flex flex-row justify-between items-center my-8 hover:text-orange-500"
               >
                 <div class="font-semibold">Loan History</div>

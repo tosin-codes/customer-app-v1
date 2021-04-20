@@ -15,16 +15,37 @@
             <div class="font-bold text-gray-700">Active LOans</div>
           </div>
           <DashboardCards />
-          <div class="flex flex-col bg-white border-dashed border-2 py-32 mx-3">
-            <div class="text-center text-xl mb-5">
-              You do not have any active loans
+          <div v-if="this.$store.getters.activeloan === {}">
+            <div
+              class="flex flex-col bg-white border-dashed border-2 py-32 mx-3"
+            >
+              <div class="text-center text-xl mb-5">
+                You do not have any active loans
+              </div>
+              <div class="mx-auto">
+                <nuxt-link
+                  to="/create-loan"
+                  class="bg-orange-500 hover:bg-orange-600 px-4 py-2 text-white"
+                  >Create Loan</nuxt-link
+                >
+              </div>
             </div>
-            <div class="mx-auto">
-              <nuxt-link
-                to="/create-loan"
-                class="bg-orange-500 hover:bg-orange-600 px-4 py-2 text-white"
-                >Create Loan</nuxt-link
-              >
+          </div>
+          <div v-else>
+            <div
+              class="flex flex-col items-center justify-center bg-white border-dashed border-2 py-32"
+            >
+              <div>
+                <img
+                  class="object-cover w-48"
+                  src="~/assets/images/approval.jpg"
+                  alt="approve"
+                />
+              </div>
+              <p class="text-center text-md mb-5">
+                Your loan schedules will be displayed here once your loan
+                request has been approved :)
+              </p>
             </div>
           </div>
         </div>
