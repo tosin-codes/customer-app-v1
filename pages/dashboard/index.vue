@@ -33,27 +33,28 @@ import DashboardCards from '~/components/DashboardCards'
 import ActiveLoan from '~/components/ActiveLoan'
 import ActiveLoanSchedule from '~/components/ActiveLoanSchedule'
 export default {
-    head() {
-        return {
-          title: 'Dashboard',
-        }
-    },
-    data() {
-      return {
-        inActiveLoan: false,
-        activeLoan: false,
-      }
-    },
-    transition: {
-      name: 'fade',
-    },
-    components:{
-      DashboardCards,
-      GeneralNav,
-      ActiveLoan,
-      ActiveLoanSchedule,
-    },
-    middleware: ['auth', 'setLevelForNewLoan'],
+  head() {
+    return {
+      title: 'Dashboard',
+    }
+  },
+  transition: {
+    name: 'fade',
+  },
+  components: {
+    DashboardCards,
+    GeneralNav,
+    ActiveLoan,
+    ActiveLoanSchedule,
+  },
+  data() {
+    return {
+      inActiveLoan: false,
+      activeLoan: false,
+    }
+  },
+  middleware: ['auth', 'setLevelForNewLoan'],
+  mounted() {},
 }
 </script>
 
