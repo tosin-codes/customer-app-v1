@@ -16,8 +16,15 @@
           >
             <div v-if="!this.$store.getters.user.bank">
               <div
-                class="flex flex-col bg-white border-dashed border-2 py-32 mx-3 md:mx-0"
+                class="flex flex-col items-center justify-center bg-white border-dashed border-2 py-32"
               >
+                <div>
+                  <img
+                    class="object-cover w-48"
+                    src="~/assets/images/bank.jpg"
+                    alt="bank"
+                  />
+                </div>
                 <div class="text-center text-xl mb-5">
                   You do not have any bank listed.
                 </div>
@@ -49,7 +56,7 @@
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                                Account Type
+                                Bank Code
                               </th>
                               <th
                                 scope="col"
@@ -61,65 +68,71 @@
                                 scope="col"
                                 class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                                Bank Code
+                                Account Type
+                              </th>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Status
                               </th>
                             </tr>
                           </thead>
                           <tbody>
-                            <tr class="bg-white">
+                            <tr
+                              class="bg-white"
+                              v-for="bank in $store.getters.user.banks"
+                              :key="bank.id"
+                            >
                               <td
-                                class="px-6 py-4 whitespace-nowrap text-sm font-normal text-gray-900"
-                              ></td>
-                              <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
-                              ></td>
-                              <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-b border-grey-light"
                               >
-                                <!-- {{ this.$store.getters.user.number }} -->
+                                {{ bank.name ? bank.name : '' }}
                               </td>
                               <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-b border-grey-light"
                               >
-                                ₦1,200,000
+                                {{ bank.code ? bank.code : '' }}
                               </td>
 
                               <td
-                                class="uppercase px-6 py-4 whitespace-nowrap text-center text-sm font-light"
+                                class="uppercase px-6 py-4 whitespace-nowrap text-center text-sm border-b border-grey-light"
                               >
-                                <div class="bg-green-200 py-1 px-2">
-                                  <!-- {{ this.$store.getters.user.status }} -->
+                                <div class="py-1 px-2">
+                                  {{ bank.number ? bank.number : '' }}
                                 </div>
                               </td>
-                            </tr>
-
-                            <tr class="bg-gray-100">
                               <td
-                                class="px-6 py-4 whitespace-nowrap text-sm font-normal text-gray-900"
+                                class="uppercase px-6 py-4 whitespace-nowrap text-center text-sm border-b border-grey-light"
                               >
-                                ₦1,200,000
+                                <div class="py-1 px-2">
+                                  {{ bank.type ? bank.type : '' }}
+                                </div>
                               </td>
                               <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
+                                class="uppercase px-6 py-4 whitespace-nowrap text-center text-sm border-b border-grey-light"
                               >
-                                ₦1,200,000
-                              </td>
-                              <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
-                              >
-                                ₦1,200,000
-                              </td>
-                              <td
-                                class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"
-                              >
-                                ₦1,200,000
-                              </td>
-
-                              <td
-                                class="uppercase px-6 py-4 whitespace-nowrap text-center text-sm font-light"
-                              >
-                                <div class="bg-green-200 py-1 px-2">
-                                  success
+                                <div v-if="bank.length && bank.status === true">
+                                  <div
+                                    style="
+                                      padding-top: 0.2em;
+                                      padding-bottom: 0.2rem;
+                                    "
+                                    class="text-sm px-3 bg-green-200 text-gray-800 rounded-full border-b border-grey-light"
+                                  >
+                                    true
+                                  </div>
+                                </div>
+                                <div v-else>
+                                  <div
+                                    style="
+                                      padding-top: 0.2em;
+                                      padding-bottom: 0.2rem;
+                                    "
+                                    class="text-sm px-3 bg-gray-200 text-gray-800 rounded-full border-b border-grey-light"
+                                  >
+                                    false
+                                  </div>
                                 </div>
                               </td>
                             </tr>
@@ -161,30 +174,30 @@ export default {
   },
   data() {
     return {
-      banks: [
-        { name: 'ACCESS BANK PLC', code: '044' },
-        { name: 'DIAMOND BANK PLC', code: '063' },
-        { name: 'CITIBANK NIG LTD', code: '023' },
-        { name: 'FIRST CITY MONUMENT BANK PLC', code: '214' },
-        { name: 'FIRST BANK OF NIGERIA PLC', code: '011' },
-        { name: 'ECOBANK NIGERIA PLC', code: '050' },
-        { name: 'FIDELITY BANK PLC', code: '070' },
-        { name: 'KEYSTONE BANK', code: '082' },
-        { name: 'JAIZ BANK PLC', code: '301' },
-        { name: 'GUARANTY TRUST BANK PLC', code: '058' },
-        { name: 'STANDARD CHARTERED BANK NIGERIA LTD', code: '068' },
-        { name: 'SUNTRUST BANK NIG LTD', code: '100' },
-        { name: 'PROVIDUS BANK PLC', code: '101' },
-        { name: 'SKYE BANK PLC', code: '076' },
-        { name: 'WEMA BANK PLC', code: '035' },
-        { name: 'HERITAGE BANK', code: '030' },
-        { name: 'UNION BANK OF NIGERIA PLC', code: '032' },
-        { name: 'STERLING BANK PLC', code: '232' },
-        { name: 'UBA PLC', code: '033' },
-        { name: 'STANBIC IBTC BANK PLC', code: '039' },
-        { name: 'ZENITH BANK PLC', code: '057' },
-        { name: 'UNITY BANK PLC', code: '215' },
-      ],
+      // banks: [
+      //   { name: 'ACCESS BANK PLC', code: '044' },
+      //   { name: 'DIAMOND BANK PLC', code: '063' },
+      //   { name: 'CITIBANK NIG LTD', code: '023' },
+      //   { name: 'FIRST CITY MONUMENT BANK PLC', code: '214' },
+      //   { name: 'FIRST BANK OF NIGERIA PLC', code: '011' },
+      //   { name: 'ECOBANK NIGERIA PLC', code: '050' },
+      //   { name: 'FIDELITY BANK PLC', code: '070' },
+      //   { name: 'KEYSTONE BANK', code: '082' },
+      //   { name: 'JAIZ BANK PLC', code: '301' },
+      //   { name: 'GUARANTY TRUST BANK PLC', code: '058' },
+      //   { name: 'STANDARD CHARTERED BANK NIGERIA LTD', code: '068' },
+      //   { name: 'SUNTRUST BANK NIG LTD', code: '100' },
+      //   { name: 'PROVIDUS BANK PLC', code: '101' },
+      //   { name: 'SKYE BANK PLC', code: '076' },
+      //   { name: 'WEMA BANK PLC', code: '035' },
+      //   { name: 'HERITAGE BANK', code: '030' },
+      //   { name: 'UNION BANK OF NIGERIA PLC', code: '032' },
+      //   { name: 'STERLING BANK PLC', code: '232' },
+      //   { name: 'UBA PLC', code: '033' },
+      //   { name: 'STANBIC IBTC BANK PLC', code: '039' },
+      //   { name: 'ZENITH BANK PLC', code: '057' },
+      //   { name: 'UNITY BANK PLC', code: '215' },
+      // ],
     }
   },
   middleware: ['auth'],
