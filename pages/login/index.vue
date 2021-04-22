@@ -102,12 +102,12 @@
               </div>
 
               <div class="text-sm">
-                <a
-                  href="#"
+                <nuxt-link
+                  to="/reset-password"
                   class="font-medium text-orange-500 hover:text-orange-500"
                 >
                   Forgot your password?
-                </a>
+                </nuxt-link>
               </div>
             </div>
 
