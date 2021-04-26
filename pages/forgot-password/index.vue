@@ -236,7 +236,6 @@ export default {
       setState: 'setStates',
     }),
     async reset() {
-      console.log('clicked')
       this.submitted = true
       if (this.errorInfo) {
         const reveal = document.querySelector('.errors')
@@ -250,14 +249,14 @@ export default {
       if (!this.$v.$invalid) {
         let vm = this
         this.disable = !this.disable
-        console.log(this.formData)
+
         await this.$axios
           .post('/reset-password', {
             ...this.formData,
           })
           .then((response) => {
             let user = response.data.data
-            console.log(user)
+
             this.$auth.setUser(user)
 
             vm.$noty.success('Password Reset Successfully')
@@ -285,7 +284,6 @@ export default {
         this.resetForm = true
       })
       .catch((error) => {
-        console.log(error)
         this.$noty.error('Token expired')
         setTimeout(() => {
           this.$router.push('/reset-password')

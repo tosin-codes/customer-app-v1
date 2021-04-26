@@ -4,7 +4,7 @@
       <GeneralNav />
       <div class="my-container">
         <div class="mt-5">
-          <div class="flex flex-row items-center mb-10">
+          <div class="flex flex-row items-center mb-10 mt-10 md:mt-0">
             <div class="ml-3 md:ml-0">
               <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
             </div>

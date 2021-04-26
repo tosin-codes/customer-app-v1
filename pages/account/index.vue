@@ -4,7 +4,9 @@
       <GeneralNav />
       <div class="my-container">
         <div class="mt-5">
-          <div class="flex flex-row items-center mb-10 ml-3 md:ml-0">
+          <div
+            class="flex flex-row items-center mb-10 ml-3 md:ml-0 mt-10 md:mt-0"
+          >
             <div>
               <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
             </div>
@@ -25,7 +27,7 @@
                     alt="bank"
                   />
                 </div>
-                <div class="text-center text-xl mb-5">
+                <div class="text-center text-base md:text-xl mb-5">
                   You do not have any bank listed.
                 </div>
               </div>
