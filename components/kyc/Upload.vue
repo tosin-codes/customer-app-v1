@@ -75,9 +75,9 @@ export default {
         )
         return false
       }
-      if (imageSize > 2) {
+      if (imageSize > 10) {
         this.$noty.error(
-          'You can only upload images with maximum size of 2MB!',
+          'You can only upload images with maximum size of 10MB!',
           'This file type is not allowed'
         )
         return false

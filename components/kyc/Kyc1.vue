@@ -13,7 +13,7 @@
                 placeholder="BVN"
                 v-model.trim="bankInformation.bvn"
                 name="bvn"
-                class="border-b-2 border-gray-500 bg-gray-100 mt-2 h-12 w-full rounded-none text-xs"
+                class="border-b-2 border-gray-500 pl-4 bg-gray-100 mt-2 h-12 w-full rounded-none text-xs"
               />
               <span
                 class="text-red-500 italics text-xs"
@@ -40,7 +40,7 @@
                 placeholder="Account Number"
                 v-model.trim="bankInformation.number"
                 name="account_number"
-                class="border-b-2 border-gray-500 bg-gray-100 mt-2 h-12 w-full rounded-none text-xs"
+                class="border-b-2 pl-4 border-gray-500 bg-gray-100 mt-2 h-12 w-full rounded-none text-xs"
               />
               <span
                 class="text-red-500 italics text-xs"

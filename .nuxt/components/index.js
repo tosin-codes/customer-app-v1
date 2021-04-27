@@ -6,7 +6,8 @@ export { default as DashboardNav } from '../..\\components\\DashboardNav.vue'
 export { default as GeneralNavbarComponent } from '../..\\components\\GeneralNavbarComponent.vue'
 export { default as ModalChild } from '../..\\components\\ModalChild.vue'
 export { default as Spinner } from '../..\\components\\Spinner.vue'
-export { default as MessagesAwaitingVerificationMessage } from '../..\\components\\messages\\AwaitingVerificationMessage.vue'
+export { default as FormComponentsCheckboxComponent } from '../..\\components\\FormComponents\\CheckboxComponent.vue'
+export { default as FormComponentsRadioComponent } from '../..\\components\\FormComponents\\RadioComponent.vue'
 export { default as Kyc1 } from '../..\\components\\kyc\\Kyc1.vue'
 export { default as Kyc2 } from '../..\\components\\kyc\\Kyc2.vue'
 export { default as Kyc3 } from '../..\\components\\kyc\\Kyc3.vue'
@@ -16,12 +17,13 @@ export { default as KycUpload } from '../..\\components\\kyc\\Upload.vue'
 export { default as MasterHeaderNav } from '../..\\components\\master\\HeaderNav.vue'
 export { default as MasterMobileNav } from '../..\\components\\master\\MobileNav.vue'
 export { default as MasterSidebarNav } from '../..\\components\\master\\SidebarNav.vue'
-export { default as FormComponentsCheckboxComponent } from '../..\\components\\FormComponents\\CheckboxComponent.vue'
-export { default as FormComponentsRadioComponent } from '../..\\components\\FormComponents\\RadioComponent.vue'
-export { default as FormComponentsDropdownsSelectRounded } from '../..\\components\\FormComponents\\Dropdowns\\SelectRounded.vue'
-export { default as FormComponentsDropdownsSelectSquare } from '../..\\components\\FormComponents\\Dropdowns\\SelectSquare.vue'
+export { default as MessagesAwaitingVerificationMessage } from '../..\\components\\messages\\AwaitingVerificationMessage.vue'
+export { default as MessagesAwaitMessage } from '../..\\components\\messages\\AwaitMessage.vue'
+export { default as MessagesRejectOffer } from '../..\\components\\messages\\RejectOffer.vue'
 export { default as FormComponentsBigTextsTextRounded } from '../..\\components\\FormComponents\\BigTexts\\TextRounded.vue'
 export { default as FormComponentsBigTextsTextSquare } from '../..\\components\\FormComponents\\BigTexts\\TextSquare.vue'
+export { default as FormComponentsDropdownsSelectRounded } from '../..\\components\\FormComponents\\Dropdowns\\SelectRounded.vue'
+export { default as FormComponentsDropdownsSelectSquare } from '../..\\components\\FormComponents\\Dropdowns\\SelectSquare.vue'
 export { default as FormComponentsTextsTextInputClassic } from '../..\\components\\FormComponents\\Texts\\TextInputClassic.vue'
 export { default as FormComponentsTextsTextInputRounded } from '../..\\components\\FormComponents\\Texts\\TextInputRounded.vue'
 export { default as FormComponentsTextsTextInputSquare } from '../..\\components\\FormComponents\\Texts\\TextInputSquare.vue'
@@ -40,7 +42,8 @@ export const LazyDashboardNav = import('../..\\components\\DashboardNav.vue' /* 
 export const LazyGeneralNavbarComponent = import('../..\\components\\GeneralNavbarComponent.vue' /* webpackChunkName: "components/general-navbar-component" */).then(c => c.default || c)
 export const LazyModalChild = import('../..\\components\\ModalChild.vue' /* webpackChunkName: "components/modal-child" */).then(c => c.default || c)
 export const LazySpinner = import('../..\\components\\Spinner.vue' /* webpackChunkName: "components/spinner" */).then(c => c.default || c)
-export const LazyMessagesAwaitingVerificationMessage = import('../..\\components\\messages\\AwaitingVerificationMessage.vue' /* webpackChunkName: "components/messages-awaiting-verification-message" */).then(c => c.default || c)
+export const LazyFormComponentsCheckboxComponent = import('../..\\components\\FormComponents\\CheckboxComponent.vue' /* webpackChunkName: "components/form-components-checkbox-component" */).then(c => c.default || c)
+export const LazyFormComponentsRadioComponent = import('../..\\components\\FormComponents\\RadioComponent.vue' /* webpackChunkName: "components/form-components-radio-component" */).then(c => c.default || c)
 export const LazyKyc1 = import('../..\\components\\kyc\\Kyc1.vue' /* webpackChunkName: "components/kyc-1" */).then(c => c.default || c)
 export const LazyKyc2 = import('../..\\components\\kyc\\Kyc2.vue' /* webpackChunkName: "components/kyc-2" */).then(c => c.default || c)
 export const LazyKyc3 = import('../..\\components\\kyc\\Kyc3.vue' /* webpackChunkName: "components/kyc-3" */).then(c => c.default || c)
@@ -50,12 +53,13 @@ export const LazyKycUpload = import('../..\\components\\kyc\\Upload.vue' /* webp
 export const LazyMasterHeaderNav = import('../..\\components\\master\\HeaderNav.vue' /* webpackChunkName: "components/master-header-nav" */).then(c => c.default || c)
 export const LazyMasterMobileNav = import('../..\\components\\master\\MobileNav.vue' /* webpackChunkName: "components/master-mobile-nav" */).then(c => c.default || c)
 export const LazyMasterSidebarNav = import('../..\\components\\master\\SidebarNav.vue' /* webpackChunkName: "components/master-sidebar-nav" */).then(c => c.default || c)
-export const LazyFormComponentsCheckboxComponent = import('../..\\components\\FormComponents\\CheckboxComponent.vue' /* webpackChunkName: "components/form-components-checkbox-component" */).then(c => c.default || c)
-export const LazyFormComponentsRadioComponent = import('../..\\components\\FormComponents\\RadioComponent.vue' /* webpackChunkName: "components/form-components-radio-component" */).then(c => c.default || c)
-export const LazyFormComponentsDropdownsSelectRounded = import('../..\\components\\FormComponents\\Dropdowns\\SelectRounded.vue' /* webpackChunkName: "components/form-components-dropdowns-select-rounded" */).then(c => c.default || c)
-export const LazyFormComponentsDropdownsSelectSquare = import('../..\\components\\FormComponents\\Dropdowns\\SelectSquare.vue' /* webpackChunkName: "components/form-components-dropdowns-select-square" */).then(c => c.default || c)
+export const LazyMessagesAwaitingVerificationMessage = import('../..\\components\\messages\\AwaitingVerificationMessage.vue' /* webpackChunkName: "components/messages-awaiting-verification-message" */).then(c => c.default || c)
+export const LazyMessagesAwaitMessage = import('../..\\components\\messages\\AwaitMessage.vue' /* webpackChunkName: "components/messages-await-message" */).then(c => c.default || c)
+export const LazyMessagesRejectOffer = import('../..\\components\\messages\\RejectOffer.vue' /* webpackChunkName: "components/messages-reject-offer" */).then(c => c.default || c)
 export const LazyFormComponentsBigTextsTextRounded = import('../..\\components\\FormComponents\\BigTexts\\TextRounded.vue' /* webpackChunkName: "components/form-components-big-texts-text-rounded" */).then(c => c.default || c)
 export const LazyFormComponentsBigTextsTextSquare = import('../..\\components\\FormComponents\\BigTexts\\TextSquare.vue' /* webpackChunkName: "components/form-components-big-texts-text-square" */).then(c => c.default || c)
+export const LazyFormComponentsDropdownsSelectRounded = import('../..\\components\\FormComponents\\Dropdowns\\SelectRounded.vue' /* webpackChunkName: "components/form-components-dropdowns-select-rounded" */).then(c => c.default || c)
+export const LazyFormComponentsDropdownsSelectSquare = import('../..\\components\\FormComponents\\Dropdowns\\SelectSquare.vue' /* webpackChunkName: "components/form-components-dropdowns-select-square" */).then(c => c.default || c)
 export const LazyFormComponentsTextsTextInputClassic = import('../..\\components\\FormComponents\\Texts\\TextInputClassic.vue' /* webpackChunkName: "components/form-components-texts-text-input-classic" */).then(c => c.default || c)
 export const LazyFormComponentsTextsTextInputRounded = import('../..\\components\\FormComponents\\Texts\\TextInputRounded.vue' /* webpackChunkName: "components/form-components-texts-text-input-rounded" */).then(c => c.default || c)
 export const LazyFormComponentsTextsTextInputSquare = import('../..\\components\\FormComponents\\Texts\\TextInputSquare.vue' /* webpackChunkName: "components/form-components-texts-text-input-square" */).then(c => c.default || c)

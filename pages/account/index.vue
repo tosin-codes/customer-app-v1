@@ -14,7 +14,7 @@
           <div
             class="min-h-screen bg-gray-50 flex flex-col py-12 sm:px-6 md:px-1"
           >
-            <div v-if="!this.$store.getters.user.bank">
+            <div v-if="!this.$store.getters.user.banks">
               <div
                 class="flex flex-col items-center justify-center bg-white border-dashed border-2 py-32"
               >
@@ -49,7 +49,7 @@
                                 scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                               >
-                                Bank Name
+                                BVN
                               </th>
 
                               <th
@@ -87,7 +87,7 @@
                               <td
                                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-b border-grey-light"
                               >
-                                {{ bank.name ? bank.name : '' }}
+                                {{ bank.verification_number | fourly}}
                               </td>
                               <td
                                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-b border-grey-light"
@@ -98,7 +98,7 @@
                               <td
                                 class="uppercase px-6 py-4 whitespace-nowrap text-center text-sm border-b border-grey-light"
                               >
-                                <div class="py-1 px-2">
+                                <div class="py-1 px-2 text-left">
                                   {{ bank.number ? bank.number : '' }}
                                 </div>
                               </td>
@@ -165,6 +165,11 @@ export default {
   },
   transition: {
     name: 'fade',
+  },
+  filters:{
+    fourly(value){
+        return value.replace(/.(?=.{4})/g, 'x');
+    }
   },
   components: {
     TextInputSquare,

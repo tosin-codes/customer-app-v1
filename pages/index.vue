@@ -351,6 +351,7 @@ export default {
             this.$auth.setUser(user)
             this.$auth.setUserToken(token)
             this.disable = !this.disable
+            this.$router.push('/dashboard')
           })
           .catch((error) => {
             if (error.response) {
@@ -365,8 +366,12 @@ export default {
     },
     async checkAndSetTokenIfExist() {
       if (this.$route.query.token) {
+        //CD0097433
+        console.log(this.$route.query.token)
         localStorage.setItem('ref_code', this.$route.query.token)
         let code = localStorage.getItem('ref_code')
+
+        console.log(code)
         await this.$axios.get(`/estimate/${code}`).then((response) => {
           let data = response.data.data
           this.formData.first_name = data.first_name
