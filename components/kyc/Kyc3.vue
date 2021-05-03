@@ -31,8 +31,27 @@
                   </span>
                 </div>
               </div>
-              <div class="w-full md:ml-3">
-                <date-picker
+              <div class="w-full md:ml-6">
+                <div
+                  class="bg-orange-100 p-3 w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl border-l-4 border-orange-500"
+                >
+                  <div class="flex space-x-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      class="flex-none fill-current text-orange-500 h-4 w-4"
+                    >
+                      <path
+                        d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.001 5.75c.69 0 1.251.56 1.251 1.25s-.561 1.25-1.251 1.25-1.249-.56-1.249-1.25.559-1.25 1.249-1.25zm2.001 12.25h-4v-1c.484-.179 1-.201 1-.735v-4.467c0-.534-.516-.618-1-.797v-1h3v6.265c0 .535.517.558 1 .735v.999z"
+                      />
+                    </svg>
+                    <div class="flex-1 leading-tight text-base text-orange-700">
+                      Inspection is based on first come, first serve.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- <date-picker
                   id="input"
                   class=""
                   placeholder="HH:MM"
@@ -53,7 +72,7 @@
                   <span class="text-red-700 text-xs" v-if="errors.time">
                     {{ errors.time[0] }}
                   </span>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="flex justify-between items-center mt-8">
@@ -99,7 +118,6 @@ export default {
     return {
       inspectionDate: {
         date: '',
-        time: '',
       },
       disable: false,
     }
@@ -107,7 +125,6 @@ export default {
   validations: {
     inspectionDate: {
       date: { required },
-      time: { required },
     },
   },
   methods: {

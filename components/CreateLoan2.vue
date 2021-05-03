@@ -240,6 +240,8 @@ export default {
         { id: false, value: 'No' },
       ],
       stateOptions: [
+        'Lagos',
+        'FCT - Abuja',
         'Abia',
         'Adamawa',
         'Akwa Ibom',
@@ -254,7 +256,7 @@ export default {
         'Edo',
         'Ekiti',
         'Enugu',
-        'FCT - Abuja',
+
         'Gombe',
         'Imo',
         'Jigawa',
@@ -264,7 +266,7 @@ export default {
         'Kebbi',
         'Kogi',
         'Kwara',
-        'Lagos',
+
         'Nasarawa',
         'Niger',
         'Ogun',
@@ -343,7 +345,19 @@ export default {
         (year) => year.id === this.vehicleInformation.year
       )
       if (yearObject) {
-        return yearObject.makes
+        // console.log(yearObject.makes)
+        const myArr = yearObject.makes
+        const modifyMakesArray = (arr, arrOfNames) => {
+          const makeTopRated = arr.map((item) => {
+            if (arrOfNames.includes(item.name))
+              return { ...item, topRated: true }
+            else return { ...item, topRated: false }
+          })
+          return makeTopRated
+            .filter(({ topRated }) => topRated == true)
+            .concat(makeTopRated.filter(({ topRated }) => topRated == false))
+        }
+        return modifyMakesArray(myArr, ['Toyota', 'Honda'])
       }
       return []
     },
@@ -406,5 +420,9 @@ export default {
   margin-left: 2px;
   margin-right: 2px;
   font-weight: 400;
+}
+#select .vs__open-indicator,
+#select .vs__clear {
+  cursor: pointer;
 }
 </style>

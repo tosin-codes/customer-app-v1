@@ -4,19 +4,42 @@
       <div
         class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8"
       >
-        <!-- <div class="sm:w-full">
-          <h2
-            class="mt-6 md:ml-6 p-3 col-start-2 text-3xl font-medium text-gray-900 text-justify"
+        <div>
+          <div
+            v-if="welcomeNote"
+            class="sm:mx-auto sm:w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl p-3"
           >
-            Sign up
-          </h2>
-        </div> -->
-
-        <div class="sm:mx-auto sm:w-full sm:max-w-md text-justify">
-          <h2 class="mt-6 text-3xl md:ml-6 p-3 font-medium text-gray-900">
-            Sign Up
-          </h2>
+            <div class="bg-orange-100 p-5 w-full border-l-4 border-orange-500">
+              <div class="flex space-x-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  class="flex-none fill-current text-orange-500 h-4 w-4 mt-1"
+                >
+                  <path
+                    d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.001 5.75c.69 0 1.251.56 1.251 1.25s-.561 1.25-1.251 1.25-1.249-.56-1.249-1.25.559-1.25 1.249-1.25zm2.001 12.25h-4v-1c.484-.179 1-.201 1-.735v-4.467c0-.534-.516-.618-1-.797v-1h3v6.265c0 .535.517.558 1 .735v.999z"
+                  />
+                </svg>
+                <div
+                  class="flex-1 leading-tight text-sm md:text-lg font-medium text-orange-700"
+                >
+                  Congratulations!!! Your funds are ready, please Sign Up
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            v-else
+            class="sm:mx-auto sm:w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl p-3"
+          >
+            <h2
+              class="mt-6 p-3 col-start-2 text-3xl font-medium text-gray-900 text-justify"
+            >
+              Sign up
+            </h2>
+          </div>
         </div>
+
         <div
           class="sm:mx-auto sm:w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl p-3"
         >
@@ -289,6 +312,7 @@ export default {
       },
       errorInfo: '',
       submitted: false,
+      welcomeNote: false,
     }
   },
   validations: {
@@ -367,11 +391,11 @@ export default {
     async checkAndSetTokenIfExist() {
       if (this.$route.query.token) {
         //CD0097433
-        console.log(this.$route.query.token)
+        // console.log(this.$route.query.token)
         localStorage.setItem('ref_code', this.$route.query.token)
         let code = localStorage.getItem('ref_code')
 
-        console.log(code)
+        //console.log(code)
         await this.$axios.get(`/estimate/${code}`).then((response) => {
           let data = response.data.data
           this.formData.first_name = data.first_name
@@ -383,9 +407,16 @@ export default {
       }
     },
   },
+  // created() {
+
+  // },
   mounted() {
     this.checkAndSetTokenIfExist()
+    if (document.referrer == 'https://www.cashdrive.co/') {
+      this.welcomeNote = true
+    }
   },
+
   middleware: 'guest',
 }
 </script>
