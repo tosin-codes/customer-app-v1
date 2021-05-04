@@ -4,7 +4,9 @@
       <GeneralNav />
       <div class="my-container">
         <div class="mt-5">
-          <div class="flex flex-row items-center mb-10 ml-3 md:ml-0">
+          <div
+            class="flex flex-row items-center mb-10 ml-3 md:ml-0 mt-10 md:mt-0"
+          >
             <div>
               <img
                 class="w-8 mr-4"
@@ -12,10 +14,10 @@
                 alt=""
               />
             </div>
-            <div class="font-bold text-gray-700">Active LOans</div>
+            <div class="font-bold text-gray-700">Active Loans</div>
           </div>
           <DashboardCards />
-          <div v-if="this.$store.getters.activeloan === {}">
+          <div v-if="!this.$store.getters.activeloan.offer_amount">
             <div
               class="flex flex-col bg-white border-dashed border-2 py-32 mx-3"
             >
@@ -42,7 +44,7 @@
                   alt="approve"
                 />
               </div>
-              <p class="text-center text-md mb-5">
+              <p class="text-center text-xl mb-5 p-3">
                 Your loan schedules will be displayed here once your loan
                 request has been approved :)
               </p>
@@ -71,6 +73,9 @@ export default {
     GeneralNav,
     DashboardCards,
     ActiveLoanSchedule,
+  },
+  mounted() {
+    console.log(this.$store.getters.activeloan)
   },
 }
 </script>

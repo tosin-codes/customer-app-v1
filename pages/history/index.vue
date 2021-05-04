@@ -4,7 +4,9 @@
       <GeneralNav />
       <div class="my-container">
         <div class="mt-5">
-          <div class="flex flex-row items-center mb-10 ml-3 md:ml-0">
+          <div
+            class="flex flex-row items-center mb-10 ml-3 md:ml-0 mt-10 md:mt-0"
+          >
             <div>
               <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
             </div>
@@ -197,7 +199,7 @@ export default {
         .then((response) => {
           let loans = response.data.data
           this.loans = loans
-          console.log(this.loans)
+
           vm.loading = false
         })
     } catch (error) {
