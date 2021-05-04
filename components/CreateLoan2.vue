@@ -241,7 +241,7 @@ export default {
       ],
       stateOptions: [
         'Lagos',
-        'FCT - Abuja',
+        'Abuja',
         'Abia',
         'Adamawa',
         'Akwa Ibom',
