@@ -28,7 +28,10 @@
           <ol class="list-decimal ml-2">
             <li class="mb-2">
               “The Creditor” has agreed to grant a credit facility in the sum of
-              N________ to the Borrower.
+              <span class="uppercase font-bold"
+                >₦{{ $store.getters.user.active_loan.offer_amount | currency }}
+              </span>
+              to the Borrower.
             </li>
             <li class="mb-2">
               The Borrower has agreed to provide his/her car (Hereinafter
@@ -60,7 +63,16 @@
             <ol class="list-decimal ml-2">
               <li class="mb-2">
                 “The Creditor” shall grant to the Borrower the principal sum of
-                N__________ and the maturity of the credit facility is ___Month.
+                <span class="uppercase font-bold"
+                  >₦{{
+                    $store.getters.user.active_loan.offer_amount | currency
+                  }}</span
+                >
+                and the maturity of the credit facility is
+                <span class="uppercase font-bold">
+                  {{ $store.getters.user.active_loan.desired_tenor }}
+                  Months.</span
+                >
               </li>
               <li class="mb-2">
                 The fixed monthly interest rate of the credit facility is 8.00%
@@ -923,4 +935,36 @@ export default {
 }
 </script>
 
-<style></style>
+<style coped>
+.modal__content {
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.modal__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal__table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+  border-collapse: collapse;
+  border: 1px solid #dee2e6;
+}
+
+.modal__table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border: 1px solid #dee2e6;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+</style>
