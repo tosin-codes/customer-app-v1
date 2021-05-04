@@ -33,11 +33,12 @@
         </div>
         <div class="font-semibold text-xl">
           ₦{{
-            this.$store.getters.activeloan !== 0
-              ? 0
-              : this.$store.getters.activeloan.offer_amount
+            this.$store.getters.activeloan &&
+            this.$store.getters.activeloan.offer_amount
+              ? this.$store.getters.activeloan.offer_amount
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+              : 0
           }}
         </div>
       </div>

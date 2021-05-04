@@ -4,7 +4,7 @@
       <GeneralNav />
       <div class="my-container">
         <div class="mt-5">
-          <div class="flex flex-row items-center mb-5">
+          <div class="flex flex-row items-center mb-10 mt-10 md:mt-0">
             <div class="pl-3 md:pl-0">
               <!-- <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" /> -->
               <svg
@@ -153,7 +153,6 @@ export default {
           ...this.form,
         })
         .then((response) => {
-          console.log(response)
           let user = response.data.data
           let token = response.data.token
           this.$auth.setUser(user)

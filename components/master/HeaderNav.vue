@@ -131,7 +131,7 @@ export default {
   data() {
     return {
       burger: `<svg
-                  class="h-6 w-6"
+                  class="h-6 w-6 text-blue-800"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor" 
                   width="24" height="24" 
@@ -145,7 +145,7 @@ export default {
                   />
                 </svg>`,
       close: `<svg
-                  class="h-6 w-6"
+                  class="h-6 w-6 text-blue-800"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -160,7 +160,7 @@ export default {
                   />
                 </svg>`,
       navSVG: `<svg
-                  class="h-6 w-6"
+                  class="h-6 w-6 text-blue-800"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor" 
                   width="24" height="24" 
