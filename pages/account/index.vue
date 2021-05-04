@@ -94,7 +94,9 @@
                               <td
                                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-b border-grey-light"
                               >
-                                {{ bank.code ? bank.code : '' }}
+                                {{
+                                  getBank(bank.code) ? getBank(bank.code) : ''
+                                }}
                               </td>
 
                               <td
@@ -181,31 +183,40 @@ export default {
   },
   data() {
     return {
-      // banks: [
-      //   { name: 'ACCESS BANK PLC', code: '044' },
-      //   { name: 'DIAMOND BANK PLC', code: '063' },
-      //   { name: 'CITIBANK NIG LTD', code: '023' },
-      //   { name: 'FIRST CITY MONUMENT BANK PLC', code: '214' },
-      //   { name: 'FIRST BANK OF NIGERIA PLC', code: '011' },
-      //   { name: 'ECOBANK NIGERIA PLC', code: '050' },
-      //   { name: 'FIDELITY BANK PLC', code: '070' },
-      //   { name: 'KEYSTONE BANK', code: '082' },
-      //   { name: 'JAIZ BANK PLC', code: '301' },
-      //   { name: 'GUARANTY TRUST BANK PLC', code: '058' },
-      //   { name: 'STANDARD CHARTERED BANK NIGERIA LTD', code: '068' },
-      //   { name: 'SUNTRUST BANK NIG LTD', code: '100' },
-      //   { name: 'PROVIDUS BANK PLC', code: '101' },
-      //   { name: 'SKYE BANK PLC', code: '076' },
-      //   { name: 'WEMA BANK PLC', code: '035' },
-      //   { name: 'HERITAGE BANK', code: '030' },
-      //   { name: 'UNION BANK OF NIGERIA PLC', code: '032' },
-      //   { name: 'STERLING BANK PLC', code: '232' },
-      //   { name: 'UBA PLC', code: '033' },
-      //   { name: 'STANBIC IBTC BANK PLC', code: '039' },
-      //   { name: 'ZENITH BANK PLC', code: '057' },
-      //   { name: 'UNITY BANK PLC', code: '215' },
-      // ],
+      banks: [
+        { name: 'ACCESS BANK PLC', code: '044' },
+        { name: 'DIAMOND BANK PLC', code: '063' },
+        { name: 'CITIBANK NIG LTD', code: '023' },
+        { name: 'FIRST CITY MONUMENT BANK PLC', code: '214' },
+        { name: 'FIRST BANK OF NIGERIA PLC', code: '011' },
+        { name: 'ECOBANK NIGERIA PLC', code: '050' },
+        { name: 'FIDELITY BANK PLC', code: '070' },
+        { name: 'KEYSTONE BANK', code: '082' },
+        { name: 'JAIZ BANK PLC', code: '301' },
+        { name: 'GUARANTY TRUST BANK PLC', code: '058' },
+        { name: 'STANDARD CHARTERED BANK NIGERIA LTD', code: '068' },
+        { name: 'SUNTRUST BANK NIG LTD', code: '100' },
+        { name: 'PROVIDUS BANK PLC', code: '101' },
+        { name: 'SKYE BANK PLC', code: '076' },
+        { name: 'WEMA BANK PLC', code: '035' },
+        { name: 'HERITAGE BANK', code: '030' },
+        { name: 'UNION BANK OF NIGERIA PLC', code: '032' },
+        { name: 'STERLING BANK PLC', code: '232' },
+        { name: 'UBA PLC', code: '033' },
+        { name: 'STANBIC IBTC BANK PLC', code: '039' },
+        { name: 'ZENITH BANK PLC', code: '057' },
+        { name: 'UNITY BANK PLC', code: '215' },
+      ],
     }
+  },
+  methods: {
+    getBank(code) {
+      const bankArray = this.banks.find((bank) => bank.code === code)
+      // console.log(bankArray.name)
+      if (bankArray) {
+        return bankArray.name
+      }
+    },
   },
 
   middleware: ['auth'],

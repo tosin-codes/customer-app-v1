@@ -91,7 +91,7 @@ import Kyc2 from '../../components/kyc/Kyc2'
 import Kyc1 from '../../components/kyc/Kyc1'
 import Kyc3 from '../../components/kyc/Kyc3'
 import Kyc4 from '../../components/kyc/Kyc4'
-import VerifyOTP from '../../components/messages/VerifyOTP'
+import VerifyOTP from '~/components/messages/VerifyOTP'
 import RejectOffer from '~/components/messages/RejectOffer'
 
 export default {
