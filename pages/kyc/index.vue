@@ -67,7 +67,7 @@
                 class="slide-page"
               >
                 <div v-if="this.$store.getters.activeloan.status == 1">
-                  <AwaitingVerificationMessage />
+                  <VerifyOTP />
                 </div>
                 <div v-if="this.$store.getters.activeloan.status == 2">
                   <RejectOffer />
@@ -89,7 +89,7 @@ import Kyc2 from '../../components/kyc/Kyc2'
 import Kyc1 from '../../components/kyc/Kyc1'
 import Kyc3 from '../../components/kyc/Kyc3'
 import Kyc4 from '../../components/kyc/Kyc4'
-import AwaitingVerificationMessage from '../../components/messages/AwaitingVerificationMessage'
+import VerifyOTP from '../../components/messages/VerifyOTP'
 import RejectOffer from '~/components/messages/RejectOffer'
 
 export default {
@@ -108,7 +108,7 @@ export default {
     Kyc3,
     Kyc4,
     GeneralNav,
-    AwaitingVerificationMessage,
+    VerifyOTP,
     RejectOffer,
   },
   data() {
