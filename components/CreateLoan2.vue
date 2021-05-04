@@ -346,21 +346,17 @@ export default {
       )
       if (yearObject) {
         // console.log(yearObject.makes)
-
         const myArr = yearObject.makes
-
         const modifyMakesArray = (arr, arrOfNames) => {
           const makeTopRated = arr.map((item) => {
             if (arrOfNames.includes(item.name))
               return { ...item, topRated: true }
             else return { ...item, topRated: false }
           })
-
           return makeTopRated
             .filter(({ topRated }) => topRated == true)
             .concat(makeTopRated.filter(({ topRated }) => topRated == false))
         }
-
         return modifyMakesArray(myArr, ['Toyota', 'Honda'])
       }
       return []

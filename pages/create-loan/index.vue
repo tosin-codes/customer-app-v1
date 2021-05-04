@@ -128,12 +128,6 @@ export default {
         { id: 4, value: '4 Months' },
         { id: 5, value: '5 Months' },
         { id: 6, value: '6 Months' },
-        { id: 7, value: '7 Months' },
-        { id: 8, value: '8 Months' },
-        { id: 9, value: '9 Months' },
-        { id: 10, value: '10 Months' },
-        { id: 11, value: '11 Months' },
-        { id: 12, value: '12 Months' },
       ],
       repayments: [
         { id: 1, value: 'Monthly' },
