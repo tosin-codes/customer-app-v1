@@ -184,9 +184,7 @@ export default {
         this.loading = true
         this.displayForm = false
         await this.$axios
-          .post('loans/contracts/sign', {
-            ...this.formData,
-          })
+          .post('contracts/sign', this.formData)
           .then((response) => {
             let user = response.data.data
 
@@ -216,13 +214,13 @@ export default {
       const loan_id = this.$store.getters.activeloan.id
 
       await this.$axios
-        .get(`loans/${loan_id}/contract/contract/resend`)
+        .get(`admin/loans/${loan_id}/contract/resend`)
         .then((response) => {
           let user = response.data.data
-          //   console.log(user)
+          // console.log(user)
 
-          this.success = true
-          this.displayForm = false
+          this.success = false
+          this.displayForm = true
           this.disable = false
         })
         .catch((error) => {
