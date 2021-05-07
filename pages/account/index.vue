@@ -116,18 +116,7 @@
                               <td
                                 class="uppercase px-6 py-4 whitespace-nowrap text-center text-sm border-b border-grey-light"
                               >
-                                <div v-if="bank.length && bank.status === true">
-                                  <div
-                                    style="
-                                      padding-top: 0.2em;
-                                      padding-bottom: 0.2rem;
-                                    "
-                                    class="text-sm px-3 bg-green-200 text-gray-800 rounded-full border-b border-grey-light"
-                                  >
-                                    true
-                                  </div>
-                                </div>
-                                <div v-else>
+                                <div v-if="bank.status == 0">
                                   <div
                                     style="
                                       padding-top: 0.2em;
@@ -136,6 +125,17 @@
                                     class="text-sm px-3 bg-gray-200 text-gray-800 rounded-full border-b border-grey-light"
                                   >
                                     false
+                                  </div>
+                                </div>
+                                <div v-else>
+                                  <div
+                                    style="
+                                      padding-top: 0.2em;
+                                      padding-bottom: 0.2rem;
+                                    "
+                                    class="text-sm px-3 bg-green-200 text-gray-800 rounded-full border-b border-grey-light"
+                                  >
+                                    true
                                   </div>
                                 </div>
                               </td>
@@ -220,6 +220,10 @@ export default {
   },
 
   middleware: ['auth'],
+  created() {
+    const status = this.$store.getters.user.banks
+    console.log(status)
+  },
 }
 </script>
 

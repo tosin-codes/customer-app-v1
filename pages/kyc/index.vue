@@ -71,6 +71,9 @@
                 <div v-if="this.$store.getters.activeloan.status == 1">
                   <VerifyOTP />
                 </div>
+                <div v-if="this.$store.getters.activeloan.status == 4">
+                  <AwaitingVerificationMessage />
+                </div>
                 <div v-if="this.$store.getters.activeloan.status == 2">
                   <RejectOffer />
                 </div>
@@ -93,6 +96,7 @@ import Kyc3 from '../../components/kyc/Kyc3'
 import Kyc4 from '../../components/kyc/Kyc4'
 import VerifyOTP from '~/components/messages/VerifyOTP'
 import RejectOffer from '~/components/messages/RejectOffer'
+import AwaitingVerificationMessage from '~/components/messages/AwaitingVerificationMessage'
 
 export default {
   head() {
@@ -112,6 +116,7 @@ export default {
     GeneralNav,
     VerifyOTP,
     RejectOffer,
+    AwaitingVerificationMessage,
   },
   data() {
     return {

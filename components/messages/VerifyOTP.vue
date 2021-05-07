@@ -104,7 +104,7 @@
             <span class="text-sm text-center mb-5">
               By clicking on the button you have agreed to our
               <button
-                class="text-orange-500 focus:outline-none border-0 focus:ring-2 focus:ring-offset-2"
+                class="text-orange-600 focus:outline-none border-0 focus:ring-2 focus:ring-offset-2"
                 @click.prevent="showTerms"
               >
                 credit &#38; security agreement,
@@ -121,13 +121,16 @@
             </button>
           </div>
         </form>
-        <div class="text-center">
+        <div class="text-center text-sm mt-5">
+          Check your spam folder to make sure your OTP it didn't end up there.
+          You can also click on
           <button
-            class="mt-5 btn text-orange-700 focus:outline-none border-0 focus:ring-2 focus:ring-offset-2 text-sm md:text-base"
+            class="btn text-orange-600 focus:outline-none border-0 focus:ring-2 focus:ring-offset-2"
             @click.prevent="resendOTP"
           >
             Resend OTP
           </button>
+          to get an email again
         </div>
       </div>
     </div>
@@ -194,14 +197,15 @@ export default {
             this.displayForm = false
           })
           .catch((error) => {
+            // console.log(error.message)
             this.loading = false
             this.displayForm = true
+            const data = error
 
-            if (error.response) {
+            if (data) {
               this.loading = false
               this.disabled = true
-              // const data = error.response.data.message
-              this.$noty.error('Not Found')
+              this.$noty.error('Invalid data')
             }
           })
       } else {
@@ -218,7 +222,7 @@ export default {
         .then((response) => {
           let user = response.data.data
           // console.log(user)
-
+          this.$noty.success('Check your mail box')
           this.success = false
           this.displayForm = true
           this.disable = false
