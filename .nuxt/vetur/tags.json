@@ -89,17 +89,17 @@
   "FormComponentsTextsTextInputSquare": {
     "description": "Auto imported from components/FormComponents/Texts/TextInputSquare.vue"
   },
-  "FormComponentsButtonsDefaultButtonRounded": {
-    "description": "Auto imported from components/FormComponents/Buttons/Default/ButtonRounded.vue"
-  },
-  "FormComponentsButtonsDefaultButtonSquare": {
-    "description": "Auto imported from components/FormComponents/Buttons/Default/ButtonSquare.vue"
-  },
   "FormComponentsButtonsPrimaryButtonRounded": {
     "description": "Auto imported from components/FormComponents/Buttons/Primary/ButtonRounded.vue"
   },
   "FormComponentsButtonsPrimaryButtonSquare": {
     "description": "Auto imported from components/FormComponents/Buttons/Primary/ButtonSquare.vue"
+  },
+  "FormComponentsButtonsDefaultButtonRounded": {
+    "description": "Auto imported from components/FormComponents/Buttons/Default/ButtonRounded.vue"
+  },
+  "FormComponentsButtonsDefaultButtonSquare": {
+    "description": "Auto imported from components/FormComponents/Buttons/Default/ButtonSquare.vue"
   },
   "FormComponentsButtonsSecondaryButtonRounded": {
     "description": "Auto imported from components/FormComponents/Buttons/Secondary/ButtonRounded.vue"

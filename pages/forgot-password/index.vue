@@ -270,13 +270,9 @@ export default {
       }
     },
   },
-  async asyncData({ params, route }) {
-    const token = route.query.token
-    return { token }
-  },
   mounted() {
-    const token = this.token
-    const token2 = $nuxt.$route.query.token
+    const token2 = this.$route.query.token
+    const token = $nuxt.$route.query.token
     console.log(token,token2,$nuxt.$route)
     this.$axios
       .get(`/verify-token/${token}`)
