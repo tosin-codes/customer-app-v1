@@ -236,7 +236,6 @@ export default {
       setState: 'setStates',
     }),
     async reset() {
-      console.log('clicked')
       this.submitted = true
       if (this.errorInfo) {
         const reveal = document.querySelector('.errors')
@@ -250,17 +249,13 @@ export default {
       if (!this.$v.$invalid) {
         let vm = this
         this.disable = !this.disable
-        console.log(this.formData)
+
         await this.$axios
           .post('/reset-password', {
             ...this.formData,
           })
           .then((response) => {
             let user = response.data.data
-            console.log(user)
-            this.$auth.setUser(user)
-
-            vm.$noty.success('Password Reset Successfully')
             this.$router.push('/login')
           })
           .catch((error) => {
@@ -275,8 +270,14 @@ export default {
       }
     },
   },
+  async asyncData({ params, route }) {
+    const token = route.query.token
+    return { token }
+  },
   mounted() {
-    const token = this.$route.query.token
+    const token = this.token
+    const token2 = $nuxt.$route.query.token
+    console.log(token,token2,$nuxt.$route)
     this.$axios
       .get(`/verify-token/${token}`)
       .then((response) => {
@@ -285,7 +286,6 @@ export default {
         this.resetForm = true
       })
       .catch((error) => {
-        console.log(error)
         this.$noty.error('Token expired')
         setTimeout(() => {
           this.$router.push('/reset-password')

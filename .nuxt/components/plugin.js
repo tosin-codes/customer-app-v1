@@ -23,6 +23,7 @@ const components = {
   MessagesAwaitingVerificationMessage: () => import('../..\\components\\messages\\AwaitingVerificationMessage.vue' /* webpackChunkName: "components/messages-awaiting-verification-message" */).then(c => c.default || c),
   MessagesAwaitMessage: () => import('../..\\components\\messages\\AwaitMessage.vue' /* webpackChunkName: "components/messages-await-message" */).then(c => c.default || c),
   MessagesRejectOffer: () => import('../..\\components\\messages\\RejectOffer.vue' /* webpackChunkName: "components/messages-reject-offer" */).then(c => c.default || c),
+  MessagesVerifyOTP: () => import('../..\\components\\messages\\VerifyOTP.vue' /* webpackChunkName: "components/messages-verify-otp" */).then(c => c.default || c),
   FormComponentsBigTextsTextRounded: () => import('../..\\components\\FormComponents\\BigTexts\\TextRounded.vue' /* webpackChunkName: "components/form-components-big-texts-text-rounded" */).then(c => c.default || c),
   FormComponentsBigTextsTextSquare: () => import('../..\\components\\FormComponents\\BigTexts\\TextSquare.vue' /* webpackChunkName: "components/form-components-big-texts-text-square" */).then(c => c.default || c),
   FormComponentsDropdownsSelectRounded: () => import('../..\\components\\FormComponents\\Dropdowns\\SelectRounded.vue' /* webpackChunkName: "components/form-components-dropdowns-select-rounded" */).then(c => c.default || c),

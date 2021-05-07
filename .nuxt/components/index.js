@@ -20,6 +20,7 @@ export { default as MasterSidebarNav } from '../..\\components\\master\\SidebarN
 export { default as MessagesAwaitingVerificationMessage } from '../..\\components\\messages\\AwaitingVerificationMessage.vue'
 export { default as MessagesAwaitMessage } from '../..\\components\\messages\\AwaitMessage.vue'
 export { default as MessagesRejectOffer } from '../..\\components\\messages\\RejectOffer.vue'
+export { default as MessagesVerifyOTP } from '../..\\components\\messages\\VerifyOTP.vue'
 export { default as FormComponentsBigTextsTextRounded } from '../..\\components\\FormComponents\\BigTexts\\TextRounded.vue'
 export { default as FormComponentsBigTextsTextSquare } from '../..\\components\\FormComponents\\BigTexts\\TextSquare.vue'
 export { default as FormComponentsDropdownsSelectRounded } from '../..\\components\\FormComponents\\Dropdowns\\SelectRounded.vue'
@@ -56,6 +57,7 @@ export const LazyMasterSidebarNav = import('../..\\components\\master\\SidebarNa
 export const LazyMessagesAwaitingVerificationMessage = import('../..\\components\\messages\\AwaitingVerificationMessage.vue' /* webpackChunkName: "components/messages-awaiting-verification-message" */).then(c => c.default || c)
 export const LazyMessagesAwaitMessage = import('../..\\components\\messages\\AwaitMessage.vue' /* webpackChunkName: "components/messages-await-message" */).then(c => c.default || c)
 export const LazyMessagesRejectOffer = import('../..\\components\\messages\\RejectOffer.vue' /* webpackChunkName: "components/messages-reject-offer" */).then(c => c.default || c)
+export const LazyMessagesVerifyOTP = import('../..\\components\\messages\\VerifyOTP.vue' /* webpackChunkName: "components/messages-verify-otp" */).then(c => c.default || c)
 export const LazyFormComponentsBigTextsTextRounded = import('../..\\components\\FormComponents\\BigTexts\\TextRounded.vue' /* webpackChunkName: "components/form-components-big-texts-text-rounded" */).then(c => c.default || c)
 export const LazyFormComponentsBigTextsTextSquare = import('../..\\components\\FormComponents\\BigTexts\\TextSquare.vue' /* webpackChunkName: "components/form-components-big-texts-text-square" */).then(c => c.default || c)
 export const LazyFormComponentsDropdownsSelectRounded = import('../..\\components\\FormComponents\\Dropdowns\\SelectRounded.vue' /* webpackChunkName: "components/form-components-dropdowns-select-rounded" */).then(c => c.default || c)

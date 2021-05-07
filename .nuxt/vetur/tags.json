@@ -65,6 +65,9 @@
   "MessagesRejectOffer": {
     "description": "Auto imported from components/messages/RejectOffer.vue"
   },
+  "MessagesVerifyOTP": {
+    "description": "Auto imported from components/messages/VerifyOTP.vue"
+  },
   "FormComponentsBigTextsTextRounded": {
     "description": "Auto imported from components/FormComponents/BigTexts/TextRounded.vue"
   },

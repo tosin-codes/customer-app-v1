@@ -28,6 +28,7 @@ You can directly use them in pages and other components without the need to impo
 - `<MessagesAwaitingVerificationMessage>` | `<messages-awaiting-verification-message>` (components/messages/AwaitingVerificationMessage.vue)
 - `<MessagesAwaitMessage>` | `<messages-await-message>` (components/messages/AwaitMessage.vue)
 - `<MessagesRejectOffer>` | `<messages-reject-offer>` (components/messages/RejectOffer.vue)
+- `<MessagesVerifyOTP>` | `<messages-verify-otp>` (components/messages/VerifyOTP.vue)
 - `<FormComponentsBigTextsTextRounded>` | `<form-components-big-texts-text-rounded>` (components/FormComponents/BigTexts/TextRounded.vue)
 - `<FormComponentsBigTextsTextSquare>` | `<form-components-big-texts-text-square>` (components/FormComponents/BigTexts/TextSquare.vue)
 - `<FormComponentsDropdownsSelectRounded>` | `<form-components-dropdowns-select-rounded>` (components/FormComponents/Dropdowns/SelectRounded.vue)
