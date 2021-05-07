@@ -133,9 +133,6 @@ export default {
             url: 'forgot-password',
           })
           .then((response) => {
-            let user = response.data.data
-            console.log(user)
-            this.$auth.setUser(user)
             vm.$noty.success('Password Reset Successfully')
             this.success = true
             this.displayForm = false

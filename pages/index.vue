@@ -389,7 +389,7 @@ export default {
       }
     },
     async checkAndSetTokenIfExist() {
-      if (this.$route.query.token) {
+      if(this.$route.query.token) {
         //CD0097433
         // console.log(this.$route.query.token)
         localStorage.setItem('ref_code', this.$route.query.token)
