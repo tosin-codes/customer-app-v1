@@ -197,7 +197,8 @@ export default {
             this.displayForm = false
           })
           .catch((error) => {
-            // console.log(error.message)
+            console.log(error.message)
+
             this.loading = false
             this.displayForm = true
             const data = error

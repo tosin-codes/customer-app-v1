@@ -200,6 +200,7 @@ export default {
   transition: {
     name: 'fade',
   },
+
   data() {
     return {
       showPassword: false,
