@@ -28,6 +28,7 @@
       </p>
       <div class="sm:mx-auto sm:w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl">
         <div class="sm:w-full sm:max-w-md mt-6">
+          <i  v-if="resendSuccess" style="color:green">OTP resent successfully</i>
           <p class="text-sm font-medium text-gray-700 lg:text-xl mb-5">
             Enter the OTP sent
             <span class="font-bold">to your email</span>
@@ -155,6 +156,7 @@ export default {
       loading: false,
       success: false,
       displayForm: true,
+      resendSuccess: false,
     }
   },
   validations: {
@@ -177,7 +179,7 @@ export default {
       this.displayForm = false
       if (!this.$v.$invalid) {
         await this.$axios
-          .post('loans/contracts/sign', {
+          .post('contracts/sign', {
             ...this.formData,
           })
           .then((response) => {
@@ -209,13 +211,14 @@ export default {
       const loan_id = this.$store.getters.activeloan.id
 
       await this.$axios
-        .get(`loans/${loan_id}/contract/contract/resend`)
+        .get(`admin/loans/${loan_id}/contract/resend`)
         .then((response) => {
-          let user = response.data.data
+          //let user = response.data.data
           //   console.log(user)
 
           this.success = true
-          this.displayForm = false
+          this.resendSuccess = true
+          this.$noty.success('Token has been resent, please check your email')
           this.disable = false
         })
         .catch((error) => {
