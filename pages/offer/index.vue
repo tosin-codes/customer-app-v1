@@ -31,7 +31,12 @@
                         <h2 class="text-3xl font-bold sm:text-3xl lg:text-3xl">
                           Sorry :(
                         </h2>
-                        <p>{{ error }}!!!</p>
+                        <p>{{ error }}!!!</p><br>
+                         <button
+                          class="bg-orange-900 hover:bg-blue-800 border border-transparent self-center shadow-sm lg:self-start font-medium text-white mt-5 px-3 py-2 rounded-md"
+                        >
+                          <nuxt-link to="/create-loan">Try Again</nuxt-link>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -570,24 +575,6 @@ export default {
     ...mapState('information', { summaryDetails: (state) => state }),
   },
   methods: {
-    async accept(token) {
-      let vm = this
-      await this.$axios
-        .post(`/estimations/${token}/accept`)
-        .then((response) => {
-          let user = response.data.data
-          this.$auth.setUser(user)
-          this.$router.push('/dashboard')
-          this.loading = true
-        })
-        .catch((error) => {
-          if (error.response) {
-            const data = error.response.data.message
-            vm.$noty.error(data)
-          }
-          this.disable = !this.disable
-        })
-    },
     async getEstimation() {
       let vm = this
       await this.$axios
@@ -620,7 +607,6 @@ export default {
           )
 
           vm.offer = data.data
-          // console.log(vm.offer)
           vm.loading = false
           vm.$noty.success('success')
         })
@@ -641,13 +627,15 @@ export default {
                 vm.error = 'SOMETHING WENT WRONG'
                 break
               default:
+                vm.loading = false
                 vm.$noty.error('SOMETHING WENT WRONG')
+                vm.error = 'SOMETHING WENT WRONG'
                 break
             }
           }
         })
     },
-    accept(token) {
+    async accept(token) {
       let vm = this
       window.scrollTo({ top: 0, behavior: 'smooth' })
       vm.message2 = false
@@ -658,6 +646,9 @@ export default {
           vm.loading = false
           vm.message = true
           vm.message2 = false
+          let loan = response.data.data.loan
+          this.$store.commit('setActiveLoanLevel', loan)
+          //this.$router.push('/dashboard')
         })
         .catch(function (error) {
           vm.loading = false
@@ -678,6 +669,8 @@ export default {
                 break
               default:
                 vm.$noty.error('SOMETHING WENT WRONG')
+                vm.loading = false
+                vm.error = 'SOMETHING WENT WRONG'
                 break
             }
           }

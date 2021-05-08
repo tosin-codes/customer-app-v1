@@ -40,8 +40,12 @@
                   </div>
                 </div>
               </div>
+              <div v-if="activeloan.status == 2"  class="slide-page">
+                <RejectOffer />
+              </div>
               <div
                 v-if="
+                  activeloan.status != 2 &&
                   activeloan.level.passed_bvn == false &&
                   activeloan.level.passed_document_upload == false &&
                   activeloan.level.passed_set_inspection_date == false &&
@@ -53,6 +57,7 @@
               </div>
               <div
                 v-if="
+                  activeloan.status != 2 &&
                   activeloan.level.passed_bvn == true &&
                   activeloan.level.passed_document_upload == false &&
                   activeloan.level.passed_set_inspection_date == false &&
@@ -64,6 +69,7 @@
               </div>
               <div
                 v-if="
+                  activeloan.status != 2  &&
                   activeloan.level.passed_bvn == true &&
                   activeloan.level.passed_document_upload == true &&
                   activeloan.level.passed_set_inspection_date == false &&
@@ -75,6 +81,7 @@
               </div>
               <div
                 v-if="
+                  activeloan.status != 2 &&
                   activeloan.level.passed_bvn == true &&
                   activeloan.level.passed_document_upload == true &&
                   activeloan.level.passed_set_inspection_date == true &&
@@ -150,6 +157,7 @@ export default {
   data() {
     return {
       show: true,
+      disable:false,
       showOne: false,
       showTwo: false,
       showThree: false,
@@ -199,6 +207,7 @@ export default {
             this.$store.commit('setActiveLoanLevel', loan)
             vm.disable = false
             this.$noty.success('Successfully declined offer')
+            return redirect('/kyc')
           })
       } catch (error) {
         vm.disable = false
