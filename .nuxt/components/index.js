@@ -1,5 +1,6 @@
 export { default as ActiveLoan } from '../..\\components\\ActiveLoan.vue'
 export { default as ActiveLoanSchedule } from '../..\\components\\ActiveLoanSchedule.vue'
+export { default as CancelledOffer } from '../..\\components\\CancelledOffer.vue'
 export { default as CreateLoan2 } from '../..\\components\\CreateLoan2.vue'
 export { default as DashboardCards } from '../..\\components\\DashboardCards.vue'
 export { default as DashboardNav } from '../..\\components\\DashboardNav.vue'
@@ -37,6 +38,7 @@ export { default as FormComponentsButtonsSecondaryButtonSquare } from '../..\\co
 
 export const LazyActiveLoan = import('../..\\components\\ActiveLoan.vue' /* webpackChunkName: "components/active-loan" */).then(c => c.default || c)
 export const LazyActiveLoanSchedule = import('../..\\components\\ActiveLoanSchedule.vue' /* webpackChunkName: "components/active-loan-schedule" */).then(c => c.default || c)
+export const LazyCancelledOffer = import('../..\\components\\CancelledOffer.vue' /* webpackChunkName: "components/cancelled-offer" */).then(c => c.default || c)
 export const LazyCreateLoan2 = import('../..\\components\\CreateLoan2.vue' /* webpackChunkName: "components/create-loan-2" */).then(c => c.default || c)
 export const LazyDashboardCards = import('../..\\components\\DashboardCards.vue' /* webpackChunkName: "components/dashboard-cards" */).then(c => c.default || c)
 export const LazyDashboardNav = import('../..\\components\\DashboardNav.vue' /* webpackChunkName: "components/dashboard-nav" */).then(c => c.default || c)

@@ -8,6 +8,7 @@ You can directly use them in pages and other components without the need to impo
 
 - `<ActiveLoan>` | `<active-loan>` (components/ActiveLoan.vue)
 - `<ActiveLoanSchedule>` | `<active-loan-schedule>` (components/ActiveLoanSchedule.vue)
+- `<CancelledOffer>` | `<cancelled-offer>` (components/CancelledOffer.vue)
 - `<CreateLoan2>` | `<create-loan-2>` (components/CreateLoan2.vue)
 - `<DashboardCards>` | `<dashboard-cards>` (components/DashboardCards.vue)
 - `<DashboardNav>` | `<dashboard-nav>` (components/DashboardNav.vue)

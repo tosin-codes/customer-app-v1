@@ -3,6 +3,7 @@ import Vue from 'vue'
 const components = {
   ActiveLoan: () => import('../..\\components\\ActiveLoan.vue' /* webpackChunkName: "components/active-loan" */).then(c => c.default || c),
   ActiveLoanSchedule: () => import('../..\\components\\ActiveLoanSchedule.vue' /* webpackChunkName: "components/active-loan-schedule" */).then(c => c.default || c),
+  CancelledOffer: () => import('../..\\components\\CancelledOffer.vue' /* webpackChunkName: "components/cancelled-offer" */).then(c => c.default || c),
   CreateLoan2: () => import('../..\\components\\CreateLoan2.vue' /* webpackChunkName: "components/create-loan-2" */).then(c => c.default || c),
   DashboardCards: () => import('../..\\components\\DashboardCards.vue' /* webpackChunkName: "components/dashboard-cards" */).then(c => c.default || c),
   DashboardNav: () => import('../..\\components\\DashboardNav.vue' /* webpackChunkName: "components/dashboard-nav" */).then(c => c.default || c),

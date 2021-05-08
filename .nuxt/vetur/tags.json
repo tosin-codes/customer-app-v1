@@ -5,6 +5,9 @@
   "ActiveLoanSchedule": {
     "description": "Auto imported from components/ActiveLoanSchedule.vue"
   },
+  "CancelledOffer": {
+    "description": "Auto imported from components/CancelledOffer.vue"
+  },
   "CreateLoan2": {
     "description": "Auto imported from components/CreateLoan2.vue"
   },

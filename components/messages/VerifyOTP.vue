@@ -28,7 +28,6 @@
       </p>
       <div class="sm:mx-auto sm:w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl">
         <div class="sm:w-full sm:max-w-md mt-6">
-          <i  v-if="resendSuccess" style="color:green">OTP resent successfully</i>
           <p class="text-sm font-medium text-gray-700 lg:text-xl mb-5">
             Enter the OTP sent
             <span class="font-bold">to your email</span>
@@ -112,6 +111,9 @@
           </div>
 
           <div>
+          <span v-if="disable" class="flex items-center mb-3">
+            <img src="../../assets/images/loading-sm.gif" alt="" />
+          </span>
             <button
               type="submit"
               :class="{ 'opacity-50 cursor-not-allowed': disable }"
@@ -125,9 +127,13 @@
         <div
           class="text-center focus:outline-none border-0 focus:ring-2 focus:ring-offset-2"
         >
-          <button class="mt-5 btn text-orange-700" @click.prevent="resendOTP">
+          <button 
+           :class="{ 'opacity-50 cursor-not-allowed': disable }"
+           :disabled="disable"
+          class="mt-5 btn text-orange-700" @click.prevent="resendOTP">
             Resend OTP
-          </button>
+          </button> 
+          <p> <i  v-if="resendSuccess" style="color:green">OTP resent successfully, please check email</i></p>
         </div>
       </div>
     </div>
@@ -177,13 +183,16 @@ export default {
       this.disabled = true
       this.loading = true
       this.displayForm = false
+      this.resendSuccess = false
+
       if (!this.$v.$invalid) {
         await this.$axios
           .post('contracts/sign', {
             ...this.formData,
           })
           .then((response) => {
-            let user = response.data.data
+           let loan = response.data.data
+          this.$store.commit('setActiveLoanLevel', loan)
 
             this.$noty.success('Successful')
             this.loading = false
@@ -209,14 +218,13 @@ export default {
     async resendOTP() {
       this.disable = true
       const loan_id = this.$store.getters.activeloan.id
-
+      this.resendSuccess = false
       await this.$axios
         .get(`admin/loans/${loan_id}/contract/resend`)
         .then((response) => {
           //let user = response.data.data
           //   console.log(user)
 
-          this.success = true
           this.resendSuccess = true
           this.$noty.success('Token has been resent, please check your email')
           this.disable = false
