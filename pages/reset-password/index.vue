@@ -7,7 +7,7 @@
       >
         <div class="sm:mx-auto sm:w-full sm:max-w-md pl-5 lg:pl-0">
           <h2 class="mt-6 text-3xl font-medium text-gray-900">
-            Forgot Password
+            Password Reset
           </h2>
         </div>
 
