@@ -1,6 +1,41 @@
 <template>
   <div>
-    <div class="fixed z-20 w-full maxWidth bg-white">
+    <div class="fixed flex flex-col z-20 w-full maxWidth bg-white">
+      <div class="flex items-center text-xs flex-wrap justify-end text-right py-2 px-6">
+        <div class="font-semibold text-orange-600">For instant support -</div>
+        <a href="tel:+2348175556789" target="_blank" class="flex items-center ml-3 cursor-pointer my-2">
+          <div>
+            <svg
+              class="w-4 fill-current text-gray-700"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 513.64 513.64"
+              style="enable-background: new 0 0 513.64 513.64"
+              xml:space="preserve"
+            >
+              <g>
+                <g>
+                  <path
+                    d="M499.66,376.96l-71.68-71.68c-25.6-25.6-69.12-15.359-79.36,17.92c-7.68,23.041-33.28,35.841-56.32,30.72    c-51.2-12.8-120.32-79.36-133.12-133.12c-7.68-23.041,7.68-48.641,30.72-56.32c33.28-10.24,43.52-53.76,17.92-79.36l-71.68-71.68    c-20.48-17.92-51.2-17.92-69.12,0l-48.64,48.64c-48.64,51.2,5.12,186.88,125.44,307.2c120.32,120.32,256,176.641,307.2,125.44    l48.64-48.64C517.581,425.6,517.581,394.88,499.66,376.96z"
+                  />
+                </g>
+              </g>
+            </svg>
+          </div>
+        </a>
+        <a href="https://wa.me/2348028572566" target="_blank" class="flex items-center ml-5 cursor-pointer">
+          <div>
+            <svg 
+            class="w-4 fill-current text-green-400"
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 512 512">
+              <path
+                d="m256 0c-140.609375 0-256 115.390625-256 256 0 46.40625 12.511719 91.582031 36.238281 131.105469l-36.238281 124.894531 124.894531-36.238281c39.523438 23.726562 84.699219 36.238281 131.105469 36.238281 140.609375 0 256-115.390625 256-256s-115.390625-256-256-256zm160.054688 364.167969-11.910157 11.910156c-16.851562 16.851563-55.605469 15.515625-80.507812 10.707031-82.800781-15.992187-179.335938-109.5625-197.953125-190.59375-9.21875-40.140625-4.128906-75.039062 9.183594-88.355468l11.910156-11.910157c6.574218-6.570312 17.253906-6.5625 23.820312 0l47.648438 47.652344c3.179687 3.179687 4.921875 7.394531 4.921875 11.90625s-1.742188 8.730469-4.921875 11.898437l-11.90625 11.921876c-13.125 13.15625-13.125 34.527343 0 47.652343l78.683594 77.648438c13.164062 13.164062 34.46875 13.179687 47.652343 0l11.910157-11.90625c6.148437-6.183594 17.632812-6.203125 23.832031 0l47.636719 47.636719c6.46875 6.441406 6.714843 17.113281 0 23.832031zm0 0"
+              />
+            </svg>
+          </div>
+        </a>
+      </div>
       <header
         class="flex flex-row justify-between md:grid md:grid-cols-12 py-3 px-6 items-center"
       >
@@ -10,9 +45,9 @@
           </div>
         </nuxt-link>
         <div
-          class="flex flex-row md:col-start-4 md:col-end-13 md:flex md:flex-row md:justify-between md:items-center"
+          class="flex flex-row md:col-start-4 md:col-end-13 md:flex md:flex-row md:justify-end md:items-center"
         >
-          <div class="px-3 py-1 flex">
+          <div class="px-3 py-1 hidden">
             <svg
               class="w-4 mr-3"
               xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +145,7 @@
         </div>
       </header>
 
-      <div class="fixed mx-auto w-full md:hidden">
+      <div class="md:hidden">
         <div
           v-show="navShow"
           class="py-6 z-20 animate-slide rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50"
