@@ -9,6 +9,13 @@
       Congratulations, your application has been received, <br />your loan will
       be disbursed shortly:)
     </p>
+    <div>
+      <button
+        class="bg-blue-900 hover:bg-blue-800 border border-transparent self-center shadow-sm lg:self-start font-medium text-white mt-5 px-3 py-2 rounded-md"
+      >
+        <nuxt-link to="/kyc">Click to proceed</nuxt-link>
+      </button>
+    </div>
     <!-- <div>
       <button
         class="bg-blue-900 hover:bg-blue-800 border border-transparent self-center shadow-sm lg:self-start font-medium text-white mt-5 px-3 py-2 rounded-md"

@@ -234,7 +234,7 @@ export default {
       },
       amount: '',
 
-      insuranceOptions: ['Third Party', 'Full', 'None'],
+      insuranceOptions: ['Third Party', 'Comprehensive', 'None'],
       registeredOptions: [
         { id: true, value: 'Yes' },
         { id: false, value: 'No' },
