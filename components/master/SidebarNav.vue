@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="fixed z-0 mt-16 px-6 py-12 w-full maxWidth">
+    <div class="fixed z-0 mt-20 px-6 py-12 w-full maxWidth">
       <div class="md:grid md:grid-cols-12 hidden">
         <div class="col-start-1 col-end-4">
           <div class="flex flex-col">
