@@ -250,7 +250,7 @@
                                     </div>
                                     <small
                                       class="text-orange-600 text-center block"
-                                      >(Keep Your Car)</small
+                                      >(Drive Your Car)</small
                                     >
                                   </div>
                                 </div>
