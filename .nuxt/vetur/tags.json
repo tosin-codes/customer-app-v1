@@ -14,6 +14,9 @@
   "DashboardNav": {
     "description": "Auto imported from components/DashboardNav.vue"
   },
+  "DeedsOfContract": {
+    "description": "Auto imported from components/DeedsOfContract.vue"
+  },
   "GeneralNavbarComponent": {
     "description": "Auto imported from components/GeneralNavbarComponent.vue"
   },
@@ -28,6 +31,27 @@
   },
   "FormComponentsRadioComponent": {
     "description": "Auto imported from components/FormComponents/RadioComponent.vue"
+  },
+  "MessagesAwaitingVerificationMessage": {
+    "description": "Auto imported from components/messages/AwaitingVerificationMessage.vue"
+  },
+  "MessagesAwaitMessage": {
+    "description": "Auto imported from components/messages/AwaitMessage.vue"
+  },
+  "MessagesRejectOffer": {
+    "description": "Auto imported from components/messages/RejectOffer.vue"
+  },
+  "MessagesVerifyOTP": {
+    "description": "Auto imported from components/messages/VerifyOTP.vue"
+  },
+  "MasterHeaderNav": {
+    "description": "Auto imported from components/master/HeaderNav.vue"
+  },
+  "MasterMobileNav": {
+    "description": "Auto imported from components/master/MobileNav.vue"
+  },
+  "MasterSidebarNav": {
+    "description": "Auto imported from components/master/SidebarNav.vue"
   },
   "Kyc1": {
     "description": "Auto imported from components/kyc/Kyc1.vue"
@@ -46,24 +70,6 @@
   },
   "KycUpload": {
     "description": "Auto imported from components/kyc/Upload.vue"
-  },
-  "MasterHeaderNav": {
-    "description": "Auto imported from components/master/HeaderNav.vue"
-  },
-  "MasterMobileNav": {
-    "description": "Auto imported from components/master/MobileNav.vue"
-  },
-  "MasterSidebarNav": {
-    "description": "Auto imported from components/master/SidebarNav.vue"
-  },
-  "MessagesAwaitingVerificationMessage": {
-    "description": "Auto imported from components/messages/AwaitingVerificationMessage.vue"
-  },
-  "MessagesAwaitMessage": {
-    "description": "Auto imported from components/messages/AwaitMessage.vue"
-  },
-  "MessagesRejectOffer": {
-    "description": "Auto imported from components/messages/RejectOffer.vue"
   },
   "FormComponentsBigTextsTextRounded": {
     "description": "Auto imported from components/FormComponents/BigTexts/TextRounded.vue"
