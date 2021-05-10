@@ -282,7 +282,7 @@ export default {
       ],
       surveys: [
         //{ id: 1, value: 'Cash4DriveCampaign' },
-        { id: 1, value: Mr Macaroni Campaign' },
+        { id: 1, value: 'Mr Macaroni Campaign' },
         { id: 2, value: 'Instagram' },
         { id: 3, value: 'Facebook' },
         { id: 4, value: 'Linkedin' },
