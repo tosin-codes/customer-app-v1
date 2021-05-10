@@ -30,10 +30,10 @@ export { default as FormComponentsDropdownsSelectSquare } from '../..\\component
 export { default as FormComponentsTextsTextInputClassic } from '../..\\components\\FormComponents\\Texts\\TextInputClassic.vue'
 export { default as FormComponentsTextsTextInputRounded } from '../..\\components\\FormComponents\\Texts\\TextInputRounded.vue'
 export { default as FormComponentsTextsTextInputSquare } from '../..\\components\\FormComponents\\Texts\\TextInputSquare.vue'
-export { default as FormComponentsButtonsPrimaryButtonRounded } from '../..\\components\\FormComponents\\Buttons\\Primary\\ButtonRounded.vue'
-export { default as FormComponentsButtonsPrimaryButtonSquare } from '../..\\components\\FormComponents\\Buttons\\Primary\\ButtonSquare.vue'
 export { default as FormComponentsButtonsDefaultButtonRounded } from '../..\\components\\FormComponents\\Buttons\\Default\\ButtonRounded.vue'
 export { default as FormComponentsButtonsDefaultButtonSquare } from '../..\\components\\FormComponents\\Buttons\\Default\\ButtonSquare.vue'
+export { default as FormComponentsButtonsPrimaryButtonRounded } from '../..\\components\\FormComponents\\Buttons\\Primary\\ButtonRounded.vue'
+export { default as FormComponentsButtonsPrimaryButtonSquare } from '../..\\components\\FormComponents\\Buttons\\Primary\\ButtonSquare.vue'
 export { default as FormComponentsButtonsSecondaryButtonRounded } from '../..\\components\\FormComponents\\Buttons\\Secondary\\ButtonRounded.vue'
 export { default as FormComponentsButtonsSecondaryButtonSquare } from '../..\\components\\FormComponents\\Buttons\\Secondary\\ButtonSquare.vue'
 
@@ -69,9 +69,9 @@ export const LazyFormComponentsDropdownsSelectSquare = import('../..\\components
 export const LazyFormComponentsTextsTextInputClassic = import('../..\\components\\FormComponents\\Texts\\TextInputClassic.vue' /* webpackChunkName: "components/form-components-texts-text-input-classic" */).then(c => c.default || c)
 export const LazyFormComponentsTextsTextInputRounded = import('../..\\components\\FormComponents\\Texts\\TextInputRounded.vue' /* webpackChunkName: "components/form-components-texts-text-input-rounded" */).then(c => c.default || c)
 export const LazyFormComponentsTextsTextInputSquare = import('../..\\components\\FormComponents\\Texts\\TextInputSquare.vue' /* webpackChunkName: "components/form-components-texts-text-input-square" */).then(c => c.default || c)
-export const LazyFormComponentsButtonsPrimaryButtonRounded = import('../..\\components\\FormComponents\\Buttons\\Primary\\ButtonRounded.vue' /* webpackChunkName: "components/form-components-buttons-primary-button-rounded" */).then(c => c.default || c)
-export const LazyFormComponentsButtonsPrimaryButtonSquare = import('../..\\components\\FormComponents\\Buttons\\Primary\\ButtonSquare.vue' /* webpackChunkName: "components/form-components-buttons-primary-button-square" */).then(c => c.default || c)
 export const LazyFormComponentsButtonsDefaultButtonRounded = import('../..\\components\\FormComponents\\Buttons\\Default\\ButtonRounded.vue' /* webpackChunkName: "components/form-components-buttons-default-button-rounded" */).then(c => c.default || c)
 export const LazyFormComponentsButtonsDefaultButtonSquare = import('../..\\components\\FormComponents\\Buttons\\Default\\ButtonSquare.vue' /* webpackChunkName: "components/form-components-buttons-default-button-square" */).then(c => c.default || c)
+export const LazyFormComponentsButtonsPrimaryButtonRounded = import('../..\\components\\FormComponents\\Buttons\\Primary\\ButtonRounded.vue' /* webpackChunkName: "components/form-components-buttons-primary-button-rounded" */).then(c => c.default || c)
+export const LazyFormComponentsButtonsPrimaryButtonSquare = import('../..\\components\\FormComponents\\Buttons\\Primary\\ButtonSquare.vue' /* webpackChunkName: "components/form-components-buttons-primary-button-square" */).then(c => c.default || c)
 export const LazyFormComponentsButtonsSecondaryButtonRounded = import('../..\\components\\FormComponents\\Buttons\\Secondary\\ButtonRounded.vue' /* webpackChunkName: "components/form-components-buttons-secondary-button-rounded" */).then(c => c.default || c)
 export const LazyFormComponentsButtonsSecondaryButtonSquare = import('../..\\components\\FormComponents\\Buttons\\Secondary\\ButtonSquare.vue' /* webpackChunkName: "components/form-components-buttons-secondary-button-square" */).then(c => c.default || c)

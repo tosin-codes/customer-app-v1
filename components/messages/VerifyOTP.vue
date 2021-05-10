@@ -23,7 +23,10 @@
     >
       <div class="sm:mx-auto sm:w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl">
         <form action="" @submit.prevent="signContract" autocomplete="">
+          <p class="text-center"> <i  v-if="resendSuccess" style="color:green">OTP resent successfully, please check email</i></p>
+           <p class="text-center"> <i  v-if="resendError" style="color:red">OTP resend failed, please try again</i></p>
           <div class="lg:flex lg:flex-row justify-between">
+            
             <div class="flex flex-col lg:mr-10 lg:w-3/6 mb-5">
               <label class="font-semibold text-base text-gray-800" for="number"
                 >Please enter the OTP sent to your mail</label
@@ -134,7 +137,6 @@
             Resend OTP
           </button>
           to get an email again
-          <p> <i  v-if="resendSuccess" style="color:green">OTP resent successfully, please check email</i></p>
         </div>
       </div>
     </div>
@@ -169,6 +171,7 @@ export default {
       success: false,
       displayForm: true,
       resendSuccess: false,
+      resendError:false,
       terms: false,
     }
   },
@@ -195,10 +198,9 @@ export default {
         await this.$axios
           .post('contracts/sign', this.formData)
           .then((response) => {
-           let loan = response.data.data
-          this.$store.commit('setActiveLoanLevel', loan)
-
+            let loan = response.data.data
             this.$noty.success('Successful')
+            this.$store.commit('setActiveLoanLevel', loan)
             this.loading = false
             this.success = true
             this.displayForm = false
@@ -225,6 +227,7 @@ export default {
       this.disable = true
       const loan_id = this.$store.getters.activeloan.id
       this.resendSuccess = false
+      this.resendError = false
       await this.$axios
         .get(`admin/loans/${loan_id}/contract/resend`)
         .then((response) => {
@@ -238,6 +241,7 @@ export default {
           this.disable = false
         })
         .catch((error) => {
+          this.resendError = true
           if (error.response) {
             this.$noty.error('Not Found')
           }

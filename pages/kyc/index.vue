@@ -108,12 +108,6 @@
                 <div v-if="this.$store.getters.activeloan.status == 1">
                   <VerifyOTP />
                 </div>
-                <div v-if="this.$store.getters.activeloan.status == 4">
-                  <AwaitingVerificationMessage />
-                </div>
-                <div v-if="this.$store.getters.activeloan.status == 2">
-                  <RejectOffer />
-                </div>
                 <div v-if="this.$store.getters.activeloan.status == 4" class="py-8 px-4 sm:px-10">
                   <AwaitingVerificationMessage />
                 </div>
@@ -211,7 +205,7 @@ export default {
             console.log(loan)
             this.$store.commit('setActiveLoanLevel', loan)
             vm.disable = false
-            this.$noty.success('Successfully declined offer')
+            this.$noty.success('Successfully cancelled offer')
             return redirect('/kyc')
           })
       } catch (error) {

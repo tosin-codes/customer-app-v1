@@ -31,12 +31,35 @@
                         <h2 class="text-3xl font-bold sm:text-3xl lg:text-3xl">
                           Sorry :(
                         </h2>
-                        <p>{{ error }}!!!</p><br>
+                        <p>{{ error }}!!!</p>
                          <button
                           class="bg-orange-900 hover:bg-blue-800 border border-transparent self-center shadow-sm lg:self-start font-medium text-white mt-5 px-3 py-2 rounded-md"
                         >
                           <nuxt-link to="/create-loan">Try Again</nuxt-link>
                         </button>
+                        <div  class="pt-4  lg:flex items-center justify-center">
+                          <h2 class="text-blue-900 text-xs font-medium">
+                            <i>Contact Us for support -</i>
+                          </h2>
+                          <div class="text-xs">
+                            <a href="tel:+234028572566" class="p-3">
+                              <font-awesome-icon
+                                :icon="['fas', 'phone']"
+                                class="cursor-pointer text-sm text-blue-900"
+                                @click.prevent="reset"
+                              />
+                              <span>+234 817 555 6789</span>
+                            </a>
+                            <a href="https://wa.me/2348028572566" target="_blank" class="p-3">
+                              <font-awesome-icon
+                                :icon="['fab', 'whatsapp']"
+                                class="cursor-pointer text-sm text-green-500"
+                                @click.prevent="reset"
+                              />
+                              <span>+234 802 857 2566</span>
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -520,7 +543,7 @@
                                     </div>
                                     <small
                                       class="text-orange-600 text-center block"
-                                      >(Drop Your Car)</small
+                                      >(Drive Your Car)</small
                                     >
                                   </div>
                                 </div>
@@ -635,6 +658,8 @@ export default {
                 break
             }
           }
+          vm.loading = false
+          vm.error = 'It seems there is an issue!!!'
         })
     },
     async accept(token) {
