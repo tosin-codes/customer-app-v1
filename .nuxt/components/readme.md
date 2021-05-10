@@ -12,6 +12,7 @@ You can directly use them in pages and other components without the need to impo
 - `<CreateLoan2>` | `<create-loan-2>` (components/CreateLoan2.vue)
 - `<DashboardCards>` | `<dashboard-cards>` (components/DashboardCards.vue)
 - `<DashboardNav>` | `<dashboard-nav>` (components/DashboardNav.vue)
+- `<DeedsOfContract>` | `<deeds-of-contract>` (components/DeedsOfContract.vue)
 - `<GeneralNavbarComponent>` | `<general-navbar-component>` (components/GeneralNavbarComponent.vue)
 - `<ModalChild>` | `<modal-child>` (components/ModalChild.vue)
 - `<Spinner>` | `<spinner>` (components/Spinner.vue)

@@ -17,6 +17,9 @@
   "DashboardNav": {
     "description": "Auto imported from components/DashboardNav.vue"
   },
+  "DeedsOfContract": {
+    "description": "Auto imported from components/DeedsOfContract.vue"
+  },
   "GeneralNavbarComponent": {
     "description": "Auto imported from components/GeneralNavbarComponent.vue"
   },

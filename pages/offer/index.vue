@@ -102,7 +102,7 @@
                             class="px-3 flex items-start text-6xl tracking-tight text-gray-500"
                           >
                             <span class="font-extrabold text-3xl">
-                              {{ summaryDetails.repayment_plan }}
+                              {{ summaryDetails.duration }}
                               Months
                             </span>
                           </span>
@@ -122,7 +122,9 @@
                             class="px-3 flex items-start text-6xl tracking-tight text-gray-500"
                           >
                             <span class="font-extrabold text-3xl">
-                              {{ checkRepayment(summaryDetails.duration) }}
+                              {{
+                                checkRepayment(summaryDetails.repayment_plan)
+                              }}
                             </span>
                           </span>
                         </div>
@@ -255,7 +257,7 @@
                                     </div>
                                     <small
                                       class="text-orange-600 text-center block"
-                                      >(Keep Your Car)</small
+                                      >(Drive Your Car)</small
                                     >
                                   </div>
                                 </div>
@@ -678,10 +680,10 @@ export default {
     },
     checkRepayment(value) {
       switch (value) {
-        case '2':
+        case 2:
           return 'Bi-Monthly'
           break
-        case '4':
+        case 4:
           return 'Quarterly'
           break
         default:

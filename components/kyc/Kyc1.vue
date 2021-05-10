@@ -2,60 +2,24 @@
   <div class="bg-gray-100 p-4 md:px-8 py-8 rounded-md md:round-none">
     <div>
       <div class="mb-5">
-        <h3>Please enter your account details</h3>
+        <div class="w-full flex justify-between">
+          <h3>Please enter your account details</h3>
+          <span class="text-green-600 font-semibold flex justify-between items-center">
+            <span v-if="payantLoader">
+                <img
+                  src="~/assets/images/loading-sm.gif"
+                  alt=""
+                />
+            </span>
+            <span v-if="account_name">
+              {{account_name}}
+            </span>
+          </span>
+        </div>
       </div>
       <div>
         <form action="">
           <div class="grid grid-cols-1 md:grid-cols-2 md:gap-4">
-            <div>
-              <input
-                type="number"
-                placeholder="BVN"
-                v-model.trim="bankInformation.bvn"
-                name="bvn"
-                class="border-b-2 border-gray-500 pl-4 bg-gray-100 mt-2 h-12 w-full rounded-none text-xs"
-              />
-              <span
-                class="text-red-500 italics text-xs"
-                v-if="
-                  $v.bankInformation.bvn.$error &&
-                  !$v.bankInformation.bvn.required
-                "
-                >BVN is required</span
-              >
-              <span
-                class="text-red-500 italics text-xs"
-                v-if="!$v.bankInformation.bvn.minLength"
-                >Enter a valid BVN</span
-              >
-              <div v-if="errors">
-                <span class="text-red-700 text-xs" v-if="errors.bvn">
-                  {{ errors.bvn[0] }}
-                </span>
-              </div>
-            </div>
-            <div>
-              <input
-                type="number"
-                placeholder="Account Number"
-                v-model.trim="bankInformation.number"
-                name="account_number"
-                class="border-b-2 pl-4 border-gray-500 bg-gray-100 mt-2 h-12 w-full rounded-none text-xs"
-              />
-              <span
-                class="text-red-500 italics text-xs"
-                v-if="
-                  $v.bankInformation.number.$error &&
-                  !$v.bankInformation.number.required
-                "
-                >Account number is required</span
-              >
-              <div v-if="errors">
-                <span class="text-red-700 text-xs" v-if="errors.number">
-                  {{ errors.number[0] }}
-                </span>
-              </div>
-            </div>
             <div>
               <select
                 name=""
@@ -87,6 +51,31 @@
               </div>
             </div>
             <div>
+              <input
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                type = "number"
+                maxlength = "10"
+                @keyup="checkAccountDetails"
+                placeholder="Account Number"
+                v-model.trim="bankInformation.number"
+                name="account_number"
+                class="border-b-2 pl-4 border-gray-500 bg-gray-100 mt-2 h-12 w-full rounded-none text-xs"
+              />
+              <span
+                class="text-red-500 italics text-xs"
+                v-if="
+                  $v.bankInformation.number.$error &&
+                  !$v.bankInformation.number.required
+                "
+                >Account number is required</span
+              >
+              <div v-if="errors">
+                <span class="text-red-700 text-xs" v-if="errors.number">
+                  {{ errors.number[0] }}
+                </span>
+              </div>
+            </div>
+            <div>
               <select
                 name=""
                 class="border-gray-500 focus:border-gray-900 bg-gray-100 border-b-2 mt-2 h-12 w-full outline-none text-xs"
@@ -108,6 +97,33 @@
               <div v-if="errors">
                 <span class="text-red-700 text-xs" v-if="errors.type">
                   {{ errors.type[0] }}
+                </span>
+              </div>
+            </div>
+            <div>
+              <input
+                type="number"
+                placeholder="BVN"
+                v-model.trim="bankInformation.bvn"
+                name="bvn"
+                class="border-b-2 border-gray-500 pl-4 bg-gray-100 mt-2 h-12 w-full rounded-none text-xs"
+              />
+              <span
+                class="text-red-500 italics text-xs"
+                v-if="
+                  $v.bankInformation.bvn.$error &&
+                  !$v.bankInformation.bvn.required
+                "
+                >BVN is required</span
+              >
+              <span
+                class="text-red-500 italics text-xs"
+                v-if="!$v.bankInformation.bvn.minLength"
+                >Enter a valid BVN</span
+              >
+              <div v-if="errors">
+                <span class="text-red-700 text-xs" v-if="errors.bvn">
+                  {{ errors.bvn[0] }}
                 </span>
               </div>
             </div>
@@ -149,12 +165,14 @@ export default {
     return {
       disable: false,
       banks: '',
+      account_name:null,
       bankInformation: {
         bvn: '',
         number: '',
         code: '',
         type: '',
       },
+      payantLoader:false
     }
   },
   validations: {
@@ -175,10 +193,47 @@ export default {
       },
     },
   },
+  computed:{
+    
+  },
   methods: {
     ...mapMutations({
       setState: 'setStates',
     }),
+    async checkAccountDetails(){
+      const headers = {
+        "Authorization" : "Bearer bd2a0d8767338b2f342660595cb695eefdcabf19a25828cdff94a169",
+        "Content-Type": "application/json"
+      }
+      if(this.getCodeAndACcount()){
+        let vm = this
+        this.payantLoader = true;
+        this.$axios.post('https://api.payant.ng/resolve-account',
+          {"settlement_bank": this.bankInformation.code, "account_number": this.bankInformation.number},
+          {headers: headers}
+        )
+        .then(response => {
+          this.payantLoader = false;
+          if(response.data.status === 'success'){
+            vm.account_name = response.data.data.account_name
+          }else if(response.data.status === 'error'){
+            vm.account_name = null
+            vm.$noty.error(response.data.message)
+          }
+        })
+        .catch(error => {
+          this.payantLoader = false;
+          if (error.response) 
+            vm.$noty.error(error.response.data)
+        })
+      }
+    },
+    getCodeAndACcount(){
+      if(this.bankInformation.number.length === 10 && this.bankInformation.code.length === 3){
+        return true
+      }
+      return false
+    },
     async next() {
       let vm = this
       this.$v.bankInformation.$touch()
@@ -190,6 +245,10 @@ export default {
         return false
       }
 
+      if(!this.account_name){
+        this.$noty.error('Please enter a valid account number')
+        return false;
+      }
       const loan_id = this.$store.getters.activeloan.id
 
       vm.disable = true

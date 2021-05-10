@@ -200,6 +200,7 @@ export default {
   transition: {
     name: 'fade',
   },
+
   data() {
     return {
       showPassword: false,
@@ -256,6 +257,10 @@ export default {
           })
           .then((response) => {
             let user = response.data.data
+
+            this.$auth.setUser(user)
+
+            vm.$noty.success('Password Reset Successfully')
             this.$router.push('/login')
           })
           .catch((error) => {

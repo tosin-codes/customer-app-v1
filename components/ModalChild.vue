@@ -72,7 +72,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .modal__content {
   background-color: #fff;
   border-radius: 5px;

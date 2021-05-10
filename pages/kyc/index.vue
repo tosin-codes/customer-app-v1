@@ -4,7 +4,9 @@
       <GeneralNav />
       <div class="my-container">
         <div class="mt-5">
-          <div class="flex flex-row items-center mb-10 ml-3 md:ml-0">
+          <div
+            class="flex flex-row items-center mb-10 ml-3 md:ml-0 mt-10 md:mt-0"
+          >
             <div>
               <img class="w-8 mr-4" src="../../assets/svg/kyc.svg" alt="" />
             </div>
@@ -106,6 +108,9 @@
                 <div v-if="this.$store.getters.activeloan.status == 1">
                   <VerifyOTP />
                 </div>
+                <div v-if="this.$store.getters.activeloan.status == 4">
+                  <AwaitingVerificationMessage />
+                </div>
                 <div v-if="this.$store.getters.activeloan.status == 2">
                   <RejectOffer />
                 </div>
@@ -129,9 +134,9 @@ import Kyc2 from '../../components/kyc/Kyc2'
 import Kyc1 from '../../components/kyc/Kyc1'
 import Kyc3 from '../../components/kyc/Kyc3'
 import Kyc4 from '../../components/kyc/Kyc4'
-import VerifyOTP from '../../components/messages/VerifyOTP'
+import VerifyOTP from '~/components/messages/VerifyOTP'
 import RejectOffer from '~/components/messages/RejectOffer'
-import AwaitingVerificationMessage from '../../components/messages/AwaitingVerificationMessage'
+import AwaitingVerificationMessage from '~/components/messages/AwaitingVerificationMessage'
 
 export default {
 

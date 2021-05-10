@@ -6,7 +6,7 @@
       <img class="w-64" src="~/assets/images/reject.svg" alt="" />
     </div>
     <p class="text-center text-sm md:text-xl mb-5">
-      Your offer has been declined successfully :)
+      Your offer has been cancelled successfully :)
       <CancelledOffer />
     </p>
   </div>

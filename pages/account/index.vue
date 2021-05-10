@@ -4,7 +4,9 @@
       <GeneralNav />
       <div class="my-container">
         <div class="mt-5">
-          <div class="flex flex-row items-center mb-10 ml-3 md:ml-0">
+          <div
+            class="flex flex-row items-center mb-10 ml-3 md:ml-0 mt-10 md:mt-0"
+          >
             <div>
               <img class="w-8 mr-4" src="~/assets/svg/dashboard.svg" alt="" />
             </div>
@@ -25,7 +27,7 @@
                     alt="bank"
                   />
                 </div>
-                <div class="text-center text-xl mb-5">
+                <div class="text-center text-base md:text-xl mb-5">
                   You do not have any bank listed.
                 </div>
               </div>
@@ -92,7 +94,9 @@
                               <td
                                 class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 border-b border-grey-light"
                               >
-                                {{ bank.code ? bank.code : '' }}
+                                {{
+                                  getBank(bank.code) ? getBank(bank.code) : ''
+                                }}
                               </td>
 
                               <td
@@ -112,18 +116,7 @@
                               <td
                                 class="uppercase px-6 py-4 whitespace-nowrap text-center text-sm border-b border-grey-light"
                               >
-                                <div v-if="bank.length && bank.status === true">
-                                  <div
-                                    style="
-                                      padding-top: 0.2em;
-                                      padding-bottom: 0.2rem;
-                                    "
-                                    class="text-sm px-3 bg-green-200 text-gray-800 rounded-full border-b border-grey-light"
-                                  >
-                                    true
-                                  </div>
-                                </div>
-                                <div v-else>
+                                <div v-if="bank.status == 0">
                                   <div
                                     style="
                                       padding-top: 0.2em;
@@ -132,6 +125,17 @@
                                     class="text-sm px-3 bg-gray-200 text-gray-800 rounded-full border-b border-grey-light"
                                   >
                                     false
+                                  </div>
+                                </div>
+                                <div v-else>
+                                  <div
+                                    style="
+                                      padding-top: 0.2em;
+                                      padding-bottom: 0.2rem;
+                                    "
+                                    class="text-sm px-3 bg-green-200 text-gray-800 rounded-full border-b border-grey-light"
+                                  >
+                                    true
                                   </div>
                                 </div>
                               </td>
@@ -179,34 +183,47 @@ export default {
   },
   data() {
     return {
-      // banks: [
-      //   { name: 'ACCESS BANK PLC', code: '044' },
-      //   { name: 'DIAMOND BANK PLC', code: '063' },
-      //   { name: 'CITIBANK NIG LTD', code: '023' },
-      //   { name: 'FIRST CITY MONUMENT BANK PLC', code: '214' },
-      //   { name: 'FIRST BANK OF NIGERIA PLC', code: '011' },
-      //   { name: 'ECOBANK NIGERIA PLC', code: '050' },
-      //   { name: 'FIDELITY BANK PLC', code: '070' },
-      //   { name: 'KEYSTONE BANK', code: '082' },
-      //   { name: 'JAIZ BANK PLC', code: '301' },
-      //   { name: 'GUARANTY TRUST BANK PLC', code: '058' },
-      //   { name: 'STANDARD CHARTERED BANK NIGERIA LTD', code: '068' },
-      //   { name: 'SUNTRUST BANK NIG LTD', code: '100' },
-      //   { name: 'PROVIDUS BANK PLC', code: '101' },
-      //   { name: 'SKYE BANK PLC', code: '076' },
-      //   { name: 'WEMA BANK PLC', code: '035' },
-      //   { name: 'HERITAGE BANK', code: '030' },
-      //   { name: 'UNION BANK OF NIGERIA PLC', code: '032' },
-      //   { name: 'STERLING BANK PLC', code: '232' },
-      //   { name: 'UBA PLC', code: '033' },
-      //   { name: 'STANBIC IBTC BANK PLC', code: '039' },
-      //   { name: 'ZENITH BANK PLC', code: '057' },
-      //   { name: 'UNITY BANK PLC', code: '215' },
-      // ],
+      banks: [
+        { name: 'ACCESS BANK PLC', code: '044' },
+        { name: 'DIAMOND BANK PLC', code: '063' },
+        { name: 'CITIBANK NIG LTD', code: '023' },
+        { name: 'FIRST CITY MONUMENT BANK PLC', code: '214' },
+        { name: 'FIRST BANK OF NIGERIA PLC', code: '011' },
+        { name: 'ECOBANK NIGERIA PLC', code: '050' },
+        { name: 'FIDELITY BANK PLC', code: '070' },
+        { name: 'KEYSTONE BANK', code: '082' },
+        { name: 'JAIZ BANK PLC', code: '301' },
+        { name: 'GUARANTY TRUST BANK PLC', code: '058' },
+        { name: 'STANDARD CHARTERED BANK NIGERIA LTD', code: '068' },
+        { name: 'SUNTRUST BANK NIG LTD', code: '100' },
+        { name: 'PROVIDUS BANK PLC', code: '101' },
+        { name: 'SKYE BANK PLC', code: '076' },
+        { name: 'WEMA BANK PLC', code: '035' },
+        { name: 'HERITAGE BANK', code: '030' },
+        { name: 'UNION BANK OF NIGERIA PLC', code: '032' },
+        { name: 'STERLING BANK PLC', code: '232' },
+        { name: 'UBA PLC', code: '033' },
+        { name: 'STANBIC IBTC BANK PLC', code: '039' },
+        { name: 'ZENITH BANK PLC', code: '057' },
+        { name: 'UNITY BANK PLC', code: '215' },
+      ],
     }
+  },
+  methods: {
+    getBank(code) {
+      const bankArray = this.banks.find((bank) => bank.code === code)
+      // console.log(bankArray.name)
+      if (bankArray) {
+        return bankArray.name
+      }
+    },
   },
 
   middleware: ['auth'],
+  created() {
+    const status = this.$store.getters.user.banks
+    console.log(status)
+  },
 }
 </script>
 

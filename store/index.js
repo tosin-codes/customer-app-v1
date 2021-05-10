@@ -7,7 +7,7 @@ export const getters = {
     return state.auth.user
   },
   totalloans(state) {
-    if (state.auth.user.loans.length === 0) {
+    if (!state.auth.user.loans) {
       return 0
     }
 
@@ -22,7 +22,7 @@ export const getters = {
       .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   },
   closedloans(state) {
-    if (state.auth.user.loans.length === 0) {
+    if (!state.auth.user.loans) {
       return 0
     }
     return state.auth.user.loans
