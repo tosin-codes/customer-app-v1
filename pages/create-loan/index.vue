@@ -132,7 +132,7 @@ export default {
       repayments: [
         { id: 1, value: 'Monthly' },
         { id: 2, value: 'Bi-Monthly' },
-        { id: 4, value: 'Quaterly' },
+        //{ id: 4, value: 'Quaterly' },
       ],
     }
   },

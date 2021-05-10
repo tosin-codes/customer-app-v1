@@ -1,5 +1,6 @@
 export { default as ActiveLoan } from '../..\\components\\ActiveLoan.vue'
 export { default as ActiveLoanSchedule } from '../..\\components\\ActiveLoanSchedule.vue'
+export { default as CancelledOffer } from '../..\\components\\CancelledOffer.vue'
 export { default as CreateLoan2 } from '../..\\components\\CreateLoan2.vue'
 export { default as DashboardCards } from '../..\\components\\DashboardCards.vue'
 export { default as DashboardNav } from '../..\\components\\DashboardNav.vue'
@@ -29,15 +30,16 @@ export { default as FormComponentsDropdownsSelectSquare } from '../..\\component
 export { default as FormComponentsTextsTextInputClassic } from '../..\\components\\FormComponents\\Texts\\TextInputClassic.vue'
 export { default as FormComponentsTextsTextInputRounded } from '../..\\components\\FormComponents\\Texts\\TextInputRounded.vue'
 export { default as FormComponentsTextsTextInputSquare } from '../..\\components\\FormComponents\\Texts\\TextInputSquare.vue'
-export { default as FormComponentsButtonsPrimaryButtonRounded } from '../..\\components\\FormComponents\\Buttons\\Primary\\ButtonRounded.vue'
-export { default as FormComponentsButtonsPrimaryButtonSquare } from '../..\\components\\FormComponents\\Buttons\\Primary\\ButtonSquare.vue'
 export { default as FormComponentsButtonsDefaultButtonRounded } from '../..\\components\\FormComponents\\Buttons\\Default\\ButtonRounded.vue'
 export { default as FormComponentsButtonsDefaultButtonSquare } from '../..\\components\\FormComponents\\Buttons\\Default\\ButtonSquare.vue'
+export { default as FormComponentsButtonsPrimaryButtonRounded } from '../..\\components\\FormComponents\\Buttons\\Primary\\ButtonRounded.vue'
+export { default as FormComponentsButtonsPrimaryButtonSquare } from '../..\\components\\FormComponents\\Buttons\\Primary\\ButtonSquare.vue'
 export { default as FormComponentsButtonsSecondaryButtonRounded } from '../..\\components\\FormComponents\\Buttons\\Secondary\\ButtonRounded.vue'
 export { default as FormComponentsButtonsSecondaryButtonSquare } from '../..\\components\\FormComponents\\Buttons\\Secondary\\ButtonSquare.vue'
 
 export const LazyActiveLoan = import('../..\\components\\ActiveLoan.vue' /* webpackChunkName: "components/active-loan" */).then(c => c.default || c)
 export const LazyActiveLoanSchedule = import('../..\\components\\ActiveLoanSchedule.vue' /* webpackChunkName: "components/active-loan-schedule" */).then(c => c.default || c)
+export const LazyCancelledOffer = import('../..\\components\\CancelledOffer.vue' /* webpackChunkName: "components/cancelled-offer" */).then(c => c.default || c)
 export const LazyCreateLoan2 = import('../..\\components\\CreateLoan2.vue' /* webpackChunkName: "components/create-loan-2" */).then(c => c.default || c)
 export const LazyDashboardCards = import('../..\\components\\DashboardCards.vue' /* webpackChunkName: "components/dashboard-cards" */).then(c => c.default || c)
 export const LazyDashboardNav = import('../..\\components\\DashboardNav.vue' /* webpackChunkName: "components/dashboard-nav" */).then(c => c.default || c)
@@ -67,9 +69,9 @@ export const LazyFormComponentsDropdownsSelectSquare = import('../..\\components
 export const LazyFormComponentsTextsTextInputClassic = import('../..\\components\\FormComponents\\Texts\\TextInputClassic.vue' /* webpackChunkName: "components/form-components-texts-text-input-classic" */).then(c => c.default || c)
 export const LazyFormComponentsTextsTextInputRounded = import('../..\\components\\FormComponents\\Texts\\TextInputRounded.vue' /* webpackChunkName: "components/form-components-texts-text-input-rounded" */).then(c => c.default || c)
 export const LazyFormComponentsTextsTextInputSquare = import('../..\\components\\FormComponents\\Texts\\TextInputSquare.vue' /* webpackChunkName: "components/form-components-texts-text-input-square" */).then(c => c.default || c)
-export const LazyFormComponentsButtonsPrimaryButtonRounded = import('../..\\components\\FormComponents\\Buttons\\Primary\\ButtonRounded.vue' /* webpackChunkName: "components/form-components-buttons-primary-button-rounded" */).then(c => c.default || c)
-export const LazyFormComponentsButtonsPrimaryButtonSquare = import('../..\\components\\FormComponents\\Buttons\\Primary\\ButtonSquare.vue' /* webpackChunkName: "components/form-components-buttons-primary-button-square" */).then(c => c.default || c)
 export const LazyFormComponentsButtonsDefaultButtonRounded = import('../..\\components\\FormComponents\\Buttons\\Default\\ButtonRounded.vue' /* webpackChunkName: "components/form-components-buttons-default-button-rounded" */).then(c => c.default || c)
 export const LazyFormComponentsButtonsDefaultButtonSquare = import('../..\\components\\FormComponents\\Buttons\\Default\\ButtonSquare.vue' /* webpackChunkName: "components/form-components-buttons-default-button-square" */).then(c => c.default || c)
+export const LazyFormComponentsButtonsPrimaryButtonRounded = import('../..\\components\\FormComponents\\Buttons\\Primary\\ButtonRounded.vue' /* webpackChunkName: "components/form-components-buttons-primary-button-rounded" */).then(c => c.default || c)
+export const LazyFormComponentsButtonsPrimaryButtonSquare = import('../..\\components\\FormComponents\\Buttons\\Primary\\ButtonSquare.vue' /* webpackChunkName: "components/form-components-buttons-primary-button-square" */).then(c => c.default || c)
 export const LazyFormComponentsButtonsSecondaryButtonRounded = import('../..\\components\\FormComponents\\Buttons\\Secondary\\ButtonRounded.vue' /* webpackChunkName: "components/form-components-buttons-secondary-button-rounded" */).then(c => c.default || c)
 export const LazyFormComponentsButtonsSecondaryButtonSquare = import('../..\\components\\FormComponents\\Buttons\\Secondary\\ButtonSquare.vue' /* webpackChunkName: "components/form-components-buttons-secondary-button-square" */).then(c => c.default || c)

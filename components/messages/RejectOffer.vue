@@ -7,13 +7,20 @@
     </div>
     <p class="text-center text-sm md:text-xl mb-5">
       Your offer has been cancelled successfully :)
+      <CancelledOffer />
     </p>
   </div>
 </template>
 
 <script>
+
+import CancelledOffer from '~/components/CancelledOffer'
+
 export default {
-  components: {},
+  components: {
+    
+    CancelledOffer,
+  },
   data() {
     return {}
   },

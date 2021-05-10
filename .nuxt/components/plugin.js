@@ -3,6 +3,7 @@ import Vue from 'vue'
 const components = {
   ActiveLoan: () => import('../..\\components\\ActiveLoan.vue' /* webpackChunkName: "components/active-loan" */).then(c => c.default || c),
   ActiveLoanSchedule: () => import('../..\\components\\ActiveLoanSchedule.vue' /* webpackChunkName: "components/active-loan-schedule" */).then(c => c.default || c),
+  CancelledOffer: () => import('../..\\components\\CancelledOffer.vue' /* webpackChunkName: "components/cancelled-offer" */).then(c => c.default || c),
   CreateLoan2: () => import('../..\\components\\CreateLoan2.vue' /* webpackChunkName: "components/create-loan-2" */).then(c => c.default || c),
   DashboardCards: () => import('../..\\components\\DashboardCards.vue' /* webpackChunkName: "components/dashboard-cards" */).then(c => c.default || c),
   DashboardNav: () => import('../..\\components\\DashboardNav.vue' /* webpackChunkName: "components/dashboard-nav" */).then(c => c.default || c),
@@ -32,10 +33,10 @@ const components = {
   FormComponentsTextsTextInputClassic: () => import('../..\\components\\FormComponents\\Texts\\TextInputClassic.vue' /* webpackChunkName: "components/form-components-texts-text-input-classic" */).then(c => c.default || c),
   FormComponentsTextsTextInputRounded: () => import('../..\\components\\FormComponents\\Texts\\TextInputRounded.vue' /* webpackChunkName: "components/form-components-texts-text-input-rounded" */).then(c => c.default || c),
   FormComponentsTextsTextInputSquare: () => import('../..\\components\\FormComponents\\Texts\\TextInputSquare.vue' /* webpackChunkName: "components/form-components-texts-text-input-square" */).then(c => c.default || c),
-  FormComponentsButtonsPrimaryButtonRounded: () => import('../..\\components\\FormComponents\\Buttons\\Primary\\ButtonRounded.vue' /* webpackChunkName: "components/form-components-buttons-primary-button-rounded" */).then(c => c.default || c),
-  FormComponentsButtonsPrimaryButtonSquare: () => import('../..\\components\\FormComponents\\Buttons\\Primary\\ButtonSquare.vue' /* webpackChunkName: "components/form-components-buttons-primary-button-square" */).then(c => c.default || c),
   FormComponentsButtonsDefaultButtonRounded: () => import('../..\\components\\FormComponents\\Buttons\\Default\\ButtonRounded.vue' /* webpackChunkName: "components/form-components-buttons-default-button-rounded" */).then(c => c.default || c),
   FormComponentsButtonsDefaultButtonSquare: () => import('../..\\components\\FormComponents\\Buttons\\Default\\ButtonSquare.vue' /* webpackChunkName: "components/form-components-buttons-default-button-square" */).then(c => c.default || c),
+  FormComponentsButtonsPrimaryButtonRounded: () => import('../..\\components\\FormComponents\\Buttons\\Primary\\ButtonRounded.vue' /* webpackChunkName: "components/form-components-buttons-primary-button-rounded" */).then(c => c.default || c),
+  FormComponentsButtonsPrimaryButtonSquare: () => import('../..\\components\\FormComponents\\Buttons\\Primary\\ButtonSquare.vue' /* webpackChunkName: "components/form-components-buttons-primary-button-square" */).then(c => c.default || c),
   FormComponentsButtonsSecondaryButtonRounded: () => import('../..\\components\\FormComponents\\Buttons\\Secondary\\ButtonRounded.vue' /* webpackChunkName: "components/form-components-buttons-secondary-button-rounded" */).then(c => c.default || c),
   FormComponentsButtonsSecondaryButtonSquare: () => import('../..\\components\\FormComponents\\Buttons\\Secondary\\ButtonSquare.vue' /* webpackChunkName: "components/form-components-buttons-secondary-button-square" */).then(c => c.default || c)
 }

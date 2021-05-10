@@ -1,5 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  target: 'static',
+  
   head: {
     title: 'dashboard',
     htmlAttrs: {
@@ -53,6 +55,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
+    '@nuxtjs/moment',
     // 'vue-web-cam/nuxt',
 
     [
@@ -105,7 +108,7 @@ export default {
   axios: {
     baseURL: 'https://cashapi.cashdrive.co/api/v1/',
     // baseURL: 'https://cashapi.staging.cashdrive.co/api/v1/',
-    // baseURL: 'http://127.0.0.1:8000/api/v1/',
+    //  baseURL: 'http://127.0.0.1:8000/api/v1/',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

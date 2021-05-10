@@ -274,25 +274,29 @@ export default {
         this.disable = false
       }
     },
+    async checkTokenIfExist() {
+      const token = $nuxt.$route.query.token
+      console.log(token,$nuxt.$route)
+      await this.$axios
+        .get(`/verify-token/${token}`)
+        .then((response) => {
+          this.res = response.data.data
+          this.loading = false
+          this.resetForm = true
+        })
+        .catch((error) => {
+          this.$noty.error('Token expired')
+          setTimeout(() => {
+            this.$router.push('/reset-password')
+          }, 2000)
+        })
+        .finally(() => {
+          this.loading = false
+        })
+    },
   },
   mounted() {
-    const token = this.$route.query.token
-    this.$axios
-      .get(`/verify-token/${token}`)
-      .then((response) => {
-        this.res = response.data.data
-        this.loading = false
-        this.resetForm = true
-      })
-      .catch((error) => {
-        this.$noty.error('Token expired')
-        setTimeout(() => {
-          this.$router.push('/reset-password')
-        }, 2000)
-      })
-      .finally(() => {
-        this.loading = false
-      })
+    this.checkTokenIfExist()
   },
   middleware: 'guest',
 }

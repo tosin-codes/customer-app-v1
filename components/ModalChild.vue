@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="w-full md:w-3/6 shadow">
+    <div class="">
       <h3 class="modal__title px-4 py-5 text-orange-600 font-bold">
         Is this your car?
       </h3>
-      <div class="px-4 py-5">
+      <div class="">
         <table class="modal__table table-striped">
           <tbody>
             <tr>
