@@ -12,15 +12,18 @@
                   class="mt-4 w-full block object-fill"
                 />
 
-                <h1
-                  v-if="error.statusCode === 404"
-                  class="mt-4 mb-5 font-bold text-xl lg:text-2xl"
-                >
-                  Looks like you are lost!
-                </h1>
-                <h1 v-else class="mt-4 mb-5 font-bold text-xl lg:text-2xl">
-                  An error occurred
-                </h1>
+                <div v-if="error.statusCode === 404">
+                  <h1 class="mt-4 mb-5 font-bold text-xl lg:text-2xl">
+                    Looks like you are lost!
+                  </h1>
+                </div>
+                <div v-else>
+                  <h1 class="mt-4 mb-4 text-sm lg:text-xl">
+                    Sorry we are unable to give you a system generated offer
+                    right now. Please speak with our customer care agent on
+                    +234-802-857-2566
+                  </h1>
+                </div>
                 <NuxtLink
                   class="border-2 border-orange-600 border-solid rounded-full text-sm lg:text-xl py-2 px-4 hover:bg-orange-600 hover:text-white"
                   to="/"
