@@ -31,15 +31,15 @@
                         <h2 class="text-3xl font-bold sm:text-3xl lg:text-3xl">
                           Sorry :(
                         </h2>
-                        <p>{{ error }}!!!</p>
+                        <p>We are unable to give you a system generated offer right now.</p>
                          <button
                           class="bg-orange-900 hover:bg-blue-800 border border-transparent self-center shadow-sm lg:self-start font-medium text-white mt-5 px-3 py-2 rounded-md"
                         >
                           <nuxt-link to="/create-loan">Try Again</nuxt-link>
                         </button>
-                        <div  class="pt-4  lg:flex items-center justify-center">
+                        <div class="pt-4  lg:flex items-center justify-center">
                           <h2 class="text-blue-900 text-xs font-medium">
-                            <i>Contact Us for support -</i>
+                            <i>Please speak with our customer care agent on  -</i>
                           </h2>
                           <div class="text-xs">
                             <a href="tel:+234028572566" class="p-3">
