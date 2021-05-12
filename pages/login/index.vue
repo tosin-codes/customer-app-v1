@@ -155,6 +155,7 @@ export default {
       disable: false,
       email: '',
       password: '',
+      ref_code: '',
       errorMessage: '',
     }
   },
@@ -183,6 +184,7 @@ export default {
       let form = {
         email: this.email,
         password: this.password,
+        ref_code: this.ref_code
       }
       await this.$auth
         .login({
@@ -202,7 +204,26 @@ export default {
         console.log(this.$store.state.auth.user.roles[0].code)
       }
     },
+    async checkAndSetTokenIfExist() {
+      if(this.$route.query.token) {
+        localStorage.setItem('ref_code', this.$route.query.token)
+        let code = localStorage.getItem('ref_code')
+
+        //console.log(code)
+        await this.$axios.get(`/estimate/${code}`).then((response) => {
+          let data = response.data.data
+          this.email = data.email
+          this.ref_code = code
+        })
+        
+        localStorage.removeItem('ref_code')
+      }
+    },
   },
+  mounted() {
+    this.checkAndSetTokenIfExist()
+  },
+
   middleware: 'guest',
 }
 </script>
