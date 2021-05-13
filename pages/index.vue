@@ -160,6 +160,49 @@
                   {{ errors.phone[0] }}
                 </span>
               </div>
+
+              <div class="mb-5 md:col-start-1 md:col-end-7">
+                <label class="font-semibold text-sm text-gray-800" for=""
+                  >Home Address</label
+                >
+                <input
+                  type="text"
+                  name="address"
+                  id="input"
+                  class="border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-12 w-full outline-none text-xs"
+                  v-model="formData.address"
+                  :reduce="(name) => name.name"
+                  placeholder="Please enter home address..."
+                />
+                <p class="errors text-red-500 text-xs italic">
+                  <template v-if="errorMessage">
+                    <span v-if="!$v.formData.address.required"
+                      >Please enter your home address.</span
+                    >
+                  </template>
+                </p>
+              </div>
+              <div class="mb-5 md:col-start-7 md:col-end-13">
+                <label class="font-semibold text-sm text-gray-800" for=""
+                  >State of residence</label
+                >
+                <v-select
+                  id="select"
+                  class="border-gray-500 focus:border-gray-900 border-b-2 mt-2 h-12 w-full outline-none text-xs"
+                  :options="stateOptions"
+                  v-model="formData.state"
+                  label="name"
+                  placeholder="Select..."
+                ></v-select>
+                <p class="errors text-red-500 text-xs italic">
+                  <template v-if="errorMessage">
+                    <span v-if="!$v.formData.state.required"
+                      >Please select the state your of residence.</span
+                    >
+                  </template>
+                </p>
+              </div>
+
               <!-- <div class="mb-5 md:col-start-1 md:col-end-13">
                 <label for="" class="font-semibold text-sm opacity-75"
                   >Date of birth</label
@@ -278,6 +321,7 @@
 </template>
 
 <script>
+import vSelect from 'vue-select'
 import TextInputClassic from '~/components/FormComponents/Texts/TextInputClassic'
 import {
   required,
@@ -296,6 +340,7 @@ export default {
   },
   components: {
     TextInputClassic,
+    vSelect,
   },
   data() {
     return {
@@ -309,10 +354,53 @@ export default {
         phone: '',
         // date_of_birth: '',
         ref_code: '',
+        state: '',
+        address: '',
       },
       errorInfo: '',
       submitted: false,
       welcomeNote: false,
+      stateOptions: [
+        'Lagos',
+        'Abuja',
+        'Abia',
+        'Adamawa',
+        'Akwa Ibom',
+        'Anambra',
+        'Bauchi',
+        'Bayelsa',
+        'Benue',
+        'Borno',
+        'Cross River',
+        'Delta',
+        'Ebonyi',
+        'Edo',
+        'Ekiti',
+        'Enugu',
+
+        'Gombe',
+        'Imo',
+        'Jigawa',
+        'Kaduna',
+        'Kano',
+        'Katsina',
+        'Kebbi',
+        'Kogi',
+        'Kwara',
+
+        'Nasarawa',
+        'Niger',
+        'Ogun',
+        'Ondo',
+        'Osun',
+        'Oyo',
+        'Plateau',
+        'Rivers',
+        'Sokoto',
+        'Taraba',
+        'Yobe',
+        'Zamfara',
+      ],
     }
   },
   validations: {
@@ -389,7 +477,7 @@ export default {
       }
     },
     async checkAndSetTokenIfExist() {
-      if(this.$route.query.token) {
+      if (this.$route.query.token) {
         //CD0097433
         // console.log(this.$route.query.token)
         localStorage.setItem('ref_code', this.$route.query.token)
@@ -425,5 +513,27 @@ export default {
 .disabled {
   cursor: not-allowed;
   opacity: 0.6;
+}
+#select .vs__dropdown-toggle:focus-within {
+  border-color: #444444;
+  outline: none;
+}
+#select .vs__dropdown-toggle {
+  border: none;
+  height: 50px !important;
+  width: 100%;
+  padding: 0 0;
+}
+
+#select .vs__dropdown-toggle input::placeholder {
+  color: rgb(128, 128, 128);
+  font-size: 0.9rem;
+  margin-left: 2px;
+  margin-right: 2px;
+  font-weight: 400;
+}
+#select .vs__open-indicator,
+#select .vs__clear {
+  cursor: pointer;
 }
 </style>

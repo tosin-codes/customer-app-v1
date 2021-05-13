@@ -18,10 +18,22 @@
               >{{ $store.getters.user.first_name }}
               {{ $store.getters.user.last_name }}
             </span>
-            (also known as Grantor) of _______Lagos (Hereinafter referred to as
-            “The Borrower”) which expression shall where the context so admits,
-            include his/her heirs, assigns and legal representatives) of the
-            second part.
+            (also known as Grantor) of
+            <span class="uppercase font-bold"
+              >{{
+                $store.getters.user.address
+                  ? $store.getters.user.address
+                  : 'No address specified,'
+              }}
+              {{
+                $store.getters.user.state
+                  ? $store.getters.user.state
+                  : 'No state specified'
+              }}
+            </span>
+            (Hereinafter referred to as “The Borrower”) which expression shall
+            where the context so admits, include his/her heirs, assigns and
+            legal representatives) of the second part.
           </div>
           <br />
           <div>
