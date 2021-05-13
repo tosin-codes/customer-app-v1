@@ -23,10 +23,45 @@
     >
       <div class="sm:mx-auto sm:w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl">
         <form action="" @submit.prevent="signContract" autocomplete="">
-          <p class="text-center"> <i  v-if="resendSuccess" style="color:green">OTP resent successfully, please check email</i></p>
-           <p class="text-center"> <i  v-if="resendError" style="color:red">OTP resend failed, please try again</i></p>
+          <div>
+            <span v-if="disable" class="flex items-center mb-3">
+              <img src="../../assets/images/loading-sm.gif" alt="" />
+            </span>
+            <span class="text-sm md:text-base mb-5">
+              By clicking on the
+              <span class="font-semibold">PROCEED</span> button you have agreed
+              to our
+              <ol class="list-disc mt-2 mb-2">
+                <li class="mb-3">
+                  <button
+                    class="text-red-600 font-semibold focus:outline-none border-0 focus:ring-2 focus:ring-offset-2"
+                    @click.prevent="showTerms"
+                  >
+                    credit &#38; security agreement,
+                  </button>
+                </li>
+                <li class="mb-3">
+                  <button
+                    class="text-red-600 font-semibold focus:outline-none border-0 focus:ring-2 focus:ring-offset-2"
+                    @click.prevent="showDeed"
+                  >
+                    deed of transfer agreement
+                  </button>
+                </li>
+              </ol>
+            </span>
+          </div>
+          <p class="text-center">
+            <i v-if="resendSuccess" style="color: green"
+              >OTP resent successfully, please check email</i
+            >
+          </p>
+          <p class="text-center">
+            <i v-if="resendError" style="color: red"
+              >OTP resend failed, please try again</i
+            >
+          </p>
           <div class="lg:flex lg:flex-row justify-between">
-            
             <div class="flex flex-col lg:mr-10 lg:w-3/6 mb-5">
               <label class="font-semibold text-base text-gray-800" for="number"
                 >Please enter the OTP sent to your mail</label
@@ -102,36 +137,20 @@
               </div>
             </div>
           </div>
-
-          <div>
-          <span v-if="disable" class="flex items-center mb-3">
-            <img src="../../assets/images/loading-sm.gif" alt="" />
-          </span>
-            <span class="text-sm text-center mb-5">
-              By clicking on the button you have agreed to our
-              <button
-                class="text-orange-600 focus:outline-none border-0 focus:ring-2 focus:ring-offset-2"
-                @click.prevent="showTerms"
-              >
-                credit &#38; security agreement,
-              </button>
-              You'll get an email from us shortly
-            </span>
-            <button
-              type="submit"
-              :class="{ 'opacity-50 cursor-not-allowed': disable }"
-              :disabled="disable"
-              class="w-full h-12 flex justify-center py-2 px-4 text-lg font-medium mt-3 text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
-            >
-              PROCEED
-            </button>
-          </div>
+          <button
+            type="submit"
+            :class="{ 'opacity-50 cursor-not-allowed': disable }"
+            :disabled="disable"
+            class="w-full h-12 flex justify-center py-2 px-4 text-lg font-medium mt-3 text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+          >
+            PROCEED
+          </button>
         </form>
         <div class="text-center text-sm mt-5">
           Check your spam folder to make sure your OTP it didn't end up there.
           You can also click on
           <button
-            class="btn text-orange-600 focus:outline-none border-0 focus:ring-2 focus:ring-offset-2"
+            class="btn text-red-600 font-semibold focus:outline-none border-0 focus:ring-2 focus:ring-offset-2"
             @click.prevent="resendOTP"
           >
             Resend OTP
@@ -142,6 +161,9 @@
     </div>
     <div class="py-8 px-4 sm:px-10" v-if="terms">
       <DeedOfContract @otpForm="showForm" />
+    </div>
+    <div class="py-8 px-4 sm:px-10" v-if="termsTwo">
+      <DeedOfTransfer @otpFormTwo="showFormTwo" />
     </div>
 
     <div class="py-8 px-4 sm:px-10" v-if="success">
@@ -154,9 +176,11 @@
 import { required, minLength, maxLength } from 'vuelidate/lib/validators'
 import AwaitingVerificationMessage from '../../components/messages/AwaitingVerificationMessage'
 import DeedOfContract from '~/components/DeedsOfContract'
+import DeedOfTransfer from '~/components/DeedOfTransfer'
 export default {
   components: {
     DeedOfContract,
+    DeedOfTransfer,
     AwaitingVerificationMessage,
   },
   data() {
@@ -171,8 +195,9 @@ export default {
       success: false,
       displayForm: true,
       resendSuccess: false,
-      resendError:false,
+      resendError: false,
       terms: false,
+      termsTwo: false,
     }
   },
   validations: {
@@ -235,7 +260,9 @@ export default {
           //   console.log(user)
 
           this.resendSuccess = true
-          this.$noty.success('Token has been resent, please check your mail box')
+          this.$noty.success(
+            'Token has been resent, please check your mail box'
+          )
           this.success = false
           this.displayForm = true
           this.disable = false
@@ -253,8 +280,17 @@ export default {
       this.terms = true
       this.disable = false
     },
+    async showDeed() {
+      this.displayForm = false
+      this.termsTwo = true
+      this.disable = false
+    },
     showForm() {
       this.terms = false
+      this.displayForm = true
+    },
+    showFormTwo() {
+      this.termsTwo = false
       this.displayForm = true
     },
   },
