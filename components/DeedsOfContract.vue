@@ -23,8 +23,8 @@
               >{{
                 $store.getters.user.address
                   ? $store.getters.user.address
-                  : 'No address specified,'
-              }}
+                  : 'No address specified'
+              }},
               {{
                 $store.getters.user.state
                   ? $store.getters.user.state
@@ -844,8 +844,26 @@
                 Signed and Delivered <br />
                 By the within named Borrower/Grantor
               </div>
+              <div class="flex flex-col">
+                <br />
+                <div></div>
+                <div class="font-semibold capitalize">
+                  {{ $store.getters.user.first_name }}
+                  {{ $store.getters.user.last_name }}
+                </div>
+                <br />
+              </div>
+            </div>
+            <div
+              class="flex justify-between items-center flex-col-reverse md:flex-row mt-8 mb-4"
+            >
               <div>
+                Signed and Delivered <br />
+                By the within named Creditor
+              </div>
+              <div class="flex flex-col">
                 <img src="~/assets/images/signature.png" alt="" />
+                <div class="font-semibold">CONSYNERGY LIMITED</div>
                 <br />
               </div>
             </div>
