@@ -5,7 +5,7 @@
     <div>
       <img class="w-40" src="~/assets/images/success.gif" alt="" />
     </div>
-    <p class="text-center text-sm lg:text-2xl mb-5">
+    <p class="text-center text-sm lg:text-2xl mb-5 p-3">
       Congratulations, your application has been received, <br />your loan will
       be disbursed shortly:)
     </p>

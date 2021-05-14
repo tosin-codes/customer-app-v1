@@ -139,7 +139,7 @@ export default {
 
           .then((response) => {
             let loan = response.data.data
-            console.log(loan)
+            //console.log(loan)
             this.$store.commit('setActiveLoanLevel', loan)
             vm.disable = false
             this.$noty.success('Successfully declined offer')
