@@ -17,7 +17,7 @@
             <div class="font-bold text-gray-700">Active Loans</div>
           </div>
           <DashboardCards />
-          <div v-if="!this.$store.getters.activeloan.offer_amount">
+          <div v-if="!this.$store.getters.activeloan.offer_amount || this.$store.getters.activeloan.status==2">
             <div
               class="flex flex-col bg-white border-dashed border-2 py-32 mx-3"
             >

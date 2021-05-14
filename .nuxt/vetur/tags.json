@@ -17,6 +17,9 @@
   "DashboardNav": {
     "description": "Auto imported from components/DashboardNav.vue"
   },
+  "DeedOfTransfer": {
+    "description": "Auto imported from components/DeedOfTransfer.vue"
+  },
   "DeedsOfContract": {
     "description": "Auto imported from components/DeedsOfContract.vue"
   },
