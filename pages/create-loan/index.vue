@@ -15,9 +15,14 @@
             class="flex flex-col w-full md:w-2/3 bg-white py-6 px-4 md:px-10"
           >
             <form action="" class="" @submit.prevent="checkForm">
-              <h2 class="font-semibold mb-10 text-sm">
-                Please Enter the details correctly
-              </h2>
+              <div class="mb-10">
+                <h2 class="font-medium text-sm">
+                  Please Enter the details correctly
+                </h2>
+                <p class="mb-1 font-medium text-sm mt-1">
+                  Only customers with 3 months vehicle ownership can apply
+                </p>
+              </div>
               <div class="grid sm:grid-cols-1 lg:grid-cols-2 gap-2">
                 <div class="col-span-2 flex flex-col mb-5 lg:col-span-1">
                   <label class="font-semibold text-sm text-gray-700" for=""
