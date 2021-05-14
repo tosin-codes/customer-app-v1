@@ -106,7 +106,7 @@
               class="px-3 flex items-start text-2xl tracking-tight text-gray-500"
             >
               <span class="font-extrabold text-2xl">
-                {{ checkRepayment(activeloan.offer_repayment_plan) }}
+                {{ activeloan.offer_repayment_plan }}
               </span>
             </span>
           </div>
@@ -166,19 +166,19 @@ export default {
         }
       }
     },
-    checkRepayment(value) {
-      switch (value) {
-        case '2':
-          return 'Bi-Monthly'
-          break
-        case '4':
-          return 'Quarterly'
-          break
-        default:
-          return 'Monthly'
-          break
-      }
-    },
+    // checkRepayment(value) {
+    //   switch (value) {
+    //     case '2':
+    //       return 'Bi-Monthly'
+    //       break
+    //     case '4':
+    //       return 'Quarterly'
+    //       break
+    //     default:
+    //       return 'Monthly'
+    //       break
+    //   }
+    // },
   },
   filters: {
     currency(amount) {

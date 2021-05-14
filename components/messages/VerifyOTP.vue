@@ -28,24 +28,26 @@
               <img src="../../assets/images/loading-sm.gif" alt="" />
             </span>
             <span class="text-sm md:text-base mb-5">
-              By clicking on the
-              <span class="font-semibold">PROCEED</span> button you have agreed
-              to our
+              Please click and carefully review the Credit &#38; Security
+              agreement and Deed of Transfer agreement listed below, by clicking
+              the
+              <span class="font-semibold">"PROCEED"</span> button, you confirm
+              that you have reviewed and agreed to all that is stated
               <ol class="list-disc mt-2 mb-2">
                 <li class="mb-3">
                   <button
-                    class="text-red-600 font-semibold focus:outline-none border-0 focus:ring-2 focus:ring-offset-2"
+                    class="text-red-600 font-semibold focus:outline-none border-0 focus:ring-2 focus:ring-offset-2 underline"
                     @click.prevent="showTerms"
                   >
-                    credit &#38; security agreement,
+                    Credit &#38; Security agreement
                   </button>
                 </li>
                 <li class="mb-3">
                   <button
-                    class="text-red-600 font-semibold focus:outline-none border-0 focus:ring-2 focus:ring-offset-2"
+                    class="text-red-600 font-semibold focus:outline-none border-0 focus:ring-2 focus:ring-offset-2 underline"
                     @click.prevent="showDeed"
                   >
-                    deed of transfer agreement
+                    Deed of Transfer agreement
                   </button>
                 </li>
               </ol>
