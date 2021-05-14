@@ -31,15 +31,20 @@
                         <h2 class="text-3xl font-bold sm:text-3xl lg:text-3xl">
                           Sorry :(
                         </h2>
-                        <p>We are unable to give you a system generated offer right now.</p>
-                         <button
+                        <p>
+                          We are unable to give you a system generated offer
+                          right now.
+                        </p>
+                        <button
                           class="bg-orange-900 hover:bg-blue-800 border border-transparent self-center shadow-sm lg:self-start font-medium text-white mt-5 px-3 py-2 rounded-md"
                         >
                           <nuxt-link to="/create-loan">Try Again</nuxt-link>
                         </button>
-                        <div class="pt-4  lg:flex items-center justify-center">
+                        <div class="pt-4 lg:flex items-center justify-center">
                           <h2 class="text-blue-900 text-xs font-medium">
-                            <i>Please speak with our customer care agent on  -</i>
+                            <i
+                              >Please speak with our customer care agent on -</i
+                            >
                           </h2>
                           <div class="text-xs">
                             <a href="tel:+234028572566" class="p-3">
@@ -50,7 +55,11 @@
                               />
                               <span>+234 817 555 6789</span>
                             </a>
-                            <a href="https://wa.me/2348028572566" target="_blank" class="p-3">
+                            <a
+                              href="https://wa.me/2348028572566"
+                              target="_blank"
+                              class="p-3"
+                            >
                               <font-awesome-icon
                                 :icon="['fab', 'whatsapp']"
                                 class="cursor-pointer text-sm text-green-500"
@@ -222,8 +231,18 @@
                                       </div>
                                       <hr />
                                       <div class="my-5">
-                                        <div class="text-orange-600">
+                                        <div
+                                          class="text-orange-600"
+                                          v-if="
+                                            checkRepayment(
+                                              summaryDetails.repayment_plan
+                                            ) == 'Monthly'
+                                          "
+                                        >
                                           Monthly repayment amount
+                                        </div>
+                                        <div class="text-orange-600" v-else>
+                                          Bi-Monthly repayment amount
                                         </div>
                                         <div class="font-semibold text-2xl">
                                           ₦{{
@@ -364,8 +383,18 @@
                                     </div>
                                     <hr />
                                     <div class="my-5">
-                                      <div class="text-orange-600">
+                                      <div
+                                        class="text-orange-600"
+                                        v-if="
+                                          checkRepayment(
+                                            summaryDetails.repayment_plan
+                                          ) == 'Monthly'
+                                        "
+                                      >
                                         Monthly repayment amount
+                                      </div>
+                                      <div class="text-orange-600" v-else>
+                                        Bi-Monthly repayment amount
                                       </div>
                                       <div class="font-semibold text-2xl">
                                         ₦{{ offer.best_offer.final_repayment }}
@@ -487,8 +516,16 @@
                                       <hr />
                                       <div class="my-5">
                                         <div class="text-orange-600">
-                                          Monthly repayment amount
+                                          {{
+                                            checkRepayment(
+                                              summaryDetails.repayment_plan
+                                            ) == 'Monthly'
+                                              ? 'Monthly'
+                                              : 'Bi-Monthly'
+                                          }}
+                                          repayment amount
                                         </div>
+
                                         <div class="font-semibold text-2xl">
                                           ₦{{
                                             offer.premium_offer.final_repayment
