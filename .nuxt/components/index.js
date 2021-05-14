@@ -4,6 +4,7 @@ export { default as CancelledOffer } from '../..\\components\\CancelledOffer.vue
 export { default as CreateLoan2 } from '../..\\components\\CreateLoan2.vue'
 export { default as DashboardCards } from '../..\\components\\DashboardCards.vue'
 export { default as DashboardNav } from '../..\\components\\DashboardNav.vue'
+export { default as DeedOfTransfer } from '../..\\components\\DeedOfTransfer.vue'
 export { default as DeedsOfContract } from '../..\\components\\DeedsOfContract.vue'
 export { default as GeneralNavbarComponent } from '../..\\components\\GeneralNavbarComponent.vue'
 export { default as ModalChild } from '../..\\components\\ModalChild.vue'
@@ -43,6 +44,7 @@ export const LazyCancelledOffer = import('../..\\components\\CancelledOffer.vue'
 export const LazyCreateLoan2 = import('../..\\components\\CreateLoan2.vue' /* webpackChunkName: "components/create-loan-2" */).then(c => c.default || c)
 export const LazyDashboardCards = import('../..\\components\\DashboardCards.vue' /* webpackChunkName: "components/dashboard-cards" */).then(c => c.default || c)
 export const LazyDashboardNav = import('../..\\components\\DashboardNav.vue' /* webpackChunkName: "components/dashboard-nav" */).then(c => c.default || c)
+export const LazyDeedOfTransfer = import('../..\\components\\DeedOfTransfer.vue' /* webpackChunkName: "components/deed-of-transfer" */).then(c => c.default || c)
 export const LazyDeedsOfContract = import('../..\\components\\DeedsOfContract.vue' /* webpackChunkName: "components/deeds-of-contract" */).then(c => c.default || c)
 export const LazyGeneralNavbarComponent = import('../..\\components\\GeneralNavbarComponent.vue' /* webpackChunkName: "components/general-navbar-component" */).then(c => c.default || c)
 export const LazyModalChild = import('../..\\components\\ModalChild.vue' /* webpackChunkName: "components/modal-child" */).then(c => c.default || c)

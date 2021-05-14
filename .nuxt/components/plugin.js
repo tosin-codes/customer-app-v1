@@ -7,6 +7,7 @@ const components = {
   CreateLoan2: () => import('../..\\components\\CreateLoan2.vue' /* webpackChunkName: "components/create-loan-2" */).then(c => c.default || c),
   DashboardCards: () => import('../..\\components\\DashboardCards.vue' /* webpackChunkName: "components/dashboard-cards" */).then(c => c.default || c),
   DashboardNav: () => import('../..\\components\\DashboardNav.vue' /* webpackChunkName: "components/dashboard-nav" */).then(c => c.default || c),
+  DeedOfTransfer: () => import('../..\\components\\DeedOfTransfer.vue' /* webpackChunkName: "components/deed-of-transfer" */).then(c => c.default || c),
   DeedsOfContract: () => import('../..\\components\\DeedsOfContract.vue' /* webpackChunkName: "components/deeds-of-contract" */).then(c => c.default || c),
   GeneralNavbarComponent: () => import('../..\\components\\GeneralNavbarComponent.vue' /* webpackChunkName: "components/general-navbar-component" */).then(c => c.default || c),
   ModalChild: () => import('../..\\components\\ModalChild.vue' /* webpackChunkName: "components/modal-child" */).then(c => c.default || c),
