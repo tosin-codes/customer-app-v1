@@ -174,13 +174,17 @@
                   :reduce="(name) => name.name"
                   placeholder="Please enter home address..."
                 />
-                <p class="errors text-red-500 text-xs italic">
-                  <template v-if="errorMessage">
-                    <span v-if="!$v.formData.address.required"
-                      >Please enter your home address.</span
-                    >
-                  </template>
+                <p class="errors italics text-red-500 text-sm">
+                  <template
+                    v-if="submitted && !$v.formData.address.required"
+                    class="errorInfo"
+                  >
+                    <small> Please enter you home address </small></template
+                  >
                 </p>
+                <span class="text-red-700 text-xs" v-if="errors.address">
+                  {{ errors.address[0] }}
+                </span>
               </div>
               <div class="mb-5 md:col-start-7 md:col-end-13">
                 <label class="font-semibold text-sm text-gray-800" for=""
@@ -194,13 +198,19 @@
                   label="name"
                   placeholder="Select..."
                 ></v-select>
-                <p class="errors text-red-500 text-xs italic">
-                  <template v-if="errorMessage">
-                    <span v-if="!$v.formData.state.required"
-                      >Please select the state your of residence.</span
-                    >
-                  </template>
+                <p class="errors italics text-red-500 text-sm">
+                  <template
+                    v-if="submitted && !$v.formData.state.required"
+                    class="errorInfo"
+                  >
+                    <small>
+                      Please select your state of residence
+                    </small></template
+                  >
                 </p>
+                <span class="text-red-700 text-xs" v-if="errors.state">
+                  {{ errors.state[0] }}
+                </span>
               </div>
 
               <!-- <div class="mb-5 md:col-start-1 md:col-end-13">
@@ -428,6 +438,12 @@ export default {
       password_confirmation: {
         required,
         sameAsPassword: sameAs('password'),
+      },
+      state: {
+        required,
+      },
+      address: {
+        required,
       },
       // date_of_birth: {
       //   required,
