@@ -133,22 +133,6 @@ export default {
     },
   },
 }
-
-// import { WebCam } from 'vue-web-cam'
-// export default {
-//   components: { WebCam },
-//   data() {
-//     return {
-//       photo: null,
-//     }
-//   },
-//   methods: {
-//     takePhoto() {
-//       console.log('clicked')
-//       this.photo = this.$refs.webcam.getPhoto()
-//     },
-//   },
-// }
 </script>
 
 <style scoped>

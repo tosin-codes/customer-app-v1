@@ -222,7 +222,7 @@ export default {
   middleware: ['auth'],
   created() {
     const status = this.$store.getters.user.banks
-    console.log(status)
+    // console.log(status)
   },
 }
 </script>

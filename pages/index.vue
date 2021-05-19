@@ -445,9 +445,6 @@ export default {
       address: {
         required,
       },
-      // date_of_birth: {
-      //   required,
-      // },
     },
   },
   methods: {
