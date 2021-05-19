@@ -377,7 +377,6 @@ export default {
         (year) => year.id === this.vehicleInformation.year
       )
       if (yearObject) {
-        // console.log(yearObject.makes)
         const myArr = yearObject.makes
         const modifyMakesArray = (arr, arrOfNames) => {
           const makeTopRated = arr.map((item) => {
