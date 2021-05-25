@@ -27,7 +27,20 @@
             </div>
             <div class="font-semibold text-sm text-gray-700">Profile</div>
           </div>
-          <div class="bg-gray-50 flex flex-col">
+          <div
+            class="flex flex-col items-center justify-center bg-white border-dashed border-2 py-20"
+            v-if="successful"
+          >
+            <div>
+              <img class="w-64" src="~/assets/images/profile.gif" alt="" />
+            </div>
+            <p
+              class="text-center leading-loose tracking-normal md:text-xl text-base p-4"
+            >
+              Your Profile has been updated successfully!
+            </p>
+          </div>
+          <div class="bg-gray-50 flex flex-col" v-else>
             <div class="sm:w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl">
               <div class="form bg-white py-8 px-4 shadow sm:px-10">
                 <form action="" class="xl:grid xl:grid-cols-12 xl:gap-x-12">
@@ -134,6 +147,7 @@ export default {
       errorInfo: '',
       submitted: false,
       userData: {},
+      successful: false,
     }
   },
 
@@ -145,7 +159,6 @@ export default {
   },
   methods: {
     async updateUser() {
-      alert('yo')
       let vm = this
       vm.disable = true
       await this.$axios
@@ -159,6 +172,7 @@ export default {
           this.$auth.setUserToken(token)
           vm.disable = false
           this.$noty.success('Saved.')
+          this.successful = true
         })
         .catch((error) => {
           vm.disable = false

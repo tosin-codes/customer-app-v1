@@ -13,7 +13,7 @@ export const getters = {
 
     return state.auth.user.loans
       .reduce((acc, loan) => {
-        if (loan.status == 1) {
+        if (loan.status == 2 || 5 || 6) {
           return acc
         }
         return acc + loan.offer_amount

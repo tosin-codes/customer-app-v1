@@ -27,14 +27,6 @@
             </div>
           </div>
           <div class="">
-            <div class="mb-10">
-              <h2 class="font-medium text-sm">
-                Please Enter the details correctly
-              </h2>
-              <p class="mb-1 font-medium text-sm mt-1">
-                Only customers with 3 months vehicle ownership can apply
-              </p>
-            </div>
             <div class="lg:flex lg:flex-row justify-between">
               <div class="flex flex-col lg:mr-10 lg:w-3/6 mb-5">
                 <label class="font-semibold text-sm text-gray-800" for=""

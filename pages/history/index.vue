@@ -27,10 +27,7 @@
             </div>
 
             <div v-else>
-              <div
-                class="container flex flex-col justify-center pb-3 h-screen"
-                v-if="loading"
-              >
+              <div class="flex flex-col justify-center pb-3" v-if="loading">
                 <div class="px-4 lg:px-8">
                   <div class="text-center">
                     <div class="flex flex-col">
@@ -98,6 +95,18 @@
                               >
                                 Offer Tenor
                               </th>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Status
+                              </th>
+                              <th
+                                scope="col"
+                                class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                              >
+                                Date
+                              </th>
                             </tr>
                           </thead>
                           <tbody>
@@ -135,6 +144,41 @@
                               >
                                 <div class="py-1 px-2">
                                   {{ loan.offer_tenor }} months
+                                </div>
+                              </td>
+                              <td
+                                class="uppercase px-6 py-4 whitespace-nowrap text-center text-sm font-light border-b border-grey-light"
+                              >
+                                <div
+                                  style="
+                                    padding-top: 0.2em;
+                                    padding-bottom: 0.2rem;
+                                  "
+                                  class="text-sm px-3 bg-gray-200 text-gray-800 rounded-full border-b border-grey-light"
+                                  v-if="loan.status == 2 || 5 || 6"
+                                >
+                                  false
+                                </div>
+                                <div
+                                  style="
+                                    padding-top: 0.2em;
+                                    padding-bottom: 0.2rem;
+                                  "
+                                  class="text-sm px-3 bg-green-200 text-gray-800 rounded-full border-b border-green-light"
+                                  v-else
+                                >
+                                  true
+                                </div>
+                              </td>
+                              <td
+                                class="uppercase px-6 py-4 whitespace-nowrap text-center text-sm font-light border-b border-grey-light"
+                              >
+                                <div class="py-1 px-2">
+                                  {{
+                                    new Date(
+                                      loan.created_at
+                                    ).toLocaleDateString()
+                                  }}
                                 </div>
                               </td>
                             </tr>
@@ -220,6 +264,7 @@ export default {
             break
           default:
             vm.$noty.error('SOMETHING WENT WRONG')
+            vm.loading = false
             break
         }
       }
