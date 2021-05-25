@@ -36,7 +36,7 @@
                   </div>
 
                   <p>
-                    Only customers with 3 months vehicle ownership can apply.
+                    Only cars registered for a minimum of 3 months can apply..
                   </p>
                 </div>
               </div>
