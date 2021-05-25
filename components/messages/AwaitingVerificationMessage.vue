@@ -3,9 +3,11 @@
     class="flex flex-col items-center justify-center bg-white border-dashed border-2 py-32"
   >
     <div>
-      <img class="w-40" src="~/assets/images/wait.png" alt="" />
+      <img class="w-64" src="~/assets/images/waiting.gif" alt="" />
     </div>
-    <p class="leading-loose tracking-normal md:text-xl text-base p-4">
+    <p
+      class="text-center leading-loose tracking-normal md:text-xl text-base p-4"
+    >
       Your funds will be disbursed immediately after your inspection on
       <b>{{ this.$store.getters.activeloan.inspection.date | formatDate }}</b
       >.<br />
