@@ -36,7 +36,8 @@
                   </div>
 
                   <p>
-                    Only customers with 3 months vehicle ownership can apply.
+                    We require your car to be registered for a minimum of 3
+                    months before the application
                   </p>
                 </div>
               </div>
