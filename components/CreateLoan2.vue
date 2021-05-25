@@ -23,10 +23,7 @@
                 </svg>
               </div>
 
-              <p>
-                We require your car to be registered for a minimum of 3 months
-                before the application.
-              </p>
+              <p>Only cars registered for a minimum of 3 months can apply..</p>
             </div>
           </div>
           <div class="">
