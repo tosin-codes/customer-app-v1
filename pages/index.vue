@@ -302,6 +302,31 @@
                   {{ errors.password_confirmation[0] }}
                 </span>
               </div>
+
+              <div class="mb-5 md:col-start-1 md:col-end-13">
+                <label for="" class="font-semibold text-sm opacity-75"
+                  >BVN Number</label
+                >
+                <TextInputClassic
+                  v-model="formData.bvn"
+                  type="number"
+                  name="number"
+                  placeholder="Enter your BVN details"
+                />
+                <p class="errors italics text-red-500 text-sm">
+                  <template
+                    v-if="submitted && !$v.formData.bvn.required"
+                    class="errorInfo"
+                  >
+                    <small>
+                      Your BVN details must be entered correctly.
+                    </small></template
+                  >
+                </p>
+                <span class="text-red-700 text-xs" v-if="errors.bvn">
+                  {{ errors.bvn[0] }}
+                </span>
+              </div>
               <div class="w-full md:col-span-5 flex">
                 <button
                   :class="{ 'opacity-50 cursor-not-allowed': disable }"
@@ -366,6 +391,7 @@ export default {
         ref_code: '',
         state: '',
         address: '',
+        bvn: '',
       },
       errorInfo: '',
       submitted: false,
@@ -443,6 +469,9 @@ export default {
         required,
       },
       address: {
+        required,
+      },
+      bvn: {
         required,
       },
     },

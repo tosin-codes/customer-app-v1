@@ -86,7 +86,7 @@ export default {
     },
     reset() {
       // reset form to initial state
-      console.log('clicked')
+      // console.log('clicked')
       this.file = null
       this.avatar = ''
     },
