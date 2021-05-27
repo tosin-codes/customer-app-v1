@@ -21,7 +21,7 @@
                   <h1 class="mt-4 mb-4 text-sm lg:text-xl">
                     Sorry we are unable to give you a system generated offer
                     right now. Please speak with our customer care agent on
-                    +234-802-857-2566
+                    01-2299954 or +234-802-857-2566
                   </h1>
                 </div>
                 <NuxtLink

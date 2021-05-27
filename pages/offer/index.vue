@@ -47,6 +47,14 @@
                             >
                           </h2>
                           <div class="text-xs">
+                            <a href="tel:+2341-2299954" class="p-3">
+                              <font-awesome-icon
+                                :icon="['fas', 'phone']"
+                                class="cursor-pointer text-sm text-blue-900"
+                                @click.prevent="reset"
+                              />
+                              <span>01-2299954</span>
+                            </a>
                             <a href="tel:+234028572566" class="p-3">
                               <font-awesome-icon
                                 :icon="['fas', 'phone']"
@@ -55,6 +63,7 @@
                               />
                               <span>+234 817 555 6789</span>
                             </a>
+
                             <a
                               href="https://wa.me/2348028572566"
                               target="_blank"
