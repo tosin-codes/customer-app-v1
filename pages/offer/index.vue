@@ -53,7 +53,7 @@
                                 class="cursor-pointer text-sm text-blue-900"
                                 @click.prevent="reset"
                               />
-                              <span> +234 122 999 54</span>
+                              <span> +234 1 22 999 54</span>
                             </a>
                             <a
                               href="https://wa.me/2348175556789"
