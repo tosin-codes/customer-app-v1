@@ -119,7 +119,7 @@
                 <span
                   class="error text-red-500 text-sm"
                   v-if="!$v.formData.full_name.required"
-                  >Field is required</span
+                  >Full name must match with BVN details</span
                 >
                 <span
                   class="error text-red-500 text-sm"

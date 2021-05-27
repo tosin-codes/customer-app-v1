@@ -8,7 +8,7 @@
         <client-only placeholder="Loading...">
           <form action="">
             <div class="flex flex-col md:flex-row justify-between mt-3">
-              <div class="w-full mb-6">
+              <div class="sm:w-full md:w-2/4 mb-6">
                 <date-picker
                   id="input"
                   class=""
@@ -31,7 +31,7 @@
                   </span>
                 </div>
               </div>
-              <div class="w-full md:ml-6">
+              <!-- <div class="w-full md:ml-6">
                 <div
                   class="bg-orange-100 p-3 w-full lg:max-w-2xl sm:max-w-md md:max-w-2xl border-l-4 border-orange-500"
                 >
@@ -51,7 +51,7 @@
                   </div>
                 </div>
 
-                <!-- <date-picker
+                <date-picker
                   id="input"
                   class=""
                   placeholder="HH:MM"
@@ -72,8 +72,8 @@
                   <span class="text-red-700 text-xs" v-if="errors.time">
                     {{ errors.time[0] }}
                   </span>
-                </div> -->
-              </div>
+                </div>
+              </div> -->
             </div>
             <div class="flex justify-between items-center mt-8">
               <button

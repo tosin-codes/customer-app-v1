@@ -16,7 +16,10 @@
             <div>
               <div>
                 <KycNumbers />
-                <div class="flex flex-row md:justify-end justify-center mb-12" v-if="this.$store.getters.activeloan.status != 2">
+                <div
+                  class="flex flex-row md:justify-end justify-center mb-12"
+                  v-if="this.$store.getters.activeloan.status != 2"
+                >
                   <div>
                     <button
                       @click.prevent="cancelLoan"
@@ -42,7 +45,7 @@
                   </div>
                 </div>
               </div>
-              <div v-if="activeloan.status == 2"  class="slide-page">
+              <div v-if="activeloan.status == 2" class="slide-page">
                 <RejectOffer />
               </div>
               <div
@@ -71,7 +74,7 @@
               </div>
               <div
                 v-if="
-                  activeloan.status != 2  &&
+                  activeloan.status != 2 &&
                   activeloan.level.passed_bvn == true &&
                   activeloan.level.passed_document_upload == true &&
                   activeloan.level.passed_set_inspection_date == false &&
@@ -102,13 +105,16 @@
                 "
                 class="slide-page"
               >
-                 <span v-if="disable" class="flex items-center mb-3">
+                <span v-if="disable" class="flex items-center mb-3">
                   <img src="../../assets/images/loading-sm.gif" alt="" />
                 </span>
                 <div v-if="this.$store.getters.activeloan.status == 1">
                   <VerifyOTP />
                 </div>
-                <div v-if="this.$store.getters.activeloan.status == 4" class="py-8 px-4 sm:px-10">
+                <div
+                  v-if="this.$store.getters.activeloan.status == 4"
+                  class="py-8 px-4 sm:px-10"
+                >
                   <AwaitingVerificationMessage />
                 </div>
               </div>
@@ -133,7 +139,6 @@ import RejectOffer from '~/components/messages/RejectOffer'
 import AwaitingVerificationMessage from '~/components/messages/AwaitingVerificationMessage'
 
 export default {
-
   head() {
     return {
       title: 'KYC',
@@ -156,7 +161,7 @@ export default {
   data() {
     return {
       show: true,
-      disable:false,
+      disable: false,
       showOne: false,
       showTwo: false,
       showThree: false,
@@ -202,7 +207,7 @@ export default {
 
           .then((response) => {
             let loan = response.data.data
-            
+
             this.$store.commit('setActiveLoanLevel', loan)
             vm.disable = false
             this.$noty.success('Successfully cancelled offer')
@@ -237,7 +242,7 @@ export default {
     }
     return true
   },
-    
+
   middleware: ['auth'],
 }
 </script>

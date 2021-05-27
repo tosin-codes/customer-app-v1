@@ -3,36 +3,60 @@
     <div>
       <div class="pl-4">Please take a photo of yourself</div>
       <div class="my-3 sm:mt-0 sm:col-span-2">
-        <div
-          class="flex flex-col justify-between md:flex-row md:justify-between items-center"
-        >
-          <div class="h-28 w-28 rounded-full overflow-hidden bg-gray-100">
-            <span>
-              <svg
-                class="h-full w-full text-gray-300"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
-                />
-              </svg>
-            </span>
-          </div>
+        <div>
           <client-only placeholder="Loading...">
             <div
-              class="ml-5 w-full mt-5 md:mt-0 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              class="w-full mt-5 md:mt-0 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
+              <div
+                class="flex flex-col justify-between md:flex-row md:justify-between items-center"
+              >
+                <div
+                  class="h-28 w-28 rounded-full overflow-hidden bg-gray-100"
+                  v-if="!previewImage"
+                >
+                  <span>
+                    <svg
+                      class="h-56 w-56 md:h-64 md:w-64 text-gray-300"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
+                      />
+                    </svg>
+                  </span>
+                </div>
+
+                <div
+                  v-else
+                  class="bg-center bg-cover cursor-pointer h-56 w-56 md:h-64 md:w-64 block rounded-full"
+                  :style="{ 'background-image': `url(${previewImage})` }"
+                  @click="selectImage"
+                ></div>
+                <div>
+                  <input
+                    ref="fileInput"
+                    type="file"
+                    v-on:change="handleFileUpload()"
+                  />
+                </div>
+                <!-- <div
+                class="imagePreviewWrapper"
+                :style="{ 'background-image': `url(${previewImage})` }"
+                @click="selectImage"
+              ></div>
               <input
                 type="file"
                 id="file"
                 ref="file"
                 v-on:change="handleFileUpload()"
-              />
-              <div v-if="errors">
-                <span class="text-red-700 text-xs" v-if="errors.selfie">
-                  {{ errors.selfie[0] }}
-                </span>
+              /> -->
+                <div v-if="errors">
+                  <span class="text-red-700 text-xs" v-if="errors.selfie">
+                    {{ errors.selfie[0] }}
+                  </span>
+                </div>
               </div>
             </div>
           </client-only>
@@ -74,11 +98,25 @@ export default {
     return {
       file: '',
       disable: false,
+      previewImage: null,
     }
   },
   methods: {
+    selectImage() {
+      this.$refs.file.click()
+    },
     handleFileUpload() {
-      this.file = this.$refs.file.files[0]
+      // this.file = this.$refs.file.files[0]
+      this.file = this.$refs.fileInput.files[0]
+      let file = this.$refs.fileInput.files
+      if (file && file[0]) {
+        let reader = new FileReader()
+        reader.onload = (e) => {
+          this.previewImage = e.target.result
+        }
+        reader.readAsDataURL(file[0])
+        this.$emit('input', file[0])
+      }
     },
     async submitImage() {
       let vm = this
@@ -142,4 +180,14 @@ input {
 input:focus {
   @apply border-2 border-gray-200;
 }
+/* .imagePreviewWrapper {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  display: block;
+  cursor: pointer;
+  margin: 0 auto 30px;
+  background-size: cover;
+  background-position: center center;
+} */
 </style>

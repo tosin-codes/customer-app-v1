@@ -63,7 +63,11 @@
                 <span class="mr-2 text-2xl font-medium"> ₦ </span>
                 <span class="font-extrabold text-2xl">
                   <!-- currency -->
-                  {{ activeloan.status != 2 ? activeloan.offer_amount:0 | currency }}
+                  {{
+                    activeloan.status != 2
+                      ? activeloan.offer_amount
+                      : 0 | currency
+                  }}
                   <!-- {{ summaryDetails.amount | currency }} -->
                 </span>
               </span>
@@ -85,8 +89,11 @@
                 class="px-3 flex items-start text-2xl tracking-tight text-gray-500"
               >
                 <span class="font-extrabold text-2xl">
-                  {{  activeloan.status != 2 ? activeloan.offer_tenor+' Months': 'None'}}
-                  
+                  {{
+                    activeloan.status != 2
+                      ? activeloan.offer_tenor + ' Months'
+                      : 'None'
+                  }}
                 </span>
               </span>
             </client-only>
@@ -106,7 +113,11 @@
               class="px-3 flex items-start text-2xl tracking-tight text-gray-500"
             >
               <span class="font-extrabold text-2xl">
-                {{ activeloan.status != 2 ? activeloan.offer_repayment_plan : 'None' }}
+                {{
+                  activeloan.status != 2
+                    ? activeloan.offer_repayment_plan
+                    : 'None'
+                }}
               </span>
             </span>
           </div>

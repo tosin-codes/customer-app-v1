@@ -1,14 +1,16 @@
 <template>
   <div
-    class="flex flex-col items-center justify-center bg-white border-dashed border-2 py-32"
+    class="flex flex-col items-center justify-center bg-white border-dashed border-2 py-12 md:py-20"
   >
     <div>
-      <img class="w-64" src="~/assets/images/waiting.gif" alt="" />
+      <img
+        class="sm:w-48 md:w-64"
+        src="~/assets/images/congratulations.gif"
+        alt=""
+      />
     </div>
-    <p
-      class="text-center leading-loose tracking-normal md:text-xl text-base p-4"
-    >
-      Your funds will be disbursed immediately after your inspection on
+    <p class="text-center leading-loose tracking-normal md:text-xl text-sm p-4">
+      Your funds will be disbursed immediately after your inspection on<br />
       <b>{{ this.$store.getters.activeloan.inspection.date | formatDate }}</b
       >.<br />
       If you need any further enquiries, please call or WhatApp +234 802 857
