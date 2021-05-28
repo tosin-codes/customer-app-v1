@@ -11,7 +11,11 @@
     </div>
     <p class="text-center leading-loose tracking-normal md:text-xl text-sm p-4">
       Your funds will be disbursed immediately after your inspection on<br />
-      <b>{{ this.$store.getters.activeloan.inspection.date | formatDate }}</b
+      <b>{{
+        new Date(
+          this.$store.getters.activeloan.inspection.date
+        ).toLocaleDateString('en-GB')
+      }}</b
       >.<br />
       If you need any further enquiries, please call or WhatApp +234 802 857
       2566
@@ -20,19 +24,19 @@
 </template>
 
 <script>
-import moment from 'moment'
-import { mapGetters } from 'vuex'
+// import moment from 'moment'
+// import { mapGetters } from 'vuex'
 export default {
   components: {},
   data() {
     return {}
   },
   methods: {},
-  filters: {
-    formatDate(value) {
-      return moment(String(value)).format('DD-MMM-YYYY')
-    },
-  },
+  // filters: {
+  //   formatDate(value) {
+  //     return moment(String(value)).format('DD-MMM-YYYY')
+  //   },
+  // },
 }
 </script>
 
