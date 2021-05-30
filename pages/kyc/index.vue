@@ -51,9 +51,13 @@
               <div
                 v-if="
                   activeloan.status != 2 &&
+                  activeloan.level &&
                   activeloan.level.passed_bvn == false &&
+                  activeloan.level &&
                   activeloan.level.passed_document_upload == false &&
+                  activeloan.level &&
                   activeloan.level.passed_set_inspection_date == false &&
+                  activeloan.level &&
                   activeloan.level.passed_picture_upload == false
                 "
                 class="slide-page"
@@ -63,9 +67,13 @@
               <div
                 v-if="
                   activeloan.status != 2 &&
+                  activeloan.level &&
                   activeloan.level.passed_bvn == true &&
+                  activeloan.level &&
                   activeloan.level.passed_document_upload == false &&
+                  activeloan.level &&
                   activeloan.level.passed_set_inspection_date == false &&
+                  activeloan.level &&
                   activeloan.level.passed_picture_upload == false
                 "
                 class="slide-page"
@@ -75,9 +83,13 @@
               <div
                 v-if="
                   activeloan.status != 2 &&
+                  activeloan.level &&
                   activeloan.level.passed_bvn == true &&
+                  activeloan.level &&
                   activeloan.level.passed_document_upload == true &&
+                  activeloan.level &&
                   activeloan.level.passed_set_inspection_date == false &&
+                  activeloan.level &&
                   activeloan.level.passed_picture_upload == false
                 "
                 class="slide-page"
@@ -87,9 +99,13 @@
               <div
                 v-if="
                   activeloan.status != 2 &&
+                  activeloan.level &&
                   activeloan.level.passed_bvn == true &&
+                  activeloan.level &&
                   activeloan.level.passed_document_upload == true &&
+                  activeloan.level &&
                   activeloan.level.passed_set_inspection_date == true &&
+                  activeloan.level &&
                   activeloan.level.passed_picture_upload == false
                 "
                 class="slide-page"
@@ -98,9 +114,13 @@
               </div>
               <div
                 v-if="
+                  activeloan.level &&
                   activeloan.level.passed_bvn == true &&
+                  activeloan.level &&
                   activeloan.level.passed_document_upload == true &&
+                  activeloan.level &&
                   activeloan.level.passed_set_inspection_date == true &&
+                  activeloan.level &&
                   activeloan.level.passed_picture_upload == true
                 "
                 class="slide-page"
@@ -169,6 +189,16 @@ export default {
   },
   computed: {
     ...mapGetters(['activeloan']),
+
+    // activeloanBvn() {
+    //   activeloan?.status != 2 &&
+    //     activeloan?.level?.passed_bvn == false &&
+    //     activeloan?.level?.passed_document_upload == false &&
+    //     activeloan?.level?.passed_set_inspection_date == false &&
+    //     activeloan?.level?.passed_picture_upload == false
+
+    //   return this.activeloanBvn
+    // },
   },
   methods: {
     slide() {
@@ -241,6 +271,9 @@ export default {
       return redirect('/create-loan')
     }
     return true
+  },
+  mounted() {
+    // console.log(this.activeloan)
   },
 
   middleware: ['auth'],

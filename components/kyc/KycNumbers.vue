@@ -5,7 +5,7 @@
         <nuxt-link
           to="#"
           :class="[
-            activeloan.level.passed_bvn == true
+            activeloan.level && activeloan.level.passed_bvn == true
               ? 'bg-orange-400 rounded-full w-12 h-12 text-center text-white'
               : 'bg-orange-400 rounded-full w-12 h-12 text-center text-white',
           ]"
@@ -16,7 +16,7 @@
         <nuxt-link
           to="#"
           :class="[
-            activeloan.level.passed_document_upload == true
+            activeloan.level && activeloan.level.passed_document_upload == true
               ? 'bg-orange-400 rounded-full w-12 h-12 text-center text-white'
               : 'bg-gray-400 rounded-full w-12 h-12 text-center text-white',
           ]"
@@ -27,6 +27,7 @@
         <nuxt-link
           to="#"
           :class="[
+            activeloan.level &&
             activeloan.level.passed_set_inspection_date == true
               ? 'bg-orange-400 rounded-full w-12 h-12 text-center text-white'
               : 'bg-gray-400 rounded-full w-12 h-12 text-center text-white',
@@ -38,7 +39,7 @@
         <nuxt-link
           to="#"
           :class="[
-            activeloan.level.passed_picture_upload == true
+            activeloan.level && activeloan.level.passed_picture_upload == true
               ? 'bg-orange-400 rounded-full w-12 h-12 text-center text-white'
               : 'bg-gray-400 rounded-full w-12 h-12 text-center text-white',
           ]"

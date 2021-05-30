@@ -306,11 +306,12 @@ export default {
       surveys: [
         //{ id: 1, value: 'Cash4DriveCampaign' },
         { id: 1, value: 'Mr Macaroni Campaign' },
-        { id: 2, value: 'Instagram' },
-        { id: 3, value: 'Facebook' },
-        { id: 4, value: 'Linkedin' },
-        { id: 5, value: 'Google' },
-        { id: 6, value: 'Referral' },
+        { id: 2, value: 'Billboard' },
+        { id: 3, value: 'Instagram' },
+        { id: 4, value: 'Facebook' },
+        { id: 5, value: 'Linkedin' },
+        { id: 6, value: 'Google' },
+        { id: 7, value: 'Referral' },
       ],
       vehicles: vehicles,
     }
