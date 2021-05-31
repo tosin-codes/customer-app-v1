@@ -9,7 +9,7 @@
         </div>
         <div class="md:text-justify">
           <div>
-            This DEED OF TRANSFER is made this {{ date }} day, of {{ month }},
+            This DEED OF TRANSFER is made this {{ date }} of {{ month }},
             {{ year }} between CONSYNERGY LIMITED (also known as the “Company”)
             of Plot 14 Ladipo Omotesho Cole Street, Lekki Phase 1, Lagos
             (Hereinafter referred to as “The Transferee”) of the first part;<br />
@@ -197,6 +197,9 @@ export default {
 
       let d = new Date()
       let j = d.getMonth()
+      this.year = d.getFullYear()
+
+      this.month = this.months[j]
       let k = d.getDate()
       if (k == 1 || k == 11 || k == 21 || k == 31) {
         return (this.date = `${k}st`)
@@ -207,9 +210,6 @@ export default {
       } else {
         this.date = `${k}th`
       }
-      this.year = d.getFullYear()
-
-      this.month = this.months[j]
     },
   },
   created() {

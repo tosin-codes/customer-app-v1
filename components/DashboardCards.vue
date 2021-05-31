@@ -31,14 +31,20 @@
           </div>
           <div>Active Loan</div>
         </div>
-        <div class="font-semibold text-xl">
+        <div
+          class="font-semibold text-xl"
+          v-if="
+            !this.$store.getters.activeloan.offer_amount ||
+            this.$store.getters.activeloan.status == 2
+          "
+        >
+          ₦0
+        </div>
+        <div class="font-semibold text-xl" v-else>
           ₦{{
-            this.$store.getters.activeloan &&
             this.$store.getters.activeloan.offer_amount
-              ? this.$store.getters.activeloan.offer_amount
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-              : 0
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
           }}
         </div>
       </div>

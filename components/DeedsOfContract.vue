@@ -9,10 +9,10 @@
         </div>
         <div class="md:text-justify">
           <div>
-            This Credit &#38; Security Agreement is made on the {{ date }} day,
-            of {{ month }} {{ year }} between CONSYNERGY LIMITED of Plot 14
-            Ladipo Omotesho Cole Street, Lekki Phase 1, Lagos (Hereinafter
-            referred to as “The Creditor”) of the first part;<br />
+            This Credit &#38; Security Agreement is made on the {{ date }} of
+            {{ month }} {{ year }} between CONSYNERGY LIMITED of Plot 14 Ladipo
+            Omotesho Cole Street, Lekki Phase 1, Lagos (Hereinafter referred to
+            as “The Creditor”) of the first part;<br />
             AND
             <span class="uppercase font-bold"
               >{{ $store.getters.user.first_name }}
@@ -1012,6 +1012,9 @@ export default {
 
       let d = new Date()
       let j = d.getMonth()
+      this.year = d.getFullYear()
+
+      this.month = this.months[j]
       let k = d.getDate()
       if (k == 1 || k == 11 || k == 21 || k == 31) {
         return (this.date = `${k}st`)
@@ -1022,9 +1025,6 @@ export default {
       } else {
         this.date = `${k}th`
       }
-      this.year = d.getFullYear()
-
-      this.month = this.months[j]
     },
   },
   created() {
