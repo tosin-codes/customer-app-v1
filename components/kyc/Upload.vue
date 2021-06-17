@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <!-- <h6>click to upload.</h6> -->
+   
     <div class="wrapper">
       <div class="uploaded-image" v-if="avatar">
         <img :src="avatar" />
@@ -12,14 +12,15 @@
       </div>
 
       <div class="file-upload-wrapper">
+      
         <input
-          type="file"
           required="required"
-          @change="handleChange"
           :id="no ? 'upload' + no : 'input-file-now'"
           ref="file"
           class="file-upload"
           style="display: none"
+          type="file"
+          @change="view"
         />
 
         <label
@@ -32,31 +33,41 @@
             />
           </div>
         </label>
+      
       </div>
     </div>
+        <span v-if="loading" class="flex items-center">
+            <img src="../../assets/images/loading-sm.gif" alt="" />
+          </span>
   </div>
 </template>
 
 <script>
+import { compressAccurately } from 'image-conversion'
 export default {
+
   data() {
     return {
       file: null,
       avatar: '',
       loader: false,
+          loading: false,
     }
   },
   props: ['no'],
   methods: {
-    async handleChange(event) {
+    async view(event) {
+       this.loading = true
       const file = event.target.files[0]
-      const validType = this.beforeUpload(file)
+ 
+  const res = await compressAccurately(file,200)
+      const validType = this.beforeUpload(res)
       if (!validType) return
-      this.loader = true
-      getBase64(file, (avatar) => {
-        this.$emit('uploaded', file)
+      this.loading = true
+      getBase64(res, (avatar) => {
+        this.$emit('uploaded', res)
         this.avatar = avatar
-        this.loader = false
+        this.loading = false
       })
       function getBase64(img, callback) {
         const reader = new FileReader()
@@ -64,10 +75,10 @@ export default {
         reader.readAsDataURL(img)
       }
     },
-    beforeUpload({ type, size }) {
+    beforeUpload({ type}) {
       const isType =
         type === 'image/jpeg' || type === 'image/png' || type === 'image/jpg'
-      const imageSize = size <= 1024 * 1024
+      // const imageSize = size <= 1024 * 1024
       if (!isType) {
         this.$noty.error(
           'You can only upload JPG, JPEG or PNG files!',
@@ -75,13 +86,13 @@ export default {
         )
         return false
       }
-      if (!imageSize) {
-        this.$noty.error(
-          'You can only upload images with maximum size of 2MB!',
-          'This file type is not allowed'
-        )
-        return false
-      }
+      // if (!imageSize) {
+      //   this.$noty.error(
+      //     'You can only upload images with maximum size of 2MB!',
+      //     'This file type is not allowed'
+      //   )
+      //   return false
+      // }
       return true
     },
     reset() {

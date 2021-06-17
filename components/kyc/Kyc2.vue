@@ -15,7 +15,9 @@
           >
             <div class="">
               <div>
+               
                 <Upload :no="i" @uploaded="getUpload(key, $event)" />
+                
               </div>
               <div class="mb-12 mt-2">
                 <label
@@ -56,9 +58,12 @@
 
 <script>
 import Upload from './Upload.vue'
+
 export default {
   components: {
     Upload,
+     
+
   },
   data: () => ({
     document: {
@@ -78,6 +83,7 @@ export default {
     }
   },
   methods: {
+ 
     getUpload(key, value) {
       this.document[key] = value
       this.$forceUpdate()
@@ -100,7 +106,7 @@ export default {
       ]
       this.disable = true
       this.uploadDocuments(vehicle_documents)
-      this.$emit('next')
+      // this.$emit('next')
     },
     async uploadDocuments(data) {
       const loan_id = this.$store.getters.activeloan.id
