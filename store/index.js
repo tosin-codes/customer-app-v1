@@ -1,10 +1,17 @@
 export const strict = false
+// export const state = () => ({
+//  acc_fullname:''
+// })
 export const getters = {
   authenticated(state) {
     return state.auth.loggedIn
   },
+ 
   user(state) {
     return state.auth.user
+  },
+  verifydetails(state){
+    return state.acc_fullname
   },
   totalloans(state) {
     if (!state.auth.user.loans) {
@@ -48,4 +55,13 @@ export const mutations = {
   setValidationErrors(state, errors) {
     state.validation.errors = errors
   },
+  setFullName(state, acc_name) {
+    state.acc_fullname = acc_name
+    
+  },
+}
+export const actions = {
+  submitAccountName({ commit }, fullName) {
+    commit('setFullName', fullName)
+ }
 }

@@ -114,7 +114,7 @@
                   type="text"
                   autocomplete="text"
                   v-model="$v.formData.full_name.$model"
-                  class="border-gray-500 mb-2 focus:border-gray-900 border-b-2 mt-5 h-10 w-full outline-none text-sm"
+                  class="border-gray-500 mb-2 uppercase focus:border-gray-900 border-b-2 mt-5 h-10 w-full outline-none text-sm"
                 />
                 <span
                   class="error text-red-500 text-sm"
@@ -216,9 +216,14 @@ export default {
     },
   },
   methods: {
+   
     async signContract() {
       if (!this.$v.$invalid) {
-        this.disabled = true
+        let bvn_name = this.$store.getters.verifydetails
+ const firstArr = bvn_name.toLowerCase().split(" ").sort().join(" ")
+const secondArr = this.formData.full_name.toLowerCase().split(" ").sort().join(" ")
+       if(firstArr == secondArr){
+          this.disabled = true
         this.loading = true
         this.displayForm = false
         this.resendSuccess = false
@@ -245,7 +250,10 @@ export default {
               this.$noty.error('Invalid data')
             }
           })
-      } else {
+      }else{
+        this.$noty.error('Enter the full name on your BVN')
+      }
+       } else {
         this.$noty.error('Fill in all fields')
       }
     },
