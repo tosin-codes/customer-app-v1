@@ -199,6 +199,7 @@ export default {
   methods: {
     ...mapMutations({
       setState: 'setStates',
+      setFullName:'setFullName'
     }),
     async checkAccountDetails(){
       const headers = {
@@ -216,6 +217,8 @@ export default {
           this.payantLoader = false;
           if(response.data.status === 'success'){
             vm.account_name = response.data.data.account_name
+                this.$store.dispatch('submitAccountName', this.account_name)
+    
           }else if(response.data.status === 'error'){
             vm.account_name = null
             vm.$noty.error(response.data.message)

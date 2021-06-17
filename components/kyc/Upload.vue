@@ -67,7 +67,7 @@ export default {
     beforeUpload({ type, size }) {
       const isType =
         type === 'image/jpeg' || type === 'image/png' || type === 'image/jpg'
-      const imageSize = size / 1024 / 1000
+      const imageSize = size <= 1024 * 1024
       if (!isType) {
         this.$noty.error(
           'You can only upload JPG, JPEG or PNG files!',
@@ -75,9 +75,9 @@ export default {
         )
         return false
       }
-      if (imageSize > 10) {
+      if (!imageSize) {
         this.$noty.error(
-          'You can only upload images with maximum size of 10MB!',
+          'You can only upload images with maximum size of 2MB!',
           'This file type is not allowed'
         )
         return false
