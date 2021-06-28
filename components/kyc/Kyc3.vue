@@ -16,6 +16,14 @@
                   format="YYYY-MM-DD"
                   value-type="format"
                   v-model="inspectionDate.date"
+                  :disabled-date="
+                  (date)=>{
+                    if(date < new Date()){
+                      return true
+                    }
+                    return false
+                  }
+                  "
                 />
                 <span
                   class="text-red-500 italics text-sm pl-4"
@@ -117,7 +125,7 @@ export default {
   data() {
     return {
       inspectionDate: {
-        date: '',
+        date: new Date().toISOString().substring(0,10),
       },
       disable: false,
     }

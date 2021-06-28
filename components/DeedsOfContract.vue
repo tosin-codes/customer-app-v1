@@ -928,7 +928,7 @@
                       <td class="text-xs">Amount Disbursed</td>
                       <td class="text-xs">
                         ₦
-                        {{ $store.getters.activeloan.offer_amount | currency }}
+                        {{ $store.getters.activeloan.disbursed_amount | currency }}
                       </td>
                     </tr>
                     <tr>
