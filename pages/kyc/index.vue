@@ -90,7 +90,16 @@
                   activeloan.level &&
                   activeloan.level.passed_set_inspection_date == false &&
                   activeloan.level &&
-                  activeloan.level.passed_picture_upload == false
+                  activeloan.level.passed_picture_upload == false ||
+                  activeloan.status != 2 &&
+                  activeloan.level &&
+                  activeloan.level.passed_bvn == true &&
+                  activeloan.level &&
+                  activeloan.level.passed_document_upload == true &&
+                  activeloan.level &&
+                  activeloan.level.passed_set_inspection_date == false &&
+                  activeloan.level &&
+                  activeloan.level.passed_picture_upload == true
                 "
                 class="slide-page"
               >
@@ -128,14 +137,28 @@
                 <span v-if="disable" class="flex items-center mb-3">
                   <img src="../../assets/images/loading-sm.gif" alt="" />
                 </span>
-                <div v-if="this.$store.getters.activeloan.status == 1">
+                <div v-if="this.$store.getters.activeloan.status == 1 && activeloan.estimate.type != 'forsale'">
                   <VerifyOTP />
                 </div>
                 <div
-                  v-if="this.$store.getters.activeloan.status == 4"
+                  v-if="this.$store.getters.activeloan.status == 4 && activeloan.estimate.type != 'forsale'"
                   class="py-8 px-4 sm:px-10"
                 >
                   <AwaitingVerificationMessage />
+                </div>
+                <div
+                  v-if="activeloan.level &&
+                  activeloan.level.passed_bvn == true &&
+                  activeloan.level &&
+                  activeloan.level.passed_document_upload == true &&
+                  activeloan.level &&
+                  activeloan.level.passed_set_inspection_date == true &&
+                  activeloan.level &&
+                  activeloan.level.passed_picture_upload == true && 
+                  activeloan.estimate.type == 'forsale'"
+                  class="py-8 px-4 sm:px-10"
+                >
+                  <AwaitingSellerMessage />
                 </div>
               </div>
             </div>
@@ -157,6 +180,7 @@ import Kyc4 from '../../components/kyc/Kyc4'
 import VerifyOTP from '~/components/messages/VerifyOTP'
 import RejectOffer from '~/components/messages/RejectOffer'
 import AwaitingVerificationMessage from '~/components/messages/AwaitingVerificationMessage'
+import AwaitingSellerMessage from '~/components/messages/AwaitingSellerMessage'
 
 export default {
   head() {
@@ -177,6 +201,7 @@ export default {
     VerifyOTP,
     RejectOffer,
     AwaitingVerificationMessage,
+    AwaitingSellerMessage,
   },
   data() {
     return {
@@ -189,16 +214,6 @@ export default {
   },
   computed: {
     ...mapGetters(['activeloan']),
-
-    // activeloanBvn() {
-    //   activeloan?.status != 2 &&
-    //     activeloan?.level?.passed_bvn == false &&
-    //     activeloan?.level?.passed_document_upload == false &&
-    //     activeloan?.level?.passed_set_inspection_date == false &&
-    //     activeloan?.level?.passed_picture_upload == false
-
-    //   return this.activeloanBvn
-    // },
   },
   methods: {
     slide() {

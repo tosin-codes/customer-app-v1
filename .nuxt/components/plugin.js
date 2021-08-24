@@ -23,6 +23,7 @@ const components = {
   MasterHeaderNav: () => import('../..\\components\\master\\HeaderNav.vue' /* webpackChunkName: "components/master-header-nav" */).then(c => c.default || c),
   MasterMobileNav: () => import('../..\\components\\master\\MobileNav.vue' /* webpackChunkName: "components/master-mobile-nav" */).then(c => c.default || c),
   MasterSidebarNav: () => import('../..\\components\\master\\SidebarNav.vue' /* webpackChunkName: "components/master-sidebar-nav" */).then(c => c.default || c),
+  MessagesAwaitingSellerMessage: () => import('../..\\components\\messages\\AwaitingSellerMessage.vue' /* webpackChunkName: "components/messages-awaiting-seller-message" */).then(c => c.default || c),
   MessagesAwaitingVerificationMessage: () => import('../..\\components\\messages\\AwaitingVerificationMessage.vue' /* webpackChunkName: "components/messages-awaiting-verification-message" */).then(c => c.default || c),
   MessagesAwaitMessage: () => import('../..\\components\\messages\\AwaitMessage.vue' /* webpackChunkName: "components/messages-await-message" */).then(c => c.default || c),
   MessagesRejectOffer: () => import('../..\\components\\messages\\RejectOffer.vue' /* webpackChunkName: "components/messages-reject-offer" */).then(c => c.default || c),

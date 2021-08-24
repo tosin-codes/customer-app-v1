@@ -65,6 +65,9 @@
   "MasterSidebarNav": {
     "description": "Auto imported from components/master/SidebarNav.vue"
   },
+  "MessagesAwaitingSellerMessage": {
+    "description": "Auto imported from components/messages/AwaitingSellerMessage.vue"
+  },
   "MessagesAwaitingVerificationMessage": {
     "description": "Auto imported from components/messages/AwaitingVerificationMessage.vue"
   },

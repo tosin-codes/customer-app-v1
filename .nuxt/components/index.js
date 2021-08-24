@@ -20,6 +20,7 @@ export { default as KycUpload } from '../..\\components\\kyc\\Upload.vue'
 export { default as MasterHeaderNav } from '../..\\components\\master\\HeaderNav.vue'
 export { default as MasterMobileNav } from '../..\\components\\master\\MobileNav.vue'
 export { default as MasterSidebarNav } from '../..\\components\\master\\SidebarNav.vue'
+export { default as MessagesAwaitingSellerMessage } from '../..\\components\\messages\\AwaitingSellerMessage.vue'
 export { default as MessagesAwaitingVerificationMessage } from '../..\\components\\messages\\AwaitingVerificationMessage.vue'
 export { default as MessagesAwaitMessage } from '../..\\components\\messages\\AwaitMessage.vue'
 export { default as MessagesRejectOffer } from '../..\\components\\messages\\RejectOffer.vue'
@@ -60,6 +61,7 @@ export const LazyKycUpload = import('../..\\components\\kyc\\Upload.vue' /* webp
 export const LazyMasterHeaderNav = import('../..\\components\\master\\HeaderNav.vue' /* webpackChunkName: "components/master-header-nav" */).then(c => c.default || c)
 export const LazyMasterMobileNav = import('../..\\components\\master\\MobileNav.vue' /* webpackChunkName: "components/master-mobile-nav" */).then(c => c.default || c)
 export const LazyMasterSidebarNav = import('../..\\components\\master\\SidebarNav.vue' /* webpackChunkName: "components/master-sidebar-nav" */).then(c => c.default || c)
+export const LazyMessagesAwaitingSellerMessage = import('../..\\components\\messages\\AwaitingSellerMessage.vue' /* webpackChunkName: "components/messages-awaiting-seller-message" */).then(c => c.default || c)
 export const LazyMessagesAwaitingVerificationMessage = import('../..\\components\\messages\\AwaitingVerificationMessage.vue' /* webpackChunkName: "components/messages-awaiting-verification-message" */).then(c => c.default || c)
 export const LazyMessagesAwaitMessage = import('../..\\components\\messages\\AwaitMessage.vue' /* webpackChunkName: "components/messages-await-message" */).then(c => c.default || c)
 export const LazyMessagesRejectOffer = import('../..\\components\\messages\\RejectOffer.vue' /* webpackChunkName: "components/messages-reject-offer" */).then(c => c.default || c)

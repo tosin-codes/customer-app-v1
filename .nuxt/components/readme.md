@@ -28,6 +28,7 @@ You can directly use them in pages and other components without the need to impo
 - `<MasterHeaderNav>` | `<master-header-nav>` (components/master/HeaderNav.vue)
 - `<MasterMobileNav>` | `<master-mobile-nav>` (components/master/MobileNav.vue)
 - `<MasterSidebarNav>` | `<master-sidebar-nav>` (components/master/SidebarNav.vue)
+- `<MessagesAwaitingSellerMessage>` | `<messages-awaiting-seller-message>` (components/messages/AwaitingSellerMessage.vue)
 - `<MessagesAwaitingVerificationMessage>` | `<messages-awaiting-verification-message>` (components/messages/AwaitingVerificationMessage.vue)
 - `<MessagesAwaitMessage>` | `<messages-await-message>` (components/messages/AwaitMessage.vue)
 - `<MessagesRejectOffer>` | `<messages-reject-offer>` (components/messages/RejectOffer.vue)
