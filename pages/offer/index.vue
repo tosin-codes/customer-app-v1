@@ -55,30 +55,6 @@
                               />
                               <span> +234 1 22 999 54</span>
                             </a>
-                            <a
-                              href="https://wa.me/2348175556789"
-                              target="_blank"
-                              class="p-3"
-                            >
-                              <font-awesome-icon
-                                :icon="['fab', 'whatsapp']"
-                                class="cursor-pointer text-sm text-green-500"
-                                @click.prevent="reset"
-                              />
-                              <span>+234 817 555 6789</span>
-                            </a>
-                            <a
-                              href="https://wa.me/2348028572566"
-                              target="_blank"
-                              class="p-3"
-                            >
-                              <font-awesome-icon
-                                :icon="['fab', 'whatsapp']"
-                                class="cursor-pointer text-sm text-green-500"
-                                @click.prevent="reset"
-                              />
-                              <span>+234 802 857 2566</span>
-                            </a>
                           </div>
                         </div>
                       </div>
@@ -176,430 +152,214 @@
                     </div>
                   </div>
 
-                  <div class="mt-16 bg-white pb-12 lg:mt-20">
-                    <div class="relative z-0">
-                      <div
-                        class="absolute inset-0 h-5/6 bg-gray-100 lg:h-2/3"
-                      ></div>
-                      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div class="relative lg:grid lg:grid-cols-7">
-                          <div
-                            class="mx-auto max-w-md lg:mx-0 lg:max-w-none lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-3"
-                          >
-                            <div
-                              class="h-full flex flex-col rounded-lg shadow-lg overflow-hidden lg:rounded-none lg:rounded-l-lg"
-                            >
-                              <div class="flex-1 flex flex-col">
-                                <div class="bg-white px-6 py-10">
-                                  <div>
-                                    <h3
-                                      class="text-center text-2xl font-medium text-gray-900"
-                                      id="tier-hobby"
-                                    >
-                                      Standard Offer
-                                    </h3>
-                                    <div
-                                      class="mt-4 flex items-center justify-center"
-                                    >
-                                      <span
-                                        class="px-3 flex items-start lg:text-4xl xl:text-6xl text-6xl tracking-tight text-gray-900"
-                                      >
-                                        <span
-                                          class="mt-2 mr-2 text-3xl font-medium"
-                                        >
-                                          ₦
-                                        </span>
-                                        <span class="font-extrabold text-4xl">
-                                          {{ offer.standard_offer.offer }}
-                                        </span>
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div
-                                  class="flex-1 flex flex-col justify-between border-t-2 border-gray-100 p-6 bg-gray-50 sm:p-10 lg:p-6 xl:p-10"
-                                >
-                                  <div class="flex flex-col">
-                                    <div class="text-center">
-                                      <div class="my-5">
-                                        <div class="text-orange-600">
-                                          Comprehensive Insurance & Car Tracker
-                                        </div>
-                                        <div class="font-semibold text-2xl">
-                                          ₦{{ offer.standard_offer.expenses }}
-                                        </div>
-                                      </div>
-                                      <hr />
-                                      <div class="my-5">
-                                        <div class="text-orange-600">
-                                          Disbursement amount
-                                        </div>
-                                        <div class="font-semibold text-2xl">
-                                          ₦{{
-                                            offer.standard_offer
-                                              .disbursed_amount
-                                          }}
-                                        </div>
-                                      </div>
-                                      <hr />
-                                      <div class="my-5">
-                                        <div
-                                          class="text-orange-600"
-                                          v-if="
-                                            checkRepayment(
-                                              summaryDetails.repayment_plan
-                                            ) == 'Monthly'
-                                          "
-                                        >
-                                          Monthly repayment amount
-                                        </div>
-                                        <div class="text-orange-600" v-else>
-                                          Bi-Monthly repayment amount
-                                        </div>
-                                        <div class="font-semibold text-2xl">
-                                          ₦{{
-                                            offer.standard_offer.final_repayment
-                                          }}
-                                        </div>
-                                      </div>
-                                      <hr />
-                                      <div class="my-5">
-                                        <div class="text-orange-600">
-                                          Car Value
-                                        </div>
-                                        <div class="font-semibold text-2xl">
-                                          ₦{{ offer.standard_offer.car_value }}
-                                        </div>
-                                      </div>
-                                      <hr />
-                                      <div class="my-5">
-                                        <div class="text-orange-600">
-                                          Duration
-                                        </div>
-                                        <div class="font-semibold text-2xl">
-                                          {{
-                                            offer.standard_offer.data
-                                              .offer_tenor
-                                          }}
-                                        </div>
-                                      </div>
-                                      <hr />
-                                      <div class="my-5">
-                                        <div class="text-orange-600">
-                                          Total amount payable
-                                        </div>
-                                        <div class="font-semibold text-2xl">
-                                          ₦{{
-                                            offer.standard_offer
-                                              .total_amount_payable
-                                          }}
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="mt-8">
-                                    <div class="rounded-lg shadow-md">
-                                      <button
-                                        @click="
-                                          accept(offer.standard_offer.token)
-                                        "
-                                        class="block w-full text-center focus:outline-none border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
-                                        aria-describedby="tier-hobby"
-                                      >
-                                        Accept
-                                      </button>
-                                    </div>
-                                    <small
-                                      class="text-orange-600 text-center block"
-                                      >(Drive Your Car)</small
-                                    >
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="mt-14 max-w-lg mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-start-3 lg:col-end-6 lg:row-start-1 lg:row-end-4"
-                          >
-                            <div
-                              class="relative z-10 rounded-lg shadow-xl mb-12"
-                            >
-                              <div
-                                class="pointer-events-none absolute inset-0 rounded-lg border-2 border-orange-300"
-                                aria-hidden="true"
-                              ></div>
-                              <div
-                                class="absolute inset-x-0 top-0 transform translate-y-px"
-                              >
-                                <div
-                                  class="flex justify-center transform -translate-y-1/2"
-                                >
-                                  <span
-                                    class="inline-flex rounded-full bg-orange-600 px-4 py-1 text-sm font-semibold tracking-wider uppercase text-white"
-                                  >
-                                    Exclusive
-                                  </span>
-                                </div>
-                              </div>
-                              <div
-                                class="bg-white rounded-t-lg px-6 pt-12 pb-10"
-                              >
-                                <div>
-                                  <h3
-                                    class="text-center text-3xl font-semibold text-gray-900 sm:-mx-6"
-                                    id="tier-growth"
-                                  >
-                                    Best Offer
-                                  </h3>
-                                  <div
-                                    class="mt-4 flex items-center justify-center"
-                                  >
-                                    <span
-                                      class="px-3 flex items-start text-6xl tracking-tight text-gray-900 sm:text-6xl"
-                                    >
-                                      <span
-                                        class="mt-2 mr-2 text-3xl font-medium"
-                                      >
-                                        ₦
-                                      </span>
-                                      <span class="font-extrabold text-4xl">
-                                        {{ offer.best_offer.offer }}
-                                      </span>
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                class="border-t-2 border-gray-100 rounded-b-lg pt-10 pb-8 px-6 bg-gray-50 sm:px-10 sm:py-10"
-                              >
-                                <div class="flex flex-col">
-                                  <!-- put values here -->
-                                  <div class="text-center mb-12">
-                                    <div class="my-5">
-                                      <div class="text-orange-600">
-                                        Comprehensive Insurance & Car Tracker
-                                      </div>
-                                      <div class="font-semibold text-2xl">
-                                        ₦{{ offer.best_offer.expenses }}
-                                      </div>
-                                    </div>
-                                    <hr />
-                                    <div class="my-5">
-                                      <div class="text-orange-600">
-                                        Disbursement amount
-                                      </div>
+                  <div>
+                    <div class="mt-10 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8">
+                      <div class="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
+                        <div class="flex-1">
+                          <h3 class="text-xl font-semibold text-gray-900">OFFER ONE</h3>
+                          <p class="text-xl mt-6 text-orange-500">Drive your car.</p>
+                          <p class="mt-4 flex items-baseline text-gray-900">
+                            <span class="text-5xl font-extrabold tracking-tight">₦{{ offer.standard_offer.offer }}</span>
+                          </p>
 
-                                      <div class="font-semibold text-2xl">
-                                        ₦{{ offer.best_offer.disbursed_amount }}
-                                      </div>
-                                    </div>
-                                    <hr />
-                                    <div class="my-5">
-                                      <div
-                                        class="text-orange-600"
-                                        v-if="
-                                          checkRepayment(
-                                            summaryDetails.repayment_plan
-                                          ) == 'Monthly'
-                                        "
-                                      >
-                                        Monthly repayment amount
-                                      </div>
-                                      <div class="text-orange-600" v-else>
-                                        Bi-Monthly repayment amount
-                                      </div>
-                                      <div class="font-semibold text-2xl">
-                                        ₦{{ offer.best_offer.final_repayment }}
-                                      </div>
-                                    </div>
-                                    <hr />
-                                    <div class="my-5">
-                                      <div class="text-orange-600">
-                                        Car Value
-                                      </div>
-                                      <div class="font-semibold text-2xl">
-                                        ₦{{ offer.best_offer.car_value }}
-                                      </div>
-                                    </div>
-                                    <hr />
-                                    <div class="my-5">
-                                      <div class="text-orange-600">
-                                        Duration
-                                      </div>
-                                      <div class="font-semibold text-2xl">
-                                        {{ offer.best_offer.data.offer_tenor }}
-                                      </div>
-                                    </div>
-                                    <hr />
-                                    <div class="my-5">
-                                      <div class="text-orange-600">
-                                        Total amount payable
-                                      </div>
-                                      <div class="font-semibold text-2xl">
-                                        ₦{{
-                                          offer.best_offer.total_amount_payable
-                                        }}
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div>
-                                  <!-- put values here -->
-                                </div>
-                                <div>
-                                  <!-- put values here -->
-                                </div>
-                                <div class="mt-8">
-                                  <div class="rounded-lg shadow-md">
-                                    <button
-                                      @click="accept(offer.best_offer.token)"
-                                      class="block w-full text-center focus:outline-none border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
-                                      aria-describedby="tier-scale"
-                                    >
-                                      Accept
-                                    </button>
-                                  </div>
-                                  <small
-                                    class="text-orange-600 text-center block"
-                                    >(Drop Your Car)</small
-                                  >
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="mt-10 mx-auto max-w-md lg:m-0 lg:max-w-none lg:col-start-6 lg:col-end-8 lg:row-start-2 lg:row-end-3"
-                          >
-                            <div
-                              class="h-full flex flex-col rounded-lg shadow-lg overflow-hidden lg:rounded-none lg:rounded-r-lg"
-                            >
-                              <div class="flex-1 flex flex-col">
-                                <div class="bg-white px-6 py-10">
-                                  <div>
-                                    <h3
-                                      class="text-center text-2xl font-medium text-gray-900"
-                                      id="tier-scale"
-                                    >
-                                      Premium Offer
-                                    </h3>
-                                    <div
-                                      class="mt-4 flex items-center justify-center"
-                                    >
-                                      <span
-                                        class="px-3 flex items-start lg:text-4xl xl:text-6xl text-6xl tracking-tight text-gray-900"
-                                      >
-                                        <span
-                                          class="mt-2 mr-2 text-3xl font-medium"
-                                        >
-                                          ₦
-                                        </span>
-                                        <span class="font-extrabold text-4xl">
-                                          {{ offer.premium_offer.offer }}
-                                        </span>
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div
-                                  class="flex-1 flex flex-col justify-between border-t-2 border-gray-100 p-6 bg-gray-50 sm:p-10 lg:p-6 xl:p-10"
-                                >
-                                  <div class="flex flex-col">
-                                    <!-- put values here -->
-                                    <div class="text-center">
-                                      <div class="my-5">
-                                        <div class="text-orange-600">
-                                          Comprehensive Insurance & Car Tracker
-                                        </div>
-                                        <div class="font-semibold text-2xl">
-                                          ₦{{ offer.premium_offer.expenses }}
-                                        </div>
-                                      </div>
-                                      <hr />
-                                      <div class="my-5">
-                                        <div class="text-orange-600">
-                                          Disbursement amount
-                                        </div>
-                                        <div class="font-semibold text-2xl">
-                                          ₦{{
-                                            offer.premium_offer.disbursed_amount
-                                          }}
-                                        </div>
-                                      </div>
-                                      <hr />
-                                      <div class="my-5">
-                                        <div class="text-orange-600">
-                                          {{
-                                            checkRepayment(
-                                              summaryDetails.repayment_plan
-                                            ) == 'Monthly'
-                                              ? 'Monthly'
-                                              : 'Bi-Monthly'
-                                          }}
-                                          repayment amount
-                                        </div>
+                          <p class="mt-6 text-gray-800 text-lg font-semibold">Fees & Charges.</p>
+                          <!-- Feature list -->
+                          <ul role="list" class="mt-6 space-y-6">
+                            <li class="flex">
+                              
+                              <svg class="flex-shrink-0 w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span class="ml-3 text-gray-500">Car Value: ₦{{ offer.standard_offer.car_value }}</span>
+                            </li>
 
-                                        <div class="font-semibold text-2xl">
-                                          ₦{{
-                                            offer.premium_offer.final_repayment
-                                          }}
-                                        </div>
-                                      </div>
-                                      <hr />
-                                      <div class="my-5">
-                                        <div class="text-orange-600">
-                                          Car Value
-                                        </div>
-                                        <div class="font-semibold text-2xl">
-                                          ₦{{ offer.premium_offer.car_value }}
-                                        </div>
-                                      </div>
-                                      <hr />
-                                      <div class="my-5">
-                                        <div class="text-orange-600">
-                                          Duration
-                                        </div>
-                                        <div class="font-semibold text-2xl">
-                                          {{
-                                            offer.premium_offer.data.offer_tenor
-                                          }}
-                                        </div>
-                                      </div>
-                                      <hr />
-                                      <div class="my-5">
-                                        <div class="text-orange-600">
-                                          Total amount payable
-                                        </div>
-                                        <div class="font-semibold text-2xl">
-                                          ₦{{
-                                            offer.premium_offer
-                                              .total_amount_payable
-                                          }}
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="mt-8">
-                                    <div class="rounded-lg shadow-md">
-                                      <button
-                                        @click="
-                                          accept(offer.premium_offer.token)
-                                        "
-                                        class="block w-full text-center focus:outline-none border border-transparent bg-orange-600 px-6 py-3 text-base font-medium text-white hover:bg-orange-700"
-                                        aria-describedby="tier-scale"
-                                      >
-                                        Accept
-                                      </button>
-                                    </div>
-                                    <small
-                                      class="text-orange-600 text-center block"
-                                      >(Drive Your Car)</small
-                                    >
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                            <li class="flex">
+                              
+                              <svg class="flex-shrink-0 w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span class="ml-3 text-gray-500">Comprehensive Insurance: ₦{{ offer.standard_offer.expenses }}</span>
+                            </li>
+                            
+                            <li class="flex">
+                              
+                              <svg class="flex-shrink-0 w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span class="ml-3 text-gray-500">Change of Ownership: ₦{{ offer.standard_offer.change_of_ownership }}</span>
+                            </li>
+
+                            <li class="flex">
+                              
+                              <svg class="flex-shrink-0 w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span class="ml-3 text-gray-500">Car Tracker: ₦{{ offer.standard_offer.car_tracker }}</span>
+                            </li>
+
+                            <li class="flex">
+                              
+                              <svg class="flex-shrink-0 w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span class="ml-3 text-gray-500">Disbursement Amount: ₦{{ offer.standard_offer.disbursed_amount }}</span>
+                            </li>
+
+                            <li class="flex"> 
+                              
+                              <svg class="flex-shrink-0 w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span class="ml-3 text-gray-500">Monthly repayment: ₦{{ offer.standard_offer.final_repayment }}</span>
+                            </li> 
+
+                            <li class="flex">
+                              
+                              <svg class="flex-shrink-0 w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span class="ml-3 text-gray-500">Total Amount Payable: ₦{{ offer.standard_offer.total_amount_payable }}</span>
+                            </li> 
+
+                          </ul>
                         </div>
+
+                        <button 
+                        @click="accept(offer.standard_offer.token)"
+                        class="transition-opacity duration-1000 ease-in opacity-50 hover:opacity-100 bg-orage-50 text-orage-700 hover:bg-orange-600 hover:text-white mt-8 block w-full py-3 px-6 border border-orange-500 rounded-md text-center font-medium">
+                          Accept
+                        </button>
+                      </div>
+
+                      <div class="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
+                        <div class="flex-1">
+                          <h3 class="text-xl font-semibold text-gray-900">OFFER TWO</h3>
+                          <p class="text-xl mt-6 text-orange-500">Drop your car.</p>
+                          <p class="mt-4 flex items-baseline text-gray-900">
+                            <span class="text-5xl font-extrabold tracking-tight">₦ {{ offer.premium_offer.offer }}</span>
+                          </p>
+
+                          <p class="mt-6 text-gray-800 text-lg font-semibold">Fees & Charges.</p>
+                          <!-- Feature list -->
+                          <ul role="list" class="mt-6 space-y-6">
+                            <li class="flex">
+                              
+                              <svg class="flex-shrink-0 w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span class="ml-3 text-gray-500">Car Value: ₦{{ offer.premium_offer.car_value }}</span>
+                            </li>
+                            
+                            <li class="flex">
+                              
+                              <svg class="flex-shrink-0 w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span class="ml-3 text-gray-500">Comprehensive Insurance: ₦{{ offer.premium_offer.expenses }}</span>
+                            </li>
+                            
+                            <li class="flex">
+                              
+                              <svg class="flex-shrink-0 w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span class="ml-3 text-gray-500">Change of Ownership: ₦{{ offer.premium_offer.change_of_ownership }}</span>
+                            </li>
+
+                            <li class="flex">
+                              
+                              <svg class="flex-shrink-0 w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span class="ml-3 text-gray-500">Car Tracker: ₦{{ offer.premium_offer.car_tracker }}</span>
+                            </li>
+
+                            <li class="flex">
+                              
+                              <svg class="flex-shrink-0 w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span class="ml-3 text-gray-500">Disbursement Amount: ₦{{ offer.premium_offer.disbursed_amount }}</span>
+                            </li>
+
+                            <li class="flex"> 
+                              
+                              <svg class="flex-shrink-0 w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span class="ml-3 text-gray-500">Monthly repayment: ₦{{ offer.premium_offer.final_repayment }}</span>
+                            </li> 
+
+                            <li class="flex">
+                              
+                              <svg class="flex-shrink-0 w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span class="ml-3 text-gray-500">Total Amount Payable: ₦{{ offer.premium_offer.total_amount_payable }}</span>
+                            </li> 
+
+                          </ul>
+                        </div>
+
+                        <button 
+                        @click="accept(offer.premium_offer.token)"
+                        class="transition-opacity duration-1000 ease-in opacity-50 hover:opacity-100 bg-orage-50 text-orage-700 hover:bg-orange-600 hover:text-white mt-8 block w-full py-3 px-6 border border-orange-500 rounded-md text-center font-medium">
+                          Accept
+                        </button>
+                      </div>
+
+                      <div class="relative p-8 bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col">
+                        <div class="flex-1">
+                          <h3 class="text-xl font-semibold text-gray-900 uppercase">offer three</h3>
+                          <p class="text-xl mt-6 text-orange-500">Sell your car.</p>
+                          <p class="mt-4 flex items-baseline text-gray-900">
+                            <span class="text-5xl font-extrabold tracking-tight">₦ {{ offer.forsale.offer }}</span>
+                          </p>
+
+                          <p class="mt-6 text-gray-800 text-lg font-semibold">Fees & Charges.</p>
+                          <!-- Feature list -->
+                          <ul role="list" class="mt-6 space-y-6">
+                            <li class="flex">
+                              
+                              <svg class="flex-shrink-0 w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span class="ml-3 text-gray-500">Car Inspection: Free</span>
+                            </li>
+                            
+                            <li class="flex">
+                              
+                              <svg class="flex-shrink-0 w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span class="ml-3 text-gray-500">Reseller Commision: 5% - 30% of sale value (₦{{ offer.forsale.offer }})</span>
+                            </li>
+
+                            <li class="flex">
+                              
+                              <svg class="flex-shrink-0 w-6 h-6 text-orange-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                              </svg>
+                              <span class="ml-3 text-gray-500">Reseller Fee: ₦{{ offer.forsale.commission.initial }} - ₦{{ offer.forsale.commission.final }}</span>
+                            </li>
+                          </ul>
+                        </div>
+
+                        <button 
+                          @click="accept(offer.forsale.token)"
+                          class="transition-opacity duration-1000 ease-in opacity-50 hover:opacity-100 bg-orage-50 text-orage-700 hover:bg-orange-600 hover:text-white mt-8 block w-full py-3 px-6 border border-orange-500 rounded-md text-center font-medium">
+                            Accept
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="flex justify-center my-16 mb-16" v-if="!loading && !error">
+                      <div class="w-64">
+                        <button
+                          class="block w-full px-6 py-3 border rounded-md shadow-sm text-base font-medium text-orange-600 hover:bg-gray-100"
+                        >
+                          Decline
+                        </button>
                       </div>
                     </div>
                   </div>

@@ -76,7 +76,7 @@
           </div>
         </div>
       </div>
-      <div class="my-6 w-1/3 lg:ml-3" v-else>
+      <div class="my-6 w-full md:w-1/3 lg:ml-3" v-else>
         <div
           class="absolute -mt-3 ml-3 uppercase inline-flex items-center justify-center px-2 py-2 text-xs font-bold leading-none text-gray-600 bg-white"
         >
