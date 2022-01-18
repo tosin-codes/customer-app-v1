@@ -19,6 +19,7 @@
     "image-conversion": "^2.1.1",
     "nuxt": "^2.14.12",
     "nuxt-fontawesome": "^0.4.0",
+    "vue-paystack": "^2.0.4",
     "vue-select": "^3.11.2",
     "vue2-datepicker": "^3.9.0",
     "vuejs-noty": "^0.1.3",
